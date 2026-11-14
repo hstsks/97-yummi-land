@@ -1,0 +1,24 @@
+{
+  "id": "prowling_wand",
+  "elements": 62,
+  "bounds_model_units": [
+    [
+      4.1,
+      -3.6,
+      6.35
+    ],
+    [
+      11.9,
+      23.9,
+      9.65
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prowling_wand.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

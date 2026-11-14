@@ -1,0 +1,24 @@
+{
+  "id": "prop_derby_trophy",
+  "elements": 72,
+  "bounds_model_units": [
+    [
+      -6.7,
+      -4.8,
+      1.0
+    ],
+    [
+      21.0,
+      28.3232,
+      15.0
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_derby_trophy.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

@@ -1,0 +1,45 @@
+# Live server: worlds, player data, economy/plots/codex, vaults, plugin databases,
+# local configuration, resource-pack output, logs and downloaded server binaries.
+/server/
+
+# Portable JDK/Gradle, downloaded dependencies and build caches.
+/runtime/
+.gradle/
+build/
+dist/
+node_modules/
+__pycache__/
+*.py[cod]
+*.class
+
+# Operational backups and isolated test-server state (including player data).
+backups/
+runtime-state/
+server-test/
+/assets/yuumi97-production/review/http-served-pack.zip
+logs/
+*.log
+*.log.*
+crash-reports/
+
+# Local credentials and machine-specific settings.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.idea/
+.vscode/
+.codex/
+.agents/
+.aws/
+Thumbs.db
+.DS_Store
+
+# Editor backup copies; keep the editable .blend originals.
+*.blend1
+*.blend2
+*.tmp
+*.swp

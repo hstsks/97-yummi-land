@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-15T02:52:46.9971827+09:00",
+  "packFormat": 46,
+  "sha1": "e1790b1a59ff375b2aeca73560df4d9e0af0c84b",
+  "zipBytes": 87547,
+  "zipEntries": 108,
+  "itemDefinitions": 33,
+  "verifiedOverrideFiles": 52,
+  "jarSha256": "FE35B09AFA8F9ABA617CE230F0C8CF76B7863CB739B5DDB399ADB7A80648236B",
+  "limitations": "CRC is not independently recomputed; ZIP entries are decompressed and all override contents SHA-256 compared."
+}

@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_yuumi_statue"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_slot_cabinet"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_roulette_wheel"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_derby_trophy"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prowling_wand"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/book_of_thresholds"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/you_and_me_bell"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/hat_yuumi_ears"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/plushie_yuumi"
+    }
+  ]
+}

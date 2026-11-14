@@ -1,0 +1,475 @@
+package kr.yuumi97.core.items;
+
+import kr.yuumi97.core.util.TextUtil;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.inventory.EquipmentSlotGroup;
+import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.RecipeChoice;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class YuumiItems {
+
+    public static final String MODEL_NAMESPACE = "yuumi97";
+    private final JavaPlugin plugin;
+    private final NamespacedKey itemIdKey;
+
+    public YuumiItems(JavaPlugin plugin) {
+        this.plugin = plugin;
+        this.itemIdKey = new NamespacedKey(plugin, "yuumi_item_id");
+    }
+
+    public NamespacedKey getItemIdKey() {
+        return itemIdKey;
+    }
+
+    public String getCustomId(ItemStack stack) {
+        if (stack == null || stack.getType().isAir() || !stack.hasItemMeta()) return null;
+        return stack.getItemMeta().getPersistentDataContainer().get(itemIdKey, PersistentDataType.STRING);
+    }
+
+    public boolean isCustomItem(ItemStack stack, String id) {
+        return id.equals(getCustomId(stack));
+    }
+
+    private ItemStack createBase(Material baseMat, String id, String modelId, String nameMm, String... loreLines) {
+        ItemStack item = new ItemStack(baseMat);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            meta.displayName(TextUtil.mm(nameMm));
+            meta.lore(TextUtil.lore(loreLines));
+            meta.setItemModel(new NamespacedKey(MODEL_NAMESPACE, modelId));
+            meta.getPersistentDataContainer().set(itemIdKey, PersistentDataType.STRING, id);
+            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    public ItemStack yuumiEarsHat() {
+        ItemStack item = createBase(Material.PAPER, "hat_yuumi_ears", "hat_yuumi_ears",
+                "<#8bb9ef><bold>유미의 황금 방울 귀 머리띠</bold>",
+                "<gray>커다란 유미 귀와 작은 황금 방울이 달린 머리띠입니다.",
+                "<yellow>▶ 머리에 착용할 수 있습니다.");
+        ItemMeta meta = item.getItemMeta();
+        var equippable = meta.getEquippable();
+        equippable.setSlot(EquipmentSlot.HEAD);
+        equippable.setCameraOverlay(null);
+        equippable.setModel(null);
+        equippable.setDamageOnHurt(false);
+        meta.setEquippable(equippable);
+        meta.setMaxStackSize(1);
+        item.setItemMeta(meta);
+        return item;
+    }
+
+    public ItemStack yuumiPlushie() {
+        return createBase(Material.PAPER, "plushie_yuumi", "plushie_yuumi",
+                "<#8bb9ef><bold>식빵 유미 봉제인형</bold>",
+                "<gray>보드라운 파란 털과 금빛 방울을 가진 작은 단짝입니다.",
+                "<yellow>▶ 아이템 액자에 넣어 진열하세요.");
+    }
+
+    // ==================== 1. 화폐 & 카지노 아이템 ====================
+
+    public ItemStack churuSalmon(int amount) {
+        ItemStack item = createBase(Material.PAPER, "churu_salmon", "churu_salmon",
+                "<#ff85a2><bold>연어맛 츄르 스틱</bold> <gray>(100 츄르)",
+                "<gray>고양이 마을의 기본 화폐 대용 간식입니다.",
+                "",
+                "<yellow>▶ 우클릭 시 지갑에 <gold><bold>100 츄르</bold></gold> 즉시 입금!",
+                "<dark_gray>[화폐 수표 · 선물/거래 가능]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack churuTuna(int amount) {
+        ItemStack item = createBase(Material.PAPER, "churu_tuna", "churu_tuna",
+                "<aqua><bold>참치맛 고급 츄르 스틱</bold> <gray>(1,000 츄르)",
+                "<gray>신선한 참치 살코기가 듬뿍 담긴 중액권 츄르입니다.",
+                "",
+                "<yellow>▶ 우클릭 시 지갑에 <gold><bold>1,000 츄르</bold></gold> 즉시 입금!",
+                "<dark_gray>[화폐 수표 · 선물/거래 가능]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack churuGolden(int amount) {
+        ItemStack item = createBase(Material.PAPER, "churu_golden", "churu_golden",
+                "<gradient:#ffd700:#ff85ff><bold>전설의 황금 츄르</bold></gradient> <gray>(10,000 츄르)",
+                "<gray>유미가 목숨 걸고 아껴두는 최고급 마법 츄르입니다.",
+                "<gray>고액 거래 수표이자 전설 유물 조합 재료로 쓰입니다.",
+                "",
+                "<yellow>▶ 우클릭 시 지갑에 <gold><bold>10,000 츄르</bold></gold> 즉시 입금!",
+                "<dark_gray>[고액 수표 · 유물 재료]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack jackpotCrown() {
+        ItemStack crown = createBase(Material.GOLDEN_HELMET, "jackpot_crown", "jackpot_crown",
+                "<gradient:#ffe14d:#ff5992><bold>★ 97랜드 잭팟 제왕의 왕관 ★</bold></gradient>",
+                "<gray>황금 냥냥 카지노 777 잭팟을 터뜨린 행운아의 증표!",
+                "",
+                "<green>+ 방어력 +4 / 행운 +2 / 영구 내구도",
+                "<dark_gray>[한정판 전설 기념 투구]"
+        );
+        ItemMeta meta = crown.getItemMeta();
+        if (meta != null) {
+            meta.setUnbreakable(true);
+            meta.addAttributeModifier(Attribute.ARMOR, new AttributeModifier(
+                    new NamespacedKey(plugin, "crown_armor"), 4.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD));
+            meta.addAttributeModifier(Attribute.LUCK, new AttributeModifier(
+                    new NamespacedKey(plugin, "crown_luck"), 2.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD));
+            crown.setItemMeta(meta);
+        }
+        return crown;
+    }
+
+    // ==================== 2. 문턱의 서 & 귀환/세공/카지노 칩 ====================
+
+    public ItemStack chip100(int amount) {
+        ItemStack item = createBase(Material.PAPER, "chip_100", "chip_100",
+                "<#ff5c7c><bold>코랄 카지노 칩</bold> <gray>(100 칩)",
+                "<gray>황금 냥냥 카지노 공식 100 츄르 상당 전용 칩입니다.",
+                "",
+                "<yellow>▶ 카지노 입구 [환전소]에서 츄르로 정산 가능!",
+                "<dark_gray>[카지노 전용 실물 칩 · 지인 양도 가능]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack chip1000(int amount) {
+        ItemStack item = createBase(Material.PAPER, "chip_1000", "chip_1000",
+                "<#2ed99b><bold>에메랄드 카지노 칩</bold> <gray>(1,000 칩)",
+                "<gray>황금 냥냥 카지노 공식 1,000 츄르 상당 중액 칩입니다.",
+                "",
+                "<yellow>▶ 카지노 입구 [환전소]에서 츄르로 정산 가능!",
+                "<dark_gray>[카지노 전용 실물 칩 · 지인 양도 가능]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack chip10000(int amount) {
+        ItemStack item = createBase(Material.PAPER, "chip_10000", "chip_10000",
+                "<gradient:#ffe14d:#ff5992><bold>VIP 로얄 골드 칩</bold></gradient> <gray>(10,000 칩)",
+                "<gray>2층 VIP 하이롤러 라운지에서 통용되는 최고액 칩입니다.",
+                "",
+                "<yellow>▶ 카지노 입구 [환전소]에서 츄르로 정산 가능!",
+                "<dark_gray>[VIP 카지노 실물 칩 · 지인 양도 가능]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack recallBookmark(int amount) {
+        ItemStack item = createBase(Material.PAPER, "recall_bookmark", "recall_bookmark",
+                "<light_purple><bold>🔖 문턱의 서: 고속 귀환 책갈피</bold>",
+                "<gray>마법 페이지 사이에 끼워두는 위급 탈출용 책갈피입니다.",
+                "",
+                "<aqua>✦ 우클릭 사용 <gray>(1회용 소모품)",
+                "<white>  단 <yellow>1.0초</yellow> 정신집중 후 평화로운 <green>고양이 허브 광장</green>",
+                "<white>  (집 보유 시 내 분양 부지 앞마당!)으로 즉시 귀환합니다.",
+                "<dark_gray>[조합: 종이 + 자수정 조각 + 청금석]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack starlightStone(int amount) {
+        ItemStack item = createBase(Material.AMETHYST_SHARD, "starlight_stone", "starlight_stone",
+                "<aqua><bold>✦ 찬란한 별빛 세공석</bold>",
+                "<gray>고양이 대장간에서 무기·곡괭이·방어구에 별빛 마력을",
+                "<gray>불어넣을 때 사용하는 핵심 세공 결정입니다.",
+                "",
+                "<yellow>▶ 허브 서쪽 <white>[고양이 대장간]</white>에서 ★1~★7 세공에 사용!",
+                "<dark_gray>[획득: 광맥 채굴 · 던전 토벌 · 일일 의뢰 · 보부상]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack starlightScroll(int amount) {
+        ItemStack item = createBase(Material.PAPER, "starlight_scroll", "starlight_scroll",
+                "<gradient:#ffd666:#ff85c0><bold>📜 유미의 발도장 세공 보호권</bold></gradient>",
+                "<gray>고단계(★6~★7) 별빛 세공 실패 시 등급 하락을",
+                "<gray>100% 막아주는 유미의 축복 주문서입니다.",
+                "",
+                "<yellow>▶ 대장간 세공 시 보조 슬롯에 등록하여 사용!",
+                "<dark_gray>[획득: 레이드 보스 · 주간 의뢰 · 만물 잡화상]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack bookOfThresholds() {
+        return createBase(Material.KNOWLEDGE_BOOK, "book_of_thresholds", "book_of_thresholds",
+                "<gradient:#69b1ff:#ffd666><bold>📖 유미의 문턱의 서</bold></gradient> <gray>(차원 수첩)",
+                "<gray>마법 고양이 유미와 연결된 휴대용 차원 길잡이 수첩입니다.",
+                "",
+                "<yellow>▶ 우클릭: <white><bold>내 자산 · 숙련 보너스 · 시설 길찾기 수첩</bold></white>",
+                "<aqua>▶ 쉬프트+우클릭 (야생 원정 중): <white><bold>3초 정신집중 허브 귀환!</bold></white>",
+                "<dark_gray>※ 모든 상점·카지노·은행·대장간은 허브 도시 현장에서 이용합니다."
+        );
+    }
+
+    public ItemStack tornPage(int amount) {
+        ItemStack item = createBase(Material.PAPER, "torn_page", "torn_page",
+                "<aqua><bold>문턱의 서: 찢어진 마법 책장</bold>",
+                "<gray>야생 곳곳에 흩어진 문턱의 서 페이지 조각입니다.",
+                "<gray>농사·낚시·채광·던전 토벌·일일 의뢰에서 발견됩니다.",
+                "",
+                "<yellow>▶ <white>/제단</white>에 납품하여 네더·엔드 차원문을 복원하세요!",
+                "<dark_gray>[공동 번영 핵심 재료]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    // ==================== 3. 유미 특제 요리 (생활 × 레이드 연결) ====================
+
+    public ItemStack zoomiesSkewer(int amount) {
+        ItemStack item = createBase(Material.COOKED_COD, "zoomies_skewer", "zoomies_skewer",
+                "<#5cdbd3><bold>슈우우웅~ 생선 꼬치구이</bold>",
+                "<gray>유미의 마법 가루를 뿌려 노릇하게 구운 특제 꼬치!",
+                "",
+                "<green>✦ 섭취 효과: 즉시 체력 +6 회복",
+                "<green>✦ 신속 II (3분) + 재생 II (20초)",
+                "<dark_gray>[조합: 구운 대구 + 설탕 + 켈프 + 막대기]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack kneadingBento(int amount) {
+        ItemStack item = createBase(Material.COOKED_SALMON, "kneading_bento", "kneading_bento",
+                "<#ff9c6e><bold>유미의 꾹꾹이 특선 도시락</bold>",
+                "<gray>정성스러운 꾹꾹이로 빚은 고양이 주먹밥과 연어 도시락!",
+                "",
+                "<green>✦ 섭취 효과: 생명력 강화 II (+4 하트, 8분)",
+                "<green>✦ 흡수 보호막 II (3분)",
+                "<dark_gray>[조합: 구운 연어 + 달걀 + 구운 감자 + 말린 켈프]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack catnipElixir(int amount) {
+        ItemStack item = createBase(Material.HONEY_BOTTLE, "catnip_elixir", "catnip_elixir",
+                "<#73d13d><bold>사르르 별빛 캣닢 영약</bold>",
+                "<gray>은은한 별빛 캣닢을 우려낸 광부·어부 필수 비약!",
+                "",
+                "<green>✦ 섭취 효과: 성급함 II (6분) + 야간 투시 (8분) + 행운 I (6분)",
+                "<dark_gray>[조합: 유리병 + 발광 열매 + 달콤한 열매 + 자수정 조각]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack royalFeastCan(int amount) {
+        ItemStack item = createBase(Material.GOLDEN_CARROT, "royal_feast_can", "royal_feast_can",
+                "<gold><bold>97산 황실 참치 대뱃살 캔</bold>",
+                "<gray>보스 레이드 출격 전 먹는 최고급 전투 통조림!",
+                "",
+                "<green>✦ 섭취 효과: 화염 저항 (8분) + 저항 I (5분) + 힘 I (5분)",
+                "<dark_gray>[조합: 철 주괴 + 구운 연어 + 구운 대구 + 황금 당근]"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    // ==================== 4. 월드보스 소환 코어 3종 ====================
+
+    public ItemStack bossCoreRat(int amount) {
+        ItemStack item = createBase(Material.AMETHYST_SHARD, "boss_core_rat", "boss_core_rat",
+                "<light_purple><bold>[1티어 소환석] 지하수로 쥐대왕의 치즈 핵</bold>",
+                "<gray>마을의 츄르 창고를 털어간 거대 쥐대왕을 유인하는 미끼 핵.",
+                "",
+                "<yellow>▶ <white>/레이드</white> 또는 스폰 레이드 투기장에서 소환!",
+                "<gray>권장 인원: 2~8인 협동 (기여도별 전원 개별 보상)"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack bossCoreHound(int amount) {
+        ItemStack item = createBase(Material.BLAZE_POWDER, "boss_core_hound", "boss_core_hound",
+                "<red><bold>[2티어 소환석] 지옥불 사냥개의 목줄 핵</bold>",
+                "<gray>네더 성채의 맹렬한 삼두견 케르베로스를 깨우는 불꽃 핵.",
+                "<red>※ 문턱의 서 제2장(네더 해금) 달성 필요",
+                "",
+                "<yellow>▶ <white>/레이드</white> 투기장에서 소환!"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack bossCoreVoid(int amount) {
+        ItemStack item = createBase(Material.ECHO_SHARD, "boss_core_void", "boss_core_void",
+                "<dark_purple><bold>[3티어 소환석] 공허 침식자의 수정 핵</bold>",
+                "<gray>문턱의 서 너머 차원을 삼키려는 최종 군주를 불러내는 핵.",
+                "<dark_purple>※ 문턱의 서 제3장(엔드 해금) 달성 필요",
+                "",
+                "<yellow>▶ <white>/레이드</white> 투기장에서 최종 결전 소환!"
+        );
+        item.setAmount(amount);
+        return item;
+    }
+
+    // ==================== 5. 유미 모티브 보스 전리품 유물 ====================
+
+    public ItemStack youAndMeBell() {
+        return createBase(Material.BELL, "you_and_me_bell", "you_and_me_bell",
+                "<gradient:#ff85c0:#ffd666><bold>🔔 『너랑 유미랑!』 우정의 황금 방울</bold></gradient>",
+                "<gray>\"너랑 유미랑! 우리가 제일 잘 나가~\"",
+                "",
+                "<aqua>✦ 패시브 [밀착 응원]: <white>인벤토리에 보유 중일 때",
+                "<white>  반경 12블록 내에 다른 지인이 있으면 <yellow>서로 함께</yellow>",
+                "<green>  힘 I + 저항 I + 지속 체력 재생</green> 효과를 받습니다!",
+                "<dark_gray>[전설 협동 장신구]"
+        );
+    }
+
+    public ItemStack prowlingWand() {
+        return createBase(Material.BLAZE_ROD, "prowling_wand", "prowling_wand",
+                "<gradient:#5cdbd3:#ff85c0><bold>🪄 『사르르 탄환』 유도 마법봉</bold></gradient>",
+                "<gray>유미의 사르르 탄환 마법이 깃든 귀여운 지팡이입니다.",
+                "",
+                "<aqua>✦ 우클릭 스킬 [사르르 유도탄] <gray>(재사용 대기시간 5초)",
+                "<white>  전방 22블록 내 적을 자동 추적하는 마법 탄환을 날려",
+                "<white>  <red>마법 피해 14</red> + <aqua>둔화 II & 발광</aqua>을 부여합니다!",
+                "<dark_gray>[영웅 마법 무기]"
+        );
+    }
+
+    public ItemStack finalChapterTome() {
+        return createBase(Material.ENCHANTED_BOOK, "final_chapter_tome", "final_chapter_tome",
+                "<gradient:#b37feb:#ffd666><bold>📘 『대단원』 파동의 비전서</bold></gradient>",
+                "<gray>문턱의 서 최종장의 대마법을 해방하는 궁극의 마도서!",
+                "",
+                "<light_purple>✦ 우클릭 궁극기 [대단원 3연속 파동] <gray>(재사용 대기시간 14초)",
+                "<white>  전방 부채꼴 범위로 3번의 마법 파동을 연속 발사하여",
+                "<white>  광역 피해와 함께 적들을 <yellow>강력하게 속박</yellow>시키고",
+                "<white>  주변 아군 지인들의 체력을 회복시킵니다!",
+                "<dark_gray>[신화 레이드 유물]"
+        );
+    }
+
+    public ItemStack nineLivesCharm() {
+        return createBase(Material.TOTEM_OF_UNDYING, "nine_lives_charm", "nine_lives_charm",
+                "<gradient:#5cdbd3:#bae637><bold>🐱 『아홉 개의 목숨』 수호 부적</bold></gradient>",
+                "<gray>고양이에게는 아홉 번의 기회가 있다는 고대 수호 부적.",
+                "",
+                "<green>✦ 치명상 발동 시 부적을 소모하여 죽음을 면하고,",
+                "<green>  체력 60% 회복 + 신속 III + 투명화 (6초) 부여!",
+                "<dark_gray>[특수 생존 유물]"
+        );
+    }
+
+    // ==================== 6. 카지노 슬롯 디스플레이 전용 아이콘 ====================
+
+    public ItemStack slotIcon(String modelId, String displayName) {
+        return createBase(Material.PAPER, "ui_" + modelId, modelId, displayName);
+    }
+
+    private static Material Material_HONEY_bottle_Safe() {
+        return Material.HONEY_BOTTLE;
+    }
+
+    // ==================== 레시피 등록 ====================
+
+    public void registerRecipes() {
+        // 1. 슈우우웅~ 생선 꼬치구이
+        NamespacedKey skewerKey = new NamespacedKey(plugin, "recipe_zoomies_skewer");
+        Bukkit.removeRecipe(skewerKey);
+        ShapelessRecipe skewer = new ShapelessRecipe(skewerKey, zoomiesSkewer(2));
+        skewer.addIngredient(new RecipeChoice.MaterialChoice(Material.COOKED_COD, Material.COOKED_SALMON));
+        skewer.addIngredient(Material.SUGAR);
+        skewer.addIngredient(new RecipeChoice.MaterialChoice(Material.KELP, Material.DRIED_KELP));
+        skewer.addIngredient(Material.STICK);
+        Bukkit.addRecipe(skewer);
+
+        // 2. 유미의 꾹꾹이 특선 도시락
+        NamespacedKey bentoKey = new NamespacedKey(plugin, "recipe_kneading_bento");
+        Bukkit.removeRecipe(bentoKey);
+        ShapelessRecipe bento = new ShapelessRecipe(bentoKey, kneadingBento(1));
+        bento.addIngredient(Material.COOKED_SALMON);
+        bento.addIngredient(Material.EGG);
+        bento.addIngredient(Material.BAKED_POTATO);
+        bento.addIngredient(Material.DRIED_KELP);
+        Bukkit.addRecipe(bento);
+
+        // 3. 사르르 별빛 캣닢 영약
+        NamespacedKey elixirKey = new NamespacedKey(plugin, "recipe_catnip_elixir");
+        Bukkit.removeRecipe(elixirKey);
+        ShapelessRecipe elixir = new ShapelessRecipe(elixirKey, catnipElixir(1));
+        elixir.addIngredient(Material.GLASS_BOTTLE);
+        elixir.addIngredient(Material.GLOW_BERRIES);
+        elixir.addIngredient(Material.SWEET_BERRIES);
+        elixir.addIngredient(Material.AMETHYST_SHARD);
+        Bukkit.addRecipe(elixir);
+
+        // 4. 97산 황실 참치 대뱃살 캔
+        NamespacedKey canKey = new NamespacedKey(plugin, "recipe_royal_feast_can");
+        Bukkit.removeRecipe(canKey);
+        ShapelessRecipe can = new ShapelessRecipe(canKey, royalFeastCan(1));
+        can.addIngredient(Material.IRON_INGOT);
+        can.addIngredient(Material.COOKED_SALMON);
+        can.addIngredient(Material.COOKED_COD);
+        can.addIngredient(Material.GOLDEN_CARROT);
+        Bukkit.addRecipe(can);
+
+        // 5. 1티어 보스 소환석 조합법 (자율 소환 가능)
+        NamespacedKey ratCoreKey = new NamespacedKey(plugin, "recipe_boss_core_rat");
+        Bukkit.removeRecipe(ratCoreKey);
+        ShapedRecipe ratCore = new ShapedRecipe(ratCoreKey, bossCoreRat(1));
+        ratCore.shape("GGG", "EAE", "GGG");
+        ratCore.setIngredient('G', Material.GOLD_INGOT);
+        ratCore.setIngredient('E', Material.ROTTEN_FLESH);
+        ratCore.setIngredient('A', Material.AMETHYST_SHARD);
+        Bukkit.addRecipe(ratCore);
+
+        // 6. 2티어 보스 소환석 조합법
+        NamespacedKey houndCoreKey = new NamespacedKey(plugin, "recipe_boss_core_hound");
+        Bukkit.removeRecipe(houndCoreKey);
+        ShapedRecipe houndCore = new ShapedRecipe(houndCoreKey, bossCoreHound(1));
+        houndCore.shape("BBB", "MOM", "BBB");
+        houndCore.setIngredient('B', Material.BLAZE_ROD);
+        houndCore.setIngredient('M', Material.MAGMA_CREAM);
+        houndCore.setIngredient('O', Material.CRYING_OBSIDIAN);
+        Bukkit.addRecipe(houndCore);
+
+        // 7. 3티어 보스 소환석 조합법
+        NamespacedKey voidCoreKey = new NamespacedKey(plugin, "recipe_boss_core_void");
+        Bukkit.removeRecipe(voidCoreKey);
+        ShapedRecipe voidCore = new ShapedRecipe(voidCoreKey, bossCoreVoid(1));
+        voidCore.shape("EEE", "PCP", "EEE");
+        voidCore.setIngredient('E', Material.ENDER_EYE);
+        voidCore.setIngredient('P', Material.POPPED_CHORUS_FRUIT);
+        voidCore.setIngredient('C', Material.END_CRYSTAL);
+        Bukkit.addRecipe(voidCore);
+
+        // 8. 고속 귀환 책갈피 조합법
+        NamespacedKey bookmarkKey = new NamespacedKey(plugin, "recipe_recall_bookmark");
+        Bukkit.removeRecipe(bookmarkKey);
+        ShapelessRecipe bookmark = new ShapelessRecipe(bookmarkKey, recallBookmark(2));
+        bookmark.addIngredient(Material.PAPER);
+        bookmark.addIngredient(Material.AMETHYST_SHARD);
+        bookmark.addIngredient(Material.LAPIS_LAZULI);
+        Bukkit.addRecipe(bookmark);
+    }
+}

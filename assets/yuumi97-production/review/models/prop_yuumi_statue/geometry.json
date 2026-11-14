@@ -1,0 +1,24 @@
+{
+  "id": "prop_yuumi_statue",
+  "elements": 95,
+  "bounds_model_units": [
+    [
+      -5.2148,
+      -5.05,
+      -3.17
+    ],
+    [
+      21.2148,
+      29.8412,
+      18.3
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_yuumi_statue.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

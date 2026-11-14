@@ -1,0 +1,21 @@
+{
+  "status": "ASSETS_AND_BUILD_COMPLETE_CLIENT_RECHECK_INTERRUPTED",
+  "date": "2026-11-15",
+  "models": 9,
+  "icons": 27,
+  "overrideFiles": 52,
+  "itemDefinitions": 33,
+  "packSha1": "e1790b1a59ff375b2aeca73560df4d9e0af0c84b",
+  "build": "PASS",
+  "staticValidation": "PASS",
+  "packValidation": "PASS",
+  "serverApi": "PASS_WITH_SKIPS on final pack after restart; see server-integration.json",
+  "visualReview": "9 models, 4 Blender reimport views each; 27 icons including16px stress",
+  "client": "Connected to loopback test copy. Missing prop atlas registration was corrected and rebuilt. Final client recheck remains: Computer Use reported physical-Escape stop, including the user-authorized retry.",
+  "limitations": [
+    "Final Minecraft texture recheck and complete hands/head/frame/click visual checks remain.",
+    "Chunk unload/reload test skipped because server declined unload.",
+    "Online-mode=true production unchanged; test clone used loopback offline mode after Mojang429."
+  ],
+  "productionServer": "Not started; only build outputs deployed."
+}

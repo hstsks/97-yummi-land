@@ -1,0 +1,38 @@
+Status: PASS_WITH_SKIPS
+Server: E:\MinGem\assets\yuumi97-production\review\server-test
+PASS | core.enabled | YuumiLandCore must be enabled
+PASS | hub.loaded | Expected yuumi_hub
+PASS | hub.city_already_built | No setup-hub/buildEntireHubCity call is made by this test
+PASS | pack.final_exists | E:\MinGem\assets\yuumi97-production\review\server-test\resourcepack\Yuumi97Pack.zip
+PASS | pack.baseline_exists | plugins\YuumiAssetIntegrationTest\baseline-pack.zip
+PASS | pack.final_contains_four_props | Final ZIP must contain exactly the four known prop item definitions
+PASS | pack.baseline_contains_no_props | Baseline ZIP must contain no prop_* item definitions
+PASS | startup.prop_counts | {prop_derby_trophy=1, prop_roulette_wheel=1, prop_slot_cabinet=7, prop_yuumi_statue=1}
+PASS | startup.statue_four_blocks_and_marker | replacement mask=15
+PASS | startup.holograms | {fountain=1, slot_1f_-16=1, slot_1f_-20=1, slot_1f_-24=1, slot_1f_-28=1, slot_2f_-18=1, slot_2f_-22=1, slot_2f_-26=1}
+PASS | startup.interactive_blocks_preserved | 7 NOTE_BLOCK + LODESTONE + 2 REDSTONE_LAMP
+PASS | hat.identity | PAPER / customId=hat_yuumi_ears / model=yuumi97:hat_yuumi_ears
+PASS | hat.equippable | HEAD, no overlay/equipment asset, no damage, max stack 1
+PASS | plushie.identity | PAPER / customId=plushie_yuumi / model=yuumi97:plushie_yuumi
+PASS | wand.identity | BLAZE_ROD / customId=prowling_wand / model=yuumi97:prowling_wand
+PASS | bell.identity | BELL / customId=you_and_me_bell / model=yuumi97:you_and_me_bell
+PASS | book.identity | KNOWLEDGE_BOOK / customId=book_of_thresholds / model=yuumi97:book_of_thresholds
+PASS | refresh_once.prop_counts | {prop_derby_trophy=1, prop_roulette_wheel=1, prop_slot_cabinet=7, prop_yuumi_statue=1}
+PASS | refresh_twice.prop_counts | {prop_derby_trophy=1, prop_roulette_wheel=1, prop_slot_cabinet=7, prop_yuumi_statue=1}
+SKIP | chunks.unload_reload | No mount chunk could be unloaded without changing tickets
+PASS | baseline_pack.prop_counts | {}
+PASS | baseline_pack.statue_four_blocks_and_marker | replacement mask=0
+PASS | baseline_pack.holograms | {fountain=1, slot_1f_-16=1, slot_1f_-20=1, slot_1f_-24=1, slot_1f_-28=1, slot_2f_-18=1, slot_2f_-22=1, slot_2f_-26=1}
+PASS | baseline_pack.interactive_blocks_preserved | 7 NOTE_BLOCK + LODESTONE + 2 REDSTONE_LAMP
+PASS | pack.final_bytes_restored | Final ZIP SHA-256 f6411364959da42cf54f9960edfdc84658a251c9d21f6e7e3e22c2b79d2beedc
+PASS | final_restored.prop_counts | {prop_derby_trophy=1, prop_roulette_wheel=1, prop_slot_cabinet=7, prop_yuumi_statue=1}
+PASS | final_restored.statue_four_blocks_and_marker | replacement mask=15
+PASS | final_restored.holograms | {fountain=1, slot_1f_-16=1, slot_1f_-20=1, slot_1f_-24=1, slot_1f_-28=1, slot_2f_-18=1, slot_2f_-22=1, slot_2f_-26=1}
+PASS | final_restored.interactive_blocks_preserved | 7 NOTE_BLOCK + LODESTONE + 2 REDSTONE_LAMP
+PASS | cleanup.final_zip_restored | f6411364959da42cf54f9960edfdc84658a251c9d21f6e7e3e22c2b79d2beedc
+PASS | cleanup.prop_counts | {prop_derby_trophy=1, prop_roulette_wheel=1, prop_slot_cabinet=7, prop_yuumi_statue=1}
+NOTE | Chunk ChunkPoint[x=0, z=0] declined synchronous unload; existing tickets unchanged.
+NOTE | Chunk ChunkPoint[x=-1, z=0] declined synchronous unload; existing tickets unchanged.
+NOTE | Chunk ChunkPoint[x=2, z=-1] declined synchronous unload; existing tickets unchanged.
+NOTE | Chunk ChunkPoint[x=2, z=-2] declined synchronous unload; existing tickets unchanged.
+NOTE | Chunk ChunkPoint[x=4, z=-2] declined synchronous unload; existing tickets unchanged.

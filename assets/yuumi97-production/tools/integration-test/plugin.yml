@@ -1,0 +1,6 @@
+name: YuumiAssetIntegrationTest
+version: '1.0.0'
+main: kr.yuumi97.assettest.YuumiAssetIntegrationTest
+api-version: '1.21'
+depend: [YuumiLandCore]
+description: One-shot asset integration assertions for the isolated server-test copy only.

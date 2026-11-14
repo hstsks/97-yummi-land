@@ -1,0 +1,24 @@
+{
+  "id": "plushie_yuumi",
+  "elements": 103,
+  "bounds_model_units": [
+    [
+      1.6,
+      1.2,
+      0.43
+    ],
+    [
+      15.0,
+      18.3,
+      15.38
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\plushie_yuumi.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

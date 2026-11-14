@@ -1,0 +1,36 @@
+name: YuumiLandCore
+version: '2.0.0'
+main: kr.yuumi97.core.YuumiPlugin
+api-version: '1.21'
+authors: [Antigravity_97Land]
+description: 유미의 97랜드 v2.0 올인원 자율 운영 코어 (전용 평화 허브 yuumi_hub, 5대 NPC 상점 & 안전 직거래, 츄르 은행/금고, 별빛 세공 대장간, 2F 카지노 & 실시간 고양이 경주, 12필지 분양 단지, 4대 대포탈 성소)
+softdepend: [Vault, Essentials, AuraSkills, EvenMoreFish, WorldEdit]
+
+commands:
+  yuumi:
+    description: 유미의 97랜드 차원 안내 수첩 (내 자산 확인, 시설 나침반 길찾기, 3초 귀환)
+    aliases: [메뉴, menu, 97랜드, 길찾기]
+  churu:
+    description: 내 지갑/은행 잔액 확인, 온라인 송금, 은행 수표 창구 안내
+    aliases: [츄르, 돈, 은행]
+  altar:
+    description: 문턱의 서 제단 안내 (북쪽 차원 성소 수호묘 유미 방문 안내)
+    aliases: [제단, 문턱의서]
+  casino:
+    description: 황금 냥냥 카지노 안내 (동쪽 2층 랜드마크 건물 방문 안내)
+    aliases: [카지노, 도박, 경묘]
+  duelbet:
+    description: 카지노 홀 내부 전용 1대1 실물 칩 주사위 데스매치 신청 및 수락
+    aliases: [도박신청, 도박수락]
+  quest:
+    description: 일일·주간 납품 의뢰 안내 (서쪽 마을 회관 방문 안내)
+    aliases: [의뢰, 일일의뢰, 일퀘, 주간의뢰]
+  codex:
+    description: 97랜드 수집 도감 박물관 안내 (서쪽 마을 회관 방문 안내)
+    aliases: [도감, 수집도감]
+  land:
+    description: 고양이 주거·농장 12필지 분양 단지 및 등기소 안내
+    aliases: [땅, 분양, 부지, 등기소]
+  raid:
+    description: 차원 협동 월드보스 결투장 안내 (북쪽 성소 4번 포탈 입장 안내)
+    aliases: [레이드, 보스]

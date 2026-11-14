@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "yuumi97:item/you_and_me_bell"
+  }
+}

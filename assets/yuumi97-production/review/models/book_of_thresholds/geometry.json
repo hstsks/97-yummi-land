@@ -1,0 +1,24 @@
+{
+  "id": "book_of_thresholds",
+  "elements": 53,
+  "bounds_model_units": [
+    [
+      1.54,
+      -0.8,
+      -0.0059
+    ],
+    [
+      14.3,
+      15.16,
+      9.4
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\book_of_thresholds.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

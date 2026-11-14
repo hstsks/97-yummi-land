@@ -1,0 +1,522 @@
+{
+  "count": 27,
+  "exactCatalogMatch": true,
+  "antialiasing": false,
+  "masterSize": 32,
+  "guiStressSize": 16,
+  "icons": [
+    {
+      "id": "churu_salmon",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 311,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        3,
+        4,
+        27,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "churu_tuna",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 312,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        3,
+        4,
+        27,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "churu_golden",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 330,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        4,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "casino_chip",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 521,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        4,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "jackpot_crown",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 491,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        26
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "torn_page",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 478,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        5,
+        3,
+        26,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "book_of_thresholds",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 616,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        3,
+        3,
+        27,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "zoomies_skewer",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 274,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        3,
+        4,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "kneading_bento",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 626,
+      "partialAlphaPixels": 0,
+      "colors": 20,
+      "bounds": [
+        2,
+        5,
+        29,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "catnip_elixir",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 449,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        4,
+        2,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "royal_feast_can",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 531,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        4,
+        2,
+        28,
+        27
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "boss_core_rat",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 441,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        2,
+        30,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "boss_core_hound",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 482,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "boss_core_void",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 485,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "you_and_me_bell",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 443,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        4,
+        3,
+        28,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "prowling_wand",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 338,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "final_chapter_tome",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 513,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        2,
+        3,
+        29,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "nine_lives_charm",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 412,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "slot_seven",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 382,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        2,
+        4,
+        28,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "slot_yuumi",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 547,
+      "partialAlphaPixels": 0,
+      "colors": 15,
+      "bounds": [
+        2,
+        2,
+        29,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "slot_paw",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 522,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        2,
+        2,
+        30,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "chip_100",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 566,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "chip_1000",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 566,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "chip_10000",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 566,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "recall_bookmark",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 404,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        4,
+        1,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "starlight_stone",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 428,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        2,
+        3,
+        29,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "starlight_scroll",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 565,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        4,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    }
+  ]
+}

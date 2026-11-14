@@ -1,0 +1,24 @@
+{
+  "id": "you_and_me_bell",
+  "elements": 42,
+  "bounds_model_units": [
+    [
+      2.5763,
+      2.9,
+      3.5
+    ],
+    [
+      13.4237,
+      16.7396,
+      12.15
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\you_and_me_bell.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}

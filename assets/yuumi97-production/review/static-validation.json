@@ -1,0 +1,288 @@
+{
+  "timestamp": "2026-11-14T17:52:09.698Z",
+  "target": "Minecraft Java 1.21.4 / pack_format 46",
+  "baselineCount": 27,
+  "models": [
+    {
+      "id": "prop_yuumi_statue",
+      "elements": 95,
+      "faces": 570,
+      "size": 128,
+      "visiblePixels": 5120,
+      "colors": 306,
+      "bytes": 3750
+    },
+    {
+      "id": "prop_slot_cabinet",
+      "elements": 72,
+      "faces": 432,
+      "size": 128,
+      "visiblePixels": 5888,
+      "colors": 356,
+      "bytes": 3668
+    },
+    {
+      "id": "prop_roulette_wheel",
+      "elements": 138,
+      "faces": 828,
+      "size": 128,
+      "visiblePixels": 4864,
+      "colors": 334,
+      "bytes": 3354
+    },
+    {
+      "id": "prop_derby_trophy",
+      "elements": 72,
+      "faces": 432,
+      "size": 128,
+      "visiblePixels": 4608,
+      "colors": 342,
+      "bytes": 3504
+    },
+    {
+      "id": "prowling_wand",
+      "elements": 62,
+      "faces": 372,
+      "size": 64,
+      "visiblePixels": 2304,
+      "colors": 146,
+      "bytes": 1388
+    },
+    {
+      "id": "book_of_thresholds",
+      "elements": 53,
+      "faces": 318,
+      "size": 64,
+      "visiblePixels": 3072,
+      "colors": 162,
+      "bytes": 1684
+    },
+    {
+      "id": "you_and_me_bell",
+      "elements": 42,
+      "faces": 252,
+      "size": 64,
+      "visiblePixels": 2048,
+      "colors": 130,
+      "bytes": 1233
+    },
+    {
+      "id": "hat_yuumi_ears",
+      "elements": 39,
+      "faces": 234,
+      "size": 64,
+      "visiblePixels": 2816,
+      "colors": 178,
+      "bytes": 1564
+    },
+    {
+      "id": "plushie_yuumi",
+      "elements": 103,
+      "faces": 618,
+      "size": 64,
+      "visiblePixels": 3328,
+      "colors": 214,
+      "bytes": 1987
+    }
+  ],
+  "icons": [
+    {
+      "id": "churu_salmon",
+      "size": 32,
+      "visiblePixels": 311,
+      "colors": 11,
+      "bytes": 331
+    },
+    {
+      "id": "churu_tuna",
+      "size": 32,
+      "visiblePixels": 312,
+      "colors": 12,
+      "bytes": 341
+    },
+    {
+      "id": "churu_golden",
+      "size": 32,
+      "visiblePixels": 330,
+      "colors": 10,
+      "bytes": 370
+    },
+    {
+      "id": "casino_chip",
+      "size": 32,
+      "visiblePixels": 521,
+      "colors": 9,
+      "bytes": 392
+    },
+    {
+      "id": "jackpot_crown",
+      "size": 32,
+      "visiblePixels": 491,
+      "colors": 11,
+      "bytes": 353
+    },
+    {
+      "id": "torn_page",
+      "size": 32,
+      "visiblePixels": 478,
+      "colors": 11,
+      "bytes": 312
+    },
+    {
+      "id": "book_of_thresholds",
+      "size": 32,
+      "visiblePixels": 616,
+      "colors": 12,
+      "bytes": 400
+    },
+    {
+      "id": "zoomies_skewer",
+      "size": 32,
+      "visiblePixels": 274,
+      "colors": 14,
+      "bytes": 342
+    },
+    {
+      "id": "kneading_bento",
+      "size": 32,
+      "visiblePixels": 626,
+      "colors": 20,
+      "bytes": 373
+    },
+    {
+      "id": "catnip_elixir",
+      "size": 32,
+      "visiblePixels": 449,
+      "colors": 16,
+      "bytes": 388
+    },
+    {
+      "id": "royal_feast_can",
+      "size": 32,
+      "visiblePixels": 531,
+      "colors": 16,
+      "bytes": 395
+    },
+    {
+      "id": "boss_core_rat",
+      "size": 32,
+      "visiblePixels": 441,
+      "colors": 14,
+      "bytes": 409
+    },
+    {
+      "id": "boss_core_hound",
+      "size": 32,
+      "visiblePixels": 482,
+      "colors": 13,
+      "bytes": 396
+    },
+    {
+      "id": "boss_core_void",
+      "size": 32,
+      "visiblePixels": 485,
+      "colors": 11,
+      "bytes": 376
+    },
+    {
+      "id": "you_and_me_bell",
+      "size": 32,
+      "visiblePixels": 443,
+      "colors": 10,
+      "bytes": 386
+    },
+    {
+      "id": "prowling_wand",
+      "size": 32,
+      "visiblePixels": 338,
+      "colors": 11,
+      "bytes": 374
+    },
+    {
+      "id": "final_chapter_tome",
+      "size": 32,
+      "visiblePixels": 513,
+      "colors": 16,
+      "bytes": 439
+    },
+    {
+      "id": "nine_lives_charm",
+      "size": 32,
+      "visiblePixels": 412,
+      "colors": 8,
+      "bytes": 378
+    },
+    {
+      "id": "slot_seven",
+      "size": 32,
+      "visiblePixels": 382,
+      "colors": 9,
+      "bytes": 292
+    },
+    {
+      "id": "slot_yuumi",
+      "size": 32,
+      "visiblePixels": 547,
+      "colors": 15,
+      "bytes": 436
+    },
+    {
+      "id": "slot_paw",
+      "size": 32,
+      "visiblePixels": 522,
+      "colors": 7,
+      "bytes": 356
+    },
+    {
+      "id": "chip_100",
+      "size": 32,
+      "visiblePixels": 566,
+      "colors": 9,
+      "bytes": 413
+    },
+    {
+      "id": "chip_1000",
+      "size": 32,
+      "visiblePixels": 566,
+      "colors": 13,
+      "bytes": 458
+    },
+    {
+      "id": "chip_10000",
+      "size": 32,
+      "visiblePixels": 566,
+      "colors": 11,
+      "bytes": 438
+    },
+    {
+      "id": "recall_bookmark",
+      "size": 32,
+      "visiblePixels": 404,
+      "colors": 12,
+      "bytes": 359
+    },
+    {
+      "id": "starlight_stone",
+      "size": 32,
+      "visiblePixels": 428,
+      "colors": 13,
+      "bytes": 400
+    },
+    {
+      "id": "starlight_scroll",
+      "size": 32,
+      "visiblePixels": 565,
+      "colors": 12,
+      "bytes": 361
+    }
+  ],
+  "checks": [
+    "invalid coordinate rejected",
+    "missing texture rejected",
+    "illegal rotation rejected",
+    "missing GUI model rejected",
+    "All 9 prop textures registered in the Minecraft blocks atlas"
+  ],
+  "itemDefinitions": 33,
+  "status": "PASS"
+}

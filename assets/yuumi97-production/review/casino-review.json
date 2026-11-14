@@ -1,0 +1,58 @@
+{
+  "scope": ["prop_slot_cabinet", "prop_roulette_wheel", "prop_derby_trophy"],
+  "source": "assets/yuumi97-production/sources/casino.mjs",
+  "source_format": "Named Minecraft cuboids and deterministic 128x128 RGBA8 pixel atlases; exported JSON reimported into editable Blender scenes",
+  "effort": "High: site-fitting assembly design, four-view render review, targeted correction of joining and texture proportions",
+  "models": {
+    "prop_slot_cabinet": {
+      "elements": 72,
+      "atlas_tiles": 23,
+      "world_y_at_1f_mount": [64.998125, 68.3875714081],
+      "review": "Three distinct reels with square paw/cat/seven symbols, tapered ears, observer-right lever, separately raised red/mint buttons, payout tray and service back panel. Retained block enclosure fits the authored bounds."
+    },
+    "prop_roulette_wheel": {
+      "elements": 138,
+      "atlas_tiles": 19,
+      "world_y_at_mount": [66.0015625, 66.79453125],
+      "review": "Eight-sided mahogany rim, gold inlay and ball rail, sixteen stylized red/black/green pockets, layered bowl and raised gold cross spinner. Pocket count and numerals are visual decoration, not casino probability data."
+    },
+    "prop_derby_trophy": {
+      "elements": 72,
+      "atlas_tiles": 18,
+      "world_y_at_mount": [65.0, 68.1053043753],
+      "review": "Grounded marble pedestal, 97 CUP plaque, supported gold running cat, pink collar, turquoise eyes, bent front/hind legs, raised tail and open laurel branches."
+    }
+  },
+  "observed_initial_defects": [
+    "Trophy coplanar cuboid surfaces produced black wedges at chest, tail and laurel branch intersections.",
+    "Trophy front leg rotation signs produced a poorly connected running pose.",
+    "Slot reel symbols and side crest were stretched by elongated face proportions; button caps were mostly buried in the console."
+  ],
+  "adopted_repairs": [
+    "Staggered the depths of overlapping chest, tail and laurel pieces; verified black wedges removed in all four final views.",
+    "Reoriented front upper legs and forearms to connect to the extended paws.",
+    "Separated square symbol cards and square side badges from large panel surfaces, raised button caps, tapered ear silhouettes and mirrored the lever to the observer's right."
+  ],
+  "evidence": {
+    "initial": "review/revisions/casino-v1/",
+    "final_views": "review/models/<model-id>/{front,side,rear,threequarter}.png",
+    "editable_scenes": "sources/blend/<model-id>.blend",
+    "renderer": "tools/render-models.py; Blender 5.2.1 LTS; saved scene reopened before rendering",
+    "lighting_note": "Shared renderer exposure was adjusted during production. Final casino views use the same current renderer settings; initial images are diagnostic records rather than a quantitative lighting comparison."
+  },
+  "technical_checks": {
+    "element_coordinate_limits": "pass",
+    "strict_positive_element_dimensions": "pass",
+    "legal_single_axis_rotation_angles": "pass",
+    "uv_range_0_to_16": "pass",
+    "png_atlas_visual_review": "pass",
+    "saved_json_reimport_and_blend_reopen": "pass",
+    "four_view_visual_review": "pass"
+  },
+  "remaining_validation": [
+    "Minecraft 1.21.4 resource reload and missing-texture log inspection.",
+    "In-world yaw, scale, retained block coverage, hologram clearance and note-block interaction.",
+    "Build-all and packaged ZIP/hash verification are owned by the primary agent."
+  ],
+  "execution_notes": "Blender exited 0 and saved all requested files. Profile thumbnail writes emitted a nonfatal OpenImageIO permission error; this did not prevent blend reopen or PNG render. No Java files were modified by this subtask."
+}

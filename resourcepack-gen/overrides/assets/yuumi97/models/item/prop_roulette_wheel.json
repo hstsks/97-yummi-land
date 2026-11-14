@@ -1,0 +1,10054 @@
+{
+  "credit": "Yuumi97Land / Codex - editable named Minecraft 1.21.4 cuboids",
+  "texture_size": [
+    128,
+    128
+  ],
+  "textures": {
+    "atlas": "yuumi97:prop/prop_roulette_wheel",
+    "particle": "yuumi97:prop/prop_roulette_wheel"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [
+        35,
+        -30,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.61,
+        0.61,
+        0.61
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0.85,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  "elements": [
+    {
+      "name": "lower_mahogany_platter_0",
+      "from": [
+        7.5,
+        6.1,
+        -3.5
+      ],
+      "to": [
+        8.5,
+        7.1,
+        -2.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_1",
+      "from": [
+        3.5,
+        6.1,
+        -2.5
+      ],
+      "to": [
+        12.5,
+        7.1,
+        -1.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_2",
+      "from": [
+        1.5,
+        6.1,
+        -1.5
+      ],
+      "to": [
+        14.5,
+        7.1,
+        -0.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_3",
+      "from": [
+        0.5,
+        6.1,
+        -0.5
+      ],
+      "to": [
+        15.5,
+        7.1,
+        0.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_4",
+      "from": [
+        -0.5,
+        6.1,
+        0.5
+      ],
+      "to": [
+        16.5,
+        7.1,
+        1.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_5",
+      "from": [
+        -1.5,
+        6.1,
+        1.5
+      ],
+      "to": [
+        17.5,
+        7.1,
+        2.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_6",
+      "from": [
+        -2,
+        6.1,
+        2.5
+      ],
+      "to": [
+        18,
+        7.1,
+        3.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_7",
+      "from": [
+        -2.5,
+        6.1,
+        3.5
+      ],
+      "to": [
+        18.5,
+        7.1,
+        4.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_8",
+      "from": [
+        -3,
+        6.1,
+        4.5
+      ],
+      "to": [
+        19,
+        7.1,
+        6.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_9",
+      "from": [
+        -3.5,
+        6.1,
+        6.5
+      ],
+      "to": [
+        19.5,
+        7.1,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_10",
+      "from": [
+        -3,
+        6.1,
+        9.5
+      ],
+      "to": [
+        19,
+        7.1,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_11",
+      "from": [
+        -2.5,
+        6.1,
+        11.5
+      ],
+      "to": [
+        18.5,
+        7.1,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_12",
+      "from": [
+        -2,
+        6.1,
+        12.5
+      ],
+      "to": [
+        18,
+        7.1,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_13",
+      "from": [
+        -1.5,
+        6.1,
+        13.5
+      ],
+      "to": [
+        17.5,
+        7.1,
+        14.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_14",
+      "from": [
+        -0.5,
+        6.1,
+        14.5
+      ],
+      "to": [
+        16.5,
+        7.1,
+        15.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_15",
+      "from": [
+        0.5,
+        6.1,
+        15.5
+      ],
+      "to": [
+        15.5,
+        7.1,
+        16.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_16",
+      "from": [
+        1.5,
+        6.1,
+        16.5
+      ],
+      "to": [
+        14.5,
+        7.1,
+        17.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_17",
+      "from": [
+        3.5,
+        6.1,
+        17.5
+      ],
+      "to": [
+        12.5,
+        7.1,
+        18.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "lower_mahogany_platter_18",
+      "from": [
+        7.5,
+        6.1,
+        18.5
+      ],
+      "to": [
+        8.5,
+        7.1,
+        19.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_0",
+      "from": [
+        7.5,
+        7.12,
+        -1.6500000000000004
+      ],
+      "to": [
+        8.5,
+        7.65,
+        -0.6500000000000004
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_1",
+      "from": [
+        3.5,
+        7.12,
+        -0.6500000000000004
+      ],
+      "to": [
+        12.5,
+        7.65,
+        0.34999999999999964
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_2",
+      "from": [
+        2,
+        7.12,
+        0.34999999999999964
+      ],
+      "to": [
+        14,
+        7.65,
+        1.3499999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_3",
+      "from": [
+        1,
+        7.12,
+        1.3499999999999996
+      ],
+      "to": [
+        15,
+        7.65,
+        2.3499999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_4",
+      "from": [
+        0,
+        7.12,
+        2.3499999999999996
+      ],
+      "to": [
+        16,
+        7.65,
+        3.3499999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_5",
+      "from": [
+        -0.5,
+        7.12,
+        3.3499999999999996
+      ],
+      "to": [
+        16.5,
+        7.65,
+        4.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_6",
+      "from": [
+        -1,
+        7.12,
+        4.35
+      ],
+      "to": [
+        17,
+        7.65,
+        5.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_7",
+      "from": [
+        -1.5,
+        7.12,
+        5.35
+      ],
+      "to": [
+        17.5,
+        7.65,
+        10.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_8",
+      "from": [
+        -1,
+        7.12,
+        10.35
+      ],
+      "to": [
+        17,
+        7.65,
+        11.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_9",
+      "from": [
+        -0.5,
+        7.12,
+        11.35
+      ],
+      "to": [
+        16.5,
+        7.65,
+        12.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_10",
+      "from": [
+        0,
+        7.12,
+        12.35
+      ],
+      "to": [
+        16,
+        7.65,
+        13.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_11",
+      "from": [
+        0.5,
+        7.12,
+        13.35
+      ],
+      "to": [
+        15.5,
+        7.65,
+        14.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_12",
+      "from": [
+        1.5,
+        7.12,
+        14.35
+      ],
+      "to": [
+        14.5,
+        7.65,
+        15.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_13",
+      "from": [
+        3,
+        7.12,
+        15.35
+      ],
+      "to": [
+        13,
+        7.65,
+        16.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_14",
+      "from": [
+        5.5,
+        7.12,
+        16.35
+      ],
+      "to": [
+        10.5,
+        7.65,
+        17.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "recessed_bowl_15",
+      "from": [
+        7.5,
+        7.12,
+        17.35
+      ],
+      "to": [
+        8.5,
+        7.65,
+        17.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_wood_0",
+      "from": [
+        3.7249999999999996,
+        6.85,
+        -3.3000000000000003
+      ],
+      "to": [
+        12.275,
+        9.2,
+        -1.0000000000000004
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_0",
+      "from": [
+        3.76,
+        9.2,
+        -2.2750000000000004
+      ],
+      "to": [
+        12.24,
+        9.34,
+        -2.045
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_0",
+      "from": [
+        4.3,
+        8.6,
+        -0.9999999999999994
+      ],
+      "to": [
+        11.7,
+        8.95,
+        -0.7199999999999994
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_wood_1",
+      "from": [
+        -3.3000000000000003,
+        6.85,
+        3.7249999999999996
+      ],
+      "to": [
+        -1.0000000000000004,
+        9.2,
+        12.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          6.85,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_1",
+      "from": [
+        -2.2750000000000004,
+        9.2,
+        3.76
+      ],
+      "to": [
+        -2.045,
+        9.34,
+        12.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          9.2,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_1",
+      "from": [
+        -0.9999999999999994,
+        8.6,
+        4.3
+      ],
+      "to": [
+        -0.7199999999999994,
+        8.95,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.6,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_wood_2",
+      "from": [
+        -3.3000000000000003,
+        6.85,
+        3.7249999999999996
+      ],
+      "to": [
+        -1.0000000000000004,
+        9.2,
+        12.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_2",
+      "from": [
+        -2.2750000000000004,
+        9.2,
+        3.76
+      ],
+      "to": [
+        -2.045,
+        9.34,
+        12.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_2",
+      "from": [
+        -0.9999999999999994,
+        8.6,
+        4.3
+      ],
+      "to": [
+        -0.7199999999999994,
+        8.95,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_wood_3",
+      "from": [
+        3.7249999999999996,
+        6.85,
+        17
+      ],
+      "to": [
+        12.275,
+        9.2,
+        19.299999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          6.85,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_3",
+      "from": [
+        3.76,
+        9.2,
+        18.045
+      ],
+      "to": [
+        12.24,
+        9.34,
+        18.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          9.2,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_3",
+      "from": [
+        4.3,
+        8.6,
+        16.72
+      ],
+      "to": [
+        11.7,
+        8.95,
+        17
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.6,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_wood_4",
+      "from": [
+        3.7249999999999996,
+        6.85,
+        17
+      ],
+      "to": [
+        12.275,
+        9.2,
+        19.299999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_4",
+      "from": [
+        3.76,
+        9.2,
+        18.045
+      ],
+      "to": [
+        12.24,
+        9.34,
+        18.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_4",
+      "from": [
+        4.3,
+        8.6,
+        16.72
+      ],
+      "to": [
+        11.7,
+        8.95,
+        17
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_wood_5",
+      "from": [
+        17,
+        6.85,
+        3.7249999999999996
+      ],
+      "to": [
+        19.299999999999997,
+        9.2,
+        12.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          6.85,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_5",
+      "from": [
+        18.045,
+        9.2,
+        3.76
+      ],
+      "to": [
+        18.275,
+        9.34,
+        12.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          9.2,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_5",
+      "from": [
+        16.72,
+        8.6,
+        4.3
+      ],
+      "to": [
+        17,
+        8.95,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.6,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_wood_6",
+      "from": [
+        17,
+        6.85,
+        3.7249999999999996
+      ],
+      "to": [
+        19.299999999999997,
+        9.2,
+        12.275
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_6",
+      "from": [
+        18.045,
+        9.2,
+        3.76
+      ],
+      "to": [
+        18.275,
+        9.34,
+        12.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_6",
+      "from": [
+        16.72,
+        8.6,
+        4.3
+      ],
+      "to": [
+        17,
+        8.95,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "rim_wood_7",
+      "from": [
+        3.7249999999999996,
+        6.85,
+        -3.3000000000000003
+      ],
+      "to": [
+        12.275,
+        9.2,
+        -1.0000000000000004
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          6.85,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "rim_top_gold_inlay_7",
+      "from": [
+        3.76,
+        9.2,
+        -2.2750000000000004
+      ],
+      "to": [
+        12.24,
+        9.34,
+        -2.045
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          9.2,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "inner_brass_ball_rail_7",
+      "from": [
+        4.3,
+        8.6,
+        -0.9999999999999994
+      ],
+      "to": [
+        11.7,
+        8.95,
+        -0.7199999999999994
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.6,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_0",
+      "from": [
+        6.53,
+        7.72,
+        -0.5750000000000004
+      ],
+      "to": [
+        9.47,
+        8.3,
+        1.7749999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "colored_number_pocket_0",
+      "from": [
+        6.68,
+        8.3,
+        -0.4350000000000003
+      ],
+      "to": [
+        9.32,
+        8.48,
+        1.6349999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            4,
+            2,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "pocket_divider_frame_1",
+      "from": [
+        6.53,
+        7.72,
+        -0.5750000000000004
+      ],
+      "to": [
+        9.47,
+        8.3,
+        1.7749999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_1",
+      "from": [
+        6.68,
+        8.3,
+        -0.4350000000000003
+      ],
+      "to": [
+        9.32,
+        8.48,
+        1.6349999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_2",
+      "from": [
+        -0.5750000000000004,
+        7.72,
+        6.53
+      ],
+      "to": [
+        1.7749999999999997,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_2",
+      "from": [
+        -0.4350000000000003,
+        8.3,
+        6.68
+      ],
+      "to": [
+        1.6349999999999996,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_3",
+      "from": [
+        -0.5750000000000004,
+        7.72,
+        6.53
+      ],
+      "to": [
+        1.7749999999999997,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_3",
+      "from": [
+        -0.4350000000000003,
+        8.3,
+        6.68
+      ],
+      "to": [
+        1.6349999999999996,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_4",
+      "from": [
+        -0.5750000000000004,
+        7.72,
+        6.53
+      ],
+      "to": [
+        1.7749999999999997,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "colored_number_pocket_4",
+      "from": [
+        -0.4350000000000003,
+        8.3,
+        6.68
+      ],
+      "to": [
+        1.6349999999999996,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "pocket_divider_frame_5",
+      "from": [
+        -0.5750000000000004,
+        7.72,
+        6.53
+      ],
+      "to": [
+        1.7749999999999997,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_5",
+      "from": [
+        -0.4350000000000003,
+        8.3,
+        6.68
+      ],
+      "to": [
+        1.6349999999999996,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_6",
+      "from": [
+        6.53,
+        7.72,
+        14.225
+      ],
+      "to": [
+        9.47,
+        8.3,
+        16.575
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_6",
+      "from": [
+        6.68,
+        8.3,
+        14.365
+      ],
+      "to": [
+        9.32,
+        8.48,
+        16.435
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_7",
+      "from": [
+        6.53,
+        7.72,
+        14.225
+      ],
+      "to": [
+        9.47,
+        8.3,
+        16.575
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_7",
+      "from": [
+        6.68,
+        8.3,
+        14.365
+      ],
+      "to": [
+        9.32,
+        8.48,
+        16.435
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_8",
+      "from": [
+        6.53,
+        7.72,
+        14.225
+      ],
+      "to": [
+        9.47,
+        8.3,
+        16.575
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "colored_number_pocket_8",
+      "from": [
+        6.68,
+        8.3,
+        14.365
+      ],
+      "to": [
+        9.32,
+        8.48,
+        16.435
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "pocket_divider_frame_9",
+      "from": [
+        6.53,
+        7.72,
+        14.225
+      ],
+      "to": [
+        9.47,
+        8.3,
+        16.575
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_9",
+      "from": [
+        6.68,
+        8.3,
+        14.365
+      ],
+      "to": [
+        9.32,
+        8.48,
+        16.435
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_10",
+      "from": [
+        14.225,
+        7.72,
+        6.53
+      ],
+      "to": [
+        16.575,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_10",
+      "from": [
+        14.365,
+        8.3,
+        6.68
+      ],
+      "to": [
+        16.435,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_11",
+      "from": [
+        14.225,
+        7.72,
+        6.53
+      ],
+      "to": [
+        16.575,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_11",
+      "from": [
+        14.365,
+        8.3,
+        6.68
+      ],
+      "to": [
+        16.435,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_12",
+      "from": [
+        14.225,
+        7.72,
+        6.53
+      ],
+      "to": [
+        16.575,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "colored_number_pocket_12",
+      "from": [
+        14.365,
+        8.3,
+        6.68
+      ],
+      "to": [
+        16.435,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "pocket_divider_frame_13",
+      "from": [
+        14.225,
+        7.72,
+        6.53
+      ],
+      "to": [
+        16.575,
+        8.3,
+        9.47
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_13",
+      "from": [
+        14.365,
+        8.3,
+        6.68
+      ],
+      "to": [
+        16.435,
+        8.48,
+        9.32
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_14",
+      "from": [
+        6.53,
+        7.72,
+        -0.5750000000000004
+      ],
+      "to": [
+        9.47,
+        8.3,
+        1.7749999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_14",
+      "from": [
+        6.68,
+        8.3,
+        -0.4350000000000003
+      ],
+      "to": [
+        9.32,
+        8.48,
+        1.6349999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            6,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -45,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "pocket_divider_frame_15",
+      "from": [
+        6.53,
+        7.72,
+        -0.5750000000000004
+      ],
+      "to": [
+        9.47,
+        8.3,
+        1.7749999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            6,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          7.72,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "colored_number_pocket_15",
+      "from": [
+        6.68,
+        8.3,
+        -0.4350000000000003
+      ],
+      "to": [
+        9.32,
+        8.48,
+        1.6349999999999996
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            4,
+            4,
+            6
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          8,
+          8.3,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "inner_polished_bowl_0",
+      "from": [
+        7.5,
+        7.7,
+        2.05
+      ],
+      "to": [
+        8.5,
+        8.05,
+        3.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_1",
+      "from": [
+        4.5,
+        7.7,
+        3.05
+      ],
+      "to": [
+        11.5,
+        8.05,
+        4.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_2",
+      "from": [
+        3.5,
+        7.7,
+        4.05
+      ],
+      "to": [
+        12.5,
+        8.05,
+        5.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_3",
+      "from": [
+        3,
+        7.7,
+        5.05
+      ],
+      "to": [
+        13,
+        8.05,
+        6.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_4",
+      "from": [
+        2.5,
+        7.7,
+        6.05
+      ],
+      "to": [
+        13.5,
+        8.05,
+        7.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_5",
+      "from": [
+        2,
+        7.7,
+        7.05
+      ],
+      "to": [
+        14,
+        8.05,
+        9.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_6",
+      "from": [
+        2.5,
+        7.7,
+        9.05
+      ],
+      "to": [
+        13.5,
+        8.05,
+        10.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_7",
+      "from": [
+        3,
+        7.7,
+        10.05
+      ],
+      "to": [
+        13,
+        8.05,
+        11.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_8",
+      "from": [
+        3.5,
+        7.7,
+        11.05
+      ],
+      "to": [
+        12.5,
+        8.05,
+        12.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_9",
+      "from": [
+        5,
+        7.7,
+        12.05
+      ],
+      "to": [
+        11,
+        8.05,
+        13.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "inner_polished_bowl_10",
+      "from": [
+        7.5,
+        7.7,
+        13.05
+      ],
+      "to": [
+        8.5,
+        8.05,
+        13.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            2,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_0",
+      "from": [
+        7.5,
+        8.05,
+        3.45
+      ],
+      "to": [
+        8.5,
+        8.55,
+        4.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_1",
+      "from": [
+        5,
+        8.05,
+        4.45
+      ],
+      "to": [
+        11,
+        8.55,
+        5.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_2",
+      "from": [
+        4,
+        8.05,
+        5.45
+      ],
+      "to": [
+        12,
+        8.55,
+        6.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_3",
+      "from": [
+        3.5,
+        8.05,
+        6.45
+      ],
+      "to": [
+        12.5,
+        8.55,
+        9.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_4",
+      "from": [
+        4,
+        8.05,
+        9.45
+      ],
+      "to": [
+        12,
+        8.55,
+        10.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_5",
+      "from": [
+        5,
+        8.05,
+        10.45
+      ],
+      "to": [
+        11,
+        8.55,
+        11.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_6",
+      "from": [
+        7,
+        8.05,
+        11.45
+      ],
+      "to": [
+        9,
+        8.55,
+        12.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_lower_7",
+      "from": [
+        7.5,
+        8.05,
+        12.45
+      ],
+      "to": [
+        8.5,
+        8.55,
+        12.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            2,
+            6,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_0",
+      "from": [
+        7.5,
+        8.55,
+        4.5
+      ],
+      "to": [
+        8.5,
+        9.2,
+        5.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_1",
+      "from": [
+        5.5,
+        8.55,
+        5.5
+      ],
+      "to": [
+        10.5,
+        9.2,
+        6.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_2",
+      "from": [
+        5,
+        8.55,
+        6.5
+      ],
+      "to": [
+        11,
+        9.2,
+        7.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_3",
+      "from": [
+        4.5,
+        8.55,
+        7.5
+      ],
+      "to": [
+        11.5,
+        9.2,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_4",
+      "from": [
+        5,
+        8.55,
+        8.5
+      ],
+      "to": [
+        11,
+        9.2,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_5",
+      "from": [
+        5.5,
+        8.55,
+        9.5
+      ],
+      "to": [
+        10.5,
+        9.2,
+        10.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_middle_6",
+      "from": [
+        7.5,
+        8.55,
+        10.5
+      ],
+      "to": [
+        8.5,
+        9.2,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_upper_0",
+      "from": [
+        7.5,
+        9.2,
+        5.55
+      ],
+      "to": [
+        8.5,
+        9.85,
+        6.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_upper_1",
+      "from": [
+        6,
+        9.2,
+        6.55
+      ],
+      "to": [
+        10,
+        9.85,
+        7.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_upper_2",
+      "from": [
+        5.5,
+        9.2,
+        7.55
+      ],
+      "to": [
+        10.5,
+        9.85,
+        8.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_upper_3",
+      "from": [
+        6,
+        9.2,
+        8.55
+      ],
+      "to": [
+        10,
+        9.85,
+        9.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_cone_upper_4",
+      "from": [
+        7.5,
+        9.2,
+        9.55
+      ],
+      "to": [
+        8.5,
+        9.85,
+        10.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            8,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_octagonal_foot",
+      "from": [
+        6.7,
+        9.8,
+        6.7
+      ],
+      "to": [
+        9.3,
+        10.4,
+        9.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 45,
+        "origin": [
+          8,
+          9.8,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "spindle_column",
+      "from": [
+        7.25,
+        10.35,
+        7.25
+      ],
+      "to": [
+        8.75,
+        14.75,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_cross_east_west",
+      "from": [
+        3.3,
+        13.5,
+        7.4
+      ],
+      "to": [
+        12.7,
+        14.4,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_cross_north_south",
+      "from": [
+        7.4,
+        13.5,
+        3.3
+      ],
+      "to": [
+        8.6,
+        14.4,
+        12.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_west_cap",
+      "from": [
+        2.65,
+        13.3,
+        7.35
+      ],
+      "to": [
+        3.9499999999999997,
+        14.7,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_west_mint_jewel",
+      "from": [
+        2.92,
+        14.7,
+        7.62
+      ],
+      "to": [
+        3.6799999999999997,
+        15.05,
+        8.38
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_east_cap",
+      "from": [
+        12.049999999999999,
+        13.3,
+        7.35
+      ],
+      "to": [
+        13.35,
+        14.7,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_east_mint_jewel",
+      "from": [
+        12.319999999999999,
+        14.7,
+        7.62
+      ],
+      "to": [
+        13.08,
+        15.05,
+        8.38
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_north_cap",
+      "from": [
+        7.35,
+        13.3,
+        2.65
+      ],
+      "to": [
+        8.65,
+        14.7,
+        3.9499999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_north_mint_jewel",
+      "from": [
+        7.62,
+        14.7,
+        2.92
+      ],
+      "to": [
+        8.38,
+        15.05,
+        3.6799999999999997
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_south_cap",
+      "from": [
+        7.35,
+        13.3,
+        12.049999999999999
+      ],
+      "to": [
+        8.65,
+        14.7,
+        13.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spinner_south_mint_jewel",
+      "from": [
+        7.62,
+        14.7,
+        12.319999999999999
+      ],
+      "to": [
+        8.38,
+        15.05,
+        13.08
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_crown_base",
+      "from": [
+        6.95,
+        14.6,
+        6.95
+      ],
+      "to": [
+        9.05,
+        15.2,
+        9.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "spindle_rose_finial",
+      "from": [
+        7.35,
+        15.2,
+        7.35
+      ],
+      "to": [
+        8.65,
+        16.25,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            0,
+            14,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 45,
+        "origin": [
+          8,
+          15.2,
+          8
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "ivory_ball_core",
+      "from": [
+        10.15,
+        8.95,
+        0.5
+      ],
+      "to": [
+        11.15,
+        9.95,
+        1.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            14,
+            2,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "ivory_ball_cap",
+      "from": [
+        10.35,
+        9.95,
+        0.7
+      ],
+      "to": [
+        10.95,
+        10.12,
+        1.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            10,
+            2
+          ],
+          "texture": "#atlas"
+        }
+      }
+    }
+  ]
+}

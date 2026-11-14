@@ -1,0 +1,191 @@
+[
+  {
+    "index": 1,
+    "id": "churu_salmon",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/churu_salmon.png"
+  },
+  {
+    "index": 2,
+    "id": "churu_tuna",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/churu_tuna.png"
+  },
+  {
+    "index": 3,
+    "id": "churu_golden",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/churu_golden.png"
+  },
+  {
+    "index": 4,
+    "id": "casino_chip",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/casino_chip.png"
+  },
+  {
+    "index": 5,
+    "id": "jackpot_crown",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/jackpot_crown.png"
+  },
+  {
+    "index": 6,
+    "id": "torn_page",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/torn_page.png"
+  },
+  {
+    "index": 7,
+    "id": "book_of_thresholds",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/book_of_thresholds.png"
+  },
+  {
+    "index": 8,
+    "id": "zoomies_skewer",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/zoomies_skewer.png"
+  },
+  {
+    "index": 9,
+    "id": "kneading_bento",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/kneading_bento.png"
+  },
+  {
+    "index": 10,
+    "id": "catnip_elixir",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/catnip_elixir.png"
+  },
+  {
+    "index": 11,
+    "id": "royal_feast_can",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/royal_feast_can.png"
+  },
+  {
+    "index": 12,
+    "id": "boss_core_rat",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/boss_core_rat.png"
+  },
+  {
+    "index": 13,
+    "id": "boss_core_hound",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/boss_core_hound.png"
+  },
+  {
+    "index": 14,
+    "id": "boss_core_void",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/boss_core_void.png"
+  },
+  {
+    "index": 15,
+    "id": "you_and_me_bell",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/you_and_me_bell.png"
+  },
+  {
+    "index": 16,
+    "id": "prowling_wand",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/prowling_wand.png"
+  },
+  {
+    "index": 17,
+    "id": "final_chapter_tome",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/final_chapter_tome.png"
+  },
+  {
+    "index": 18,
+    "id": "nine_lives_charm",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/nine_lives_charm.png"
+  },
+  {
+    "index": 19,
+    "id": "slot_seven",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/slot_seven.png"
+  },
+  {
+    "index": 20,
+    "id": "slot_yuumi",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/slot_yuumi.png"
+  },
+  {
+    "index": 21,
+    "id": "slot_paw",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/slot_paw.png"
+  },
+  {
+    "index": 22,
+    "id": "chip_100",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/chip_100.png"
+  },
+  {
+    "index": 23,
+    "id": "chip_1000",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/chip_1000.png"
+  },
+  {
+    "index": 24,
+    "id": "chip_10000",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/chip_10000.png"
+  },
+  {
+    "index": 25,
+    "id": "recall_bookmark",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/recall_bookmark.png"
+  },
+  {
+    "index": 26,
+    "id": "starlight_stone",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/starlight_stone.png"
+  },
+  {
+    "index": 27,
+    "id": "starlight_scroll",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/starlight_scroll.png"
+  }
+]

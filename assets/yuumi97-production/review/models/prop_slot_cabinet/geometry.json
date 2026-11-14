@@ -1,0 +1,24 @@
+{
+  "id": "prop_slot_cabinet",
+  "elements": 72,
+  "bounds_model_units": [
+    [
+      -5.05,
+      -9.8,
+      -2.1823
+    ],
+    [
+      17.9,
+      30.3712,
+      15.9
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_slot_cabinet.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture"
+}
