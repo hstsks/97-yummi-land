@@ -1,0 +1,30 @@
+{
+  "id": "hat_chef_toque",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "head",
+      "display": {
+        "rotation": [
+          0,
+          180,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "reference": "V2 headband frame: 12.8-unit head cube, common 0.625 scale",
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

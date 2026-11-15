@@ -1,0 +1,50 @@
+{
+  "id": "weapon_shadow_daggers",
+  "elements": 184,
+  "bounds_model_units": [
+    [
+      3.0,
+      0.0,
+      5.86
+    ],
+    [
+      15.5,
+      29.0,
+      9.4
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\weapon_shadow_daggers.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\weapon_shadow_daggers.json": "49109dfaab03377caf4b935be5bb8388852962b470e373dda12f9c439e206a4c",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\weapon_shadow_daggers.png": "b5d1c3fefe8c0d91ff7673e08435a14f12526e014c1603dc8086adadb24217e3"
+  },
+  "contextImages": [
+    "thirdperson_righthand",
+    "thirdperson_lefthand",
+    "firstperson_righthand",
+    "firstperson_lefthand"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

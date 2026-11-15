@@ -1,0 +1,47 @@
+{
+  "id": "prop_feast_cauldron",
+  "elements": 172,
+  "bounds_model_units": [
+    [
+      -2.05,
+      0.0,
+      -0.11
+    ],
+    [
+      18.05,
+      21.4828,
+      16.11
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_feast_cauldron.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_feast_cauldron.json": "3e519ac46d12372282efa657328bfe7a45cd2d664746a286465da76d662aa22a",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_feast_cauldron.png": "64fc160a2b82896cc3c1af62fe042150177943323c864d519a7615f72f5854b5"
+  },
+  "contextImages": [
+    "floor_00"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

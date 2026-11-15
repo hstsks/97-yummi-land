@@ -20,6 +20,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class YuumiItems {
 
     public static final String MODEL_NAMESPACE = "yuumi97";
+    public static final java.util.List<String> V3_IDS = java.util.List.of(
+            "labyrinth_key", "ancient_cat_coin", "gacha_capsule", "class_emblem", "respec_potion",
+            "charm_crimson_claw", "charm_starlight_aegis", "charm_golden_whisker", "charm_vampiric_purr",
+            "furn_cat_tower", "furn_kotatsu", "furn_neon_sign", "hat_chef_toque", "hat_stock_tophat",
+            "monster_soul_core", "unidentified_geode", "golden_catnip", "deep_sea_fillet", "rune_scroll", "michelin_feast",
+            "weapon_paladin_sword", "weapon_shadow_daggers", "weapon_ranger_bow", "weapon_arcane_grimoire",
+            "tool_miner_drill", "tool_smith_hammer", "tool_farmer_scythe", "tool_angler_harpoon", "tool_carpenter_axe", "tool_chef_wok");
     private final JavaPlugin plugin;
     private final NamespacedKey itemIdKey;
 
@@ -76,7 +83,141 @@ public final class YuumiItems {
         return createBase(Material.PAPER, "plushie_yuumi", "plushie_yuumi",
                 "<#8bb9ef><bold>식빵 유미 봉제인형</bold>",
                 "<gray>보드라운 파란 털과 금빛 방울을 가진 작은 단짝입니다.",
-                "<yellow>▶ 아이템 액자에 넣어 진열하세요.");
+                "<yellow>▶ 본인·공유 분양지 바닥을 우클릭하여 설치하세요.");
+    }
+
+    /** One authoritative factory for rewards, public workshops and operator grants. */
+    public ItemStack create(String id) {
+        if (!V3_IDS.contains(id)) return switch (id) {
+            case "hat_yuumi_ears" -> yuumiEarsHat();
+            case "plushie_yuumi" -> yuumiPlushie();
+            case "you_and_me_bell" -> youAndMeBell();
+            case "nine_lives_charm" -> nineLivesCharm();
+            case "starlight_stone" -> starlightStone(1);
+            case "starlight_scroll" -> starlightScroll(1);
+            case "churu_golden" -> churuGolden(1);
+            case "recall_bookmark" -> recallBookmark(1);
+            default -> throw new IllegalArgumentException("Unknown Yuumi item: " + id);
+        };
+        Material material = switch (id) {
+            case "labyrinth_key" -> Material.TRIAL_KEY;
+            case "ancient_cat_coin" -> Material.SUNFLOWER;
+            case "gacha_capsule" -> Material.HEART_OF_THE_SEA;
+            case "class_emblem" -> Material.NETHER_STAR;
+            case "respec_potion" -> Material.EXPERIENCE_BOTTLE;
+            case "furn_cat_tower", "furn_kotatsu" -> Material.OAK_PLANKS;
+            case "furn_neon_sign" -> Material.GLOW_ITEM_FRAME;
+            case "monster_soul_core" -> Material.ECHO_SHARD;
+            case "unidentified_geode" -> Material.RAW_GOLD;
+            case "golden_catnip" -> Material.FERN;
+            case "deep_sea_fillet" -> Material.SALMON;
+            case "rune_scroll" -> Material.ENCHANTED_BOOK;
+            case "michelin_feast" -> Material.COOKED_BEEF;
+            case "weapon_paladin_sword", "weapon_shadow_daggers" -> Material.DIAMOND_SWORD;
+            case "weapon_ranger_bow" -> Material.BOW;
+            case "weapon_arcane_grimoire" -> Material.BLAZE_ROD;
+            case "tool_miner_drill" -> Material.DIAMOND_PICKAXE;
+            case "tool_smith_hammer", "tool_carpenter_axe" -> Material.DIAMOND_AXE;
+            case "tool_farmer_scythe" -> Material.DIAMOND_HOE;
+            case "tool_angler_harpoon" -> Material.FISHING_ROD;
+            case "tool_chef_wok" -> Material.IRON_SHOVEL;
+            default -> Material.PAPER;
+        };
+        String name = switch (id) {
+            case "labyrinth_key" -> "문턱의 미궁 열쇠";
+            case "ancient_cat_coin" -> "고대 고양이 금화";
+            case "gacha_capsule" -> "황금 뽑기 캡슐";
+            case "class_emblem" -> "집사 성향 문장";
+            case "respec_potion" -> "망각의 캣닢 물약";
+            case "charm_crimson_claw" -> "진홍의 발톱 책갈피";
+            case "charm_starlight_aegis" -> "별빛 이지스 책갈피";
+            case "charm_golden_whisker" -> "황금 수염 책갈피";
+            case "charm_vampiric_purr" -> "흡혈 골골송 책갈피";
+            case "furn_cat_tower" -> "3단 핑크 캣타워";
+            case "furn_kotatsu" -> "사르르 귤 코타츠 테이블";
+            case "furn_neon_sign" -> "97랜드 고양이 네온사인";
+            case "hat_chef_toque" -> "미슐랭 셰프 토크";
+            case "hat_stock_tophat" -> "츄르 증권왕 실크햇";
+            case "monster_soul_core" -> "마수 영혼석";
+            case "unidentified_geode" -> "미감정 별빛 지오드";
+            case "golden_catnip" -> "황금 캣닢";
+            case "deep_sea_fillet" -> "심해 대뱃살 필렛";
+            case "rune_scroll" -> "별빛 마법 룬 각인서";
+            case "michelin_feast" -> "특선 만찬";
+            case "weapon_paladin_sword" -> "별빛 이지스 방패검";
+            case "weapon_shadow_daggers" -> "초승달 그림자 쌍검";
+            case "weapon_ranger_bow" -> "천공의 별빛 마궁";
+            case "weapon_arcane_grimoire" -> "문턱의 비전 마도서";
+            case "tool_miner_drill" -> "별빛 크러셔 드릴";
+            case "tool_smith_hammer" -> "태양불꽃 단조 망치";
+            case "tool_farmer_scythe" -> "풍요의 황금 대낫";
+            case "tool_angler_harpoon" -> "리바이어던 작살 낚싯대";
+            case "tool_carpenter_axe" -> "영혼 고목 벌목 도끼";
+            default -> "불꽃 미슐랭 중화팬";
+        };
+        boolean signature = id.startsWith("weapon_") || id.startsWith("tool_");
+        ItemStack stack = createBase(material, id, id, "<gradient:#ffd666:#ff85c0><bold>" + name + "</bold></gradient>",
+                signature ? "<gray>활성 직업과 일치할 때 성물의 힘이 깨어납니다." : "<gray>유미의 97랜드 v3.0 공식 아이템",
+                id.startsWith("furn_") ? "<yellow>▶ 분양지 바닥 우클릭 설치 · Shift+좌클릭 회수" :
+                id.startsWith("charm_") ? "<yellow>▶ 성향 문장의 3슬롯 책갈피함에 장착하세요." :
+                id.equals("class_emblem") ? "<yellow>▶ 우클릭: 성향 프로필 · 특전 · 책갈피함" :
+                id.equals("gacha_capsule") ? "<yellow>▶ 우클릭 개봉 또는 광장 가챠 부스에서 사용" : "<dark_gray>교환·제작·모험 재료");
+        ItemMeta meta = stack.getItemMeta();
+        if (signature || id.startsWith("charm_") || id.equals("class_emblem") || id.startsWith("hat_")) meta.setMaxStackSize(1);
+        if (signature) meta.setUnbreakable(true);
+        if (id.startsWith("hat_")) {
+            var equippable = meta.getEquippable();
+            equippable.setSlot(EquipmentSlot.HEAD);
+            equippable.setCameraOverlay(null);
+            equippable.setModel(null);
+            equippable.setDamageOnHurt(false);
+            meta.setEquippable(equippable);
+        }
+        if (id.equals("rune_scroll")) {
+            meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_rune_type"), PersistentDataType.STRING, "FIRE");
+            meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_rune_masterwork"), PersistentDataType.INTEGER, 0);
+        }
+        if (id.equals("michelin_feast")) {
+            meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_feast_type"), PersistentDataType.STRING, "VALOR");
+            meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_feast_stars"), PersistentDataType.INTEGER, 2);
+        }
+        stack.setItemMeta(meta);
+        return stack;
+    }
+
+    public ItemStack create(String id, int amount) {
+        ItemStack item = create(id);
+        item.setAmount(amount);
+        return item;
+    }
+
+    public ItemStack labyrinthKey(int amount) { return create("labyrinth_key", amount); }
+    public ItemStack ancientCatCoin(int amount) { return create("ancient_cat_coin", amount); }
+    public ItemStack gachaCapsule(int amount) { return create("gacha_capsule", amount); }
+
+    public ItemStack runeScroll(String type, boolean masterwork) {
+        if (!java.util.Set.of("FIRE", "FROST", "THUNDER", "GALE", "BASTION").contains(type)) throw new IllegalArgumentException(type);
+        ItemStack stack = create("rune_scroll");
+        ItemMeta meta = stack.getItemMeta();
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_rune_type"), PersistentDataType.STRING, type);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_rune_masterwork"), PersistentDataType.INTEGER, masterwork ? 1 : 0);
+        String label=switch(type){case "FIRE"->"홍련";case "FROST"->"빙결";case "THUNDER"->"뇌전";case "GALE"->"질풍";default->"철벽";};
+        meta.displayName(TextUtil.mm("<aqua><bold>" + (masterwork ? "[명장 +25%] " : "") + label + " 별빛 룬 각인서</bold></aqua>"));
+        stack.setItemMeta(meta);
+        return stack;
+    }
+
+    public ItemStack michelinFeast(String type, int stars) {
+        if (!java.util.Set.of("VALOR", "SWIFT", "HARVEST").contains(type) || stars < 2 || stars > 3) throw new IllegalArgumentException(type);
+        ItemStack stack = create("michelin_feast");
+        ItemMeta meta = stack.getItemMeta();
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_feast_type"), PersistentDataType.STRING, type);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "yuumi_feast_stars"), PersistentDataType.INTEGER, stars);
+        String label=switch(type){case "VALOR"->"용맹";case "SWIFT"->"질풍";default->"풍요";};
+        meta.displayName(TextUtil.mm("<gold><bold>" + "★".repeat(stars) + " " + label + " 미슐랭 특선 만찬</bold></gold>"));
+        meta.lore(TextUtil.lore("<gray>공공 조리대와 미식 셰프의 정성스러운 만찬", "<yellow>" + (stars == 3 ? "효율·지속 +35% · 648초" : "지속 480초")));
+        stack.setItemMeta(meta);
+        return stack;
     }
 
     // ==================== 1. 화폐 & 카지노 아이템 ====================

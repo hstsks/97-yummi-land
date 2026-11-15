@@ -17,6 +17,7 @@ backups/
 runtime-state/
 server-test/
 /assets/yuumi97-production/review/http-served-pack.zip
+/assets/yuumi97-production/review/render-v3.lock
 logs/
 *.log
 *.log.*

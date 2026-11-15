@@ -4,6 +4,7 @@ import kr.yuumi97.core.altar.ThresholdAltarManager;
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.util.TextUtil;
+import kr.yuumi97.core.util.RewardMailbox;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
@@ -64,6 +65,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     private final ThresholdAltarManager altar;
     private final Supplier<Location> arenaCenterSupplier;
     private final NamespacedKey bossTierKey;
+    private RewardMailbox mailbox;
 
     private LivingEntity activeBoss;
     private int activeTier = 0;
@@ -78,6 +80,12 @@ public final class RaidBossManager implements Listener, CommandExecutor {
         this.altar = altar;
         this.arenaCenterSupplier = arenaCenterSupplier;
         this.bossTierKey = new NamespacedKey(plugin, "raid_boss_tier");
+    }
+
+    public void setRewardMailbox(RewardMailbox mailbox) { this.mailbox = mailbox; }
+
+    public boolean isRaidBoss(org.bukkit.entity.Entity entity) {
+        return entity.getPersistentDataContainer().has(bossTierKey, PersistentDataType.INTEGER);
     }
 
     public void cleanup() {
@@ -498,6 +506,11 @@ public final class RaidBossManager implements Listener, CommandExecutor {
         int pages = tier * 2;
         giveSafe(p, items.tornPage(pages));
         giveSafe(p, items.starlightStone(tier));
+        double keyChance = plugin.getConfig().getDouble("dungeon.key-drops.raid-" + tier, tier == 1 ? .25 : tier == 2 ? .50 : 1.0);
+        if (ThreadLocalRandom.current().nextDouble() < keyChance) {
+            if (mailbox != null) mailbox.give(p, items.labyrinthKey(1));
+            else giveSafe(p, items.labyrinthKey(1));
+        }
         if (tier >= 2 && ThreadLocalRandom.current().nextDouble() < 0.40) {
             giveSafe(p, items.starlightScroll(1));
         }

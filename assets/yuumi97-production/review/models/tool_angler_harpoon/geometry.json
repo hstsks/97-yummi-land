@@ -1,0 +1,52 @@
+{
+  "id": "tool_angler_harpoon",
+  "elements": 144,
+  "bounds_model_units": [
+    [
+      1.5,
+      -4.2,
+      4.75
+    ],
+    [
+      15.1,
+      31.0,
+      9.9
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\tool_angler_harpoon.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\tool_angler_harpoon.json": "4278679d12ff0bc672382765ad5c0d96a9be8aa34bacf30c451d503bd32971ca",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\tool_angler_harpoon.png": "d0c93435309e01a865464fe338320eb10a1b3bb93c6dbc179911fcd851950b62"
+  },
+  "contextImages": [
+    "thirdperson_righthand",
+    "thirdperson_lefthand",
+    "firstperson_righthand",
+    "firstperson_lefthand"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

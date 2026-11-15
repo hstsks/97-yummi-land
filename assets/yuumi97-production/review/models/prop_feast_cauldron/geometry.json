@@ -1,0 +1,49 @@
+{
+  "id": "prop_feast_cauldron",
+  "elements": 172,
+  "bounds_model_units": [
+    [
+      -3.3743,
+      0.0,
+      -0.11
+    ],
+    [
+      19.3743,
+      21.4828,
+      16.11
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_feast_cauldron.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_feast_cauldron.json": "e5f05b99dc15a218d60b4844ba1c87db1f7dfdcb51e284897b1392214d238184",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_feast_cauldron.png": "64fc160a2b82896cc3c1af62fe042150177943323c864d519a7615f72f5854b5"
+  },
+  "contextImages": [
+    "floor_00"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

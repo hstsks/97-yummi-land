@@ -73,10 +73,11 @@ public final class ChuruManager implements CommandExecutor, TabCompleter {
     }
 
     public boolean has(OfflinePlayer player, double amount) {
-        return getBalance(player) + 0.001 >= amount;
+        return Double.isFinite(amount) && amount >= 0 && getBalance(player) + 0.001 >= amount;
     }
 
     public boolean withdraw(OfflinePlayer player, double amount) {
+        if (!Double.isFinite(amount) || amount < 0) return false;
         if (amount <= 0) return true;
         if (!has(player, amount)) return false;
         Economy eco = getEco();
@@ -91,15 +92,20 @@ public final class ChuruManager implements CommandExecutor, TabCompleter {
     }
 
     public void deposit(OfflinePlayer player, double amount) {
-        if (amount <= 0) return;
+        if (!tryDeposit(player, amount)) plugin.getLogger().warning("[Economy] Deposit rejected for " + player.getUniqueId());
+    }
+
+    public boolean tryDeposit(OfflinePlayer player, double amount) {
+        if (!Double.isFinite(amount) || amount < 0) return false;
+        if (amount == 0) return true;
         Economy eco = getEco();
         if (eco != null) {
-            eco.depositPlayer(player, amount);
-            return;
+            return eco.depositPlayer(player, amount).transactionSuccess();
         }
         UUID id = player.getUniqueId();
         data.set("wallets." + id, getBalance(player) + amount);
         saveCallback.run();
+        return true;
     }
 
     // ==================== 은행 안전 예금 계좌 (사망 구조비 면제!) ====================

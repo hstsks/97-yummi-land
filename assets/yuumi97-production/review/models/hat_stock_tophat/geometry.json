@@ -1,0 +1,49 @@
+{
+  "id": "hat_stock_tophat",
+  "elements": 95,
+  "bounds_model_units": [
+    [
+      -2.9,
+      8.9,
+      -2.9
+    ],
+    [
+      18.9,
+      27.67,
+      18.9
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\hat_stock_tophat.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\hat_stock_tophat.json": "6fae747d4dd1c5621bf66688dc80b25dbccb55cd4d53188b591ca365c9a95969",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\hat_stock_tophat.png": "f1237a3b9a3a34833c78ae1a5025edfaef93bacc79c930552af0357361a70dcc"
+  },
+  "contextImages": [
+    "head"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

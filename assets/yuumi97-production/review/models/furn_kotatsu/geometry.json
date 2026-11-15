@@ -1,0 +1,48 @@
+{
+  "id": "furn_kotatsu",
+  "elements": 230,
+  "bounds_model_units": [
+    [
+      -2.5,
+      0.0,
+      -2.62
+    ],
+    [
+      18.5,
+      14.98,
+      18.63
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\furn_kotatsu.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\furn_kotatsu.json": "a0058190cc8f2b436ccec05056b053a367fc059822595ef05d76be7af4b0bd71",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\furn_kotatsu.png": "5db46f115ffad373a76f548491639739d746ed6e4f39f5a5edec29dab26e233c"
+  },
+  "contextImages": [
+    "floor_00",
+    "floor_45"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

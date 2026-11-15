@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "kr.yuumi97"
-version = "1.0.0"
+version = "3.0.0"
 
 repositories {
     mavenCentral()
@@ -12,9 +12,10 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
+    testImplementation("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     // Compile directly against the downloaded plugin jars in ../server/plugins for 100% binary compatibility
     compileOnly(fileTree("../server/plugins") {
-        include("VaultUnlocked*.jar", "AuraSkills*.jar", "WorldEdit*.jar")
+        include("VaultUnlocked*.jar", "AuraSkills*.jar", "WorldEdit*.jar", "TAB-*.jar")
     })
 }
 
@@ -32,3 +33,12 @@ tasks.withType<JavaCompile> {
 tasks.jar {
     archiveFileName.set("YuumiLandCore.jar")
 }
+
+tasks.register<JavaExec>("v3Checks") {
+    dependsOn(tasks.testClasses)
+    classpath = sourceSets["test"].runtimeClasspath
+    mainClass.set("kr.yuumi97.core.V3Checks")
+    jvmArgs("-ea")
+}
+
+tasks.check { dependsOn("v3Checks") }

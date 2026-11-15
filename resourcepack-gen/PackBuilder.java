@@ -45,6 +45,7 @@ public class PackBuilder {
         Files.createDirectories(serverDir);
 
         Map<String, SpriteSpec> sprites = buildCatalog();
+        addV3Sprites(sprites);
         Map<String, byte[]> entries = new LinkedHashMap<>();
 
         // 1. pack.mcmeta (Minecraft 1.21.4 -> pack_format 46)
@@ -210,6 +211,75 @@ public class PackBuilder {
             m.put((Character) kv[i], (Integer) kv[i + 1]);
         }
         return m;
+    }
+
+    /** Distinct silhouettes and palettes; never depends on the concurrently authored overrides. */
+    private static void addV3Sprites(Map<String, SpriteSpec> sprites) {
+        // These pre-v3 rewards used to depend entirely on overrides. Public gacha/workshops
+        // must also work in a fallback-only pack while the asset session is still running.
+        SpriteSpec cat = sprites.get("slot_yuumi");
+        sprites.put("plushie_yuumi", new SpriteSpec("plushie_yuumi", false, cat.palette(), cat.rows()));
+        register(sprites, "hat_yuumi_ears", false, pal('O',0x5D4579,'B',0x81B8EA,'P',0xEEA3C3,'W',0xFFF0D7,'G',0xF0CA58),
+                "................","..OO........OO..","..OBO......OBO..","..OBPO....OPBO..",
+                "..OBBPO..OPBBO..","...OBBPOOPBBO...","...OBBBBBBBBO...","....OBBBBBBO....",
+                "....OOOOOOOO....","...OGGGGGGGGO...","....OGGGGGGO....","......OWO.......",
+                "......OGO.......",".......O........","................","................");
+        String[] ids = {"labyrinth_key", "ancient_cat_coin", "gacha_capsule", "class_emblem", "respec_potion",
+                "charm_crimson_claw", "charm_starlight_aegis", "charm_golden_whisker", "charm_vampiric_purr",
+                "furn_cat_tower", "furn_kotatsu", "furn_neon_sign", "hat_chef_toque", "hat_stock_tophat",
+                "monster_soul_core", "unidentified_geode", "golden_catnip", "deep_sea_fillet", "rune_scroll", "michelin_feast",
+                "weapon_paladin_sword", "weapon_shadow_daggers", "weapon_ranger_bow", "weapon_arcane_grimoire",
+                "tool_miner_drill", "tool_smith_hammer", "tool_farmer_scythe", "tool_angler_harpoon", "tool_carpenter_axe", "tool_chef_wok"};
+        int[] colors = {0x66D9EE,0xFFD052,0xFFB869,0xBA91F4,0x8BDD7D,0xEB526D,0x8EAFFF,0xFFD05B,0xB178D3,
+                0xF2A9CF,0xE88F65,0x62E7E2,0xFFF1D7,0x564C86,0x9B83E3,0xDDB5F6,0xDFCB54,0xF78C9E,0x9EC7FF,0xC78B52,
+                0xF3D06B,0xBC8DE8,0x8CE6C2,0x9D95EF,0x79CADD,0xE88F51,0xE4BF65,0x67BFE7,0xC59E6F,0xED815D};
+        for (int i = 0; i < ids.length; i++) {
+            String id = ids[i];
+            char[][] grid = new char[16][16];
+            for (char[] row : grid) java.util.Arrays.fill(row, '.');
+            if (i >= 20) {
+                // Tools keep their own heads, bow/grimoire/dual-blades each has a recognizable silhouette.
+                if (id.endsWith("bow")) {
+                    for (int y = 2; y <= 13; y++) {
+                        int x = 5 + (int)Math.round(4 * Math.sin((y - 2) * Math.PI / 11));
+                        grid[y][x] = 'C'; grid[y][4] = 'W';
+                    }
+                } else if (id.endsWith("grimoire")) {
+                    for (int y=3;y<13;y++) for(int x=3;x<13;x++) grid[y][x] = x==7||x==8 ? 'W' : 'C';
+                } else {
+                    for(int k=0;k<10;k++) { grid[13-k][3+k]='C'; if(k>2) grid[13-k][4+k]='L'; }
+                    grid[12][3]='G'; grid[13][2]='G';
+                    if (i>=24) for(int x=6;x<14;x++) for(int y=2;y<5;y++) grid[y][x]=(x+y)%3==0?'L':'C';
+                    if (id.contains("daggers")) for(int k=0;k<7;k++) grid[13-k][12-k]='W';
+                    if (id.endsWith("scythe")) for(int x=3;x<13;x++) grid[2][x]='G';
+                }
+            } else if (id.contains("key")) {
+                for(int y=2;y<7;y++) for(int x=5;x<11;x++) if(y==2||y==6||x==5||x==10) grid[y][x]='G';
+                for(int y=7;y<14;y++) grid[y][8]='C'; grid[11][10]='G'; grid[13][10]='G'; grid[11][9]='G'; grid[13][9]='G';
+            } else if (id.startsWith("hat_")) {
+                for(int y=3;y<11;y++) for(int x=5;x<12;x++) grid[y][x]=(x==5||y==3)?'L':'C';
+                for(int x=2;x<15;x++) {grid[11][x]='G';grid[12][x]='C';}
+            } else if (id.startsWith("furn_")) {
+                for(int y=5;y<12;y++) for(int x=3;x<13;x++) grid[y][x]=(y==5||x==3)?'L':'C';
+                grid[13][4]='G';grid[13][11]='G';
+                if(id.endsWith("tower")) for(int y=1;y<5;y++) for(int x=6;x<10;x++) grid[y][x]='C';
+                if(id.endsWith("sign")) for(int x=5;x<11;x++) grid[8][x]=(x%2==0)?'W':'G';
+            } else {
+                for(int y=2;y<14;y++) for(int x=2;x<14;x++) {
+                    double d=Math.hypot(x-7.5,y-7.5);
+                    if(d<5.8) grid[y][x]=d>4.6?'G':x+y<14?'L':'C';
+                }
+                // Unique central rune identifies materials and four charms even in a fallback-only pack.
+                for(int bit=0;bit<5;bit++) if(((i+1)&(1<<bit))!=0) grid[6+bit/3][6+bit%3]='W';
+            }
+            String[] rows = new String[16];
+            for(int y=0;y<16;y++) rows[y]=new String(grid[y]);
+            register(sprites,id,i>=20,pal('C',colors[i],'L',blendWhite(colors[i]),'G',0x644459,'W',0xFFF7DD),rows);
+        }
+    }
+
+    private static int blendWhite(int c) {
+        return (((((c>>16)&255)+255)/2)<<16) | (((((c>>8)&255)+255)/2)<<8) | (((c&255)+255)/2);
     }
 
     private static void register(Map<String, SpriteSpec> map, String id, boolean handheld, Map<Character, Integer> p, String... rows) {

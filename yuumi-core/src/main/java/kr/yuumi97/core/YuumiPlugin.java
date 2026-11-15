@@ -21,6 +21,12 @@ import kr.yuumi97.core.shop.NpcShopManager;
 import kr.yuumi97.core.shop.NpcShopManager.ShopType;
 import kr.yuumi97.core.trade.DirectTradeManager;
 import kr.yuumi97.core.util.TextUtil;
+import kr.yuumi97.core.util.RewardMailbox;
+import kr.yuumi97.core.dungeon.DungeonManager;
+import kr.yuumi97.core.rpg.RpgJobManager;
+import kr.yuumi97.core.stock.ChuruStockManager;
+import kr.yuumi97.core.housing.GachaAndFurnitureManager;
+import kr.yuumi97.core.social.HallOfFameManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -75,10 +81,18 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
     private CasinoManager casinoManager;
     private CatRaceManager catRaceManager;
     private RaidBossManager raidManager;
+    private RewardMailbox rewardMailbox;
+    private DungeonManager dungeonManager;
+    private RpgJobManager rpgManager;
+    private ChuruStockManager stockManager;
+    private GachaAndFurnitureManager furnitureManager;
+    private HallOfFameManager hallManager;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        getConfig().options().copyDefaults(true);
+        saveConfig();
         loadDataFile();
 
         // 1. Custom Items & Crafting Recipes
@@ -133,11 +147,46 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         // 9. Multi-Phase Raid Colosseum & Yuumi Relics
         this.raidManager = new RaidBossManager(this, items, churuManager, altarManager, hubManager::getArenaCenter);
 
+        // v3.0 systems share the existing economy and append-only progression namespaces.
+        this.rewardMailbox = new RewardMailbox(this, items, dataConfig, this::saveDataFile);
+        this.dungeonManager = new DungeonManager(this, items, churuManager, dataConfig, this::saveDataFile, hubManager::getHubSpawn, rewardMailbox);
+        this.rpgManager = new RpgJobManager(this, items, churuManager, dataConfig, this::saveDataFile, plotManager);
+        rpgManager.setMailbox(rewardMailbox);
+        rpgManager.setModelAvailability(hubManager::hasBundledModel);
+        this.stockManager = new ChuruStockManager(this, churuManager, casinoManager, dataConfig, this::saveDataFile, hubManager::getStockBrokerLocation);
+        this.furnitureManager = new GachaAndFurnitureManager(this, items, casinoManager, plotManager, hubManager, dataConfig, this::saveDataFile, rewardMailbox);
+        this.hallManager = new HallOfFameManager(this, churuManager, dataConfig, this::saveDataFile, hubManager::getHubWorld);
+        rpgManager.setPartyMembers(dungeonManager::partyMembers);
+        rpgManager.setHostilePredicate(dungeonManager::isDungeonMob);
+        rpgManager.setDungeonHooks(dungeonManager::isParticipant, dungeonManager::canAffect, dungeonManager::damageObelisks, dungeonManager::reviveOnePartyMember);
+        dungeonManager.setCoinMultiplier(rpgManager::getCoinMultiplier);
+        dungeonManager.setCompletionXp(rpgManager::awardXp);
+        questManager.setCompletionXp(rpgManager::awardXp);
+        raidManager.setRewardMailbox(rewardMailbox);
+        onsenManager.setDungeonParticipantPredicate(dungeonManager::handlesClinic);
+        portalManager.setLeaveCallback(dungeonManager::onExternalLeave);
+        blacksmithManager.setRpgManager(rpgManager);
+        blacksmithManager.setSuccessListener((player, star) -> { hallManager.recordSmith(player, star); stockManager.onSmithSuccess(); });
+        shopManager.setRpgManager(rpgManager);
+        onsenManager.setRpgManager(rpgManager);
+        plotManager.setBeforePlotReset(furnitureManager::recoverPlot);
+        casinoManager.setRouletteAnimation(furnitureManager::animateRoulette);
+        hallManager.setMythicRefresh(() -> {
+            for (Player player : Bukkit.getOnlinePlayers()) if (rpgManager.getLevel(player) == 20 && rpgManager.getJob(player) != null && !rpgManager.getAwakening(player).isEmpty())
+                hallManager.unlock(player.getUniqueId(), "mythic_" + rpgManager.getJob(player).name(), "<light_purple>[신화 " + rpgManager.getJob(player).display + "]</light_purple>");
+        });
+        rpgManager.start();
+        dungeonManager.start();
+        stockManager.start();
+        furnitureManager.start();
+        hallManager.start();
+
         RelicAndFoodListener relicListener = new RelicAndFoodListener(
                 this, items, churuManager, this::openMainMenu,
                 portalManager::startChanneledRecall
         );
         relicListener.startFriendshipAuraTask();
+        relicListener.setBookmarkPouch(rpgManager.getPouch());
 
         // Register all event listeners
         PluginManager pm = Bukkit.getPluginManager();
@@ -157,6 +206,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         pm.registerEvents(catRaceManager, this);
         pm.registerEvents(raidManager, this);
         pm.registerEvents(relicListener, this);
+        pm.registerEvents(rewardMailbox, this);
 
         // Bind commands (All facility commands act as Wayfinding Guides per Physical Visit Philosophy!)
         bindCmd("yuumi", this);
@@ -168,6 +218,10 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         bindCmd("codex", questManager);
         bindCmd("land", plotManager);
         bindCmd("raid", raidManager);
+        bindCmd("party", dungeonManager.getPartyManager());
+        bindCmd("titles", hallManager);
+        bindCmd("job", this);
+        bindCmd("stock", stockManager);
 
         // Post-boot world & Vault hook
         Bukkit.getScheduler().runTaskLater(this, () -> {
@@ -194,13 +248,18 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }, 60L, 50L);
 
         getLogger().info("==========================================================");
-        getLogger().info("  🐱 [유미의 97랜드 v2.0] YuumiLandCore 활성화 완료!");
+        getLogger().info("  🐱 [유미의 97랜드 v3.0] YuumiLandCore 활성화 완료!");
         getLogger().info("  전용 평화 허브(yuumi_hub) · 12필지 분양 · 2F 카지노/경묘 준비됨");
         getLogger().info("==========================================================");
     }
 
     @Override
     public void onDisable() {
+        if (dungeonManager != null) dungeonManager.cleanup();
+        if (rpgManager != null) rpgManager.stop();
+        if (stockManager != null) stockManager.stop();
+        if (furnitureManager != null) furnitureManager.stop();
+        if (hallManager != null) hallManager.stop();
         if (catRaceManager != null) catRaceManager.cleanup();
         if (raidManager != null) raidManager.cleanup();
         if (packServer != null) packServer.stop();
@@ -209,6 +268,11 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
 
     private void handleHubNpcInteract(Player player, String role) {
         switch (role) {
+            case "class_master" -> rpgManager.openClassGui(player);
+            case "dungeon_gate" -> dungeonManager.openGateGui(player);
+            case "stock_broker" -> stockManager.openBroker(player);
+            case "gacha" -> furnitureManager.openGacha(player);
+            case "hall_of_fame" -> hallManager.openHall(player);
             case "altar" -> altarManager.openAltarGui(player);
             case "raid" -> raidManager.openRaidGui(player);
             case "shop_farm" -> shopManager.openShop(player, ShopType.FARM);
@@ -267,7 +331,14 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
     public synchronized void saveDataFile() {
         if (dataConfig == null || dataFile == null) return;
         try {
-            dataConfig.save(dataFile);
+            java.nio.file.Path target = dataFile.toPath();
+            java.nio.file.Path temp = target.resolveSibling(target.getFileName() + ".tmp");
+            java.nio.file.Files.writeString(temp, dataConfig.saveToString(), java.nio.charset.StandardCharsets.UTF_8);
+            try {
+                java.nio.file.Files.move(temp, target, java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            } catch (java.nio.file.AtomicMoveNotSupportedException unsupported) {
+                java.nio.file.Files.move(temp, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
         } catch (IOException e) {
             getLogger().warning("Could not save data.yml: " + e.getMessage());
         }
@@ -295,7 +366,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }
 
         p.sendMessage(TextUtil.mm(""));
-        p.sendMessage(TextUtil.msg("<gradient:#ff85c0:#ffd666><bold>유미의 97랜드 v2.0</bold></gradient><gray>에 오신 것을 환영합니다! (<yellow>/메뉴</yellow> 길찾기 수첩 │ <aqua>문턱의 서 Shift+우클릭</aqua> 허브 귀환)"));
+        p.sendMessage(TextUtil.msg("<gradient:#ff85c0:#ffd666><bold>유미의 97랜드 v3.0</bold></gradient><gray>에 오신 것을 환영합니다! (<yellow>/메뉴</yellow> 길찾기 수첩 │ <aqua>문턱의 서 Shift+우클릭</aqua> 허브 귀환)"));
         p.sendMessage(TextUtil.mm("<gray> · 현재 진행: <aqua>" + altarManager.getPhaseTitle() + "</aqua> │ 카지노 누적 잭팟: " + TextUtil.churu(casinoManager.getJackpot())));
         p.sendMessage(TextUtil.mm("<gray> · 지인 직거래: 광장에서 상대를 <yellow>[Shift + 우클릭]</yellow>하여 안전 교환창을 여세요!"));
         p.sendMessage(TextUtil.mm(""));
@@ -323,6 +394,8 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
                 "<yellow>보유 카지노 칩: <bold>" + TextUtil.fmt(chips) + " 칩</bold>",
                 "<#ff85c0>내 분양 부지: <white>" + (myPlot != null ? myPlot.id() + "호 (" + myPlot.tier().display + ")" : "미보유 (남쪽 단지 분양 가능)"),
                 "<green>수집 도감 등록: <white>" + codexCount + " / 21종 <gray>(상점 매입가 +" + Math.round(skillBridge.getCodexBonusRate(player) * 100) + "%)</gray>",
+                "<light_purple>성향: <white>" + rpgManager.getSummary(player),
+                "<aqua>문턱의 미궁 클리어: <white>" + dungeonManager.getClearCount(player.getUniqueId()) + "회",
                 "",
                 "<gray>🤝 지인 안전 직거래: 상대 캐릭터 <yellow>[Shift + 우클릭]</yellow>"
         ));
@@ -371,6 +444,13 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
                 "<gray>소형(15×15) · 중형(23×23) · 대형 별장(33×33) 매물 현장 표지판 확인!",
                 "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
 
+        inv.setItem(29, makeIcon(Material.NETHER_STAR, "<gold>🌟 성향 전직 교관", "<gray>광장 북서 가제보 · 직업·각성·공공 공방 안내"));
+        inv.setItem(30, makeIcon(Material.TRIAL_KEY, "<aqua>🗝 문턱의 미궁", "<gray>북쪽 성소 우측 관문 · 1~8인 파티 · /파티"));
+        inv.setItem(31, makeIcon(Material.PAPER, "<yellow>📈 츄르 증권 거래소", "<gray>카지노 2층 서북 라운지"));
+        inv.setItem(32, makeIcon(Material.HEART_OF_THE_SEA, "<gold>🎁 황금 캡슐 가챠", "<gray>광장 북동쪽 가챠 부스"));
+        inv.setItem(33, makeIcon(Material.NAME_TAG, "<yellow>🏆 명예의 전당", "<gray>광장 북동쪽 · /칭호 로 획득 칭호 장착"));
+        inv.setItem(44, makeIcon(Material.CHEST, "<green>미수령 보상 받기", "<gray>인벤토리 공간을 비우고 클릭"));
+
         // Row 5: Channeled Recall & Guidebook Recovery
         inv.setItem(40, makeIcon(Material.FEATHER, "<aqua><bold>✨ 3초 정신집중 허브 귀환 발동</bold></aqua>",
                 "<gray>야생·네더·엔드 원정 중 제자리에 3초간 가만히 서서",
@@ -388,6 +468,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         if (!(event.getWhoClicked() instanceof Player p)) return;
 
         int slot = event.getRawSlot();
+        if (slot == 44) { rewardMailbox.deliver(p); return; }
         if (slot == 40) {
             p.closeInventory();
             portalManager.startChanneledRecall(p, false);
@@ -403,6 +484,11 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             case 23 -> new Location(hub, 63.5, 65.0, -8.5);
             case 24 -> new Location(hub, 56.5, 65.0, 12.5);
             case 25 -> new Location(hub, 0.5, 65.0, 62.5);
+            case 29 -> hubManager.getClassMasterLocation();
+            case 30 -> hubManager.getDungeonGateLocation();
+            case 31 -> hubManager.getStockBrokerLocation();
+            case 32 -> new Location(hub, 21.5, 65, -10.5);
+            case 33 -> new Location(hub, 12.5, 65, -17.5);
             default -> null;
         };
 
@@ -421,9 +507,39 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }
     }
 
+    @EventHandler(priority = org.bukkit.event.EventPriority.HIGH)
+    public void onReservedMaterialUse(org.bukkit.event.player.PlayerInteractEvent event) {
+        String id=items.getCustomId(event.getItem());
+        if(id==null || !java.util.Set.of("ancient_cat_coin","respec_potion","labyrinth_key","golden_catnip").contains(id))return;
+        if(event.getAction()!=org.bukkit.event.block.Action.RIGHT_CLICK_AIR && event.getAction()!=org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK)return;
+        event.setUseItemInHand(org.bukkit.event.Event.Result.DENY);
+        if(id.equals("respec_potion") && event.getHand()==org.bukkit.inventory.EquipmentSlot.HAND)
+            event.getPlayer().sendActionBar(TextUtil.mm("<yellow>망각 물약은 성향 교관에게 직업을 변경할 때 사용됩니다."));
+    }
+
+    @EventHandler
+    public void onMenuDrag(org.bukkit.event.inventory.InventoryDragEvent event) {
+        if(event.getView().getTopInventory().getHolder() instanceof GuidebookHolder)event.setCancelled(true);
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length > 0 && args[0].equals("verify-v3") && (!(sender instanceof Player) || sender.isOp())) {
+            try {
+                if (!dungeonManager.validateReadiness().isEmpty()) throw new IllegalStateException(dungeonManager.diagnosticSummary());
+                sender.sendMessage(kr.yuumi97.core.util.V3RuntimeChecks.run(this,items,rpgManager,hubManager,dataConfig));
+                sender.sendMessage(dungeonManager.diagnosticSummary());
+            }
+            catch (Exception failure) { getLogger().log(java.util.logging.Level.SEVERE,"V3_RUNTIME_CHECKS FAILED",failure); sender.sendMessage("V3_RUNTIME_CHECKS FAILED: "+failure.getMessage()); }
+            return true;
+        }
         if (!(sender instanceof Player p)) return true;
+        if (command.getName().equals("job")) {
+            Location target=hubManager.getClassMasterLocation();
+            if(p.getWorld().equals(target.getWorld()))p.setCompassTarget(target);
+            p.sendMessage(TextUtil.msg("🧭 광장 북서 가제보의 성향 교관 마스터냥을 방문하세요. 현재 성향: <yellow>"+rpgManager.getSummary(p)));return true;
+        }
+        if (args.length > 0 && args[0].equals("보상")) { rewardMailbox.deliver(p); return true; }
 
         if (args.length == 0) {
             openMainMenu(p);
@@ -455,7 +571,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
 
         if (sub.equals("give") && p.isOp() && args.length >= 2) {
             String key = args[1].toLowerCase();
-            ItemStack gift = switch (key) {
+            ItemStack gift = YuumiItems.V3_IDS.contains(key) ? items.create(key) : switch (key) {
                 case "churu_salmon" -> items.churuSalmon(5);
                 case "churu_tuna" -> items.churuTuna(5);
                 case "churu_golden" -> items.churuGolden(1);
@@ -487,7 +603,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
                     yield custom;
                 }
             };
-            p.getInventory().addItem(gift);
+            rewardMailbox.give(p, gift);
             p.sendMessage(TextUtil.msg("[관리자] 커스텀 아이템 지급 완료: <yellow>" + key + "</yellow>"));
             return true;
         }

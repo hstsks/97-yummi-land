@@ -2,6 +2,7 @@ package kr.yuumi97.core.facility;
 
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
+import kr.yuumi97.core.rpg.RpgJobManager;
 import kr.yuumi97.core.util.TextUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -50,6 +51,10 @@ public final class OnsenAndClinicManager implements Listener {
 
     private final Map<UUID, Integer> soakSeconds = new HashMap<>();
     private final Map<UUID, Double> lastRescueFee = new HashMap<>();
+    private RpgJobManager rpg;
+    private Predicate<Player> dungeonParticipant = p -> false;
+    public void setRpgManager(RpgJobManager rpg) { this.rpg = rpg; }
+    public void setDungeonParticipantPredicate(Predicate<Player> predicate) { dungeonParticipant = predicate; }
 
     public OnsenAndClinicManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
                                  Predicate<Location> isOnsenWater, Supplier<Location> clinicBedSupplier) {
@@ -109,6 +114,7 @@ public final class OnsenAndClinicManager implements Listener {
         inv.setItem(12, priceWrap(items.kneadingBento(1), 420));
         inv.setItem(14, priceWrap(items.catnipElixir(1), 480));
         inv.setItem(16, priceWrap(items.royalFeastCan(1), 650));
+        if (rpg != null) inv.setItem(22, icon(Material.CAMPFIRE, "<gold>공공 특선 만찬 조리대 · ★★ / ★★★"));
 
         player.openInventory(inv);
     }
@@ -129,6 +135,7 @@ public final class OnsenAndClinicManager implements Listener {
         if (!(event.getInventory().getHolder() instanceof DinerHolder)) return;
         event.setCancelled(true);
         if (!(event.getWhoClicked() instanceof Player player)) return;
+        if (event.getRawSlot() == 22 && rpg != null) { rpg.getWorkshop().openFeast(player); return; }
 
         ItemStack dish = null;
         double cost = 0;
@@ -157,6 +164,7 @@ public final class OnsenAndClinicManager implements Listener {
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerDeath(PlayerDeathEvent event) {
         Player player = event.getEntity();
+        if (dungeonParticipant.test(player)) return;
         // 100% Protect inventory & XP from lava/void deletion!
         event.setKeepInventory(true);
         event.setKeepLevel(true);
@@ -199,6 +207,7 @@ public final class OnsenAndClinicManager implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event) {
+        if (dungeonParticipant.test(event.getPlayer())) return;
         Location bed = clinicBedSupplier.get();
         if (bed != null && bed.getWorld() != null) {
             event.setRespawnLocation(bed);

@@ -1,0 +1,50 @@
+{
+  "id": "tool_chef_wok",
+  "elements": 182,
+  "bounds_model_units": [
+    [
+      -0.6,
+      -4.2,
+      5.6
+    ],
+    [
+      16.6,
+      30.2,
+      10.0
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\tool_chef_wok.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\tool_chef_wok.json": "dbea6c21a7a6721d68e65b4e26a8ba0702b838f8ce9fd68f999e4f9f728b674e",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\tool_chef_wok.png": "5699a4828fe1032289e55a44e37cf17738e4beada1011706d8a3c7233ff44163"
+  },
+  "contextImages": [
+    "thirdperson_righthand",
+    "thirdperson_lefthand",
+    "firstperson_righthand",
+    "firstperson_lefthand"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

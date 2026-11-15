@@ -1,0 +1,52 @@
+{
+  "id": "weapon_ranger_bow",
+  "elements": 210,
+  "bounds_model_units": [
+    [
+      1.9,
+      -7.15,
+      5.9
+    ],
+    [
+      13.0,
+      23.15,
+      9.325
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\weapon_ranger_bow.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\weapon_ranger_bow.json": "91b78bfa5712d971b5cfeec35479e09058d48edb7fc96fb571f979637a1b8b34",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\weapon_ranger_bow.png": "a353e6895d7af08a47e82f82b4d117811ff7022b77ca86563341ce30e1623bed"
+  },
+  "contextImages": [
+    "thirdperson_righthand",
+    "thirdperson_lefthand",
+    "firstperson_righthand",
+    "firstperson_lefthand"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

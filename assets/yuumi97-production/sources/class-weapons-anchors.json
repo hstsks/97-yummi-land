@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 2,
+  "units": "Minecraft model units",
+  "rotationConvention": "XYZ intrinsic; column matrix Rx Ry Rz; left hand negates stored rotation Y/Z and translation X",
+  "notice": "Neutral display-space grip targets with verified vanilla left-hand mirroring; enclosing player transforms still require client validation.",
+  "models": {
+    "weapon_paladin_sword": {
+      "anchor": [
+        8,
+        4.7,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "weapon_shadow_daggers": {
+      "anchor": [
+        8,
+        6.3,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "weapon_ranger_bow": {
+      "anchor": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bow",
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            0
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            0
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            12
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -12
+          ],
+          "mirroredByVanilla": true
+        }
+      },
+      "stringSide": [
+        -1,
+        0,
+        0
+      ]
+    },
+    "weapon_arcane_grimoire": {
+      "anchor": [
+        8,
+        5.4,
+        8
+      ],
+      "kind": "book",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            35,
+            0,
+            0
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            35,
+            0,
+            0
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            25,
+            -18,
+            5
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            25,
+            18,
+            -5
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_miner_drill": {
+      "anchor": [
+        8,
+        8,
+        12.2
+      ],
+      "kind": "drill",
+      "forward": [
+        0,
+        0,
+        -1
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            0
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            0
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -70,
+            8
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            70,
+            -8
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_smith_hammer": {
+      "anchor": [
+        8,
+        5.8,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_farmer_scythe": {
+      "anchor": [
+        8,
+        3.5,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_angler_harpoon": {
+      "anchor": [
+        8,
+        3.9,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_carpenter_axe": {
+      "anchor": [
+        8,
+        4.5,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "tool_chef_wok": {
+      "anchor": [
+        8,
+        2.5,
+        8
+      ],
+      "kind": "upright",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            25
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -25
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    }
+  }
+}

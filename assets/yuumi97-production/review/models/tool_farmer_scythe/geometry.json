@@ -1,0 +1,50 @@
+{
+  "id": "tool_farmer_scythe",
+  "elements": 148,
+  "bounds_model_units": [
+    [
+      -13.5,
+      -7.5,
+      5.7
+    ],
+    [
+      12.0,
+      29.0,
+      9.25
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\tool_farmer_scythe.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\tool_farmer_scythe.json": "8e0fa520b4ceef94e7dc112666c393b4c032e0a4e07d8daf0acffd2854b8e64f",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\tool_farmer_scythe.png": "cbcdd15a4cd0e3b54fd29f2e70c2e29d9b5f1b1b14a240b0a8f1a78c3c310d45"
+  },
+  "contextImages": [
+    "thirdperson_righthand",
+    "thirdperson_lefthand",
+    "firstperson_righthand",
+    "firstperson_lefthand"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

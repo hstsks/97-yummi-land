@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
+import java.util.function.Consumer;
 
 /**
  * 🌌 허브 북쪽 『문턱의 서 4대 대포탈 성소』 & 원정 복귀(3초 정신집중 귀환 · 귀환 책갈피)
@@ -46,6 +47,9 @@ public final class PortalAndRecallManager implements Listener {
     private final Map<UUID, Long> gateCooldowns = new HashMap<>();
     private final Map<UUID, Long> freeRecallCooldowns = new HashMap<>();
     private final Set<UUID> channelingPlayers = ConcurrentHashMap.newKeySet();
+    private Consumer<Player> leaveCallback = player -> {};
+
+    public void setLeaveCallback(Consumer<Player> callback) { this.leaveCallback = callback; }
 
     public PortalAndRecallManager(JavaPlugin plugin, YuumiItems items, ThresholdAltarManager altar,
                                   PlotManager plotManager, Supplier<World> hubWorldSupplier,
@@ -312,7 +316,13 @@ public final class PortalAndRecallManager implements Listener {
                     if (dest == null) {
                         dest = hubSpawnSupplier.get();
                     }
-                    player.teleport(dest);
+                    if (!player.teleport(dest)) {
+                        if (useBookmark) player.getInventory().addItem(items.recallBookmark(1));
+                        else freeRecallCooldowns.remove(player.getUniqueId());
+                        player.sendMessage(TextUtil.msg("<red>귀환 이동이 취소되었습니다. 사용한 비용을 돌려드립니다."));
+                        return;
+                    }
+                    leaveCallback.accept(player);
                     player.playSound(dest, Sound.ENTITY_ENDERMAN_TELEPORT, 1.0f, 1.25f);
                     player.playSound(dest, Sound.ENTITY_CAT_PURREOW, 1.0f, 1.2f);
                     dest.getWorld().spawnParticle(Particle.TOTEM_OF_UNDYING, dest.clone().add(0, 1.0, 0), 25, 0.4, 0.6, 0.4, 0.15);

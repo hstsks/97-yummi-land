@@ -1,0 +1,18 @@
+// Locked v3.0 art contract. Never infer this catalog from concurrently edited Java.
+export const baselineModels = ['prop_yuumi_statue','prop_slot_cabinet','prop_roulette_wheel','prop_derby_trophy','prowling_wand','book_of_thresholds','you_and_me_bell','hat_yuumi_ears','plushie_yuumi'];
+export const baselineIcons = ['churu_salmon','churu_tuna','churu_golden','casino_chip','jackpot_crown','torn_page','book_of_thresholds','zoomies_skewer','kneading_bento','catnip_elixir','royal_feast_can','boss_core_rat','boss_core_hound','boss_core_void','you_and_me_bell','prowling_wand','final_chapter_tome','nine_lives_charm','slot_seven','slot_yuumi','slot_paw','chip_100','chip_1000','chip_10000','recall_bookmark','starlight_stone','starlight_scroll'];
+export const environment = ['prop_gacha_machine','prop_stock_board','prop_dungeon_obelisk','prop_boon_altar','prop_feast_cauldron'];
+export const furniture = ['furn_cat_tower','furn_kotatsu','furn_neon_sign'];
+export const hats = ['hat_chef_toque','hat_stock_tophat'];
+export const weapons = ['weapon_paladin_sword','weapon_shadow_daggers','weapon_ranger_bow','weapon_arcane_grimoire','tool_miner_drill','tool_smith_hammer','tool_farmer_scythe','tool_angler_harpoon','tool_carpenter_axe','tool_chef_wok'];
+export const pureIcons = ['labyrinth_key','ancient_cat_coin','gacha_capsule','class_emblem','respec_potion','charm_crimson_claw','charm_starlight_aegis','charm_golden_whisker','charm_vampiric_purr','monster_soul_core','unidentified_geode','golden_catnip','deep_sea_fillet','rune_scroll','michelin_feast'];
+export const newGui = [...furniture,...hats,...weapons];
+export const newModels = [...environment,...newGui];
+export const models = [...baselineModels,...newModels];
+export const newIcons = [...pureIcons,...newGui];
+export const icons = [...baselineIcons,...newIcons];
+export const selectors = ['prowling_wand','book_of_thresholds','you_and_me_bell',...newGui];
+export const floorModels = [...environment,...furniture];
+export const atlasSizes = Object.fromEntries(models.map(id=>[id,id.startsWith('prop_')||furniture.includes(id)?128:64]));
+export const contexts = ['gui','ground','fixed','head','firstperson_righthand','firstperson_lefthand','thirdperson_righthand','thirdperson_lefthand'];
+export const target = 'Minecraft Java 1.21.4 / pack_format 46';

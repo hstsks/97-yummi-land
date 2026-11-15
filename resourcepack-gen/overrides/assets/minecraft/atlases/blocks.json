@@ -35,6 +35,86 @@
     {
       "type": "minecraft:single",
       "resource": "yuumi97:prop/plushie_yuumi"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_gacha_machine"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_stock_board"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_dungeon_obelisk"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_boon_altar"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_feast_cauldron"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/furn_cat_tower"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/furn_kotatsu"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/furn_neon_sign"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/hat_chef_toque"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/hat_stock_tophat"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_paladin_sword"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_shadow_daggers"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_ranger_bow"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_arcane_grimoire"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_miner_drill"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_smith_hammer"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_farmer_scythe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_angler_harpoon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_carpenter_axe"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/tool_chef_wok"
     }
   ]
 }

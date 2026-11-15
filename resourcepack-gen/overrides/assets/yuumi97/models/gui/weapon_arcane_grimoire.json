@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "yuumi97:item/weapon_arcane_grimoire"
+  }
+}

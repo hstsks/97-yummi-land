@@ -1,6 +1,7 @@
 package kr.yuumi97.core.items;
 
 import kr.yuumi97.core.economy.ChuruManager;
+import kr.yuumi97.core.rpg.BookmarkPouchManager;
 import kr.yuumi97.core.util.TextUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -43,6 +44,8 @@ public final class RelicAndFoodListener implements Listener {
 
     private final Map<UUID, Long> wandCooldowns = new HashMap<>();
     private final Map<UUID, Long> tomeCooldowns = new HashMap<>();
+    private BookmarkPouchManager bookmarkPouch;
+    public void setBookmarkPouch(BookmarkPouchManager pouch) { this.bookmarkPouch = pouch; }
 
     public RelicAndFoodListener(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
                                 Consumer<Player> openMainMenu, BiConsumer<Player, Boolean> recallTrigger) {
@@ -59,12 +62,13 @@ public final class RelicAndFoodListener implements Listener {
     public void startFriendshipAuraTask() {
         Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player holder : Bukkit.getOnlinePlayers()) {
-                if (!hasItemInInventory(holder, "you_and_me_bell")) continue;
+                if (holder.isDead() || holder.getGameMode() == org.bukkit.GameMode.SPECTATOR) continue;
+                if (!hasItemInInventory(holder, "you_and_me_bell") && (bookmarkPouch == null || !bookmarkPouch.hasCharm(holder, "you_and_me_bell"))) continue;
 
                 Player partner = null;
                 double bestDistSq = 144.0; // 12 blocks
                 for (Player other : holder.getWorld().getPlayers()) {
-                    if (other.equals(holder) || other.isDead()) continue;
+                    if (other.equals(holder) || other.isDead() || other.getGameMode() == org.bukkit.GameMode.SPECTATOR) continue;
                     double dSq = other.getLocation().distanceSquared(holder.getLocation());
                     if (dSq <= bestDistSq) {
                         bestDistSq = dSq;
@@ -202,10 +206,13 @@ public final class RelicAndFoodListener implements Listener {
             }
         }
         boolean offhand = foundSlot == -1 && items.isCustomItem(player.getInventory().getItemInOffHand(), "nine_lives_charm");
-        if (foundSlot == -1 && !offhand) return;
+        boolean inPouch = foundSlot == -1 && !offhand && bookmarkPouch != null && bookmarkPouch.hasCharm(player, "nine_lives_charm");
+        if (foundSlot == -1 && !offhand && !inPouch) return;
 
         event.setCancelled(true);
-        if (offhand) {
+        if (inPouch) {
+            bookmarkPouch.consumeCharm(player, "nine_lives_charm");
+        } else if (offhand) {
             ItemStack off = player.getInventory().getItemInOffHand();
             off.setAmount(off.getAmount() - 1);
         } else {

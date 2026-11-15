@@ -1,0 +1,187 @@
+{
+  "id": "tool_chef_wok",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "thirdperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          4.7407,
+          -0.8683
+        ],
+        "scale": [
+          0.61,
+          0.61,
+          0.61
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        2.5,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500019,
+        3.8e-05
+      ],
+      "anchorErrorModelUnits": 4.2e-05,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "thirdperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          4.7407,
+          -0.8683
+        ],
+        "scale": [
+          0.61,
+          0.61,
+          0.61
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        2.5,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500019,
+        3.8e-05
+      ],
+      "anchorErrorModelUnits": 4.2e-05,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          25
+        ],
+        "translation": [
+          0,
+          4.6319,
+          -1.4604
+        ],
+        "scale": [
+          0.6283,
+          0.6283,
+          0.6283
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        2.5,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500017,
+        2.1e-05
+      ],
+      "anchorErrorModelUnits": 2.7e-05,
+      "forwardBlender": [
+        0.0,
+        0.422618,
+        0.906308
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          25
+        ],
+        "translation": [
+          0,
+          4.6319,
+          -1.4604
+        ],
+        "scale": [
+          0.6283,
+          0.6283,
+          0.6283
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        2.5,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500017,
+        2.1e-05
+      ],
+      "anchorErrorModelUnits": 2.7e-05,
+      "forwardBlender": [
+        0.0,
+        0.422618,
+        0.906308
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

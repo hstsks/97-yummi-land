@@ -1,0 +1,47 @@
+{
+  "id": "prop_stock_board",
+  "elements": 138,
+  "bounds_model_units": [
+    [
+      -7.95,
+      0.0,
+      2.5
+    ],
+    [
+      23.95,
+      30.25,
+      13.5
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_stock_board.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_stock_board.json": "d3563aff2d229fbee898b94fe8eddb5fc0c94bc24d09d39a6ae57ea536274d4f",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_stock_board.png": "fd4f6c25186fb675e4569f9daeea25d801e116dc4d9a4cd003a8cea0a0a78a9d"
+  },
+  "contextImages": [
+    "floor_00"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

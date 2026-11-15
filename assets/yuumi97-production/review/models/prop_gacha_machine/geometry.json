@@ -1,0 +1,47 @@
+{
+  "id": "prop_gacha_machine",
+  "elements": 269,
+  "bounds_model_units": [
+    [
+      -2.0,
+      0.0,
+      -1.2
+    ],
+    [
+      18.0,
+      30.7023,
+      16.4
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_gacha_machine.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_gacha_machine.json": "22ab1becd31542dd427a3e8ca0c8ae71852bbd132ca6620e1cc70fbc91cb46c3",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_gacha_machine.png": "7d01952e5521e9f780b3eb9939036d7e4ef0d96de679d612c854e752f99a97e4"
+  },
+  "contextImages": [
+    "floor_00"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

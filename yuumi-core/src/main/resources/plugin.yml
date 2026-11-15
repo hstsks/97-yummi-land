@@ -1,12 +1,24 @@
 name: YuumiLandCore
-version: '2.0.0'
+version: '3.0.0'
 main: kr.yuumi97.core.YuumiPlugin
 api-version: '1.21'
 authors: [Antigravity_97Land]
-description: 유미의 97랜드 v2.0 올인원 자율 운영 코어 (전용 평화 허브 yuumi_hub, 5대 NPC 상점 & 안전 직거래, 츄르 은행/금고, 별빛 세공 대장간, 2F 카지노 & 실시간 고양이 경주, 12필지 분양 단지, 4대 대포탈 성소)
-softdepend: [Vault, Essentials, AuraSkills, EvenMoreFish, WorldEdit]
+description: 유미의 97랜드 v3.0 (고밀도 허브, 파티 미궁, 10대 성향·20각성·공공 공방, 증권·가챠·3D 하우징·명예의 전당)
+softdepend: [Vault, Essentials, AuraSkills, EvenMoreFish, WorldEdit, TAB]
 
 commands:
+  party:
+    description: 1~8인 파티 관리 및 문턱의 미궁 관문 길찾기
+    aliases: [파티, 미궁]
+  titles:
+    description: 획득한 명예 칭호 장착
+    aliases: [칭호, title]
+  job:
+    description: 광장 성향 교관 길찾기
+    aliases: [전직]
+  stock:
+    description: 카지노 2층 증권 거래소 길찾기
+    aliases: [증권]
   yuumi:
     description: 유미의 97랜드 차원 안내 수첩 (내 자산 확인, 시설 나침반 길찾기, 3초 귀환)
     aliases: [메뉴, menu, 97랜드, 길찾기]

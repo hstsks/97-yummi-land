@@ -1,0 +1,47 @@
+{
+  "id": "prop_dungeon_obelisk",
+  "elements": 156,
+  "bounds_model_units": [
+    [
+      -2.0,
+      0.0,
+      -2.0
+    ],
+    [
+      18.0,
+      29.6,
+      18.0
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_dungeon_obelisk.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_dungeon_obelisk.json": "a1a0d4cbed7efc9e602179f3465ab0f2f6829828937b4267ae328c567ea49da7",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_dungeon_obelisk.png": "0cdd18af1d71d6e24ab9a1372aae07a7ae1d3483f8ff0ce125c03111e9fc7012"
+  },
+  "contextImages": [
+    "floor_00"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

@@ -7,6 +7,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { Canvas, ROOT, OUT, REVIEW } from '../tools/asset-kit.mjs';
+import { icons as EXPECTED, newIcons } from './asset-contract.mjs';
+import { drawV3 } from './icons-v3.mjs';
 
 const P = {
   ink:'#29233F', ink2:'#48405D', gold:'#E9B94F', goldD:'#A86B35', goldS:'#765039',
@@ -422,8 +424,8 @@ icon('starlight_scroll',c=>{
   e(c,23,23,3,3,P.goldD);e(c,23,22,2,2,P.gold);px(c,22,21,P.goldL);px(c,23,22,P.pinkD);
 });
 
-const EXPECTED = ['churu_salmon','churu_tuna','churu_golden','casino_chip','jackpot_crown','torn_page','book_of_thresholds','zoomies_skewer','kneading_bento','catnip_elixir','royal_feast_can','boss_core_rat','boss_core_hound','boss_core_void','you_and_me_bell','prowling_wand','final_chapter_tome','nine_lives_charm','slot_seven','slot_yuumi','slot_paw','chip_100','chip_1000','chip_10000','recall_bookmark','starlight_stone','starlight_scroll'];
-if(icons.size!==27 || EXPECTED.some(id=>!icons.has(id)))throw new Error('Icon catalog must exactly match the 27 PackBuilder entries.');
+drawV3({icon,P,r,p,e,l,px,spark,gem,paw,fish});
+if(icons.size!==57 || EXPECTED.some(id=>!icons.has(id)))throw new Error('Icon catalog must exactly match the locked 57-icon contract.');
 
 const textureDir=path.join(OUT,'textures','item');
 const reviewDir=path.join(REVIEW,'icons');
@@ -432,8 +434,9 @@ for(const id of EXPECTED)await icons.get(id).save(path.join(textureDir,id+'.png'
 
 // Inspection sheets include light and dark grounds, native resolution, and nearest enlargement.
 function checker(c,x,y,w,h,cell=8,light=false){for(let yy=0;yy<h;yy+=cell)for(let xx=0;xx<w;xx+=cell)c.rect(x+xx,y+yy,Math.min(cell,w-xx),Math.min(cell,h-yy),((xx/cell+yy/cell)%2)?(light?'#E7E4DD':'#343342'):(light?'#F5F1E6':'#292936'));}
-const native=new Canvas(600,310);native.rect(0,0,600,310,'#1E202C');native.text('YUUMI 97LAND / 27 ICONS / NATIVE 32PX',12,10,'#FFF0D2',1);
-const large=new Canvas(1660,1590);large.rect(0,0,1660,1590,'#1E202C');large.text('YUUMI 97LAND / PIXEL MASTERS / 8X NEAREST',20,15,'#FFF0D2',2);
+const rows=Math.ceil(EXPECTED.length/6);
+const native=new Canvas(600,rows*54+40);native.rect(0,0,native.w,native.h,'#1E202C');native.text('YUUMI 97LAND / 57 ICONS / NATIVE 32PX',12,10,'#FFF0D2',1);
+const large=new Canvas(1660,rows*305+65);large.rect(0,0,large.w,large.h,'#1E202C');large.text('YUUMI 97LAND / PIXEL MASTERS / 8X NEAREST',20,15,'#FFF0D2',2);
 for(let i=0;i<EXPECTED.length;i++){
   const id=EXPECTED[i],c=icons.get(id),col=i%6,row=Math.floor(i/6);
   const nx=col*98+8,ny=row*54+33;checker(native,nx,ny,32,32,4);checker(native,nx+36,ny,32,32,4,true);native.blit(c,nx,ny);native.blit(c,nx+36,ny);
@@ -442,7 +445,7 @@ for(let i=0;i<EXPECTED.length;i++){
 }
 await native.save(path.join(reviewDir,'icons-native-32.png'));
 await large.save(path.join(reviewDir,'icons-contact-8x.png'));
-const half=new Canvas(960,550);half.rect(0,0,960,550,'#1E202C');half.text('16PX GUI STRESS CHECK / NATIVE 16 AND 4X NEAREST',12,12,P.cream,1);
+const half=new Canvas(960,rows*100+50);half.rect(0,0,half.w,half.h,'#1E202C');half.text('16PX GUI STRESS CHECK / NATIVE 16 AND 4X NEAREST',12,12,P.cream,1);
 const validation=[];
 for(let i=0;i<EXPECTED.length;i++){
   const id=EXPECTED[i],src=icons.get(id),small=new Canvas(16,16);
@@ -451,7 +454,7 @@ for(let i=0;i<EXPECTED.length;i++){
   }
   const x=(i%6)*158+10,y=Math.floor(i/6)*100+38;
   checker(half,x,y,16,16,4);half.blit(small,x,y);checker(half,x+30,y,64,64,8);half.blit(small,x+30,y,4);
-  half.text(String(i+1).padStart(2,'0')+' '+id.toUpperCase(),x,y+74,P.goldL,1);
+  half.text(String(i+1).padStart(2,'0')+' '+id.toUpperCase().slice(0,31),x,y+74,P.goldL,1);
   let opaque=0,partialAlpha=0,minX=32,minY=32,maxX=-1,maxY=-1;const colors=new Set();
   for(let yy=0;yy<32;yy++)for(let xx=0;xx<32;xx++){
     const o=(yy*32+xx)*4,a=src.data[o+3];if(a!==0&&a!==255)partialAlpha++;
@@ -464,10 +467,19 @@ for(let i=0;i<EXPECTED.length;i++){
   validation.push({id,dimensions,bitDepth,colorType,opaquePixels:opaque,partialAlphaPixels:partialAlpha,colors:colors.size,bounds:[minX,minY,maxX,maxY],transparentContourMargin:true});
 }
 await half.save(path.join(reviewDir,'icons-stress-16.png'));
-const catalogSource=fs.readFileSync(path.join(ROOT,'resourcepack-gen','PackBuilder.java'),'utf8');
-const catalogIDs=[...catalogSource.matchAll(/register\(m,\s*"([^"]+)"/g)].map(m=>m[1]);
-if(catalogIDs.length!==27||catalogIDs.some(id=>!icons.has(id)))throw new Error('Catalog mismatch against PackBuilder.java');
+// New assets have a dedicated readable board; source catalog supplies full IDs.
+const v3=new Canvas(1200,Math.ceil(newIcons.length/5)*240+45);
+v3.rect(0,0,v3.w,v3.h,'#1E202C');v3.text('V3 / 30 NEW PIXEL MASTERS / 4X AND NATIVE 32',15,14,P.cream,2);
+for(let i=0;i<newIcons.length;i++){
+  const id=newIcons[i],c=icons.get(id),x=(i%5)*240+12,y=Math.floor(i/5)*240+50;
+  checker(v3,x,y,128,128,16);v3.blit(c,x,y,4);checker(v3,x+138,y,32,32,4,true);v3.blit(c,x+138,y);
+  const small=new Canvas(16,16);for(let yy=0;yy<16;yy++)for(let xx=0;xx<16;xx++){const o=((yy*2+1)*32+xx*2+1)*4;small.pixel(xx,yy,Array.from(c.data.subarray(o,o+4)));}
+  checker(v3,x+138,y+50,64,64,8);v3.blit(small,x+138,y+50,4);
+  v3.text(String(i+28).padStart(2,'0')+' '+id,x,y+139,P.goldL,1);
+  v3.text('32PX 4X / 32PX / 16PX 4X',x,y+155,'#ADB5C7',1);
+}
+v3.save(path.join(reviewDir,'icons-v3-contact.png'));
 fs.writeFileSync(path.join(reviewDir,'validation.json'),JSON.stringify({count:icons.size,exactCatalogMatch:true,antialiasing:false,masterSize:32,guiStressSize:16,icons:validation},null,2)+'\n');
 fs.writeFileSync(path.join(reviewDir,'catalog.json'),JSON.stringify(EXPECTED.map((id,i)=>({index:i+1,id,width:32,height:32,master:'textures/item/'+id+'.png'})),null,2)+'\n');
-fs.writeFileSync(path.join(reviewDir,'notes.md'),'# 27 inventory icons\n\nAll 27 original PackBuilder IDs are covered. Each image is a hand-placed 32×32 RGBA pixel master with a transparent background, hard pixel edges, upper-left lighting and shared ink/gold/teal/pink ramps. Denomination chips differ by palette, center emblem and 100 / 1K / 10K labels. Cheese, hound collar and void geode have distinct silhouettes. Three relic icons remain standalone masters; GUI routing is controlled by the root item definitions.\n\nSources: `sources/icons.mjs`. Rerun with Node and `tools/asset-kit.mjs`. Review sheets: `icons-native-32.png`, `icons-contact-8x.png`, and `icons-stress-16.png`. The 16px stress sheet samples the center pixel of each 2×2 source block, without filtering. Labels and fine runes are intended for the native 32px view; color, shape and center mark carry item identity at 16px.\n\nVisual review: inspected all 27 on light/dark backgrounds and at 8× nearest enlargement. Adjusted the outer paw toe to preserve a transparent 1px contour margin. Technical checks read every saved PNG header, confirm RGBA8 / 32×32, binary alpha, contour margins, non-empty occupancy, and exact ID coverage against the current PackBuilder.java source. These are asset checks, not a claim of in-game client validation.\n');
+fs.writeFileSync(path.join(reviewDir,'notes.md'),"# 57 inventory icons\n\n27 original masters are preserved; 30 v3 masters are added. All are 32x32 RGBA8, binary alpha, nearest-only review scaling and one-pixel transparent contour margin. Full IDs are in catalog.json; the dedicated v3 board covers all 30 new images. Sixteen-pixel reduction tests silhouette and palette, not tiny text.\n\nThis generator records technical evidence only. Actual visual observations and revisions are recorded separately in review/v3-visual-review.md after opening the generated images. Minecraft client validation is separate.\n");
 console.log(JSON.stringify({icons:icons.size,textureDir,reviewDir,ids:EXPECTED}));

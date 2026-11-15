@@ -1,0 +1,47 @@
+{
+  "id": "hat_chef_toque",
+  "elements": 104,
+  "bounds_model_units": [
+    [
+      -1.15,
+      13.7,
+      -1.15
+    ],
+    [
+      17.15,
+      30.05,
+      17.15
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\hat_chef_toque.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\hat_chef_toque.json": "2a5de5e5c47742a9c91a80bd5c7ee47d0e6aacf0f506c358c68ad3426e18a424",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\hat_chef_toque.png": "f7e93aedcb401ec66da1b2fe045e4b8cdd4a66c724f015dd54adb39220357957"
+  },
+  "contextImages": [
+    "head"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

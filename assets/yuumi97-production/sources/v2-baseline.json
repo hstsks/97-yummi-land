@@ -1,0 +1,210 @@
+[
+  {
+    "path": "assets/minecraft/atlases/blocks.json",
+    "sha256": "26a9b55bc1d12e51e099624ecdf08047dc8e85c29e526023f88925ee2add07fb"
+  },
+  {
+    "path": "assets/yuumi97/items/book_of_thresholds.json",
+    "sha256": "60315daccd5cdbd33f355a6ba29143a97b9d5e1f559a010b6a89ca18d1480245"
+  },
+  {
+    "path": "assets/yuumi97/items/prowling_wand.json",
+    "sha256": "b4d3688679bcda8591ad68de653119fb059099e3c373ac9efdc24ded904fc100"
+  },
+  {
+    "path": "assets/yuumi97/items/you_and_me_bell.json",
+    "sha256": "b20f825f3fc0f79493c4e0afa76d4f6297e584e57dc45280fc981641348bcba9"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/book_of_thresholds.json",
+    "sha256": "4162b556eda8f172af2e5f22939d26800aa3a4f096accc022e898be7ef6526df"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/prowling_wand.json",
+    "sha256": "ad6781518dddfc0dd7647abdaea18b494006714ce29b1bad3427baff02c0f1de"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/you_and_me_bell.json",
+    "sha256": "700f89aa7998c689ac4ec77f8205c5413bb2adf35a8221c1b5e450cc60de07ab"
+  },
+  {
+    "path": "assets/yuumi97/models/item/book_of_thresholds.json",
+    "sha256": "6cec7dd858bd0db2f51ede3db289df9cbe6e5e14cb36ffbac58038dc2ec4afcb"
+  },
+  {
+    "path": "assets/yuumi97/models/item/hat_yuumi_ears.json",
+    "sha256": "7f5e5365a9d203c82946a789c09523942c99458e8a2a4ef90601f249fcd274e4"
+  },
+  {
+    "path": "assets/yuumi97/models/item/plushie_yuumi.json",
+    "sha256": "60b9cf7a0747d6cfb071223cb420e67c4dfb973da0a3c6d670ed6955f15c3e71"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_derby_trophy.json",
+    "sha256": "951293d6196425a61066f83a3c6fd32c0ee87d0421951e463fa61c042a482142"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_roulette_wheel.json",
+    "sha256": "3d50f2727e8fd668c9bea93e7e531c3f201d638ada324ba8762318d866cffd85"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_slot_cabinet.json",
+    "sha256": "6f7c303691f470861de3b743fee74c5541478c2b58dc38c598de57b7a8c1672d"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_yuumi_statue.json",
+    "sha256": "d7b2311a43498698eda89a96aa746e8d36a1da997c696043df3cf0718d9e1eb6"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prowling_wand.json",
+    "sha256": "17e180117f1acb40d0c50ec7aaaca48eeff72a54faed62e68bb3b8206bf5061b"
+  },
+  {
+    "path": "assets/yuumi97/models/item/you_and_me_bell.json",
+    "sha256": "27eefd7bfeb4e598e41928b6366600788d72884730ad3c4a0129bb9077144e83"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/book_of_thresholds.png",
+    "sha256": "d6c555fa309f02913b5ee1feeb6d5ee801e00329c9c357ceaea1da21be285e62"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_hound.png",
+    "sha256": "484b203070d80782051d92bd98772250127a61be67ce87d93b97db0212cdc7bd"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_rat.png",
+    "sha256": "f3636d9ef441a3faec0109cf3b4d7a93968e22e8e854e8e228132f64c222b91d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_void.png",
+    "sha256": "32ae6534a3163307ddf80b81af49dfb65f7167b2e7a18054ca5883ec072cfdf5"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/casino_chip.png",
+    "sha256": "08bb4523144b5b5995c028887720b938ca1690150ad1395c63e038009a4a3404"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/catnip_elixir.png",
+    "sha256": "47e940c7da34ccc2408a9b29bb003882ce35673c5287b995dbcf93d3a4e0ce43"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_100.png",
+    "sha256": "78cbbcba98d5dc5975292aa314538ddb9e73fed671180429266536ee09cdbb90"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_1000.png",
+    "sha256": "ef4f6f1eebef103981366e893a7cbe333c2355613c838bd3db9ee39052ab0f0c"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_10000.png",
+    "sha256": "bfce5a047fef4b1123afffd202202dc8a190d25c7b613f4f796c9ecdc17c0000"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_golden.png",
+    "sha256": "2c994bfe9eaae8e8c486d570548ab49fa189eb9c1444ab6c9c17219b4ec0352d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_salmon.png",
+    "sha256": "9f2d06d6664a180a7f5766e03449a3a2028b769389bbcaf0fc92a2abb8302936"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_tuna.png",
+    "sha256": "58afd89b16484cd69f9034e7e600315697e3d682355640853ed754a3e05ace61"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/final_chapter_tome.png",
+    "sha256": "db18cadd0e843c6a9b8c335b6327c26276d1af14f0f60da24883f846ef94cd0a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/jackpot_crown.png",
+    "sha256": "a6ae2bde1ab5c9a1d1d349d9576a69db55ca6d11b6eedafd446ba45d5482b9e0"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/kneading_bento.png",
+    "sha256": "8c2e35d8d3a78b45537560dc0f621f4d4f4f49e31f5af13bfe858bb8377624d7"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/nine_lives_charm.png",
+    "sha256": "eb3d74736e3f060aaba63e253f51772ecf3238fdb28d4b5c323b7ed24a7d0b82"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/prowling_wand.png",
+    "sha256": "7c404e815c2f183517736c322a4362f8dcddf0b9b32831f5f33ce723d0940c6e"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/recall_bookmark.png",
+    "sha256": "c3c26e3e8aca444ce81ca4882811c84ea3d2610e6f4bef9255e6e29bf75c9a58"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/royal_feast_can.png",
+    "sha256": "8c173b475b7330d248b3355d0bd556328e825526b08ce1551f8a1aac74326dd7"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_paw.png",
+    "sha256": "d50c7a4801a690ce696b1150840b70fb04abd8eaabd9e04ef62f8f31bdfe87c9"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_seven.png",
+    "sha256": "666470b4d38423161f057b0a9670366e90555a0791f0736d28a4a1a3df7cf4be"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_yuumi.png",
+    "sha256": "2ea6cdc940e480c55bda7e6039ceb22f99b8ab235df4f36065eb347f4a5f9c6d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/starlight_scroll.png",
+    "sha256": "64bc048cb95ad71743abd685c804b99460f0c55766451b6a60dbe248c15b4f5a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/starlight_stone.png",
+    "sha256": "fdb79539476b9e1d8575a82cbe412d85da9e13991c671589c781d71e528a01b8"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/torn_page.png",
+    "sha256": "ffadb3ce85d46c10336243f20507d6b8fe4fe577979f8515af592368ca1f0e22"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/you_and_me_bell.png",
+    "sha256": "999ba2ba8327a4d099073a55a2227a3efefa923c10bd1d727b58060091bfeda0"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/zoomies_skewer.png",
+    "sha256": "f5f4499b5f0dcec26522ff16b5ae6eca3a44b7fc893e29d31f3dbdab4d79e0fd"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/book_of_thresholds.png",
+    "sha256": "38b7adff77d94736675ea0502eb68dd40547135993ed89dcd6c00a3c28f4e792"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/hat_yuumi_ears.png",
+    "sha256": "1cf66af0e3adf7d06a38f2f7b44743c3ed16cf7caa88e7d7476183eac1a17afa"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/plushie_yuumi.png",
+    "sha256": "58a5b7661887d07c799e88f2c9ac8ebcfb85704949f6549445a7e28291cba223"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_derby_trophy.png",
+    "sha256": "2e0a62cd72570359fc0fe610659fce500bcf8194505ff9c2f1e14fd35c05bc5e"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_roulette_wheel.png",
+    "sha256": "3219194e7e03e8d847cdc11c09f7a0862816005ff3459ac68ca2457aeb6a860d"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_slot_cabinet.png",
+    "sha256": "847433b243cff9d489c8c6ba238e6525fbbacca52b920ed5c7528cfca71240cd"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_yuumi_statue.png",
+    "sha256": "e0d9ba7738d5fa187d0b1fbea88319a775c3bac5914b6893f020164bbb3f17f6"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prowling_wand.png",
+    "sha256": "c706f0845e2152e0aecc9c775662d877a8fb585a8a986187b5d8018790eba99f"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/you_and_me_bell.png",
+    "sha256": "4943e700beb5e6a97becde71dd542203b8144019994295ecf18771c2dd75a175"
+  }
+]

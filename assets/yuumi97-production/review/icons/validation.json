@@ -1,5 +1,5 @@
 {
-  "count": 27,
+  "count": 57,
   "exactCatalogMatch": true,
   "antialiasing": false,
   "masterSize": 32,
@@ -515,6 +515,576 @@
         4,
         28,
         29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "labyrinth_key",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 304,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "ancient_cat_coin",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 548,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "gacha_capsule",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 448,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        4,
+        5,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "class_emblem",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 454,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        27,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "respec_potion",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 408,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        5,
+        2,
+        26,
+        27
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "charm_crimson_claw",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 369,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "charm_starlight_aegis",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 406,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "charm_golden_whisker",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 380,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "charm_vampiric_purr",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 437,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "monster_soul_core",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 509,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        2,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "unidentified_geode",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 584,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "golden_catnip",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 386,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "deep_sea_fillet",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 465,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        4,
+        29,
+        28
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "rune_scroll",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 550,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        2,
+        3,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "michelin_feast",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 526,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        3,
+        30,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "furn_cat_tower",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 495,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        4,
+        3,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "furn_kotatsu",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 489,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        7,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "furn_neon_sign",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 684,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        4,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "hat_chef_toque",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 482,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        28,
+        27
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "hat_stock_tophat",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 557,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "weapon_paladin_sword",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 292,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "weapon_shadow_daggers",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 282,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        28,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "weapon_ranger_bow",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 264,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "weapon_arcane_grimoire",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 511,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        2,
+        28,
+        27
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_miner_drill",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 354,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        2,
+        29,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_smith_hammer",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 329,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        28,
+        29
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_farmer_scythe",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 329,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        5,
+        2,
+        29,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_angler_harpoon",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 257,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        28,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_carpenter_axe",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 375,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        4,
+        3,
+        28,
+        30
+      ],
+      "transparentContourMargin": true
+    },
+    {
+      "id": "tool_chef_wok",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "opaquePixels": 446,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        30,
+        30
       ],
       "transparentContourMargin": true
     }

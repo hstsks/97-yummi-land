@@ -40,6 +40,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -104,6 +105,7 @@ public final class PlotManager implements Listener, CommandExecutor {
     private final Runnable saveCallback;
     private final Supplier<World> hubWorldSupplier;
     private BiConsumer<World, PlotSpec> starterCottageBuilder;
+    private Consumer<PlotSpec> beforePlotReset = spec -> {};
 
     private final Map<String, PlotSpec> plots = new LinkedHashMap<>();
 
@@ -119,6 +121,20 @@ public final class PlotManager implements Listener, CommandExecutor {
 
     public void setStarterCottageBuilder(BiConsumer<World, PlotSpec> builder) {
         this.starterCottageBuilder = builder;
+    }
+
+    /** Runs while ownership still exists, before blocks or furniture are removed. */
+    public void setBeforePlotReset(Consumer<PlotSpec> callback) {
+        this.beforePlotReset = callback == null ? spec -> {} : callback;
+    }
+
+    /** Migration protection deliberately covers the complete vertical column. */
+    public boolean isOwnedColumn(int x, int z) {
+        for (PlotSpec spec : plots.values()) {
+            if (x >= spec.minX() && x <= spec.maxX()
+                    && z >= spec.minZ() && z <= spec.maxZ() && getOwner(spec.id()) != null) return true;
+        }
+        return false;
     }
 
     private void initPlotCatalog() {
@@ -553,10 +569,12 @@ public final class PlotManager implements Listener, CommandExecutor {
             }
             if (raw == 11 && player.getUniqueId().equals(getOwner(spec.id()))) {
                 double refund = Math.round(getPlotPrice(spec) * 0.70);
+                resetPlotLawn(spec);
                 data.set("plots." + spec.id() + ".owner", null);
                 data.set("plots." + spec.id() + ".cottage_built", false);
                 saveCallback.run();
-                resetPlotLawn(spec);
+                World hub = hubWorldSupplier.get();
+                if (hub != null) refreshPlotSign(hub, spec);
                 churu.deposit(player, refund);
                 player.closeInventory();
                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1.2f);
@@ -566,6 +584,7 @@ public final class PlotManager implements Listener, CommandExecutor {
     }
 
     public void resetPlotLawn(PlotSpec spec) {
+        beforePlotReset.accept(spec);
         World hub = hubWorldSupplier.get();
         if (hub == null) return;
         for (int x = spec.minX(); x <= spec.maxX(); x++) {

@@ -2,6 +2,8 @@ package kr.yuumi97.core.facility;
 
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
+import kr.yuumi97.core.rpg.RpgJobManager;
+import kr.yuumi97.core.rpg.JobType;
 import kr.yuumi97.core.util.TextUtil;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -70,6 +72,10 @@ public final class BlacksmithManager implements Listener {
     private final NamespacedKey modMiningKey;
     private final NamespacedKey modHealthKey;
     private final NamespacedKey modToughKey;
+    private RpgJobManager rpg;
+    public void setRpgManager(RpgJobManager rpg) { this.rpg = rpg; }
+    private java.util.function.BiConsumer<Player, Integer> successListener = (player, star) -> {};
+    public void setSuccessListener(java.util.function.BiConsumer<Player, Integer> listener) { successListener = listener; }
 
     public BlacksmithManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu) {
         this.plugin = plugin;
@@ -125,12 +131,18 @@ public final class BlacksmithManager implements Listener {
     public int getStarLevel(ItemStack st) {
         if (st == null || st.getType().isAir() || !st.hasItemMeta()) return 0;
         Integer lv = st.getItemMeta().getPersistentDataContainer().get(starKey, PersistentDataType.INTEGER);
+        if (lv == null) lv = st.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(plugin, "yuumi_star_level"), PersistentDataType.INTEGER);
         return lv == null ? 0 : Math.max(0, Math.min(7, lv));
     }
 
     public GearKind classifyGear(ItemStack st) {
         if (st == null || st.getType().isAir()) return null;
-        if (items.getCustomId(st) != null) return null; // Custom relics stay pure
+        String customId = items.getCustomId(st);
+        if (customId != null) {
+            JobType signature = JobType.fromItem(customId);
+            if (signature == null) return null;
+            return signature.combat() || signature == JobType.BLACKSMITH ? GearKind.WEAPON : GearKind.TOOL;
+        }
         String n = st.getType().name();
         if (n.endsWith("_SWORD") || n.equals("BOW") || n.equals("CROSSBOW") || n.equals("TRIDENT") || n.equals("MACE")) {
             return GearKind.WEAPON;
@@ -148,6 +160,11 @@ public final class BlacksmithManager implements Listener {
     }
 
     // ==================== 대장간 GUI ====================
+
+    @EventHandler public void onForgeDrag(org.bukkit.event.inventory.InventoryDragEvent event) {
+        if (!(event.getView().getTopInventory().getHolder() instanceof ForgeHolder)) return;
+        if (event.getRawSlots().stream().anyMatch(slot -> slot < 45 && slot != SLOT_TARGET && slot != SLOT_SCROLL)) event.setCancelled(true);
+    }
 
     public void openBlacksmithGui(Player player) {
         Inventory inv = Bukkit.createInventory(new ForgeHolder(), 45,
@@ -174,6 +191,7 @@ public final class BlacksmithManager implements Listener {
 
         refreshForgeButton(inv, player);
         refreshRepairButtons(inv, player);
+        if (rpg != null) inv.setItem(36, icon(Material.SMITHING_TABLE, "<aqua>공공 공방 · 지오드 감정 · 룬 제작/부여"));
 
         player.openInventory(inv);
     }
@@ -204,7 +222,7 @@ public final class BlacksmithManager implements Listener {
         int next = cur + 1;
         double cost = STAR_CHURU_COST[next];
         int stones = STAR_STONE_COST[next];
-        int ratePct = (int) Math.round(STAR_SUCCESS_RATE[next] * 100);
+        int ratePct = (int) Math.round(Math.min(1, STAR_SUCCESS_RATE[next] + (rpg != null && rpg.getJob(player) == JobType.BLACKSMITH ? .08 : 0)) * 100);
         boolean canDrop = next >= 6;
         ItemStack scrollSlot = inv.getItem(SLOT_SCROLL);
         boolean protectedByScroll = canDrop && items.isCustomItem(scrollSlot, "starlight_scroll");
@@ -266,6 +284,7 @@ public final class BlacksmithManager implements Listener {
         if (!(event.getWhoClicked() instanceof Player player)) return;
         Inventory top = event.getInventory();
         int raw = event.getRawSlot();
+        if (raw == 36 && rpg != null) { event.setCancelled(true); player.closeInventory(); rpg.getWorkshop().openSmith(player); return; }
 
         if (event.isShiftClick()) {
             event.setCancelled(true);
@@ -382,9 +401,11 @@ public final class BlacksmithManager implements Listener {
             else scrollSlot.setAmount(scrollSlot.getAmount() - 1);
         }
 
-        boolean success = ThreadLocalRandom.current().nextDouble() < STAR_SUCCESS_RATE[next];
+        double successRate = Math.min(1, STAR_SUCCESS_RATE[next] + (rpg != null && rpg.getJob(player) == JobType.BLACKSMITH ? 0.08 : 0));
+        boolean success = ThreadLocalRandom.current().nextDouble() < successRate;
         if (success) {
             applyStarLore(gear, kind, next);
+            successListener.accept(player, next);
             player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 0.9f, 1.25f);
             player.getWorld().spawnParticle(Particle.END_ROD, player.getLocation().add(0, 1.2, 0), 30, 0.5, 0.6, 0.5, 0.12);
             player.sendMessage(TextUtil.msg("✨ <gold><bold>별빛 세공 성공!!</bold></gold> 장비가 <light_purple><bold>★" + next + "</bold></light_purple> 등급으로 빛납니다!"));
@@ -407,6 +428,11 @@ public final class BlacksmithManager implements Listener {
 
         refreshForgeButton(top, player);
         refreshRepairButtons(top, player);
+        if (rpg != null) {
+            if (rpg.isSignature(gear)) rpg.getSignatures().refresh(gear, player);
+            rpg.activityXp(player, "smith", 40);
+            if (success) { String stat = "stats." + player.getUniqueId() + ".forge_successes"; rpg.data.set(stat, rpg.data.getInt(stat, 0) + 1); rpg.changed(); }
+        }
     }
 
     private void applyStarLore(ItemStack gear, GearKind kind, int star) {
@@ -415,7 +441,8 @@ public final class BlacksmithManager implements Listener {
         meta.getPersistentDataContainer().set(starKey, PersistentDataType.INTEGER, star);
 
         String starsBar = "★".repeat(star) + "☆".repeat(7 - star);
-        List<Component> lore = new ArrayList<>();
+        List<Component> lore = meta.lore() == null ? new ArrayList<>() : new ArrayList<>(meta.lore());
+        lore.removeIf(line -> { String plain = net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(line); return plain.contains("별빛 세공") || plain.contains("추가 별빛 공격력") || plain.contains("벌목 효율 보너스") || plain.contains("채굴 효율 보너스") || plain.contains("최대 체력:") || plain.contains("방어 강도:"); });
         lore.add(TextUtil.mm("<gold>✦ 별빛 세공: <bold>" + starsBar + "</bold> <gray>(★" + star + ")"));
         switch (kind) {
             case WEAPON -> {
@@ -455,6 +482,7 @@ public final class BlacksmithManager implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onStarlightWeaponDamage(EntityDamageByEntityEvent event) {
+        if (rpg != null && rpg.getCombat().isSecondaryDamage()) return;
         Player attacker = null;
         if (event.getDamager() instanceof Player p) {
             attacker = p;
@@ -464,6 +492,7 @@ public final class BlacksmithManager implements Listener {
         if (attacker == null) return;
 
         ItemStack weapon = attacker.getInventory().getItemInMainHand();
+        if (rpg != null && event.getDamager() instanceof Projectile projectile && rpg.getCombat().shotWeapon(projectile) != null) weapon = rpg.getCombat().shotWeapon(projectile);
         if (classifyGear(weapon) != GearKind.WEAPON) return;
         int star = getStarLevel(weapon);
         if (star <= 0) return;

@@ -82,6 +82,9 @@ public final class CasinoManager implements Listener, CommandExecutor {
     private final FileConfiguration data;
     private final Runnable saveCallback;
     private Supplier<World> hubWorldSupplier = () -> null;
+    private Runnable rouletteAnimation = () -> {};
+
+    public void setRouletteAnimation(Runnable animation) { this.rouletteAnimation = animation; }
 
     private final Set<UUID> spinningPlayers = ConcurrentHashMap.newKeySet();
     private final Map<UUID, BlackjackSession> blackjackSessions = new HashMap<>();
@@ -121,6 +124,13 @@ public final class CasinoManager implements Listener, CommandExecutor {
         saveCallback.run();
     }
 
+    /** Exact transfer, unlike the rake applied to lost casino bets. */
+    public void depositJackpot(double amount) {
+        if (!Double.isFinite(amount) || amount <= 0) return;
+        data.set("casino.jackpot", getJackpot() + amount);
+        saveCallback.run();
+    }
+
     private double claimAndResetJackpot() {
         double won = getJackpot();
         data.set("casino.jackpot", plugin.getConfig().getDouble("casino.initial-jackpot", 15000.0));
@@ -132,7 +142,7 @@ public final class CasinoManager implements Listener, CommandExecutor {
 
     public int countPlayerChips(Player player) {
         int sum = 0;
-        for (ItemStack st : player.getInventory().getContents()) {
+        for (ItemStack st : player.getInventory().getStorageContents()) {
             sum += chipValueOf(st);
         }
         sum += chipValueOf(player.getInventory().getItemInOffHand());
@@ -154,7 +164,7 @@ public final class CasinoManager implements Listener, CommandExecutor {
         if (total < neededChips) return false;
 
         // Clear all chips and return exact optimal change!
-        ItemStack[] contents = player.getInventory().getContents();
+        ItemStack[] contents = player.getInventory().getStorageContents();
         for (int i = 0; i < contents.length; i++) {
             if (chipValueOf(contents[i]) > 0) player.getInventory().setItem(i, null);
         }
@@ -661,6 +671,7 @@ public final class CasinoManager implements Listener, CommandExecutor {
             player.sendMessage(TextUtil.msg("<red>보유 카지노 칩이 부족합니다! 입구 환전소를 이용해 주세요."));
             return;
         }
+        rouletteAnimation.run();
         int pocket = ThreadLocalRandom.current().nextInt(15); // 0 = YUUMI, 1..7 = RED, 8..14 = BLACK
         String result = pocket == 0 ? "YUUMI" : (pocket <= 7 ? "RED" : "BLACK");
         String korResult = switch (result) {

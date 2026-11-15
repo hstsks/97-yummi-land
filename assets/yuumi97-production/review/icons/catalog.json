@@ -187,5 +187,215 @@
     "width": 32,
     "height": 32,
     "master": "textures/item/starlight_scroll.png"
+  },
+  {
+    "index": 28,
+    "id": "labyrinth_key",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/labyrinth_key.png"
+  },
+  {
+    "index": 29,
+    "id": "ancient_cat_coin",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/ancient_cat_coin.png"
+  },
+  {
+    "index": 30,
+    "id": "gacha_capsule",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/gacha_capsule.png"
+  },
+  {
+    "index": 31,
+    "id": "class_emblem",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/class_emblem.png"
+  },
+  {
+    "index": 32,
+    "id": "respec_potion",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/respec_potion.png"
+  },
+  {
+    "index": 33,
+    "id": "charm_crimson_claw",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/charm_crimson_claw.png"
+  },
+  {
+    "index": 34,
+    "id": "charm_starlight_aegis",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/charm_starlight_aegis.png"
+  },
+  {
+    "index": 35,
+    "id": "charm_golden_whisker",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/charm_golden_whisker.png"
+  },
+  {
+    "index": 36,
+    "id": "charm_vampiric_purr",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/charm_vampiric_purr.png"
+  },
+  {
+    "index": 37,
+    "id": "monster_soul_core",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/monster_soul_core.png"
+  },
+  {
+    "index": 38,
+    "id": "unidentified_geode",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/unidentified_geode.png"
+  },
+  {
+    "index": 39,
+    "id": "golden_catnip",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/golden_catnip.png"
+  },
+  {
+    "index": 40,
+    "id": "deep_sea_fillet",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/deep_sea_fillet.png"
+  },
+  {
+    "index": 41,
+    "id": "rune_scroll",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/rune_scroll.png"
+  },
+  {
+    "index": 42,
+    "id": "michelin_feast",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/michelin_feast.png"
+  },
+  {
+    "index": 43,
+    "id": "furn_cat_tower",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/furn_cat_tower.png"
+  },
+  {
+    "index": 44,
+    "id": "furn_kotatsu",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/furn_kotatsu.png"
+  },
+  {
+    "index": 45,
+    "id": "furn_neon_sign",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/furn_neon_sign.png"
+  },
+  {
+    "index": 46,
+    "id": "hat_chef_toque",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/hat_chef_toque.png"
+  },
+  {
+    "index": 47,
+    "id": "hat_stock_tophat",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/hat_stock_tophat.png"
+  },
+  {
+    "index": 48,
+    "id": "weapon_paladin_sword",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/weapon_paladin_sword.png"
+  },
+  {
+    "index": 49,
+    "id": "weapon_shadow_daggers",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/weapon_shadow_daggers.png"
+  },
+  {
+    "index": 50,
+    "id": "weapon_ranger_bow",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/weapon_ranger_bow.png"
+  },
+  {
+    "index": 51,
+    "id": "weapon_arcane_grimoire",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/weapon_arcane_grimoire.png"
+  },
+  {
+    "index": 52,
+    "id": "tool_miner_drill",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_miner_drill.png"
+  },
+  {
+    "index": 53,
+    "id": "tool_smith_hammer",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_smith_hammer.png"
+  },
+  {
+    "index": 54,
+    "id": "tool_farmer_scythe",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_farmer_scythe.png"
+  },
+  {
+    "index": 55,
+    "id": "tool_angler_harpoon",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_angler_harpoon.png"
+  },
+  {
+    "index": 56,
+    "id": "tool_carpenter_axe",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_carpenter_axe.png"
+  },
+  {
+    "index": 57,
+    "id": "tool_chef_wok",
+    "width": 32,
+    "height": 32,
+    "master": "textures/item/tool_chef_wok.png"
   }
 ]

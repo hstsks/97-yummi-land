@@ -1,0 +1,48 @@
+{
+  "id": "furn_neon_sign",
+  "elements": 243,
+  "bounds_model_units": [
+    [
+      -6.35,
+      0.0,
+      4.1
+    ],
+    [
+      22.35,
+      26.85,
+      11.9
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\furn_neon_sign.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\furn_neon_sign.json": "e81cf71e2a14cac070b75a731dd8ec32cf5304fe4d8e9bb074f8046c62f4979f",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\furn_neon_sign.png": "73640c119f87bc633297eb549c3ccc15bf4d6badc0828919e627ae5fdc11225f"
+  },
+  "contextImages": [
+    "floor_00",
+    "floor_45"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

@@ -4,6 +4,7 @@ import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.economy.SkillBonusBridge;
 import kr.yuumi97.core.economy.SkillBonusBridge.TradeDomain;
 import kr.yuumi97.core.items.YuumiItems;
+import kr.yuumi97.core.rpg.RpgJobManager;
 import kr.yuumi97.core.util.TextUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -65,6 +66,8 @@ public final class NpcShopManager implements Listener {
     private final ChuruManager churu;
     private final SkillBonusBridge skillBridge;
     private final Map<ShopType, List<ShopItem>> catalogs = new EnumMap<>(ShopType.class);
+    private RpgJobManager rpg;
+    public void setRpgManager(RpgJobManager rpg) { this.rpg = rpg; }
 
     public NpcShopManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu, SkillBonusBridge skillBridge) {
         this.plugin = plugin;
@@ -155,13 +158,19 @@ public final class NpcShopManager implements Listener {
                 new ShopItem(Material.LEATHER, null, "가죽", 12.0, 45.0),
                 new ShopItem(Material.PAPER, "recall_bookmark", "문턱의 서: 고속 귀환 책갈피", 0.0, 220.0),
                 new ShopItem(Material.AMETHYST_SHARD, "starlight_stone", "찬란한 별빛 세공석", 180.0, 750.0),
-                new ShopItem(Material.PAPER, "starlight_scroll", "유미의 발도장 세공 보호권", 0.0, 4500.0)
+                new ShopItem(Material.PAPER, "starlight_scroll", "유미의 발도장 세공 보호권", 0.0, 4500.0),
+                new ShopItem(Material.ECHO_SHARD, "monster_soul_core", "마수 영혼석", 0, plugin.getConfig().getDouble("shop.backup-materials.monster_soul_core", 400)),
+                new ShopItem(Material.RAW_GOLD, "unidentified_geode", "미감정 별빛 지오드", 0, plugin.getConfig().getDouble("shop.backup-materials.unidentified_geode", 600)),
+                new ShopItem(Material.FERN, "golden_catnip", "황금 캣닢", 0, plugin.getConfig().getDouble("shop.backup-materials.golden_catnip", 350)),
+                new ShopItem(Material.SALMON, "deep_sea_fillet", "심해 대뱃살 필렛", 0, plugin.getConfig().getDouble("shop.backup-materials.deep_sea_fillet", 250)),
+                new ShopItem(Material.TRIAL_KEY, "labyrinth_key", "문턱의 미궁 열쇠", 0, plugin.getConfig().getDouble("shop.labyrinth-key-price", 3000))
         ));
     }
 
     private static final int[] ITEM_SLOTS = {
             10, 11, 12, 13, 14, 15, 16,
-            19, 20, 21, 22, 23, 24, 25
+            19, 20, 21, 22, 23, 24, 25,
+            28, 29, 30, 31, 32, 33, 34
     };
 
     public void openShop(Player player, ShopType type) {
@@ -230,6 +239,7 @@ public final class NpcShopManager implements Listener {
             ));
         }
 
+        if (type == ShopType.BUILD && rpg != null) inv.setItem(40, makeIcon(Material.CRAFTING_TABLE, "<gold>공공 3D 가구 공방"));
         player.openInventory(inv);
     }
 
@@ -239,7 +249,7 @@ public final class NpcShopManager implements Listener {
             case "recall_bookmark" -> items.recallBookmark(1);
             case "starlight_stone" -> items.starlightStone(1);
             case "starlight_scroll" -> items.starlightScroll(1);
-            default -> new ItemStack(si.mat);
+            default -> items.create(si.customId);
         };
     }
 
@@ -250,6 +260,7 @@ public final class NpcShopManager implements Listener {
         if (!(event.getWhoClicked() instanceof Player player)) return;
         int slot = event.getRawSlot();
         if (slot < 0 || slot >= 45) return;
+        if (holder.type == ShopType.BUILD && slot == 40 && rpg != null) { rpg.getWorkshop().openFurniture(player); return; }
 
         if (holder.type == ShopType.FISH && slot == 40) {
             sellEvenMoreFishCatches(player);

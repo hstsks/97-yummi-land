@@ -19,6 +19,9 @@ $GenerationSteps = @(
     (Join-Path $SourceDir 'statue.mjs'),
     (Join-Path $SourceDir 'casino.mjs'),
     (Join-Path $SourceDir 'relics.mjs'),
+    (Join-Path $SourceDir 'environment-v3.mjs'),
+    (Join-Path $SourceDir 'housing-v3.mjs'),
+    (Join-Path $SourceDir 'class-weapons.mjs'),
     (Join-Path $SourceDir 'icons.mjs'),
     (Join-Path $SourceDir 'item-definitions.mjs'),
     (Join-Path $ToolsDir 'validate-assets.mjs')
@@ -33,6 +36,9 @@ foreach ($StepPath in $GenerationSteps) {
 }
 if (-not (Test-Path -LiteralPath (Join-Path $ToolsDir 'asset-kit.mjs') -PathType Leaf)) {
     throw "Required shared tool is missing: $(Join-Path $ToolsDir 'asset-kit.mjs')"
+}
+if (-not (Test-Path -LiteralPath (Join-Path $SourceDir 'asset-contract.mjs') -PathType Leaf)) {
+    throw "Required locked asset contract is missing: $(Join-Path $SourceDir 'asset-contract.mjs')"
 }
 if ($Build) {
     foreach ($RequiredBuildPath in @(
@@ -82,5 +88,5 @@ if ($Build) {
     Write-Host '[Assets] Generation, validation and build completed. Server restart is not performed by this script.' -ForegroundColor Green
 }
 else {
-    Write-Host '[Assets] Generation and validation completed. Add -Build to package and deploy.' -ForegroundColor Green
+    Write-Host '[Assets] Generation and validation completed. During v3 parallel work, do not use -Build; Java packaging and deployment belong to the SOL session.' -ForegroundColor Green
 }

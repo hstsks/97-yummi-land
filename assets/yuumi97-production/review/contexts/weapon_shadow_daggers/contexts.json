@@ -1,0 +1,187 @@
+{
+  "id": "weapon_shadow_daggers",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "thirdperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          2.633,
+          -0.3036
+        ],
+        "scale": [
+          0.69,
+          0.69,
+          0.69
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        6.3,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.499969,
+        -5e-06
+      ],
+      "anchorErrorModelUnits": 3.1e-05,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "thirdperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          2.633,
+          -0.3036
+        ],
+        "scale": [
+          0.69,
+          0.69,
+          0.69
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        6.3,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.499969,
+        -5e-06
+      ],
+      "anchorErrorModelUnits": 3.1e-05,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          25
+        ],
+        "translation": [
+          0,
+          2.595,
+          -0.5106
+        ],
+        "scale": [
+          0.7107,
+          0.7107,
+          0.7107
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        6.3,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500008,
+        3e-06
+      ],
+      "anchorErrorModelUnits": 9e-06,
+      "forwardBlender": [
+        0.0,
+        0.422618,
+        0.906308
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          25
+        ],
+        "translation": [
+          0,
+          2.595,
+          -0.5106
+        ],
+        "scale": [
+          0.7107,
+          0.7107,
+          0.7107
+        ]
+      },
+      "kind": "upright",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        6.3,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.500008,
+        3e-06
+      ],
+      "anchorErrorModelUnits": 9e-06,
+      "forwardBlender": [
+        0.0,
+        0.422618,
+        0.906308
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package kr.yuumi97.core.quest;
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.util.TextUtil;
+import kr.yuumi97.core.util.RewardMailbox;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -27,6 +28,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 
 public final class QuestAndCodexManager implements Listener, CommandExecutor {
 
@@ -46,6 +48,10 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
     private final ChuruManager churu;
     private final FileConfiguration data;
     private final Runnable saveCallback;
+    private final RewardMailbox mailbox;
+    private BiConsumer<Player, Integer> completionXp = (player, amount) -> {};
+
+    public void setCompletionXp(BiConsumer<Player, Integer> callback) { this.completionXp = callback; }
 
     private final List<QuestSpec> questPool = List.of(
             new QuestSpec("wheat_32", "고양이 빵집 밀 수확", Material.WHEAT, null, 32, 650, 1),
@@ -95,6 +101,7 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
         this.churu = churu;
         this.data = data;
         this.saveCallback = saveCallback;
+        this.mailbox = new RewardMailbox(plugin, items, data, saveCallback);
     }
 
     public List<QuestSpec> getTodaysQuests() {
@@ -264,6 +271,7 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
                 data.set(path, true);
                 churu.deposit(player, q.churuReward);
                 player.getInventory().addItem(items.tornPage(q.pageReward));
+                completionXp.accept(player, plugin.getConfig().getInt("rpg.xp.daily", 150));
                 saveCallback.run();
 
                 player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f, 1.4f);
@@ -284,6 +292,7 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
             data.set(path, true);
             churu.deposit(player, 2500.0);
             player.getInventory().addItem(items.starlightStone(2));
+            completionXp.accept(player, plugin.getConfig().getInt("rpg.xp.weekly", 600));
             saveCallback.run();
             player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1f, 1.3f);
             player.sendMessage(TextUtil.msg("🌟 주간 의뢰 완료! " + TextUtil.churu(2500) + " + <aqua>별빛 세공석 2개</aqua> 획득!"));
@@ -302,6 +311,7 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
             data.set(path, true);
             churu.deposit(player, 3500.0);
             player.getInventory().addItem(items.starlightScroll(1));
+            completionXp.accept(player, plugin.getConfig().getInt("rpg.xp.weekly", 600));
             saveCallback.run();
             player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1f, 1.25f);
             player.sendMessage(TextUtil.msg("🌟 주간 의뢰 완료! " + TextUtil.churu(3500) + " + <light_purple>유미의 세공 보호권 1장</light_purple> 획득!"));
@@ -316,9 +326,13 @@ public final class QuestAndCodexManager implements Listener, CommandExecutor {
             }
             String bonusPath = "quests." + today + "." + player.getUniqueId() + ".all_clear";
             if (done >= 4 && !data.getBoolean(bonusPath, false)) {
+                mailbox.enqueueOnce(player.getUniqueId(), "daily-labyrinth-key-" + today, items.labyrinthKey(1));
+                mailbox.enqueueOnce(player.getUniqueId(), "daily-all-clear-churu-" + today, items.churuTuna(1));
+                mailbox.enqueueOnce(player.getUniqueId(), "daily-all-clear-stone-" + today, items.starlightStone(1));
+                mailbox.enqueueOnce(player.getUniqueId(), "daily-all-clear-rat-core-" + today, items.bossCoreRat(1));
                 data.set(bonusPath, true);
-                player.getInventory().addItem(items.churuTuna(1), items.starlightStone(1), items.bossCoreRat(1));
                 saveCallback.run();
+                mailbox.deliver(player);
                 player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1f, 1.2f);
                 Bukkit.broadcast(TextUtil.msg("🌟 <white>" + player.getName() + "</white>님이 오늘의 일일 의뢰 4종을 올클리어하여 별빛 세공석과 보스 소환석을 획득했습니다!"));
                 openDailyQuestGui(player);

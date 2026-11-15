@@ -1,0 +1,187 @@
+{
+  "id": "tool_miner_drill",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "thirdperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          0
+        ],
+        "translation": [
+          2.646,
+          1.5,
+          0
+        ],
+        "scale": [
+          0.63,
+          0.63,
+          0.63
+        ]
+      },
+      "kind": "drill",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        8,
+        12.2
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        0.0,
+        1.5,
+        -0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        1.0,
+        -0.0,
+        0.0
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "thirdperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          0
+        ],
+        "translation": [
+          2.646,
+          1.5,
+          0
+        ],
+        "scale": [
+          0.63,
+          0.63,
+          0.63
+        ]
+      },
+      "kind": "drill",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        8,
+        12.2
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -70,
+          8
+        ],
+        "translation": [
+          2.561,
+          1.5,
+          -0.9321
+        ],
+        "scale": [
+          0.6489,
+          0.6489,
+          0.6489
+        ]
+      },
+      "kind": "drill",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        8,
+        12.2
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -1.9e-05,
+        1.5,
+        3.5e-05
+      ],
+      "anchorErrorModelUnits": 4e-05,
+      "forwardBlender": [
+        0.939693,
+        0.34202,
+        0.0
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -70,
+          8
+        ],
+        "translation": [
+          2.561,
+          1.5,
+          -0.9321
+        ],
+        "scale": [
+          0.6489,
+          0.6489,
+          0.6489
+        ]
+      },
+      "kind": "drill",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        8,
+        12.2
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        1.9e-05,
+        1.5,
+        3.5e-05
+      ],
+      "anchorErrorModelUnits": 4e-05,
+      "forwardBlender": [
+        -0.939693,
+        0.34202,
+        0.0
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

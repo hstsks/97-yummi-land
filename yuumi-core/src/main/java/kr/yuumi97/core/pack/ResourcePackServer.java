@@ -32,6 +32,7 @@ public final class ResourcePackServer implements Listener {
     private final JavaPlugin plugin;
     private final Map<UUID, String> loginHostByPlayer = new ConcurrentHashMap<>();
     private HttpServer httpServer;
+    private java.util.concurrent.ExecutorService httpExecutor;
     private byte[] packBytes;
     private String packSha1Hex;
     private int httpPort;
@@ -74,7 +75,8 @@ public final class ResourcePackServer implements Listener {
                     exchange.close();
                 }
             });
-            this.httpServer.setExecutor(Executors.newFixedThreadPool(2));
+            this.httpExecutor = Executors.newFixedThreadPool(2);
+            this.httpServer.setExecutor(httpExecutor);
             this.httpServer.start();
             plugin.getLogger().info("[ResourcePack] Serving Yuumi97Pack.zip (" + packBytes.length + " bytes, SHA1=" + packSha1Hex + ") on port " + httpPort);
         } catch (Exception e) {
@@ -88,6 +90,7 @@ public final class ResourcePackServer implements Listener {
             httpServer.stop(0);
             httpServer = null;
         }
+        if (httpExecutor != null) { httpExecutor.shutdownNow(); httpExecutor = null; }
     }
 
     @EventHandler

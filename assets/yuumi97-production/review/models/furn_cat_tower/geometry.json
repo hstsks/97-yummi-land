@@ -1,0 +1,48 @@
+{
+  "id": "furn_cat_tower",
+  "elements": 263,
+  "bounds_model_units": [
+    [
+      -1.5,
+      0.0,
+      -1.61
+    ],
+    [
+      17.5,
+      30.021,
+      17.5
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\furn_cat_tower.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\furn_cat_tower.json": "f0228ff879792b0660259f9ff8a9518426c34746ff1da30f8b9396da229ccbdc",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\furn_cat_tower.png": "b04346060d6c6c38e8a23d8e96495a2f99b616af849ec5b906aa683695a9ff8a"
+  },
+  "contextImages": [
+    "floor_00",
+    "floor_45"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

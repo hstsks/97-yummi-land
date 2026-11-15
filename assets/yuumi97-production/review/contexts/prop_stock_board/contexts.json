@@ -1,0 +1,15 @@
+{
+  "id": "prop_stock_board",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "floor_00",
+      "yawDegrees": 0,
+      "lowestYModelUnits": 0.0,
+      "touchesFloor": true,
+      "penetratesFloor": false,
+      "notice": "ItemDisplay NONE reference, no server entity transformation."
+    }
+  ]
+}
