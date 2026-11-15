@@ -10,6 +10,7 @@ import kr.yuumi97.core.facility.BankAndVaultManager;
 import kr.yuumi97.core.facility.BlacksmithManager;
 import kr.yuumi97.core.facility.OnsenAndClinicManager;
 import kr.yuumi97.core.hub.HubWorldManager;
+import kr.yuumi97.core.training.TrainingDummyManager;
 import kr.yuumi97.core.items.RelicAndFoodListener;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.pack.ResourcePackServer;
@@ -87,6 +88,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
     private ChuruStockManager stockManager;
     private GachaAndFurnitureManager furnitureManager;
     private HallOfFameManager hallManager;
+    private TrainingDummyManager trainingManager;
 
     @Override
     public void onEnable() {
@@ -156,6 +158,10 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         this.stockManager = new ChuruStockManager(this, churuManager, casinoManager, dataConfig, this::saveDataFile, hubManager::getStockBrokerLocation);
         this.furnitureManager = new GachaAndFurnitureManager(this, items, casinoManager, plotManager, hubManager, dataConfig, this::saveDataFile, rewardMailbox);
         this.hallManager = new HallOfFameManager(this, churuManager, dataConfig, this::saveDataFile, hubManager::getHubWorld);
+        hallManager.setBoardLocation(hubManager::getHallBoardLocation);
+        this.trainingManager = new TrainingDummyManager(this, hubManager);
+        rpgManager.setTrainingDummyHooks(trainingManager::isDummy, trainingManager::approvedDamage);
+        hubManager.setTrainingDummyReconciler(trainingManager::reconcile);
         rpgManager.setPartyMembers(dungeonManager::partyMembers);
         rpgManager.setHostilePredicate(dungeonManager::isDungeonMob);
         rpgManager.setDungeonHooks(dungeonManager::isParticipant, dungeonManager::canAffect, dungeonManager::damageObelisks, dungeonManager::reviveOnePartyMember);
@@ -176,6 +182,8 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
                 hallManager.unlock(player.getUniqueId(), "mythic_" + rpgManager.getJob(player).name(), "<light_purple>[신화 " + rpgManager.getJob(player).display + "]</light_purple>");
         });
         rpgManager.start();
+        // Register after RPG's HIGHEST damage handlers to measure the completed calculation.
+        trainingManager.start();
         dungeonManager.start();
         stockManager.start();
         furnitureManager.start();
@@ -229,6 +237,8 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             hubManager.ensureCityBuilt();
             portalManager.igniteUnlockedPortals();
             plotManager.refreshAllPlotSigns();
+            hallManager.refresh();
+            stockManager.refreshBoard();
         }, 40L);
 
         // Live Broadcast-Style Actionbar HUD every 2.5 seconds
@@ -236,6 +246,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             int phase = altarManager.getCurrentPhase();
             double jackpot = casinoManager.getJackpot();
             for (Player p : Bukkit.getOnlinePlayers()) {
+                if (trainingManager.isPracticing(p)) continue;
                 double bal = churuManager.getBalance(p);
                 String zone = hubManager.describeDistrict(p.getLocation());
                 p.sendActionBar(TextUtil.mm(
@@ -248,13 +259,14 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }, 60L, 50L);
 
         getLogger().info("==========================================================");
-        getLogger().info("  🐱 [유미의 97랜드 v3.0] YuumiLandCore 활성화 완료!");
+        getLogger().info("  🐱 [유미의 97랜드 v3.1] YuumiLandCore 활성화 완료!");
         getLogger().info("  전용 평화 허브(yuumi_hub) · 12필지 분양 · 2F 카지노/경묘 준비됨");
         getLogger().info("==========================================================");
     }
 
     @Override
     public void onDisable() {
+        if (trainingManager != null) trainingManager.stop();
         if (dungeonManager != null) dungeonManager.cleanup();
         if (rpgManager != null) rpgManager.stop();
         if (stockManager != null) stockManager.stop();
@@ -487,8 +499,8 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             case 29 -> hubManager.getClassMasterLocation();
             case 30 -> hubManager.getDungeonGateLocation();
             case 31 -> hubManager.getStockBrokerLocation();
-            case 32 -> new Location(hub, 21.5, 65, -10.5);
-            case 33 -> new Location(hub, 12.5, 65, -17.5);
+            case 32 -> hubManager.getGachaLocation();
+            case 33 -> hubManager.getHallOfFameLocation();
             default -> null;
         };
 
@@ -556,10 +568,12 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         if (sub.equals("setup-hub") && p.isOp()) {
             World hub = hubManager.initHubWorld();
             hubManager.buildEntireHubCity(hub);
+            hallManager.refresh();
+            stockManager.refreshBoard();
             portalManager.igniteUnlockedPortals();
             plotManager.refreshAllPlotSigns();
             p.teleport(hubManager.getHubSpawn());
-            p.sendMessage(TextUtil.msg("<green>[관리자] 전용 평화 허브 도시(yuumi_hub) 5대 구역과 16종 .nbt 건축물 스탬핑이 재구축되었습니다!"));
+            p.sendMessage(TextUtil.msg("<green>[관리자] v3.1 공공 허브·축제 광장·궁전 카지노·수련장이 재구축되었습니다!"));
             return true;
         }
 

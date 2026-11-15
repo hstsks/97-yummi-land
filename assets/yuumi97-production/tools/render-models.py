@@ -15,6 +15,8 @@ AXIS4=AXIS.to_4x4()
 VIEWS={'front':(0,6,.4),'side':(6,0,.4),'rear':(0,-6,.4),'threequarter':(4,6,3.4)}
 HANDS=['thirdperson_righthand','thirdperson_lefthand','firstperson_righthand','firstperson_lefthand']
 NOTICE='Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.'
+MOUNT_FILE=PROD/'sources/landmarks-v31-mounts.json'
+LANDMARK_MOUNTS=json.loads(MOUNT_FILE.read_text(encoding='utf-8'))['models'] if MOUNT_FILE.exists() else {}
 
 def convert(p): return AXIS@((Vector(p)-Vector((8,8,8)))/16)
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -75,6 +77,7 @@ def create_model(model_id,device):
     background.inputs[0].default_value=(.17,.19,.23,1);background.inputs[1].default_value=.45
     world.node_tree.links.new(background.outputs[0],output.inputs[0]);scene.world=world
     materials={};hashes={str(model_path(model_id)):sha(model_path(model_id))}
+    if model_id in LANDMARK_MOUNTS:hashes[str(MOUNT_FILE)]=sha(MOUNT_FILE)
     def material(ref):
         seen=set()
         while ref.startswith('#'):
@@ -171,6 +174,7 @@ def render_png(scene,path,note):
     if not path.is_file() or path.stat().st_size==0:raise RuntimeError('Missing PNG: '+str(path))
 
 def context_views(scene,model_id,objects,data):
+    if model_id in LANDMARK_MOUNTS:return landmark_context_views(scene,model_id,objects)
     root=scene.objects['MODEL_ROOT'];dest=PROD/'review/contexts'/model_id;records=[]
     anchor_path=PROD/'sources/class-weapons-anchors.json'
     anchors=json.loads(anchor_path.read_text(encoding='utf-8')).get('models',{}) if anchor_path.exists() else {}
@@ -221,6 +225,67 @@ def context_views(scene,model_id,objects,data):
     write_json(dest/'contexts.json',{'id':model_id,'notice':'APPROXIMATE JIG; Minecraft client verification required.','matrixConvention':'ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.','contexts':records})
     return records
 
+def landmark_context_views(scene,model_id,objects):
+    mount=LANDMARK_MOUNTS[model_id];kind=mount['kind'];scale=mount['referenceScale']
+    root=scene.objects['MODEL_ROOT'];root.matrix_world=Matrix.Scale(scale,4);bpy.context.view_layer.update()
+    light_state=scale_review_lights(scene,scale)
+    lo,hi=bounds(objects);anchor=convert(mount['anchor'])*scale
+    neutral=plain_material('JIG landmark mounting surface',(.19,.24,.30))
+    def native_box(name,low,high,mat=neutral):return jig_box(name,convert(low)*scale,convert(high)*scale,mat)
+    if kind=='floor':
+        fixture=jig_box('JIG floor Y=0',(lo.x-.2,lo.y-.2,-scale*.5-.06),(hi.x+.2,hi.y+.2,-scale*.5),neutral)
+        gap=(lo.z/scale+.5)*16
+    elif kind=='wall':
+        fixture=jig_box('JIG wall rear Z=8',(lo.x-.15,-.08,lo.z-.15),(hi.x+.15,0,hi.z+.15),neutral)
+        gap=lo.y/scale*16
+    else:
+        fixture=jig_box('JIG '+kind+' mounting beam',(anchor.x-.4,anchor.y-.18,anchor.z),(anchor.x+.4,anchor.y+.18,anchor.z+.10),neutral)
+        gap=(anchor.z-hi.z)/scale*16
+    dest=PROD/'review/contexts'/model_id;name=kind+'_mount'
+    frame(scene,objects+[fixture]);render_png(scene,dest/f'context-{name}.png',f'{model_id} / {kind.upper()} / scale {scale} / APPROXIMATE JIG')
+    record={'context':name,'kind':kind,'anchorModelUnits':mount['anchor'],'referenceScale':scale,'front':[0,0,-1],
+      'boundsModelUnits':[[round(v*16/scale+8,5) for v in [lo.x,lo.z,-hi.y]],[round(v*16/scale+8,5) for v in [hi.x,hi.z,-lo.y]]],
+      'attachmentGapModelUnits':round(gap,6),'touchesMount':abs(gap)<.001,'penetratesMount':gap<-.001,
+      'lighting':'Reference-scale compensation: area light energy * scale^2 and size * scale.',
+      'notice':'ItemDisplay NONE reference; actual server location/yaw not applied.'}
+    if kind=='floor':record.update(lowestYModelUnits=round(gap,6),touchesFloor=abs(gap)<.001,penetratesFloor=gap<-.001)
+    records=[record]
+    if model_id=='prop_dealer_throne':
+        catmat=plain_material('JIG dealer cat silhouette',(.38,.48,.55))
+        # A readable cuboid cat stand-in, not the vanilla entity mesh/animation.
+        cat=[native_box('JIG cat body',(4.8,2,-2),(11.2,10,3),catmat),native_box('JIG cat head',(4.4,9,-3),(11.6,15,2),catmat),native_box('JIG cat ear L',(4.4,15,-1),(6.2,17,1),catmat),native_box('JIG cat ear R',(9.8,15,-1),(11.6,17,1),catmat)]
+        frame(scene,objects+[fixture]+cat,VIEWS['front']);render_png(scene,dest/'context-dealer_clearance.png',model_id+' / FOREGROUND CAT SIZE REFERENCE / APPROXIMATE')
+        records.append({'context':'dealer_clearance','approximation':True,'reference':'Cuboid seated cat silhouette in foreground; not actual vanilla cat or hitbox.','requiresClientVerification':True})
+    for obj in list(scene.objects):
+        if obj.get('review_jig'):bpy.data.objects.remove(obj,do_unlink=True)
+    root.matrix_world=Matrix.Identity(4);bpy.context.view_layer.update()
+    restore_review_lights(light_state)
+    write_json(dest/'contexts.json',{'id':model_id,'mount':mount,'notice':NOTICE,'contexts':records})
+    return records
+
+def scale_review_lights(scene,scale):
+    state=[(o.data,o.data.energy,o.data.size) for o in scene.objects if o.type=='LIGHT' and 'review_direction' in o]
+    for light,energy,size in state:light.energy=energy*scale*scale;light.size=size*scale
+    return state
+
+def restore_review_lights(state):
+    for light,energy,size in state:light.energy=energy;light.size=size
+
+def distance_views(scene,model_id,objects):
+    if model_id not in ['prop_casino_marquee','prop_plaza_clock_face']:return []
+    scale=LANDMARK_MOUNTS[model_id]['referenceScale'];root=scene.objects['MODEL_ROOT'];root.matrix_world=Matrix.Scale(scale,4)
+    light_state=scale_review_lights(scene,scale)
+    lo,hi=frame(scene,objects,VIEWS['front']);center=(lo+hi)/2;records=[]
+    for distance in [16,32]:
+        camera=scene.camera;camera.data.type='PERSP';camera.data.lens_unit='FOV';camera.data.angle=math.radians(70)
+        camera.location=center+Vector((0,distance,0));camera.rotation_euler=(center-camera.location).to_track_quat('-Z','Y').to_euler()
+        name=f'distance-{distance}m';render_png(scene,PROD/'review/models'/model_id/f'{name}.png',f'{model_id} / {distance}m / 70deg FOV / scale {scale} / BLENDER')
+        records.append({'name':name,'distanceMeters':distance,'fovDegrees':70,'resolution':[640,640],'referenceScale':scale,'lighting':'Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.','camera':'front perspective aimed at model bounds center','notice':'Blender distance approximation; not a Minecraft screenshot.'})
+    root.matrix_world=Matrix.Identity(4);bpy.context.view_layer.update()
+    restore_review_lights(light_state)
+    write_json(PROD/'review/models'/model_id/'distance.json',{'id':model_id,'views':records})
+    return records
+
 def render_saved(model_id,device,with_contexts):
     blend=PROD/'sources/blend'/f'{model_id}.blend';bpy.ops.wm.open_mainfile(filepath=str(blend));scene=bpy.context.scene
     if scene.get('model_id')!=model_id:raise RuntimeError('Saved blend ID mismatch')
@@ -237,6 +302,7 @@ def render_saved(model_id,device,with_contexts):
         frame(scene,objects,direction);render_png(scene,dest/f'{name}.png',model_id+' / '+name+' / BLENDER GEOMETRY REVIEW')
     lo,hi=bounds(objects);data=json.loads(model_path(model_id).read_text(encoding='utf-8'))
     records=context_views(scene,model_id,objects,data) if with_contexts else []
+    distance_views(scene,model_id,objects)
     write_json(dest/'geometry.json',{'id':model_id,'elements':len(objects),'bounds_model_units':[[round(v*16+8,4) for v in [lo.x,lo.z,-hi.y]],[round(v*16+8,4) for v in [hi.x,hi.z,-lo.y]]],'source':str(blend),'views':list(VIEWS),'engine':'Blender Cycles 20 samples / Standard / nearest texture','exposure':scene.view_settings.exposure,'exposureNote':'Chef review exposure reduced from -0.7 to -1.7 after initial highlight-clipping review; asset texture colors unchanged. Compare before/after geometry with this lighting difference in mind.' if model_id=='hat_chef_toque' else 'Baseline review exposure -0.7.','device':selection,'freshProcessReopen':True,'packedTextures':True,'sourceSha256':hashes,'contextImages':[r['context'] for r in records],'notice':NOTICE,'limitations':['Face UV rotation not fixture-certified against Minecraft.','Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.','Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation.']})
     print(json.dumps({'phase':'rendered','id':model_id,'views':4,'contexts':len(records),'device':selection['device']}),flush=True)
 

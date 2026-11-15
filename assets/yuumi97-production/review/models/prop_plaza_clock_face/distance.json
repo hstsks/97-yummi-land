@@ -1,0 +1,31 @@
+{
+  "id": "prop_plaza_clock_face",
+  "views": [
+    {
+      "name": "distance-16m",
+      "distanceMeters": 16,
+      "fovDegrees": 70,
+      "resolution": [
+        640,
+        640
+      ],
+      "referenceScale": 2.0,
+      "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+      "camera": "front perspective aimed at model bounds center",
+      "notice": "Blender distance approximation; not a Minecraft screenshot."
+    },
+    {
+      "name": "distance-32m",
+      "distanceMeters": 32,
+      "fovDegrees": 70,
+      "resolution": [
+        640,
+        640
+      ],
+      "referenceScale": 2.0,
+      "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+      "camera": "front perspective aimed at model bounds center",
+      "notice": "Blender distance approximation; not a Minecraft screenshot."
+    }
+  ]
+}

@@ -76,7 +76,7 @@ public final class GachaAndFurnitureManager implements Listener {
     }
     private void draw(Player p,int payment,boolean handheld){
         if(!ready(p))return;
-        if(!handheld){Location booth=new Location(hub.getHubWorld(),18.5,65,-13.5);if(!p.getWorld().equals(booth.getWorld())||p.getLocation().distanceSquared(booth)>144){p.closeInventory();return;}}
+        if(!handheld){Location booth=hub.getGachaLocation();if(!p.getWorld().equals(booth.getWorld())||p.getLocation().distanceSquared(booth)>144){p.closeInventory();return;}}
         double[] weights=weights();
         int index=V3Rules.weightedIndex(ThreadLocalRandom.current().nextDouble(),weights);
         boolean paid=payment==0?take(p,"gacha_capsule",1):payment==1?take(p,"ancient_cat_coin",3):casino.spendChips(p,1500);

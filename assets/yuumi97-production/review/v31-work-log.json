@@ -1,0 +1,41 @@
+{
+  "scope": "Six v3.1 landmark models only",
+  "status": "COMPLETE",
+  "effort": "High",
+  "reason": "Multiple mounting modes, ornate geometry and distance readability.",
+  "estimatedMinutes": [
+    45,
+    70
+  ],
+  "operatingCapMinutes": 90,
+  "startUtc": "2026-11-15T12:24:48Z",
+  "endUtc": "2026-11-15T12:45:58.688Z",
+  "elapsedSeconds": 1271,
+  "parallelTimeCountedOnce": true,
+  "stopReason": "Approved model, preservation and Blender review criteria satisfied",
+  "tokens": "unknown",
+  "cost": "unknown",
+  "writeScope": [
+    "E:/MinGem/assets/yuumi97-production/**",
+    "E:/MinGem/resourcepack-gen/overrides/**"
+  ],
+  "buildRun": false,
+  "minecraftClientRun": false,
+  "acceptanceReport": "review/v31-delivery.json",
+  "counts": {
+    "overrideFiles": 175,
+    "models3d": 35,
+    "propAtlases": 35,
+    "icons32": 57,
+    "guiSelectors": 18,
+    "itemDefinitions": 29,
+    "atlasSources": 35,
+    "newModels3d": 6,
+    "preservedOverrideFiles": 156,
+    "preservedHistoricalEvidence": 200,
+    "blends": 6,
+    "multiangleImages": 24,
+    "contextImages": 7,
+    "distanceImages": 4
+  }
+}

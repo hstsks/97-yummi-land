@@ -1,0 +1,782 @@
+[
+  {
+    "path": "assets/yuumi97/items/book_of_thresholds.json",
+    "bytes": 383,
+    "sha256": "60315daccd5cdbd33f355a6ba29143a97b9d5e1f559a010b6a89ca18d1480245"
+  },
+  {
+    "path": "assets/yuumi97/items/furn_cat_tower.json",
+    "bytes": 375,
+    "sha256": "c31a5c0f2063fbf9459af28bbaa7f67c652fa7bc1f9158373bbcea631d15b746"
+  },
+  {
+    "path": "assets/yuumi97/items/furn_kotatsu.json",
+    "bytes": 371,
+    "sha256": "a30c40d42d51023b10521f55149d16586152710771dd2bf81decfe8191fd44f3"
+  },
+  {
+    "path": "assets/yuumi97/items/furn_neon_sign.json",
+    "bytes": 375,
+    "sha256": "44487095d1ad559eb25af0042d3bfb0be28fc4be187a14b593e881cbae49b1bf"
+  },
+  {
+    "path": "assets/yuumi97/items/hat_chef_toque.json",
+    "bytes": 375,
+    "sha256": "f77da0fba7adcde4f488d918cb8fff59c88aa97081eb15edf45cce88a0be221d"
+  },
+  {
+    "path": "assets/yuumi97/items/hat_stock_tophat.json",
+    "bytes": 379,
+    "sha256": "76e4273a678910cab58773122d1dd99c0b91d052527b35784a900beaa2bb2575"
+  },
+  {
+    "path": "assets/yuumi97/items/prop_boon_altar.json",
+    "bytes": 96,
+    "sha256": "6894066ed17dd8d4b9dc04e13ee0c782aab6faafe6dc8b346e81a54474063efb"
+  },
+  {
+    "path": "assets/yuumi97/items/prop_dungeon_obelisk.json",
+    "bytes": 101,
+    "sha256": "dfa3790917207f37b71cf5658381bb7073c1cbc983b81ac6099294ee80844677"
+  },
+  {
+    "path": "assets/yuumi97/items/prop_feast_cauldron.json",
+    "bytes": 100,
+    "sha256": "2e1e8ebf557ae3e42646277cb8178ba9780a164e30e5a887ace8e3f6a0e1d9ed"
+  },
+  {
+    "path": "assets/yuumi97/items/prop_gacha_machine.json",
+    "bytes": 99,
+    "sha256": "b37e6bb1b3ea2445c31e7a7f95b96e52677c75bf67181e6fc16a3da694cfb194"
+  },
+  {
+    "path": "assets/yuumi97/items/prop_stock_board.json",
+    "bytes": 97,
+    "sha256": "1c76b78d850721ee8534d74c587726fe08d8e06e8ceba66e5d9b012bdb0282ab"
+  },
+  {
+    "path": "assets/yuumi97/items/prowling_wand.json",
+    "bytes": 373,
+    "sha256": "b4d3688679bcda8591ad68de653119fb059099e3c373ac9efdc24ded904fc100"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_angler_harpoon.json",
+    "bytes": 385,
+    "sha256": "383640640460fad0c22470bfd0eb2be431b5f0e46c817edc3f003ead5f7167ef"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_carpenter_axe.json",
+    "bytes": 383,
+    "sha256": "ab2891721094df3098165dac88bf5af5b1a0a60a97b262c6b9a6df5b7c10277b"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_chef_wok.json",
+    "bytes": 373,
+    "sha256": "743bf4fb9dc7cfe2be28b1bff0154965780030f8d92eed1d6800feceb0438882"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_farmer_scythe.json",
+    "bytes": 383,
+    "sha256": "9518f287c748d31b25d3a039dc9bd7a219be50468996a22f6fb20f0ac235034d"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_miner_drill.json",
+    "bytes": 379,
+    "sha256": "f8ac1567cb2e98bdd96d657b26f2e5cd50b3ff13c1cbc34b1529709bd3ea5f56"
+  },
+  {
+    "path": "assets/yuumi97/items/tool_smith_hammer.json",
+    "bytes": 381,
+    "sha256": "6bd7c0c87804a50b79228cafcc19526991b146bdfbd70eb235829872a0991f9b"
+  },
+  {
+    "path": "assets/yuumi97/items/weapon_arcane_grimoire.json",
+    "bytes": 391,
+    "sha256": "96a797fa016caf1c38fe10d9d6c2913db84835f937dcd20fcab48c2e4525bc38"
+  },
+  {
+    "path": "assets/yuumi97/items/weapon_paladin_sword.json",
+    "bytes": 387,
+    "sha256": "fd27896b913059fad77c1c31c318d86a80e7019cc126c7e7cd525ef1e9f25b4c"
+  },
+  {
+    "path": "assets/yuumi97/items/weapon_ranger_bow.json",
+    "bytes": 381,
+    "sha256": "18d72c2430269803b06471a651092b4f56f8b892c03eedda0c2bf100b2f0739f"
+  },
+  {
+    "path": "assets/yuumi97/items/weapon_shadow_daggers.json",
+    "bytes": 389,
+    "sha256": "46abf8b00d65ff171946e2891f8ba411fae3369f60ed77f4293f1639d87607af"
+  },
+  {
+    "path": "assets/yuumi97/items/you_and_me_bell.json",
+    "bytes": 377,
+    "sha256": "b20f825f3fc0f79493c4e0afa76d4f6297e584e57dc45280fc981641348bcba9"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/book_of_thresholds.json",
+    "bytes": 112,
+    "sha256": "4162b556eda8f172af2e5f22939d26800aa3a4f096accc022e898be7ef6526df"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/furn_cat_tower.json",
+    "bytes": 108,
+    "sha256": "fdd6a7ef2488a0e3575dea9247c15be802a3c8c6eba4abc37b87c066471f3ea4"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/furn_kotatsu.json",
+    "bytes": 106,
+    "sha256": "7e49f706363746d15f0e774ecfce0f690de3180eb429c41e3ae451afbbf05167"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/furn_neon_sign.json",
+    "bytes": 108,
+    "sha256": "22bc41852351ee004ae512ea1ef4a6d9822043708b6bbc53b296b3fca08ce908"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/hat_chef_toque.json",
+    "bytes": 108,
+    "sha256": "0699ae88240832eff221154876584d340e4a698eb85b8ee5b6e78f9910b7542e"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/hat_stock_tophat.json",
+    "bytes": 110,
+    "sha256": "475e7cc02b131f1a336f3af349a32a7f37dcb072e0b081e0c3421541e5038a23"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/prowling_wand.json",
+    "bytes": 107,
+    "sha256": "ad6781518dddfc0dd7647abdaea18b494006714ce29b1bad3427baff02c0f1de"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_angler_harpoon.json",
+    "bytes": 113,
+    "sha256": "6a25f981e63ea3a9019cc617718ce2acebab38e52eaac915ae7b86db42f99cf3"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_carpenter_axe.json",
+    "bytes": 112,
+    "sha256": "8c54911805e1e84f7102023aa20b41e8dad830e74aeec685d310b56a84854398"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_chef_wok.json",
+    "bytes": 107,
+    "sha256": "c314491d3348ceab9f1feb610936d37dd9bfa81ba0386af8f708970a648132e3"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_farmer_scythe.json",
+    "bytes": 112,
+    "sha256": "3c8fec96048d43453eea4b5ec7d06bf92042c80a28755cee69dc37807c7cf905"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_miner_drill.json",
+    "bytes": 110,
+    "sha256": "949a92a5c6659212bd1724718721b5f7639b6cd044c2d5638d09d4ba3f301513"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/tool_smith_hammer.json",
+    "bytes": 111,
+    "sha256": "6d478c500b6bc49e1eca1490ca6486460a7cc75e904741b3cbfd73c2a1ccad47"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/weapon_arcane_grimoire.json",
+    "bytes": 116,
+    "sha256": "982fd4108777606aefe42ce055d80e143cbdb13e9381caecc6f29a3c145ebe6a"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/weapon_paladin_sword.json",
+    "bytes": 114,
+    "sha256": "ada16b2dd72089b12c2cbafdb4225c2b6cf186dfa503da8d626abc417219c339"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/weapon_ranger_bow.json",
+    "bytes": 111,
+    "sha256": "976050f0c96b33af42c433a136864b2999123fef34d21b398bbe7382dd70eae2"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/weapon_shadow_daggers.json",
+    "bytes": 115,
+    "sha256": "02686dfdc20ccd7f85bbe67c0660c58da698a29571120e215be5029051bbf931"
+  },
+  {
+    "path": "assets/yuumi97/models/gui/you_and_me_bell.json",
+    "bytes": 109,
+    "sha256": "700f89aa7998c689ac4ec77f8205c5413bb2adf35a8221c1b5e450cc60de07ab"
+  },
+  {
+    "path": "assets/yuumi97/models/item/book_of_thresholds.json",
+    "bytes": 63555,
+    "sha256": "6cec7dd858bd0db2f51ede3db289df9cbe6e5e14cb36ffbac58038dc2ec4afcb"
+  },
+  {
+    "path": "assets/yuumi97/models/item/furn_cat_tower.json",
+    "bytes": 304370,
+    "sha256": "f0228ff879792b0660259f9ff8a9518426c34746ff1da30f8b9396da229ccbdc"
+  },
+  {
+    "path": "assets/yuumi97/models/item/furn_kotatsu.json",
+    "bytes": 263298,
+    "sha256": "a0058190cc8f2b436ccec05056b053a367fc059822595ef05d76be7af4b0bd71"
+  },
+  {
+    "path": "assets/yuumi97/models/item/furn_neon_sign.json",
+    "bytes": 276079,
+    "sha256": "f356b39f61c92b4ed140c215e6ad9c7d1fb14c6fb9f465868efd27941cdcec25"
+  },
+  {
+    "path": "assets/yuumi97/models/item/hat_chef_toque.json",
+    "bytes": 120546,
+    "sha256": "e13796c125c73a2958a73395c025ca67a49300cf9b3d6c1c0a2ceda9b7b35acf"
+  },
+  {
+    "path": "assets/yuumi97/models/item/hat_stock_tophat.json",
+    "bytes": 109778,
+    "sha256": "6fae747d4dd1c5621bf66688dc80b25dbccb55cd4d53188b591ca365c9a95969"
+  },
+  {
+    "path": "assets/yuumi97/models/item/hat_yuumi_ears.json",
+    "bytes": 45819,
+    "sha256": "7f5e5365a9d203c82946a789c09523942c99458e8a2a4ef90601f249fcd274e4"
+  },
+  {
+    "path": "assets/yuumi97/models/item/plushie_yuumi.json",
+    "bytes": 117864,
+    "sha256": "60b9cf7a0747d6cfb071223cb420e67c4dfb973da0a3c6d670ed6955f15c3e71"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_boon_altar.json",
+    "bytes": 107351,
+    "sha256": "8a70671c0ac120024fca35e6d7e3e7bdd9784f35cc4dc84de97968daee844760"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_derby_trophy.json",
+    "bytes": 89812,
+    "sha256": "951293d6196425a61066f83a3c6fd32c0ee87d0421951e463fa61c042a482142"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_dungeon_obelisk.json",
+    "bytes": 185733,
+    "sha256": "a1a0d4cbed7efc9e602179f3465ab0f2f6829828937b4267ae328c567ea49da7"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_feast_cauldron.json",
+    "bytes": 206915,
+    "sha256": "e5f05b99dc15a218d60b4844ba1c87db1f7dfdcb51e284897b1392214d238184"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_gacha_machine.json",
+    "bytes": 309565,
+    "sha256": "22ab1becd31542dd427a3e8ca0c8ae71852bbd132ca6620e1cc70fbc91cb46c3"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_roulette_wheel.json",
+    "bytes": 161324,
+    "sha256": "3d50f2727e8fd668c9bea93e7e531c3f201d638ada324ba8762318d866cffd85"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_slot_cabinet.json",
+    "bytes": 85487,
+    "sha256": "6f7c303691f470861de3b743fee74c5541478c2b58dc38c598de57b7a8c1672d"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_stock_board.json",
+    "bytes": 158729,
+    "sha256": "451a9ad37ec5f987411285f06c3a179d391055787d6576f23fb8ef9ee7434580"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prop_yuumi_statue.json",
+    "bytes": 111641,
+    "sha256": "d7b2311a43498698eda89a96aa746e8d36a1da997c696043df3cf0718d9e1eb6"
+  },
+  {
+    "path": "assets/yuumi97/models/item/prowling_wand.json",
+    "bytes": 74869,
+    "sha256": "17e180117f1acb40d0c50ec7aaaca48eeff72a54faed62e68bb3b8206bf5061b"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_angler_harpoon.json",
+    "bytes": 169764,
+    "sha256": "4278679d12ff0bc672382765ad5c0d96a9be8aa34bacf30c451d503bd32971ca"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_carpenter_axe.json",
+    "bytes": 229372,
+    "sha256": "5f81e59e8f07fa18863cde92797842f7c6a4fb58a80c9cfd2b271bdf3410a672"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_chef_wok.json",
+    "bytes": 214441,
+    "sha256": "dbea6c21a7a6721d68e65b4e26a8ba0702b838f8ce9fd68f999e4f9f728b674e"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_farmer_scythe.json",
+    "bytes": 176434,
+    "sha256": "8e0fa520b4ceef94e7dc112666c393b4c032e0a4e07d8daf0acffd2854b8e64f"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_miner_drill.json",
+    "bytes": 98859,
+    "sha256": "a18f2b00d32a9293775de8f46bddee79f6ac9f6d3c3f7ed51e6328bce1d0574c"
+  },
+  {
+    "path": "assets/yuumi97/models/item/tool_smith_hammer.json",
+    "bytes": 92999,
+    "sha256": "53b22055efeff5458e64f8af9d5e5de943194a2cb2276eea978333dec8b25b61"
+  },
+  {
+    "path": "assets/yuumi97/models/item/weapon_arcane_grimoire.json",
+    "bytes": 382350,
+    "sha256": "f14b07b23add11a1db1a54040bdb13cc5da3204b518709c376f3bf441fc8b35f"
+  },
+  {
+    "path": "assets/yuumi97/models/item/weapon_paladin_sword.json",
+    "bytes": 320066,
+    "sha256": "c0f144f354f796d04067e5b12510a3f1f541a53755591ce5f622989c36d3a168"
+  },
+  {
+    "path": "assets/yuumi97/models/item/weapon_ranger_bow.json",
+    "bytes": 253161,
+    "sha256": "91b78bfa5712d971b5cfeec35479e09058d48edb7fc96fb571f979637a1b8b34"
+  },
+  {
+    "path": "assets/yuumi97/models/item/weapon_shadow_daggers.json",
+    "bytes": 223067,
+    "sha256": "49109dfaab03377caf4b935be5bb8388852962b470e373dda12f9c439e206a4c"
+  },
+  {
+    "path": "assets/yuumi97/models/item/you_and_me_bell.json",
+    "bytes": 49547,
+    "sha256": "27eefd7bfeb4e598e41928b6366600788d72884730ad3c4a0129bb9077144e83"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/ancient_cat_coin.png",
+    "bytes": 400,
+    "sha256": "88f5c703c04423a54237c4ef673be7ad33058296697af7916d0d242cdeaff0a7"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/book_of_thresholds.png",
+    "bytes": 400,
+    "sha256": "d6c555fa309f02913b5ee1feeb6d5ee801e00329c9c357ceaea1da21be285e62"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_hound.png",
+    "bytes": 396,
+    "sha256": "484b203070d80782051d92bd98772250127a61be67ce87d93b97db0212cdc7bd"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_rat.png",
+    "bytes": 409,
+    "sha256": "f3636d9ef441a3faec0109cf3b4d7a93968e22e8e854e8e228132f64c222b91d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/boss_core_void.png",
+    "bytes": 376,
+    "sha256": "32ae6534a3163307ddf80b81af49dfb65f7167b2e7a18054ca5883ec072cfdf5"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/casino_chip.png",
+    "bytes": 392,
+    "sha256": "08bb4523144b5b5995c028887720b938ca1690150ad1395c63e038009a4a3404"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/catnip_elixir.png",
+    "bytes": 388,
+    "sha256": "47e940c7da34ccc2408a9b29bb003882ce35673c5287b995dbcf93d3a4e0ce43"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/charm_crimson_claw.png",
+    "bytes": 352,
+    "sha256": "dfa9514a01d33c41c98cf1a1b7dd31a22d0cc8a59c563840fcb8c7bffa49711c"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/charm_golden_whisker.png",
+    "bytes": 340,
+    "sha256": "3de8fb8a865fba47380c17ed4c2ae43509cf588e3bb91ba7bde692e83e1051d1"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/charm_starlight_aegis.png",
+    "bytes": 349,
+    "sha256": "957e7fa2c377849d87dde87ef5a6a404265a5589821cf9732e38b2e61f03f560"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/charm_vampiric_purr.png",
+    "bytes": 353,
+    "sha256": "c476ab679daa9909d669e1456ce287b28de3c88302fbd7e0edb9666b2bc9cea3"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_100.png",
+    "bytes": 413,
+    "sha256": "78cbbcba98d5dc5975292aa314538ddb9e73fed671180429266536ee09cdbb90"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_1000.png",
+    "bytes": 458,
+    "sha256": "ef4f6f1eebef103981366e893a7cbe333c2355613c838bd3db9ee39052ab0f0c"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/chip_10000.png",
+    "bytes": 438,
+    "sha256": "bfce5a047fef4b1123afffd202202dc8a190d25c7b613f4f796c9ecdc17c0000"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_golden.png",
+    "bytes": 370,
+    "sha256": "2c994bfe9eaae8e8c486d570548ab49fa189eb9c1444ab6c9c17219b4ec0352d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_salmon.png",
+    "bytes": 331,
+    "sha256": "9f2d06d6664a180a7f5766e03449a3a2028b769389bbcaf0fc92a2abb8302936"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/churu_tuna.png",
+    "bytes": 341,
+    "sha256": "58afd89b16484cd69f9034e7e600315697e3d682355640853ed754a3e05ace61"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/class_emblem.png",
+    "bytes": 381,
+    "sha256": "3c9f06f3a9435140805e7deadb6bcc9d9788806883fb1fed1542f4782b27c44a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/deep_sea_fillet.png",
+    "bytes": 363,
+    "sha256": "8a9299eeab0a700eac2a221d00d7c57e8be719d238d64148f0883fd7d94f3512"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/final_chapter_tome.png",
+    "bytes": 439,
+    "sha256": "db18cadd0e843c6a9b8c335b6327c26276d1af14f0f60da24883f846ef94cd0a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/furn_cat_tower.png",
+    "bytes": 337,
+    "sha256": "4c41776cd43a48d32cb59b289bae71bf5742ae5443d46683f592809f23b5ec5d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/furn_kotatsu.png",
+    "bytes": 374,
+    "sha256": "79a048c6b0203502c8d0efe14e196504e130d656106ce070f31241fcf996d54f"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/furn_neon_sign.png",
+    "bytes": 263,
+    "sha256": "a007d984753daadcf16221f30ea37662c07f4e18a559c9c3550ed0f68722ca8f"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/gacha_capsule.png",
+    "bytes": 357,
+    "sha256": "5a19f31b3b5327cfa5aadb46d60009a985d12f96670f149e2462a2dcf820bc23"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/golden_catnip.png",
+    "bytes": 334,
+    "sha256": "dc39001f1dae4e904a2b07331afd955fd8a2ac62ccfef094fe4e3298abbf5d83"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/hat_chef_toque.png",
+    "bytes": 299,
+    "sha256": "0e4b07437d74fe137e689cc7c00005afaed0474b3b73209b778da8b933e1c4d0"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/hat_stock_tophat.png",
+    "bytes": 346,
+    "sha256": "97a6e8b491f2517a71f60bb55436b13256b6b16b255a99d21b0eab0ba0b87dbf"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/jackpot_crown.png",
+    "bytes": 353,
+    "sha256": "a6ae2bde1ab5c9a1d1d349d9576a69db55ca6d11b6eedafd446ba45d5482b9e0"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/kneading_bento.png",
+    "bytes": 373,
+    "sha256": "8c2e35d8d3a78b45537560dc0f621f4d4f4f49e31f5af13bfe858bb8377624d7"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/labyrinth_key.png",
+    "bytes": 292,
+    "sha256": "cb66cc2070eeccbb0b14762b911a22f026d15da2752ba2a4bca41143caf377b8"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/michelin_feast.png",
+    "bytes": 422,
+    "sha256": "704aed9dba8c50d84d57cb8624d634a2a30727983892f48c3706f3a8dd1718f9"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/monster_soul_core.png",
+    "bytes": 349,
+    "sha256": "bdf618b3938a1be61014a0da5c524a400afd0494510d8df065ab711bb61c4ee5"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/nine_lives_charm.png",
+    "bytes": 378,
+    "sha256": "eb3d74736e3f060aaba63e253f51772ecf3238fdb28d4b5c323b7ed24a7d0b82"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/prowling_wand.png",
+    "bytes": 374,
+    "sha256": "7c404e815c2f183517736c322a4362f8dcddf0b9b32831f5f33ce723d0940c6e"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/recall_bookmark.png",
+    "bytes": 359,
+    "sha256": "c3c26e3e8aca444ce81ca4882811c84ea3d2610e6f4bef9255e6e29bf75c9a58"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/respec_potion.png",
+    "bytes": 316,
+    "sha256": "25428f917fdc4a2a8d7ad8090044dbc04d23e5067563c548f0bd114491f15bc3"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/royal_feast_can.png",
+    "bytes": 395,
+    "sha256": "8c173b475b7330d248b3355d0bd556328e825526b08ce1551f8a1aac74326dd7"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/rune_scroll.png",
+    "bytes": 360,
+    "sha256": "e298ab9a4f1f8f0405d2b53858cbede9c5043fef0cd93b1de4c0cc7a94f3e06d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_paw.png",
+    "bytes": 356,
+    "sha256": "d50c7a4801a690ce696b1150840b70fb04abd8eaabd9e04ef62f8f31bdfe87c9"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_seven.png",
+    "bytes": 292,
+    "sha256": "666470b4d38423161f057b0a9670366e90555a0791f0736d28a4a1a3df7cf4be"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/slot_yuumi.png",
+    "bytes": 436,
+    "sha256": "2ea6cdc940e480c55bda7e6039ceb22f99b8ab235df4f36065eb347f4a5f9c6d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/starlight_scroll.png",
+    "bytes": 361,
+    "sha256": "64bc048cb95ad71743abd685c804b99460f0c55766451b6a60dbe248c15b4f5a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/starlight_stone.png",
+    "bytes": 400,
+    "sha256": "fdb79539476b9e1d8575a82cbe412d85da9e13991c671589c781d71e528a01b8"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_angler_harpoon.png",
+    "bytes": 332,
+    "sha256": "5dcf38f0beb230221122ca1198487da777035eb51691eb1f5ccac431b88def36"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_carpenter_axe.png",
+    "bytes": 374,
+    "sha256": "6ab1a24e863ef97da8247e61bea36ca9e56397e8b164c9dcfa38997e139f5299"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_chef_wok.png",
+    "bytes": 415,
+    "sha256": "88b6ee2120c784131d5aca48bd9e3e28f8104e737c31047753b55ed9440c7bf3"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_farmer_scythe.png",
+    "bytes": 352,
+    "sha256": "bf697c016157679726247629c1ed8f04631772c4d53ecd0893a0a6a93a4a90d8"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_miner_drill.png",
+    "bytes": 346,
+    "sha256": "08b87baf3fd63ad2139f172f8c4d6f5f091aca3e7721c67ae2d814ab5e235861"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/tool_smith_hammer.png",
+    "bytes": 358,
+    "sha256": "5597e80f77c3b4cffd8a0c5ebbb70823ef2909ae7fb2f4e5d4c88564a6edcfae"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/torn_page.png",
+    "bytes": 312,
+    "sha256": "ffadb3ce85d46c10336243f20507d6b8fe4fe577979f8515af592368ca1f0e22"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/unidentified_geode.png",
+    "bytes": 370,
+    "sha256": "308220adbe6fb8a8b5040c3fe4c63ab79de667d27408e67ac64b648d4ac9ef3a"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/weapon_arcane_grimoire.png",
+    "bytes": 361,
+    "sha256": "36d8675fc96666777806833d8134dd122a134ed4e9679db72bf4765f68311115"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/weapon_paladin_sword.png",
+    "bytes": 308,
+    "sha256": "afcf5578e3d44ca7d3c3325bf80722aa5d9daa38093161b235e91bcdf5bdc1a3"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/weapon_ranger_bow.png",
+    "bytes": 328,
+    "sha256": "4278295306c10cc20ff555b68f8e8054665efea2ad4d7d7b84492b3dd367394d"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/weapon_shadow_daggers.png",
+    "bytes": 302,
+    "sha256": "a90d6d73f887dcda2490df1173e89def86f0f1f17aa390724a5f33a421cf00c2"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/you_and_me_bell.png",
+    "bytes": 386,
+    "sha256": "999ba2ba8327a4d099073a55a2227a3efefa923c10bd1d727b58060091bfeda0"
+  },
+  {
+    "path": "assets/yuumi97/textures/item/zoomies_skewer.png",
+    "bytes": 342,
+    "sha256": "f5f4499b5f0dcec26522ff16b5ae6eca3a44b7fc893e29d31f3dbdab4d79e0fd"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/book_of_thresholds.png",
+    "bytes": 1684,
+    "sha256": "38b7adff77d94736675ea0502eb68dd40547135993ed89dcd6c00a3c28f4e792"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/furn_cat_tower.png",
+    "bytes": 2263,
+    "sha256": "b04346060d6c6c38e8a23d8e96495a2f99b616af849ec5b906aa683695a9ff8a"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/furn_kotatsu.png",
+    "bytes": 2714,
+    "sha256": "5db46f115ffad373a76f548491639739d746ed6e4f39f5a5edec29dab26e233c"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/furn_neon_sign.png",
+    "bytes": 1838,
+    "sha256": "73640c119f87bc633297eb549c3ccc15bf4d6badc0828919e627ae5fdc11225f"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/hat_chef_toque.png",
+    "bytes": 1694,
+    "sha256": "f7e93aedcb401ec66da1b2fe045e4b8cdd4a66c724f015dd54adb39220357957"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/hat_stock_tophat.png",
+    "bytes": 1509,
+    "sha256": "f1237a3b9a3a34833c78ae1a5025edfaef93bacc79c930552af0357361a70dcc"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/hat_yuumi_ears.png",
+    "bytes": 1564,
+    "sha256": "1cf66af0e3adf7d06a38f2f7b44743c3ed16cf7caa88e7d7476183eac1a17afa"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/plushie_yuumi.png",
+    "bytes": 1987,
+    "sha256": "58a5b7661887d07c799e88f2c9ac8ebcfb85704949f6549445a7e28291cba223"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_boon_altar.png",
+    "bytes": 4328,
+    "sha256": "1f305254b1e1ad649843d2a5c3217efc6882b4f2c55a9278951f937bbf238539"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_derby_trophy.png",
+    "bytes": 3504,
+    "sha256": "2e0a62cd72570359fc0fe610659fce500bcf8194505ff9c2f1e14fd35c05bc5e"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_dungeon_obelisk.png",
+    "bytes": 4177,
+    "sha256": "0cdd18af1d71d6e24ab9a1372aae07a7ae1d3483f8ff0ce125c03111e9fc7012"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_feast_cauldron.png",
+    "bytes": 4778,
+    "sha256": "64fc160a2b82896cc3c1af62fe042150177943323c864d519a7615f72f5854b5"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_gacha_machine.png",
+    "bytes": 3931,
+    "sha256": "7d01952e5521e9f780b3eb9939036d7e4ef0d96de679d612c854e752f99a97e4"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_roulette_wheel.png",
+    "bytes": 3354,
+    "sha256": "3219194e7e03e8d847cdc11c09f7a0862816005ff3459ac68ca2457aeb6a860d"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_slot_cabinet.png",
+    "bytes": 3668,
+    "sha256": "847433b243cff9d489c8c6ba238e6525fbbacca52b920ed5c7528cfca71240cd"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_stock_board.png",
+    "bytes": 4368,
+    "sha256": "fd4f6c25186fb675e4569f9daeea25d801e116dc4d9a4cd003a8cea0a0a78a9d"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prop_yuumi_statue.png",
+    "bytes": 3750,
+    "sha256": "e0d9ba7738d5fa187d0b1fbea88319a775c3bac5914b6893f020164bbb3f17f6"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/prowling_wand.png",
+    "bytes": 1388,
+    "sha256": "c706f0845e2152e0aecc9c775662d877a8fb585a8a986187b5d8018790eba99f"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_angler_harpoon.png",
+    "bytes": 1855,
+    "sha256": "d0c93435309e01a865464fe338320eb10a1b3bb93c6dbc179911fcd851950b62"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_carpenter_axe.png",
+    "bytes": 1764,
+    "sha256": "cedacd1f9b464d663bb8b8be7a1d7efeb4ceb2f0ab222b8c7561950f81d96953"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_chef_wok.png",
+    "bytes": 1847,
+    "sha256": "5699a4828fe1032289e55a44e37cf17738e4beada1011706d8a3c7233ff44163"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_farmer_scythe.png",
+    "bytes": 1833,
+    "sha256": "cbcdd15a4cd0e3b54fd29f2e70c2e29d9b5f1b1b14a240b0a8f1a78c3c310d45"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_miner_drill.png",
+    "bytes": 1767,
+    "sha256": "1967e27cb76c5c76e4c130ed4c37cb623c5d243966def179a4c99f91148e301a"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/tool_smith_hammer.png",
+    "bytes": 1877,
+    "sha256": "5a2c8303d08cd4d3168eca15a9db9f9f96c6e79735b8dcc7fbdf2999677bf24d"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/weapon_arcane_grimoire.png",
+    "bytes": 1888,
+    "sha256": "3664ce2c0904d9eaf80f7cef70493e5464971bba0e54b750db65f4360ee93bcd"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/weapon_paladin_sword.png",
+    "bytes": 1639,
+    "sha256": "6253d990808032b18da9e52201af8ef91ff3f919564849421b4e65f802446cde"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/weapon_ranger_bow.png",
+    "bytes": 1636,
+    "sha256": "a353e6895d7af08a47e82f82b4d117811ff7022b77ca86563341ce30e1623bed"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/weapon_shadow_daggers.png",
+    "bytes": 1770,
+    "sha256": "b5d1c3fefe8c0d91ff7673e08435a14f12526e014c1603dc8086adadb24217e3"
+  },
+  {
+    "path": "assets/yuumi97/textures/prop/you_and_me_bell.png",
+    "bytes": 1233,
+    "sha256": "4943e700beb5e6a97becde71dd542203b8144019994295ecf18771c2dd75a175"
+  }
+]

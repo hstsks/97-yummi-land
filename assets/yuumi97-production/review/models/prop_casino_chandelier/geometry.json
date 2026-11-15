@@ -1,0 +1,50 @@
+{
+  "id": "prop_casino_chandelier",
+  "elements": 846,
+  "bounds_model_units": [
+    [
+      -4.8872,
+      -4.0,
+      -4.8872
+    ],
+    [
+      20.8873,
+      24.0,
+      20.8873
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_casino_chandelier.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_casino_chandelier.json": "33989493ff50cdf970201fdb7a0a898c227a33ab4de8886edebc60274178d468",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\landmarks-v31-mounts.json": "7aa2a1815e297d39cb4703bc0ab74f2b343a025801a217748a38f8d3169e5d12",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_casino_chandelier.png": "95eac33e27d1d9de40c255479bb7688655745d1f5e3f84073e1da2319dae0dc3"
+  },
+  "contextImages": [
+    "ceiling_mount"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

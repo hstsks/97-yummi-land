@@ -45,6 +45,8 @@ public final class RpgJobManager implements Listener {
     private kr.yuumi97.core.util.RewardMailbox mailbox;
     private Predicate<String> models = id -> false;
     private Predicate<Entity> additionalHostile = entity -> false;
+    private Predicate<Entity> trainingDummy = entity -> false;
+    private ToDoubleFunction<org.bukkit.event.entity.EntityDamageEvent> trainingDamage = event -> -1;
     private org.bukkit.scheduler.BukkitTask saveTask;
 
     public RpgJobManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
@@ -72,6 +74,14 @@ public final class RpgJobManager implements Listener {
     public void setModelAvailability(Predicate<String> availability){models=availability;}
     public void setHostilePredicate(Predicate<Entity> predicate){additionalHostile=predicate;}
     public boolean taggedEnemy(Entity entity){return additionalHostile.test(entity);}
+    public void setTrainingDummyHooks(Predicate<Entity> predicate,ToDoubleFunction<org.bukkit.event.entity.EntityDamageEvent> approvedDamage){trainingDummy=predicate;trainingDamage=approvedDamage;}
+    public boolean isTrainingDummy(Entity entity){return trainingDummy.test(entity);}
+    public double approvedTrainingDamage(org.bukkit.event.entity.EntityDamageEvent event){return trainingDamage.applyAsDouble(event);}
+    public void recordTrainingEffect(Player player,LivingEntity entity,org.bukkit.event.entity.EntityDamageEvent.DamageCause cause,int ticks){if(!isTrainingDummy(entity)||ticks<=0)return;
+        String key=cause==org.bukkit.event.entity.EntityDamageEvent.DamageCause.POISON?"yuumi_training_poison_owner":"yuumi_training_fire_owner";
+        String expiry=cause==org.bukkit.event.entity.EntityDamageEvent.DamageCause.POISON?"yuumi_training_poison_expires":"yuumi_training_fire_expires";
+        entity.getPersistentDataContainer().set(new NamespacedKey(plugin,key),org.bukkit.persistence.PersistentDataType.STRING,player.getUniqueId().toString());
+        entity.getPersistentDataContainer().set(new NamespacedKey(plugin,expiry),org.bukkit.persistence.PersistentDataType.LONG,System.nanoTime()+ticks*50_000_000L);}
     public ItemStack prop(String id,Material fallback){ItemStack stack=new ItemStack(fallback);if(models.test(id))stack.editMeta(meta->meta.setItemModel(new NamespacedKey("yuumi97",id)));return stack;}
     public void setPartyMembers(Function<Player,Collection<Player>> provider){partyMembers=provider;}
     public void setDungeonHooks(Predicate<Player> participant, BiPredicate<Player,Entity> affect,

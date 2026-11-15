@@ -14,6 +14,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -21,6 +22,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.block.Container;
 import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.Directional;
+import org.bukkit.block.data.type.Leaves;
 import org.bukkit.block.data.type.Bed;
 import org.bukkit.block.data.type.Stairs;
 import org.bukkit.block.structure.Mirror;
@@ -31,6 +33,7 @@ import org.bukkit.entity.Display;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ItemDisplay;
+import org.bukkit.entity.Interaction;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.entity.TextDisplay;
@@ -48,7 +51,9 @@ import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.generator.BiomeProvider;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.generator.WorldInfo;
@@ -68,9 +73,12 @@ import org.joml.Vector3f;
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.zip.ZipFile;
 
@@ -99,6 +107,10 @@ public final class HubWorldManager implements Listener {
 
     private World hubWorld;
     private boolean rouletteSpinning;
+    private boolean rebuilding;
+    private final HubV31Layout v31;
+    private Runnable trainingDummyReconciler = () -> {};
+    private final Map<UUID, Map<String, Integer>> npcClickTicks = new HashMap<>();
 
     private static final List<String> V3_STRUCTURES = List.of(
             "jp_gazebo_1", "jp_park_1", "jp_park_2", "jp_planter", "jp_lamp", "jp_gate_1",
@@ -117,10 +129,15 @@ public final class HubWorldManager implements Listener {
         this.propModelKey = new NamespacedKey(plugin, "hub_3d_prop_id");
         this.propHologramKey = new NamespacedKey(plugin, "hub_prop_hologram");
         this.statueBlocksKey = new NamespacedKey(plugin, "hub_statue_replaced_blocks");
+        this.v31 = new HubV31Layout(this, plugin);
     }
 
     public void setPlotManager(PlotManager plotManager) {
         this.plotManager = plotManager;
+    }
+
+    public void setTrainingDummyReconciler(Runnable callback) {
+        trainingDummyReconciler = callback == null ? () -> {} : callback;
     }
 
     // ==================== 1. 전용 평화 허브 월드 생성기 (yuumi_hub) ====================
@@ -193,7 +210,20 @@ public final class HubWorldManager implements Listener {
     }
 
     public Location getStockBrokerLocation() {
-        return new Location(getHubWorld(), 52.5, 71.0, -31.5, 0f, 0f);
+        return new Location(getHubWorld(), 52.5, 72.0, -33.0, 0f, 0f);
+    }
+
+    public Location getHallOfFameLocation() {
+        return new Location(getHubWorld(), 14.5, 65, -27.5, 0f, 0f);
+    }
+
+    public Location getGachaLocation() {
+        return new Location(getHubWorld(), 22.5, 65, -27.5, 0f, 0f);
+    }
+
+    public Location getHallBoardLocation(int category) {
+        if (category < 0 || category > 2) throw new IllegalArgumentException("Hall category must be 0..2");
+        return new Location(getHubWorld(), 10.5 + category * 4, 69.5, -29.0);
     }
 
     public boolean isOnsenWater(Location loc) {
@@ -299,33 +329,43 @@ public final class HubWorldManager implements Listener {
         World hub = getHubWorld();
         if (hub == null) return;
 
-        if (!data.getBoolean("hub_v2.built", false) || !data.getBoolean("hub_v3.built", false)) {
-            plugin.getLogger().info("[HubWorldManager] v3.0 public city migration started; owned plots are protected.");
-            buildPublicCityV3(hub, !data.getBoolean("hub_v2.built", false));
-            data.set("hub_v2.built", true);
-            data.set("hub_v3.built", true);
-            saveCallback.run();
-            plugin.getLogger().info("[HubWorldManager] hub_v3.built=true; 20 v3 templates and all public facilities ready.");
+        if (!data.getBoolean("hub_v2.built", false) || !data.getBoolean("hub_v3.built", false)
+                || !data.getBoolean("hub_v3_1.built", false)
+                || !v31.sourceFingerprint().equals(data.getString("hub_v3_1.blueprint-fingerprint", ""))) {
+            buildEntireHubCity(hub);
         } else {
             refreshCustom3DProps();
         }
+        plugin.getLogger().info("[HubWorldManager] V31_HUB_READY");
     }
 
     public void buildEntireHubCity(World hub) {
-        buildPublicCityV3(hub, !data.getBoolean("hub_v2.built", false));
+        if (rebuilding) return;
+        rebuilding = true;
+        try {
+            v31.beginBuild();
+            data.set("hub_v3_1.built", false);
+            saveCallback.run();
+            plugin.getLogger().info("[HubWorldManager] v3.1 public migration started; owned plot columns remain protected.");
+            buildPublicCityV3(hub, !data.getBoolean("hub_v2.built", false));
+            data.set("hub_v2.built", true);
+            data.set("hub_v3.built", true);
+            data.set("hub_v3_1.built", true);
+            data.set("hub_v3_1.blueprint-fingerprint", v31.appliedFingerprint());
+            saveCallback.run();
+            plugin.getLogger().info("[HubWorldManager] hub_v3_1.built=true; plaza pockets, palace, NPC sightlines and landmark fallbacks ready.");
+        } finally {
+            rebuilding = false;
+        }
     }
 
     private void buildPublicCityV3(World hub, boolean includeSouth) {
         if (hub == null) throw new IllegalStateException("Hub world is not loaded");
         validateV3Structures();
         // Persistent NPCs can be in unloaded chunks when an administrator rebuilds.
-        for (int cx = -8; cx <= 8; cx++) {
-            for (int cz = -5; cz <= 3; cz++) hub.getChunkAt(cx, cz).load();
-        }
-        for (int cx = -2; cx <= 1; cx++) {
-            for (int cz = -15; cz <= -12; cz++) hub.getChunkAt(cx, cz).load();
-        }
+        loadPublicChunks(hub);
         clearTaggedHubEntities(hub);
+        v31.clearOldTrees(hub);
 
         // 1) Central Cat Fountain Plaza & 4 Cardinal Boulevards
         buildCentralPlazaAndBoulevards(hub);
@@ -350,12 +390,22 @@ public final class HubWorldManager implements Listener {
         buildV3Sanctuary(hub);
         buildV3Casino(hub);
         buildV3Harbor(hub);
+        v31.buildPlaza(hub);
 
         // 6) Spawn all Interactive Cat NPCs & Floating Holograms
         spawnAllHubNpcs(hub);
 
         // 7) Auto-mount any 3D JSON Props authored by Codex in Yuumi97Pack.zip
         refreshCustom3DProps();
+    }
+
+    private void loadPublicChunks(World hub) {
+        for (int cx = -8; cx <= 9; cx++) {
+            for (int cz = -5; cz <= 3; cz++) hub.getChunkAt(cx, cz).load();
+        }
+        for (int cx = -2; cx <= 1; cx++) {
+            for (int cz = -15; cz <= -12; cz++) hub.getChunkAt(cx, cz).load();
+        }
     }
 
     private void validateV3Structures() {
@@ -369,6 +419,8 @@ public final class HubWorldManager implements Listener {
     }
 
     private void buildV3Plaza(World hub) {
+        // Old podium/booth fragments extended outside the circular plaza; remove the complete legacy footprint.
+        for (int x = 9; x <= 24; x++) for (int z = -23; z <= -9; z++) clearColumn(hub, x, 65, 80, z);
         stampCenteredV3(hub, "jp_gazebo_1", -14, 64, -14, StructureRotation.NONE);
         // A shallow reflecting pond beside the school gazebo, outside the main crossroad.
         for (int x = -24; x <= -21; x++) {
@@ -379,30 +431,6 @@ public final class HubWorldManager implements Listener {
             }
         }
         clearNpcPad(getClassMasterLocation(), 64);
-
-        // Three gold podiums leave a broad pedestrian approach from the plaza centre.
-        for (int rank = 0; rank < 3; rank++) {
-            int cx = 11 + rank * 3;
-            int height = rank == 1 ? 3 : (rank == 0 ? 2 : 1);
-            for (int x = cx - 1; x <= cx + 1; x++) {
-                for (int z = -22; z <= -19; z++) {
-                    for (int y = 65; y < 65 + height; y++) {
-                        publicBlock(hub, x, y, z, y == 64 + height ? Material.GOLD_BLOCK : Material.QUARTZ_BRICKS);
-                    }
-                }
-            }
-        }
-        spawnHolo(hub, new Location(hub, 14.5, 70.3, -21),
-                "<gold><bold>🏆 유미의 97랜드 명예의 전당</bold></gold>\n<white>최고 갑부 · 미궁 정복왕 · 별빛 세공 명장</white>");
-        for (int x = 19; x <= 23; x++) {
-            publicBlock(hub, x, 64, -15, Material.GOLD_BLOCK);
-            publicBlock(hub, x, 69, -16, x % 2 == 0 ? Material.YELLOW_WOOL : Material.PINK_WOOL);
-            publicBlock(hub, x, 69, -15, x % 2 == 0 ? Material.PINK_WOOL : Material.YELLOW_WOOL);
-        }
-        for (int y = 65; y <= 68; y++) {
-            publicBlock(hub, 19, y, -16, Material.CHERRY_FENCE);
-            publicBlock(hub, 23, y, -16, Material.CHERRY_FENCE);
-        }
 
         stampCenteredV3(hub, "jp_planter", -23, 65, 14, StructureRotation.NONE);
         buildCafeParasol(hub, -16, 13, Material.PINK_WOOL);
@@ -415,9 +443,6 @@ public final class HubWorldManager implements Listener {
                 "<#ff85c0><bold>☕ 사르르 직거래 카페</bold></#ff85c0>\n<white>집사를 Shift+우클릭하여 안전 거래</white>");
 
         stampCenteredV3(hub, "jp_park_1", 15, 64, 14, StructureRotation.NONE);
-        for (int[] point : new int[][]{{23, 8}, {23, 20}, {9, 24}, {19, 24}, {-23, 22}}) {
-            plantCherryTree(hub, point[0], 65, point[1]);
-        }
         // Decorative cats are persistent town residents, separate from the interactive NPCs.
         for (int[] point : new int[][]{{12, 12}, {18, 18}, {21, 11}}) {
             Location loc = new Location(hub, point[0] + 0.5, 65, point[1] + 0.5);
@@ -462,7 +487,7 @@ public final class HubWorldManager implements Listener {
         stampCenteredV3(hub, "jp_small_house_2", -72, 64, -29, StructureRotation.NONE);
         stampCenteredV3(hub, "jp_armorer_1", -73, 64, 29, StructureRotation.CLOCKWISE_180);
         stampCenteredV3(hub, "jp_park_2", -56, 64, 28, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_small_farm_1", -39, 64, 28, StructureRotation.NONE);
+        stampCenteredV3(hub, "jp_small_farm_1", -43, 64, 28, StructureRotation.NONE);
         for (int x : new int[]{-33, -49, -65, -90}) {
             stampCenteredV3(hub, "jp_lamp", x, 65, -5, StructureRotation.NONE);
             stampCenteredV3(hub, "jp_lamp", x, 65, 5, StructureRotation.NONE);
@@ -480,9 +505,6 @@ public final class HubWorldManager implements Listener {
             for (int z : new int[]{-4, 4}) {
                 for (int y = 65; y <= 71; y++) publicBlock(hub, x, y, z, Material.CHERRY_FENCE);
             }
-        }
-        for (int[] point : new int[][]{{-32, -28}, {-85, -28}, {-83, 31}, {-29, 28}}) {
-            plantCherryTree(hub, point[0], 65, point[1]);
         }
     }
 
@@ -527,25 +549,6 @@ public final class HubWorldManager implements Listener {
     }
 
     private void buildV3Casino(World hub) {
-        for (int x = 57; x <= 69; x++) {
-            for (int z = -7; z <= -5; z++) {
-                publicBlock(hub, x, 64, z, Material.SMOOTH_QUARTZ);
-                publicBlock(hub, x, 71, z, z == -5 ? Material.GOLD_BLOCK : Material.QUARTZ_BRICKS);
-            }
-        }
-        for (int x : new int[]{57, 69}) {
-            for (int y = 65; y <= 70; y++) publicBlock(hub, x, y, -6, Material.QUARTZ_PILLAR);
-        }
-        for (int y = 74; y <= 75; y++) publicBlock(hub, 63, y, -31, Material.CHAIN);
-        for (int dx = -3; dx <= 3; dx++) {
-            for (int dz = -2; dz <= 2; dz++) {
-                if (Math.abs(dx) + Math.abs(dz) <= 3) {
-                    publicBlock(hub, 63 + dx, 73, -31 + dz, Material.AMETHYST_BLOCK);
-                    if (Math.abs(dx) + Math.abs(dz) == 3) publicBlock(hub, 63 + dx, 72, -31 + dz, Material.END_ROD);
-                }
-            }
-        }
-        publicBlock(hub, 63, 72, -31, Material.SEA_LANTERN);
         // The 2F stock lounge is on the north balcony, outside the racing atrium and slot rows.
         for (int x = 46; x <= 58; x++) {
             for (int z = -35; z <= -29; z++) {
@@ -553,10 +556,11 @@ public final class HubWorldManager implements Listener {
                 clearColumn(hub, x, 71, 74, z);
             }
         }
-        for (int x = 49; x <= 55; x++) publicBlock(hub, x, 71, -34, Material.DARK_OAK_SLAB);
-        spawnHolo(hub, new Location(hub, 52.5, 75.2, -34.5),
+        for (int x = 49; x <= 55; x++) publicBlock(hub, x, 71, -32, Material.BLUE_CARPET);
+        spawnHolo(hub, new Location(hub, 52.5, 78.0, -34.5),
                 "<green><bold>📈 츄르 증권 거래소</bold></green>\n<white>4대 예능 종목 · 10분 시세 갱신</white>");
-        clearNpcPad(getStockBrokerLocation(), 70);
+        v31.buildCasino(hub);
+        clearNpcPad(getStockBrokerLocation(), 71);
     }
 
     private void buildV3Harbor(World hub) {
@@ -582,18 +586,25 @@ public final class HubWorldManager implements Listener {
                 "<aqua><bold>⛵ 별빛 항구와 고양이 등대</bold></aqua>\n<white>낚시 부두 · 정박 범선 · 해안 산책로</white>");
     }
 
-    private void publicBlock(World world, int x, int y, int z, Material material) {
-        if (!isOwnedColumn(world, x, z)) world.getBlockAt(x, y, z).setType(material, false);
+    void publicBlock(World world, int x, int y, int z, Material material) {
+        if (isOwnedColumn(world, x, z)) return;
+        Block block = world.getBlockAt(x, y, z);
+        var blockData = material.createBlockData();
+        if (blockData instanceof Leaves leaves) leaves.setPersistent(true);
+        block.setBlockData(blockData, false);
     }
 
     private void clearNpcPad(Location location, int floorY) {
         if (location.getWorld() == null) return;
         int x = location.getBlockX(), z = location.getBlockZ();
-        publicBlock(location.getWorld(), x, floorY, z, Material.QUARTZ_BRICKS);
+        Material floor = location.getWorld().getBlockAt(x, floorY, z).getType();
+        if (floor != Material.GOLD_BLOCK && floor != Material.CHISELED_QUARTZ_BLOCK) {
+            publicBlock(location.getWorld(), x, floorY, z, Material.QUARTZ_BRICKS);
+        }
         clearColumn(location.getWorld(), x, floorY + 1, floorY + 3, z);
     }
 
-    private void stampCenteredV3(World world, String id, int cx, int y, int cz, StructureRotation rotation) {
+    void stampCenteredV3(World world, String id, int cx, int y, int cz, StructureRotation rotation) {
         String file = "v3/" + id + ".nbt";
         try (InputStream in = plugin.getResource("structures/" + file)) {
             if (in == null) throw new IllegalStateException("Missing required structure: " + file);
@@ -664,7 +675,7 @@ public final class HubWorldManager implements Listener {
         hub.getBlockAt(0, GROUND_Y + 6, 0).setType(Material.SEA_LANTERN, false);
         hub.getBlockAt(0, GROUND_Y + 2, 1).setType(Material.BELL, false);
 
-        spawnHolo(hub, new Location(hub, 0.5, GROUND_Y + 7.8, 0.5),
+        spawnHolo(hub, new Location(hub, 0.5, 77.0, 0.5),
                 "<gradient:#ff85c0:#ffd666><bold>🐱 유미의 97랜드 중앙 광장</bold></gradient>\n"
                 + "<white>북: 차원 대포탈 성소 │ 남: 12필지 분양 주거단지</white>\n"
                 + "<yellow>서: 상점·은행·대장간·회관 │ 동: 2F 카지노·온천·선술집</yellow>");
@@ -684,10 +695,6 @@ public final class HubWorldManager implements Listener {
                 stampStructure(hub, "street_lamp.nbt", lc[0] - 1, GROUND_Y + 1, lc[1] - 1, StructureRotation.NONE);
             }
         }
-        plantCherryTree(hub, -21, GROUND_Y + 1, -19);
-        plantCherryTree(hub, 21, GROUND_Y + 1, -19);
-        plantCherryTree(hub, -21, GROUND_Y + 1, 19);
-        plantCherryTree(hub, 21, GROUND_Y + 1, 19);
     }
 
     private void paveBoulevardX(World hub, int minX, int maxX, int minZ, int maxZ) {
@@ -706,6 +713,8 @@ public final class HubWorldManager implements Listener {
     // ==================== 구역 2: 북쪽 문턱의 서 제단 & 4대 대포탈 성소 + 결투장 ====================
 
     private void buildNorthPortalSanctuary(World hub) {
+        // Remove the old off-centre torii remnant before the centred welcome route is stamped.
+        for (int x = -11; x <= -7; x++) for (int z = -37; z <= -33; z++) clearColumn(hub, x, 65, 73, z);
         // Avenue & Grand Stairs from Z = -27 to Z = -45
         for (int z = -45; z <= -27; z++) {
             for (int x = -6; x <= 6; x++) {
@@ -717,7 +726,7 @@ public final class HubWorldManager implements Listener {
             }
         }
         // Decorative Torii Gate at North Sanctuary approach
-        stampStructure(hub, "torii_gate.nbt", -1, GROUND_Y + 1, -36, StructureRotation.CLOCKWISE_90);
+        stampStructure(hub, "torii_gate.nbt", 5, GROUND_Y + 1, -37, StructureRotation.CLOCKWISE_90);
 
         // Elevated Sanctuary Terrace: X in [-34..34], Z in [-76..-46], Floor Top Y = 65 (walkable Y = 66)
         for (int x = -34; x <= 34; x++) {
@@ -946,7 +955,7 @@ public final class HubWorldManager implements Listener {
             }
         }
         // West Back-Alley Door to Welfare Soup Kitchen (X = 42, Z = -13..-12, Y = 65..67)
-        for (int z = -13; z <= -12; z++) {
+        for (int z = -36; z <= -34; z++) {
             for (int y = 65; y <= 67; y++) hub.getBlockAt(minX, y, z).setType(Material.AIR, false);
         }
         // Golden Cat Ear Sign above Entrance (X = 59..67, Z = -8, Y = 77..79)
@@ -955,17 +964,17 @@ public final class HubWorldManager implements Listener {
         hub.getBlockAt(60, 79, maxZ).setType(Material.OCHRE_FROGLIGHT, false);
         hub.getBlockAt(66, 78, maxZ).setType(Material.GOLD_BLOCK, false);
         hub.getBlockAt(66, 79, maxZ).setType(Material.OCHRE_FROGLIGHT, false);
-        spawnHolo(hub, new Location(hub, 63.5, 73.4, -4.5),
+        spawnHolo(hub, new Location(hub, 63.5, 84.5, -3.2),
                 "<gradient:#ffe14d:#ff4d79><bold>🎰 GOLDEN PAWS CASINO (2F)</bold></gradient>\n"
                 + "<white>1F: 칩 환전소 · 일반 슬롯 · 블랙잭 · 룰렛 · <gold>실시간 경묘 트랙</gold></white>\n"
                 + "<light_purple>2F VIP: 하이롤러 슬롯(잭팟 2배!) & VIP 블랙잭 발코니</light_purple>");
 
         // Cashier Counter at (61..65, 65, -12)
         for (int x = 61; x <= 65; x++) {
-            hub.getBlockAt(x, 65, -12).setType(Material.GOLD_BLOCK, false);
-            hub.getBlockAt(x, 66, -12).setType(Material.YELLOW_STAINED_GLASS_PANE, false);
+            hub.getBlockAt(x, 65, -12).setType(Material.QUARTZ_SLAB, false);
+            hub.getBlockAt(x, 66, -12).setType(Material.AIR, false);
         }
-        hub.getBlockAt(63, 66, -12).setType(Material.AIR, false); // Teller window
+        hub.getBlockAt(63, 65, -12).setType(Material.GOLD_BLOCK, false);
 
         // 1F Central Atrium: Live 5-Lane Cat Derby Track!
         // Lanes Z = -26, -24, -22, -20, -18 from X = 54 to X = 72
@@ -1056,8 +1065,8 @@ public final class HubWorldManager implements Listener {
         buildBlackjackTable(hub, 79, 71, -22);
 
         // West Back-Alley Welfare Soup Kitchen (40, 65, -13)
-        hub.getBlockAt(39, 65, -14).setType(Material.CAMPFIRE, false);
-        hub.getBlockAt(40, 65, -14).setType(Material.CAULDRON, false);
+        hub.getBlockAt(39, 65, -36).setType(Material.CAMPFIRE, false);
+        hub.getBlockAt(40, 65, -36).setType(Material.CAULDRON, false);
     }
 
     private void buildSlotMachineBooth(World hub, int x, int baseY, int z, boolean vip) {
@@ -1077,7 +1086,8 @@ public final class HubWorldManager implements Listener {
 
     private void buildBlackjackTable(World hub, int cx, int baseY, int cz) {
         for (int dz = -1; dz <= 1; dz++) {
-            hub.getBlockAt(cx, baseY, cz + dz).setType(Material.EMERALD_BLOCK, false);
+            hub.getBlockAt(cx, baseY - 1, cz + dz).setType(Material.EMERALD_BLOCK, false);
+            hub.getBlockAt(cx, baseY, cz + dz).setType(Material.GREEN_CARPET, false);
             hub.getBlockAt(cx - 1, baseY, cz + dz).setType(Material.DARK_OAK_STAIRS, false);
         }
         spawnHolo(hub, new Location(hub, cx + 0.5, baseY + 2.5, cz + 0.5),
@@ -1124,7 +1134,6 @@ public final class HubWorldManager implements Listener {
                 }
             }
         }
-        plantCherryTree(hub, 37, GROUND_Y + 1, 24);
         spawnHolo(hub, new Location(hub, 45.5, GROUND_Y + 3.4, 18.5),
                 "<#ff85c0><bold>♨ 사르르 캣닢 노천 온천</bold></#ff85c0>\n<white>따끈한 탕에 15초간 몸을 담그면 15분 출격 버프 부여!</white>");
 
@@ -1332,12 +1341,12 @@ public final class HubWorldManager implements Listener {
         };
     }
 
-    private boolean isOwnedColumn(World world, int x, int z) {
+    boolean isOwnedColumn(World world, int x, int z) {
         return world != null && HUB_WORLD_NAME.equals(world.getName())
                 && plotManager != null && plotManager.isOwnedColumn(x, z);
     }
 
-    private boolean intersectsOwnedColumns(World world, int minX, int maxX, int minZ, int maxZ) {
+    boolean intersectsOwnedColumns(World world, int minX, int maxX, int minZ, int maxZ) {
         if (!HUB_WORLD_NAME.equals(world.getName()) || plotManager == null) return false;
         for (PlotSpec plot : plotManager.getAllPlots().values()) {
             if (plotManager.getOwner(plot.id()) != null && minX <= plot.maxX() && maxX >= plot.minX()
@@ -1359,6 +1368,9 @@ public final class HubWorldManager implements Listener {
                     } else if (type == Material.STRUCTURE_VOID || type == Material.BARRIER
                             || type == Material.SPAWNER || type == Material.TRIAL_SPAWNER) {
                         b.setType(Material.AIR, false);
+                    } else if (b.getBlockData() instanceof Leaves leaves) {
+                        leaves.setPersistent(true);
+                        b.setBlockData(leaves, false);
                     } else if (b.getState() instanceof Container container) {
                         if (container instanceof Lootable lootable && lootable.getLootTable() != null) {
                             lootable.setLootTable(null);
@@ -1383,10 +1395,10 @@ public final class HubWorldManager implements Listener {
         spawnCatNpc(hub, getStockBrokerLocation(), Cat.Type.PERSIAN,
                 "<green><bold>📈 츄르 증권 중개묘</bold></green>",
                 "<yellow>[우클릭] 실시간 시세 · 매수 · 매도</yellow>", "stock_broker");
-        spawnCatNpc(hub, new Location(hub, 13.5, 65, -13.5), Cat.Type.WHITE,
+        spawnCatNpc(hub, getHallOfFameLocation(), Cat.Type.WHITE,
                 "<gold><bold>🏆 명예의 전당 기록묘</bold></gold>",
                 "<yellow>[우클릭] Top 3 순위 · 획득 칭호</yellow>", "hall_of_fame");
-        spawnCatNpc(hub, new Location(hub, 21.5, 65, -10.5), Cat.Type.CALICO,
+        spawnCatNpc(hub, getGachaLocation(), Cat.Type.CALICO,
                 "<#ff85c0><bold>🎁 황금 캡슐 가챠냥</bold></#ff85c0>",
                 "<yellow>[우클릭] 모자 · 가구 · 세공 재료 뽑기</yellow>", "gacha");
         // North Sanctuary & Raid Arena
@@ -1426,17 +1438,17 @@ public final class HubWorldManager implements Listener {
                 "<#ff85c0><bold>🏛 토지 등기소장 도장냥</bold></#ff85c0>", "<yellow>[우클릭] 12필지 분양 현황 & 등기</yellow>", "plot_registry");
 
         // East Golden Paws Casino Hall
-        spawnCatNpc(hub, new Location(hub, 63.5, 65.0, -11.5, 0f, 0f), Cat.Type.PERSIAN,
+        spawnCatNpc(hub, new Location(hub, 63.5, 66.0, -12.0, 0f, 0f), Cat.Type.PERSIAN,
                 "<gold><bold>💱 카지노 환전소 캐셔냥</bold></gold>", "<yellow>[우클릭] 츄르 ⇄ 실물 카지노 칩 환전</yellow>", "casino_cashier");
-        spawnCatNpc(hub, new Location(hub, 52.5, 65.0, -15.5, 0f, 0f), Cat.Type.RED,
+        spawnCatNpc(hub, new Location(hub, 52.5, 66.0, -15.0, 0f, 0f), Cat.Type.RED,
                 "<gradient:#ffe14d:#ff85c0><bold>🏇 경묘 중계 캐스터냥</bold></gradient>", "<yellow>[우클릭] 실시간 5레인 고양이 경주 베팅!</yellow>", "cat_race");
-        spawnCatNpc(hub, new Location(hub, 80.5, 65.0, -16.0, 90f, 0f), Cat.Type.BLACK,
+        spawnCatNpc(hub, new Location(hub, 80.5, 66.0, -16.0, 90f, 0f), Cat.Type.BLACK,
                 "<aqua><bold>🃏 1F 블랙잭 딜러냥</bold></aqua>", "<yellow>[우클릭] 21 블랙잭 승부</yellow>", "casino_blackjack");
-        spawnCatNpc(hub, new Location(hub, 80.5, 65.0, -23.0, 90f, 0f), Cat.Type.TABBY,
+        spawnCatNpc(hub, new Location(hub, 80.5, 66.0, -21.0, 90f, 0f), Cat.Type.TABBY,
                 "<green><bold>🎡 캣닢 룰렛 딜러냥</bold></green>", "<yellow>[우클릭] 14배 황금 유미 룰렛</yellow>", "casino_roulette");
-        spawnCatNpc(hub, new Location(hub, 80.5, 71.0, -22.0, 90f, 0f), Cat.Type.ALL_BLACK,
+        spawnCatNpc(hub, new Location(hub, 80.5, 72.0, -22.0, 90f, 0f), Cat.Type.ALL_BLACK,
                 "<light_purple><bold>💎 2F VIP 블랙잭 딜러냥</bold></light_purple>", "<yellow>[우클릭] 하이롤러 블랙잭 (2,000~10,000칩)</yellow>", "casino_blackjack_vip");
-        spawnCatNpc(hub, new Location(hub, 40.5, 65.0, -12.5, 90f, 0f), Cat.Type.RAGDOLL,
+        spawnCatNpc(hub, new Location(hub, 40.5, 65.0, -35.0, 90f, 0f), Cat.Type.RAGDOLL,
                 "<#ff9c6e><bold>🥣 무료 급식소 이모냥</bold></#ff9c6e>", "<yellow>[우클릭] 파산 집사 긴급 생계비 배급</yellow>", "casino_welfare");
 
         // East Diner, Clinic & Tavern
@@ -1457,17 +1469,26 @@ public final class HubWorldManager implements Listener {
         cat.setAdult();
         cat.setSitting(true);
         cat.setAI(false);
+        var scale = cat.getAttribute(Attribute.SCALE);
+        if (scale != null) scale.setBaseValue(Set.of("casino_cashier", "cat_race", "casino_blackjack",
+                "casino_roulette", "casino_blackjack_vip", "stock_broker").contains(role) ? 1.35 : 1.28);
         cat.setInvulnerable(true);
         cat.setSilent(false);
         cat.setRemoveWhenFarAway(false);
         cat.setPersistent(true);
         cat.getPersistentDataContainer().set(npcRoleKey, PersistentDataType.STRING, role);
         cat.getPersistentDataContainer().set(hubDecorKey, PersistentDataType.BYTE, (byte) 1);
-
-        spawnHolo(world, loc.clone().add(0, 1.35, 0), title + "\n" + sub);
+        Interaction interaction = world.spawn(loc, Interaction.class);
+        interaction.setInteractionWidth(1.35f);
+        interaction.setInteractionHeight(2.0f);
+        interaction.setResponsive(true);
+        interaction.setPersistent(true);
+        interaction.getPersistentDataContainer().set(npcRoleKey, PersistentDataType.STRING, role);
+        interaction.getPersistentDataContainer().set(hubDecorKey, PersistentDataType.BYTE, (byte) 1);
+        spawnHolo(world, loc.clone().add(0, 1.65, 0), title + "\n" + sub);
     }
 
-    private void spawnHolo(World world, Location loc, String mmText) {
+    void spawnHolo(World world, Location loc, String mmText) {
         if (isOwnedColumn(world, loc.getBlockX(), loc.getBlockZ())) return;
         world.getChunkAt(loc).load();
         TextDisplay td = (TextDisplay) world.spawnEntity(loc, EntityType.TEXT_DISPLAY);
@@ -1486,6 +1507,12 @@ public final class HubWorldManager implements Listener {
     public void refreshCustom3DProps() {
         World hub = getHubWorld();
         if (hub == null) return;
+        if (!rebuilding && data.getBoolean("hub_v3_1.built", false)
+                && !v31.sourceFingerprint().equals(data.getString("hub_v3_1.blueprint-fingerprint", ""))) {
+            buildEntireHubCity(hub);
+            return;
+        }
+        loadPublicChunks(hub);
 
         // Load every mount chunk before finding old persistent displays. Otherwise
         // a refresh can create duplicates of displays in previously unloaded chunks.
@@ -1506,8 +1533,8 @@ public final class HubWorldManager implements Listener {
         Set<String> bundledModels = scanBundledPackModels();
         boolean statuePresent = bundledModels.contains("prop_yuumi_statue");
         reconcileStatueBlocks(hub, statuePresent);
-        adjustPropHologram(hub, "fountain", new Location(hub, 0.5, 71.8, 0.5),
-                74.2, statuePresent, "중앙 광장");
+        adjustPropHologram(hub, "fountain", new Location(hub, 0.5, 77.0, 0.5),
+                77.0, statuePresent, "중앙 광장");
         boolean slotsPresent = bundledModels.contains("prop_slot_cabinet");
         for (int z : new int[]{-16, -20, -24, -28}) {
             adjustPropHologram(hub, "slot_1f_" + z, new Location(hub, 44.5, 68.1, z + 0.5),
@@ -1535,16 +1562,18 @@ public final class HubWorldManager implements Listener {
         if (bundledModels.contains("prop_derby_trophy")) {
             mount3DProp(hub, new Location(hub, 72.5, 66.2, -22.0, 90f, 0f), "prop_derby_trophy", 1.5f);
         }
-        mountV3FacilityProp(hub, bundledModels, "prop_gacha_machine", 21, 65, -15,
-                new Location(hub, 21.5, 66.1, -14.5), Material.GOLD_BLOCK, 1.4f);
-        mountV3FacilityProp(hub, bundledModels, "prop_stock_board", 52, 72, -35,
-                new Location(hub, 52.5, 73.0, -34.5), Material.BLACK_CONCRETE, 1.5f);
+        mountV3FacilityProp(hub, bundledModels, "prop_gacha_machine", 22, 65, -31,
+                new Location(hub, 22.5, 65.7, -30.5), Material.GOLD_BLOCK, 1.4f);
+        mountV3FacilityProp(hub, bundledModels, "prop_stock_board", 52, 74, -35,
+                new Location(hub, 52.5, 75.0, -34.7), Material.BLACK_CONCRETE, 1.5f);
         mountV3FacilityProp(hub, bundledModels, "prop_dungeon_obelisk", 24, 66, -57,
                 new Location(hub, 24.5, 67.2, -56.5), Material.CHISELED_DEEPSLATE, 1.25f);
         mountV3FacilityProp(hub, bundledModels, "prop_boon_altar", 12, 66, -59,
                 new Location(hub, 12.5, 66.9, -58.5), Material.ENCHANTING_TABLE, 1.2f);
         mountV3FacilityProp(hub, bundledModels, "prop_feast_cauldron", 59, 65, 10,
                 new Location(hub, 59.5, 65.8, 10.5), Material.CAULDRON, 1.0f);
+        v31.mountLandmarks(hub, bundledModels);
+        trainingDummyReconciler.run();
     }
 
     private void mountV3FacilityProp(World world, Set<String> models, String id, int x, int y, int z,
@@ -1553,7 +1582,9 @@ public final class HubWorldManager implements Listener {
         Block block = world.getBlockAt(x, y, z);
         if (models.contains(id)) {
             if (block.getType() == fallback) block.setType(Material.AIR, false);
-            mount3DProp(world, displayLocation, id, scale);
+            if (id.equals("prop_gacha_machine") || id.equals("prop_stock_board")) {
+                tagPublicProp(spawnAnchoredProp(displayLocation, id, scale, 8f, 0f), id);
+            } else mount3DProp(world, displayLocation, id, scale);
         } else if (block.getType().isAir()) {
             block.setType(fallback, false);
         }
@@ -1567,6 +1598,26 @@ public final class HubWorldManager implements Listener {
     public ItemDisplay spawnModelProp(Location location, String modelId, float scale) {
         if (location == null || location.getWorld() == null || !hasBundledModel(modelId)) return null;
         return createModelDisplay(location.getWorld(), location, modelId, scale);
+    }
+
+    /** Align a model's [8,anchorY,8] to world space. Logical yaw follows the cat/NPC facing convention. */
+    public ItemDisplay spawnAnchoredProp(Location anchor, String modelId, float scale, float anchorY, float logicalYaw) {
+        if (anchor == null || anchor.getWorld() == null || !hasBundledModel(modelId)) return null;
+        Location entityLocation = anchor.clone().add(0, (8f - anchorY) * scale / 16f, 0);
+        entityLocation.setYaw(logicalYaw);
+        ItemDisplay display = createModelDisplay(entityLocation.getWorld(), entityLocation, modelId, scale);
+        display.setTransformation(new Transformation(new Vector3f(), new AxisAngle4f((float) Math.PI, 0, 1, 0),
+                new Vector3f(scale, scale, scale), new AxisAngle4f(0, 0, 1, 0)));
+        Vector3f facing = new Vector3f(0, 0, -1).rotate(display.getTransformation().getLeftRotation())
+                .rotateY((float) -Math.toRadians(logicalYaw));
+        Vector3f outward = new Vector3f((float) -Math.sin(Math.toRadians(logicalYaw)), 0,
+                (float) Math.cos(Math.toRadians(logicalYaw)));
+        if (facing.distanceSquared(outward) > .00001f) throw new IllegalStateException("Landmark facing transform mismatch: " + modelId);
+        return display;
+    }
+
+    void tagPublicProp(ItemDisplay display, String id) {
+        if (display != null) display.getPersistentDataContainer().set(propModelKey, PersistentDataType.STRING, id);
     }
 
     public void animateRoulette() {
@@ -1677,6 +1728,15 @@ public final class HubWorldManager implements Listener {
 
     @EventHandler
     public void onRightClickHubNpc(PlayerInteractEntityEvent event) {
+        routeNpcClick(event);
+    }
+
+    @EventHandler
+    public void onPreciseRightClickHubNpc(PlayerInteractAtEntityEvent event) {
+        routeNpcClick(event);
+    }
+
+    private void routeNpcClick(PlayerInteractEntityEvent event) {
         if (event.getHand() != EquipmentSlot.HAND) return;
         Entity clicked = event.getRightClicked();
         String role = clicked.getPersistentDataContainer().get(npcRoleKey, PersistentDataType.STRING);
@@ -1684,8 +1744,18 @@ public final class HubWorldManager implements Listener {
 
         event.setCancelled(true);
         Player p = event.getPlayer();
+        UUID playerId = p.getUniqueId();
+        int tick = Bukkit.getCurrentTick();
+        Map<String, Integer> roleTicks = npcClickTicks.computeIfAbsent(playerId, ignored -> new HashMap<>());
+        Integer previous = roleTicks.put(role, tick);
+        if (previous != null && previous == tick) return;
         p.playSound(clicked.getLocation(), Sound.ENTITY_CAT_PURREOW, 1.0f, 1.15f);
         npcActionRouter.accept(p, role);
+    }
+
+    @EventHandler
+    public void onNpcPlayerQuit(PlayerQuitEvent event) {
+        npcClickTicks.remove(event.getPlayer().getUniqueId());
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -1792,6 +1862,7 @@ public final class HubWorldManager implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onEntityDamage(EntityDamageEvent event) {
         Entity victim = event.getEntity();
+        if (victim.getPersistentDataContainer().has(new NamespacedKey(plugin, "yuumi_training_dummy"), PersistentDataType.BYTE)) return;
         if (victim.getPersistentDataContainer().has(npcRoleKey, PersistentDataType.STRING)
                 || victim.getPersistentDataContainer().has(hubDecorKey, PersistentDataType.BYTE)) {
             event.setCancelled(true);
@@ -1841,7 +1912,7 @@ public final class HubWorldManager implements Listener {
         }
     }
 
-    private void clearColumn(World hub, int x, int minY, int maxY, int z) {
+    void clearColumn(World hub, int x, int minY, int maxY, int z) {
         if (isOwnedColumn(hub, x, z)) return;
         for (int y = minY; y <= maxY; y++) {
             Block b = hub.getBlockAt(x, y, z);
@@ -1857,24 +1928,6 @@ public final class HubWorldManager implements Listener {
         hub.getBlockAt(x, baseY + 1, z).setType(Material.CHERRY_FENCE, false);
         hub.getBlockAt(x, baseY + 2, z).setType(Material.CHERRY_FENCE, false);
         hub.getBlockAt(x, baseY + 3, z).setType(Material.LANTERN, false);
-    }
-
-    private void plantCherryTree(World hub, int cx, int baseY, int cz) {
-        if (intersectsOwnedColumns(hub, cx - 2, cx + 2, cz - 2, cz + 2)) return;
-        hub.getBlockAt(cx, baseY - 1, cz).setType(Material.GRASS_BLOCK, false);
-        for (int y = 0; y < 4; y++) {
-            hub.getBlockAt(cx, baseY + y, cz).setType(Material.CHERRY_LOG, false);
-        }
-        for (int dx = -2; dx <= 2; dx++) {
-            for (int dz = -2; dz <= 2; dz++) {
-                for (int dy = 3; dy <= 5; dy++) {
-                    if (Math.hypot(dx, dz) <= (dy == 5 ? 1.6 : 2.5)) {
-                        Block leaf = hub.getBlockAt(cx + dx, baseY + dy, cz + dz);
-                        if (leaf.getType().isAir()) leaf.setType(Material.CHERRY_LEAVES, false);
-                    }
-                }
-            }
-        }
     }
 
     private void clearTaggedHubEntities(World hub) {

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 import {ROOT,OUT,REVIEW} from './asset-kit.mjs';
-import {baselineModels,baselineIcons,environment,newModels,newIcons,models,icons,selectors,floorModels,atlasSizes,contexts,pureIcons,target} from '../sources/asset-contract.mjs';
+import {baselineModels,baselineIcons,environment,newModels,newIcons,models,icons,selectors,floorModels,atlasSizes,contexts,pureIcons,target,worldPointers,landmarksV31,landmarkMounts} from '../sources/asset-contract.mjs';
 
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const atlasFile=path.join(OUT,'../minecraft/atlases/blocks.json');
@@ -39,6 +39,19 @@ function validateFloor(model,id){
  const points=model.elements.flatMap(corners),minY=Math.min(...points.map(p=>p[1]));
  assert(Math.abs(minY)<1e-6,`${id}: rotated geometry must meet Y=0; minimum=${minY}`);
  return {minimumY:minY,bounds:[0,1,2].map(i=>[Math.min(...points.map(p=>p[i])),Math.max(...points.map(p=>p[i]))])};
+}
+function validateMount(model,id,mount=landmarkMounts[id]){
+ const expected={prop_casino_marquee:'wall',prop_casino_chandelier:'ceiling',prop_dealer_throne:'floor',prop_plaza_clock_face:'wall',prop_training_dummy:'floor',prop_sakura_lantern_arch:'gate'};
+ assert.equal(mount.kind,expected[id],`${id}: wrong mount classification`);
+ const points=model.elements.flatMap(corners),lo=[0,1,2].map(i=>Math.min(...points.map(p=>p[i]))),hi=[0,1,2].map(i=>Math.max(...points.map(p=>p[i])));
+ vector(mount.anchor,`${id}: mount anchor`);assert(mount.referenceScale>0);
+ if(mount.kind==='floor')validateFloor(model,id);
+ if(mount.kind==='wall')assert(Math.abs(hi[2]-8)<.001&&lo[2]<7,`${id}: wall rear must meet Z=8 and front project towards -Z`);
+ if(mount.kind==='ceiling')assert(Math.abs(hi[1]-24)<.001&&Math.abs(lo[1]+4)<.001,`${id}: chandelier attachment/tip Y`);
+ if(mount.kind==='gate')assert(Math.abs(hi[1]-20)<.001,`${id}: crest attachment Y=20`);
+ const attached=model.elements.some(e=>{const p=corners(e);return mount.anchor.every((v,i)=>v>=Math.min(...p.map(a=>a[i]))-.001&&v<=Math.max(...p.map(a=>a[i]))+.001);});
+ assert(attached,`${id}: attachment anchor is not supported by geometry`);
+ return {...mount,front:[0,0,-1],bounds:[lo,hi],attachmentSupported:true};
 }
 function validateModel(m,id,exists=fs.existsSync){
  assert(m.textures?.particle,`${id}: particle missing`);
@@ -78,10 +91,10 @@ function validateSelect(m,id,exists=fs.existsSync){
 function validatePointer(m,id,exists=fs.existsSync){assert.equal(m.model?.type,'minecraft:model');assert.equal(m.model.model,`yuumi97:item/${id}`);assert(exists(modelFile(id)),`${id}: missing direct model reference`);}
 function validateGui(m,id,exists=fs.existsSync){assert.equal(m.parent,'minecraft:item/generated');assert.equal(m.textures?.layer0,`yuumi97:item/${id}`);assert(exists(texturePath(m.textures.layer0)),`${id}: missing GUI icon`);}
 function validateAtlas(atlas,exists=fs.existsSync){
- assert(Array.isArray(atlas.sources),'blocks atlas sources missing');assert.equal(atlas.sources.length,29,'blocks atlas must contain exactly 29 sources');
+ assert(Array.isArray(atlas.sources),'blocks atlas sources missing');assert.equal(atlas.sources.length,35,'blocks atlas must contain exactly 35 sources');
  const resources=[];
  for(const source of atlas.sources){assert.equal(source.type,'minecraft:single');assert(source.sprite===undefined||source.sprite===source.resource,'blocks atlas sprite name');resources.push(source.resource);assert(exists(texturePath(source.resource)),`blocks atlas missing texture: ${source.resource}`);}
- assert.equal(new Set(resources).size,29,'blocks atlas duplicate resource');assert.deepEqual([...resources].sort(),models.map(id=>`yuumi97:prop/${id}`).sort(),'blocks atlas exact ID set');return resources;
+ assert.equal(new Set(resources).size,35,'blocks atlas duplicate resource');assert.deepEqual([...resources].sort(),models.map(id=>`yuumi97:prop/${id}`).sort(),'blocks atlas exact ID set');return resources;
 }
 function validatePixels(raw,size,label){
  assert.equal(raw.length,(size*4+1)*size,`${label}: decoded PNG length`);
@@ -112,6 +125,12 @@ function validatePreservation(){
  for(const relative of expected){assert(records.has(relative),`Baseline manifest missing ${relative}`);const current=crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,'resourcepack-gen/overrides',relative))).digest('hex');assert.equal(current,records.get(relative),`Original asset changed: ${relative}`);}
  return {manifest:path.relative(ROOT,baselineFile).replaceAll('\\','/'),preservedFiles:51,originalArtFiles:45,originalGuiAndSelectors:6,algorithm:'sha256',atlasChangeAllowed:true};
 }
+function validateV3Preservation(){
+ const manifest=path.join(ROOT,'assets/yuumi97-production/sources/v3-baseline.json'),rows=read(manifest);
+ assert.equal(rows.length,156,'v3 baseline must preserve 156 non-atlas files');assert.equal(new Set(rows.map(r=>r.path)).size,156);
+ for(const row of rows){assert(row.path.startsWith('assets/')&&!row.path.includes('..')&&row.path!=='assets/minecraft/atlases/blocks.json');const hash=crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,'resourcepack-gen/overrides',row.path))).digest('hex');assert.equal(hash,row.sha256,`v3 asset changed: ${row.path}`);}
+ return {manifest:path.relative(ROOT,manifest).replaceAll('\\','/'),preservedFiles:rows.length,algorithm:'sha256',atlasChangeAllowed:true};
+}
 // Mutate only in-memory copies. None of these corruptions touch delivered files.
 function testValidator(){
  const tests=[],rejects=(name,action)=>{assert.throws(action,undefined,`${name}: corruption accepted`);tests.push(name);};
@@ -124,29 +143,33 @@ function testValidator(){
  const selection=read(itemFile('prowling_wand'));rejects('missing GUI model rejected',()=>validateSelect(selection,'prowling_wand',()=>false));
  const wrong=structuredClone(selection);wrong.model.cases[0].model.model='yuumi97:gui/you_and_me_bell';rejects('wrong GUI selector target rejected',()=>validateSelect(wrong,'prowling_wand',()=>true));
  const atlas=read(atlasFile),missing=structuredClone(atlas);missing.sources.pop();rejects('missing atlas entry rejected',()=>validateAtlas(missing,()=>true));
- const duplicate=structuredClone(atlas);duplicate.sources[28]=structuredClone(duplicate.sources[0]);rejects('duplicate atlas entry rejected',()=>validateAtlas(duplicate,()=>true));
- const extra=structuredClone(atlas);extra.sources[28]={type:'minecraft:single',resource:'yuumi97:prop/uncontracted_extra'};rejects('unexpected atlas ID rejected',()=>validateAtlas(extra,()=>true));
+ const duplicate=structuredClone(atlas);duplicate.sources[duplicate.sources.length-1]=structuredClone(duplicate.sources[0]);rejects('duplicate atlas entry rejected',()=>validateAtlas(duplicate,()=>true));
+ const extra=structuredClone(atlas);extra.sources[extra.sources.length-1]={type:'minecraft:single',resource:'yuumi97:prop/uncontracted_extra'};rejects('unexpected atlas ID rejected',()=>validateAtlas(extra,()=>true));
  const png=fs.readFileSync(iconFile('churu_salmon')),wrongSize=Buffer.from(png);wrongSize.writeUInt32BE(31,16);rejects('wrong icon dimensions rejected',()=>decodePng(wrongSize,32,'fault-size'));
  const raw=decodePng(png,32,'fault-alpha'),alpha=Buffer.from(raw);alpha[10*(32*4+1)+1+10*4+3]=128;rejects('antialiased icon alpha rejected',()=>validatePixels(alpha,32,'fault-alpha'));
  const margin=Buffer.from(raw);margin[4]=255;rejects('opaque icon border rejected',()=>validatePixels(margin,32,'fault-margin'));
  const floor={elements:[{from:[0,0,0],to:[2,2,2],rotation:{axis:'z',angle:45,origin:[1,1,1]}}]};rejects('rotation below the floor rejected',()=>validateFloor(floor,'fault-floor'));
+ rejects('wrong landmark direct pointer rejected',()=>validatePointer({model:{type:'minecraft:model',model:'yuumi97:item/prop_training_dummy'}},'prop_casino_marquee',()=>true));
+ rejects('wall landmark classified as floor rejected',()=>validateMount(read(modelFile('prop_casino_marquee')),'prop_casino_marquee',{...landmarkMounts.prop_casino_marquee,kind:'floor'}));
+ rejects('missing landmark anchor rejected',()=>validateMount(read(modelFile('prop_sakura_lantern_arch')),'prop_sakura_lantern_arch',{...landmarkMounts.prop_sakura_lantern_arch,anchor:[31,20,31]}));
  return tests;
 }
 function main(){
- for(const[name,list,count]of[['baseline models',baselineModels,9],['baseline icons',baselineIcons,27],['new models',newModels,20],['new icons',newIcons,30],['all models',models,29],['all icons',icons,57],['GUI selectors',selectors,18],['environment props',environment,5],['floor models',floorModels,8]]){assert.equal(list.length,count,`${name}: count`);assert.equal(new Set(list).size,count,`${name}: duplicate ID`);}
- const required=[...models.flatMap(id=>[modelFile(id),propFile(id)]),...icons.map(iconFile),...selectors.flatMap(id=>[guiFile(id),itemFile(id)]),...environment.map(itemFile),atlasFile];
+ for(const[name,list,count]of[['baseline models',baselineModels,9],['baseline icons',baselineIcons,27],['new models',newModels,20],['new icons',newIcons,30],['all models',models,35],['all icons',icons,57],['GUI selectors',selectors,18],['environment props',environment,5],['floor models',floorModels,10],['landmarks v31',landmarksV31,6],['world pointers',worldPointers,11]]){assert.equal(list.length,count,`${name}: count`);assert.equal(new Set(list).size,count,`${name}: duplicate ID`);}
+ const required=[...models.flatMap(id=>[modelFile(id),propFile(id)]),...icons.map(iconFile),...selectors.flatMap(id=>[guiFile(id),itemFile(id)]),...worldPointers.map(itemFile),atlasFile];
  const missing=required.filter(file=>!fs.existsSync(file));assert.equal(missing.length,0,`Missing ${missing.length} required asset files:\n${missing.map(file=>path.relative(ROOT,file)).join('\n')}`);
  const result={timestamp:new Date().toISOString(),target,baselineCount:baselineIcons.length,models:[],icons:[],checks:[]};
  result.atlas={count:validateAtlas(read(atlasFile)).length,exactSet:true,duplicates:0};
  for(const id of models){const m=read(modelFile(id)),floor=validateModel(m,id),image=validatePng(propFile(id),atlasSizes[id]);result.models.push({id,elements:m.elements.length,faces:m.elements.reduce((sum,e)=>sum+Object.keys(e.faces).length,0),...image,...(floor?{floor}:{})});}
  for(const id of icons)result.icons.push({id,...validatePng(iconFile(id),32)});
  for(const id of selectors){validateSelect(read(itemFile(id)),id);validateGui(read(guiFile(id)),id);}
- for(const id of environment)validatePointer(read(itemFile(id)),id);
- result.preservation=validatePreservation();result.checks=testValidator();result.guiSelectors=selectors.length;result.environmentPointers=environment.length;result.itemDefinitions=selectors.length+environment.length;result.overrideFileCount=required.length;
+ for(const id of worldPointers)validatePointer(read(itemFile(id)),id);
+ result.landmarkMounts=landmarksV31.map(id=>({id,...validateMount(read(modelFile(id)),id)}));
+ result.preservation=validatePreservation();result.v3Preservation=validateV3Preservation();result.checks=testValidator();result.guiSelectors=selectors.length;result.environmentPointers=worldPointers.length;result.itemDefinitions=selectors.length+worldPointers.length;result.overrideFileCount=required.length;
  result.pure2DModelOwnership={owner:'SOL / PackBuilder.java',count:pureIcons.length,ids:pureIcons,validation:'PNG masters checked here; generated item models and pointers are a downstream packaging check'};
  result.status='PASS';return result;
 }
 let result;
-try{result=main();console.log(`PASS: ${models.length} 3D models, ${icons.length} RGBA32 icons, ${selectors.length} GUI/world selectors, ${environment.length} environment pointers.`);console.log(`Exact ${result.atlas.count}-sprite atlas, ${result.preservation.preservedFiles} preserved originals, ${result.checks.length} fault-injection cases, ${result.overrideFileCount} delivered files.`);console.log(result.models.map(m=>`${m.id}: ${m.elements} cuboids/${m.faces} faces`).join('\n'));}
+try{result=main();console.log(`PASS: ${models.length} 3D models, ${icons.length} RGBA32 icons, ${selectors.length} GUI/world selectors, ${worldPointers.length} world pointers.`);console.log(`Exact ${result.atlas.count}-sprite atlas, ${result.v3Preservation.preservedFiles} preserved v3 files, ${result.checks.length} fault-injection cases, ${result.overrideFileCount} delivered files.`);console.log(result.models.map(m=>`${m.id}: ${m.elements} cuboids/${m.faces} faces`).join('\n'));}
 catch(error){result={timestamp:new Date().toISOString(),target,status:'FAIL',error:error.message};console.error(error.stack??error);process.exitCode=1;}
-fs.mkdirSync(REVIEW,{recursive:true});fs.writeFileSync(path.join(REVIEW,'static-validation.json'),JSON.stringify(result,null,2)+'\n');
+fs.mkdirSync(REVIEW,{recursive:true});fs.writeFileSync(path.join(REVIEW,'static-validation-v31.json'),JSON.stringify(result,null,2)+'\n');

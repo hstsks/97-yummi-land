@@ -115,6 +115,30 @@
     {
       "type": "minecraft:single",
       "resource": "yuumi97:prop/tool_chef_wok"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_casino_marquee"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_casino_chandelier"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_dealer_throne"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_plaza_clock_face"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_training_dummy"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_sakura_lantern_arch"
     }
   ]
 }

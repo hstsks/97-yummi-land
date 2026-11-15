@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 $RootDir = Split-Path -Parent $PSScriptRoot
 $JavaExe = Join-Path $RootDir "runtime\jdk-21\bin\java.exe"
 $PackBuilderSrc = Join-Path $RootDir "resourcepack-gen\PackBuilder.java"

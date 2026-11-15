@@ -1,5 +1,7 @@
 # 유미의 97랜드 v3.0 에셋 파이프라인
 
+현재 v3.1 랜드마크 6종의 재생성·검수 명령 및 장착 계약은 [README_V31.md](README_V31.md)를 사용한다. 아래는 보존된 v3.0 납품 기록이다.
+
 Minecraft Java 1.21.4 / pack_format 46. 원본은 이름 붙은 복셀과 픽셀 도트를 생성하는 sources/*.mjs이며, 납품은 resourcepack-gen/overrides 내부 JSON·PNG다. Blender 파일은 납품 JSON을 다시 읽어 만든 편집·검수 사본이다.
 
 ## 고정 납품 계약

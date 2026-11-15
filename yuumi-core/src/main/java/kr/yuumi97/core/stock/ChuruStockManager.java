@@ -113,6 +113,7 @@ public final class ChuruStockManager implements Listener, CommandExecutor {
         List<TextDisplay> boards=at.getWorld().getEntitiesByClass(TextDisplay.class).stream().filter(e->e.getPersistentDataContainer().has(boardKey,PersistentDataType.BYTE)).toList();
         TextDisplay display=boards.isEmpty()?at.getWorld().spawn(at.clone().add(0,3.0,-1),TextDisplay.class):boards.getFirst();
         for(int i=1;i<boards.size();i++)boards.get(i).remove();
+        display.teleport(at.clone().add(0,3.0,-1));
         display.getPersistentDataContainer().set(boardKey,PersistentDataType.BYTE,(byte)1);display.setBillboard(Display.Billboard.CENTER);display.setPersistent(true);
         StringBuilder text=new StringBuilder("<gold><bold>📈 츄르 증권 거래소</bold></gold>\n");
         for(Stock s:Stock.values())text.append("<white>").append(s.title).append(" <yellow>").append(TextUtil.fmt(price(s))).append(" 츄르</yellow></white>\n");

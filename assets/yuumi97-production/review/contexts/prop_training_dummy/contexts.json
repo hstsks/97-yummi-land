@@ -1,0 +1,50 @@
+{
+  "id": "prop_training_dummy",
+  "mount": {
+    "kind": "floor",
+    "anchor": [
+      8,
+      0,
+      8
+    ],
+    "referenceScale": 1.35
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "floor_mount",
+      "kind": "floor",
+      "anchorModelUnits": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.35,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "boundsModelUnits": [
+        [
+          -3.21611,
+          -0.0,
+          -0.6
+        ],
+        [
+          16.87325,
+          31.18623,
+          16.6
+        ]
+      ],
+      "attachmentGapModelUnits": -0.0,
+      "touchesMount": true,
+      "penetratesMount": false,
+      "lighting": "Reference-scale compensation: area light energy * scale^2 and size * scale.",
+      "notice": "ItemDisplay NONE reference; actual server location/yaw not applied.",
+      "lowestYModelUnits": -0.0,
+      "touchesFloor": true,
+      "penetratesFloor": false
+    }
+  ]
+}

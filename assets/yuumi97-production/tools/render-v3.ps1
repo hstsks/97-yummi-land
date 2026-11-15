@@ -3,7 +3,8 @@ param(
     [string]$BlenderPath,
     [ValidateSet('AUTO', 'CPU', 'GPU')][string]$Device = 'CPU',
     [switch]$SkipPrepare,
-    [switch]$NoContexts
+    [switch]$NoContexts,
+    [ValidatePattern('^[a-z0-9_-]+$')][string]$BatchName = 'v3'
 )
 $ErrorActionPreference = 'Stop'
 $productionRoot = Split-Path -Parent $PSScriptRoot
@@ -56,7 +57,7 @@ try {
 try {
     if (-not $SkipPrepare) {
         $prepareArgs = @('-b', '--factory-startup', '--python-exit-code', '1', '--python', $rendererPath, '--', '--prepare', '--device', $Device) + $ModelIds
-        Invoke-BlenderRun -Arguments $prepareArgs -LogPath (Join-Path $logRoot 'prepare.log')
+        Invoke-BlenderRun -Arguments $prepareArgs -LogPath (Join-Path $logRoot ("prepare-" + $BatchName + '.log'))
     }
     foreach ($modelId in $ModelIds) {
         # Always one saved model per fresh Blender process; no background renderer.

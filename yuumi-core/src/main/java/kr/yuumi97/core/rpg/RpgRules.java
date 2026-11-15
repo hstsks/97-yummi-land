@@ -11,4 +11,8 @@ public final class RpgRules {
     public static boolean canInvest(int level,int spent,int branch) {return level>=1&&level<=20&&spent>=0&&spent<level&&branch>=0&&branch<10;}
     public static double specialtyChance(double base,int efficiency,double feastBonus) {return Math.clamp(base*(1+.03*Math.clamp(efficiency,0,10))*(1+feastBonus),0,1);}
     public static long cooldownMillis(double seconds,int mobility) {return Math.max(1,Math.round(seconds*1000*(1-.025*Math.clamp(mobility,0,10))));}
+    /** A weaker hidden potion must not take ownership of the currently active damage. */
+    public static boolean replacesEffect(int oldAmplifier,int oldTicks,int amplifier,int ticks) {
+        return ticks>0&&(oldTicks<=0||amplifier>oldAmplifier||amplifier==oldAmplifier&&ticks>oldTicks);
+    }
 }

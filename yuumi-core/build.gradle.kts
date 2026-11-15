@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "kr.yuumi97"
-version = "3.0.0"
+version = "3.1.0"
 
 repositories {
     mavenCentral()
@@ -42,3 +42,10 @@ tasks.register<JavaExec>("v3Checks") {
 }
 
 tasks.check { dependsOn("v3Checks") }
+
+tasks.register<JavaExec>("v31Fixture") {
+    dependsOn(tasks.testClasses)
+    classpath = sourceSets["test"].runtimeClasspath
+    mainClass.set("kr.yuumi97.core.V31Fixture")
+    args(layout.buildDirectory.dir("server-integration").get().asFile.absolutePath)
+}

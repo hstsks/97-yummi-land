@@ -405,6 +405,7 @@ public final class ThresholdAltarManager implements Listener, CommandExecutor {
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onMobKill(EntityDeathEvent event) {
         if (!(event.getEntity() instanceof Monster mob)) return;
+        if (mob.getPersistentDataContainer().has(new org.bukkit.NamespacedKey(plugin,"yuumi_training_dummy"))) return;
         Player killer = mob.getKiller();
         if (killer == null) return;
         double chance = mob.getWorld().getEnvironment() == World.Environment.NETHER ? 0.10 : 0.06;

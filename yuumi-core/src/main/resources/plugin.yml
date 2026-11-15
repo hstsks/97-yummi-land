@@ -1,9 +1,9 @@
 name: YuumiLandCore
-version: '3.0.0'
+version: '3.1.0'
 main: kr.yuumi97.core.YuumiPlugin
 api-version: '1.21'
 authors: [Antigravity_97Land]
-description: 유미의 97랜드 v3.0 (고밀도 허브, 파티 미궁, 10대 성향·20각성·공공 공방, 증권·가챠·3D 하우징·명예의 전당)
+description: 유미의 97랜드 v3.1 (축제 광장·궁전 카지노·DPS 수련장·딜러 상호작용 개선)
 softdepend: [Vault, Essentials, AuraSkills, EvenMoreFish, WorldEdit, TAB]
 
 commands:

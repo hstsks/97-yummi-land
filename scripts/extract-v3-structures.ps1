@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $RootDir = Split-Path -Parent $PSScriptRoot
 $SourceZip = Join-Path $RootDir 'assets\structure-packs\TownsAndTowers-1.21.1-datapack.zip'
 $TargetDir = Join-Path $RootDir 'yuumi-core\src\main\resources\structures\v3'

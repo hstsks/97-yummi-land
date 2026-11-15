@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "front": [0, 0, -1],
+  "coordinateConvention": "Minecraft model units; ItemDisplay NONE origin [8,8,8]; no display.fixed correction",
+  "models": {
+    "prop_casino_marquee": {"kind":"wall","anchor":[8,8,8],"referenceScale":2.7},
+    "prop_casino_chandelier": {"kind":"ceiling","anchor":[8,24,8],"minimumY":-4,"referenceScale":2.3},
+    "prop_dealer_throne": {"kind":"floor","anchor":[8,0,8],"referenceScale":1.5},
+    "prop_plaza_clock_face": {"kind":"wall","anchor":[8,8,8],"referenceScale":2.0},
+    "prop_training_dummy": {"kind":"floor","anchor":[8,0,8],"referenceScale":1.35},
+    "prop_sakura_lantern_arch": {"kind":"gate","anchor":[8,20,8],"referenceScale":2.0}
+  }
+}

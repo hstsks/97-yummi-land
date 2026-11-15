@@ -1,0 +1,47 @@
+{
+  "id": "prop_casino_marquee",
+  "mount": {
+    "kind": "wall",
+    "anchor": [
+      8,
+      8,
+      8
+    ],
+    "referenceScale": 2.7
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "wall_mount",
+      "kind": "wall",
+      "anchorModelUnits": [
+        8,
+        8,
+        8
+      ],
+      "referenceScale": 2.7,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "boundsModelUnits": [
+        [
+          -12.7,
+          -8.09058,
+          -2.5
+        ],
+        [
+          28.7,
+          30.87,
+          8.0
+        ]
+      ],
+      "attachmentGapModelUnits": 0.0,
+      "touchesMount": true,
+      "penetratesMount": false,
+      "lighting": "Reference-scale compensation: area light energy * scale^2 and size * scale.",
+      "notice": "ItemDisplay NONE reference; actual server location/yaw not applied."
+    }
+  ]
+}

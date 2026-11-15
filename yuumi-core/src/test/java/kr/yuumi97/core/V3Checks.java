@@ -25,6 +25,7 @@ public final class V3Checks {
         kr.yuumi97.core.rpg.RpgChecks.main(args);
         kr.yuumi97.core.hub.HubSafetyCheck.main(args);
         kr.yuumi97.core.dungeon.DungeonRulesCheck.main(args);
+        kr.yuumi97.core.training.TrainingDamageWindowCheck.run();
         System.out.println("V3 deterministic checks PASS (economy, holdings, party scaling, 10000 gacha rolls)");
     }
     private static void check(boolean passed,String message){if(!passed)throw new AssertionError(message);}

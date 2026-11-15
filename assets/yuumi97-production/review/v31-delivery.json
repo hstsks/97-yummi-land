@@ -1,0 +1,1451 @@
+{
+  "schemaVersion": 1,
+  "timestamp": "2026-11-15T12:45:27.632Z",
+  "target": "Minecraft Java 1.21.4 / pack_format 46",
+  "status": "PASS",
+  "counts": {
+    "overrideFiles": 175,
+    "models3d": 35,
+    "propAtlases": 35,
+    "icons32": 57,
+    "guiSelectors": 18,
+    "itemDefinitions": 29,
+    "atlasSources": 35,
+    "newModels3d": 6,
+    "preservedOverrideFiles": 156,
+    "preservedHistoricalEvidence": 200,
+    "blends": 6,
+    "multiangleImages": 24,
+    "contextImages": 7,
+    "distanceImages": 4
+  },
+  "staticValidation": {
+    "path": "review/static-validation-v31.json",
+    "bytes": 33374,
+    "sha256": "225b36de152770163ae2828191cdebd8766e2843bc668a95d9e5085b42d8ca4b"
+  },
+  "previousDelivery": {
+    "path": "review/v3-delivery.json",
+    "bytes": 154621,
+    "sha256": "4de8741471bfa578c47dfbf8d4d43360a36f4709cc6ff43bbbb6e7b5c2e07f43"
+  },
+  "baseline": {
+    "path": "sources/v3-baseline.json",
+    "bytes": 26850,
+    "sha256": "b2dc1e5270f8b233c69964e8bb103c72cf3388f8120c0081c1f1c98e1ee428d9"
+  },
+  "mounts": {
+    "path": "sources/landmarks-v31-mounts.json",
+    "bytes": 702,
+    "sha256": "7aa2a1815e297d39cb4703bc0ab74f2b343a025801a217748a38f8d3169e5d12"
+  },
+  "blender": [
+    {
+      "id": "prop_casino_marquee",
+      "elements": 869,
+      "blend": {
+        "path": "sources/blend/prop_casino_marquee.blend",
+        "bytes": 7001565,
+        "sha256": "3a91bd5c55548fb8f1161ae6a3f8f64659e8efec6493ecff07984460eef98b93"
+      },
+      "geometry": {
+        "path": "review/models/prop_casino_marquee/geometry.json",
+        "bytes": 1725,
+        "sha256": "1ad3565af55eb87cbcf08ce55527f1866890acb46e6828b94655bf41801826f8"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_casino_marquee/front.png",
+          "bytes": 498385,
+          "sha256": "1536357dcd0dc7ac44a5e1bf7323a73e98030dcc9ef843deb85a6aa96b1e4dc3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_marquee/side.png",
+          "bytes": 431039,
+          "sha256": "a70507d089c60f348d7ae108acabb201f8fd7c66c1982d8d774f9e61b1390ca2",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_marquee/rear.png",
+          "bytes": 421517,
+          "sha256": "daaf6e0a5ac8ae848e341a6081d1c850f2c3f564d1b5cb3662cbbdf8dac2e97b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_marquee/threequarter.png",
+          "bytes": 519699,
+          "sha256": "75878c956130db7ad875ee4f61581b5a1fa60b6711ad80daa33a558c8f6a1b08",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_casino_marquee/contexts.json",
+        "bytes": 1022,
+        "sha256": "818ae914e20096f3fedb97950de66d60416173f033db0b3d5052691fd7044a55"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_casino_marquee/context-wall_mount.png",
+          "bytes": 516738,
+          "sha256": "08b4b7b16cf32698a38d49fdc84e362e29ee44cecd71488f86019a37598cd2ae",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": [
+        {
+          "name": "distance-16m",
+          "distanceMeters": 16,
+          "fovDegrees": 70,
+          "resolution": [
+            640,
+            640
+          ],
+          "referenceScale": 2.7,
+          "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+          "camera": "front perspective aimed at model bounds center",
+          "notice": "Blender distance approximation; not a Minecraft screenshot.",
+          "image": {
+            "path": "review/models/prop_casino_marquee/distance-16m.png",
+            "bytes": 437523,
+            "sha256": "133182181cb815232dfe8572a5a8af87be1561168c68b8e53eef5b9b6b201f34",
+            "width": 640,
+            "height": 640
+          }
+        },
+        {
+          "name": "distance-32m",
+          "distanceMeters": 32,
+          "fovDegrees": 70,
+          "resolution": [
+            640,
+            640
+          ],
+          "referenceScale": 2.7,
+          "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+          "camera": "front perspective aimed at model bounds center",
+          "notice": "Blender distance approximation; not a Minecraft screenshot.",
+          "image": {
+            "path": "review/models/prop_casino_marquee/distance-32m.png",
+            "bytes": 412405,
+            "sha256": "ab9aa6a0e0ef823a889d81494b7e8337267c7fbc29fa44615f4b8574f69e096e",
+            "width": 640,
+            "height": 640
+          }
+        }
+      ]
+    },
+    {
+      "id": "prop_casino_chandelier",
+      "elements": 846,
+      "blend": {
+        "path": "sources/blend/prop_casino_chandelier.blend",
+        "bytes": 6849594,
+        "sha256": "ffb106790ce5bdb88036c1957f4d0c6c30b5c01bde69178d425fe084c0629599"
+      },
+      "geometry": {
+        "path": "review/models/prop_casino_chandelier/geometry.json",
+        "bytes": 1748,
+        "sha256": "4454732dd7195fcaf0cc1f5c41ea6704a64dcd85136730fcaf3e625be84ee3a4"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_casino_chandelier/front.png",
+          "bytes": 483046,
+          "sha256": "833a88f1c1084766b54129f9b5bf16780f01a1795319c3123b8cd76f36458312",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_chandelier/side.png",
+          "bytes": 479109,
+          "sha256": "70f94fbad2e0f8bd26617502eac5e2bbb49658abe09c812ee9aa047a580ab3de",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_chandelier/rear.png",
+          "bytes": 479077,
+          "sha256": "72a4f2ace5189dc808b8e4f943ebcc02813274674ed3388e98c4915f33a0a3af",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_casino_chandelier/threequarter.png",
+          "bytes": 532877,
+          "sha256": "2c8bd705b20982e4d5e2e55db4d199b329c43e3c7637ceec3a25aaa7f4828380",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_casino_chandelier/contexts.json",
+        "bytes": 1068,
+        "sha256": "b03e0f4b911d3d2c726af4d42d4c096c59332f56e40f3ced1e66e5cb8754641f"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_casino_chandelier/context-ceiling_mount.png",
+          "bytes": 528614,
+          "sha256": "a0a7b2e3e15e01b81b2f69c8489def9fa55c099117671b655cbe1bb077d1cdde",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": []
+    },
+    {
+      "id": "prop_dealer_throne",
+      "elements": 244,
+      "blend": {
+        "path": "sources/blend/prop_dealer_throne.blend",
+        "bytes": 2366452,
+        "sha256": "b6808322ae184189c63a9e176bfba0a18edceb92061f963800259bcb8e1e81e7"
+      },
+      "geometry": {
+        "path": "review/models/prop_dealer_throne/geometry.json",
+        "bytes": 1744,
+        "sha256": "87ac522fc5d7341791fae9e77a6d0cf3abfba992d47080b8c3f1414ab5e1e3e9"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_dealer_throne/front.png",
+          "bytes": 490503,
+          "sha256": "3d1275425a2bed500142d647e1f04e3a2353b0684e27d8a55c63f32956a95128",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_dealer_throne/side.png",
+          "bytes": 434514,
+          "sha256": "f566c9aefdce71ea913f850cc02a73b497af25629489069d98cd3e729caa0d02",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_dealer_throne/rear.png",
+          "bytes": 441371,
+          "sha256": "107af4d8dc2ad3a355b22039f486b252ab077e41cb73f407e58a9119a42e953a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_dealer_throne/threequarter.png",
+          "bytes": 533495,
+          "sha256": "56295897c8972b123394b93fc03923779001a8b857707ebd0087eafcb888cffb",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_dealer_throne/contexts.json",
+        "bytes": 1341,
+        "sha256": "6b016cd18bce62184b78be43a98a7f07719a635fa833eca74614f7336b185418"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_dealer_throne/context-floor_mount.png",
+          "bytes": 535612,
+          "sha256": "34713639914c546707aabea4bf638a57150d6f2771d5ae3370676314b6249294",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/contexts/prop_dealer_throne/context-dealer_clearance.png",
+          "bytes": 485844,
+          "sha256": "0922427d44ade4f0247fe68ae1d9e60d1aec34d260a4769c4fe60ff18b3b4fa5",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": []
+    },
+    {
+      "id": "prop_plaza_clock_face",
+      "elements": 875,
+      "blend": {
+        "path": "sources/blend/prop_plaza_clock_face.blend",
+        "bytes": 7042618,
+        "sha256": "daab12b5729181a92034e7d3d59498561d08412c5253e45eaaad95c8f6c34302"
+      },
+      "geometry": {
+        "path": "review/models/prop_plaza_clock_face/geometry.json",
+        "bytes": 1732,
+        "sha256": "e415f646fa62c8dd510f092606472b4726eff2ef7c91dcd704e02312fb626c61"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_plaza_clock_face/front.png",
+          "bytes": 508381,
+          "sha256": "1d76c76f2e2d5ba9f65051f90feced4f423be3a18c8b1e4d95ff17ed37e704cc",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_plaza_clock_face/side.png",
+          "bytes": 435664,
+          "sha256": "07b73897f2bdd8d8fb4057aac1da13f6b46714174840680954af44001a74953f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_plaza_clock_face/rear.png",
+          "bytes": 420541,
+          "sha256": "e058eaf7fe5187f492aeee55e0ddcb709e895f82db9e45c407b352bd97e2ce79",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_plaza_clock_face/threequarter.png",
+          "bytes": 518195,
+          "sha256": "1a83adb1c43642dadfadad41d55f2d57764025bf1bb5e3e56a22ad9c64e92ddb",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_plaza_clock_face/contexts.json",
+        "bytes": 1022,
+        "sha256": "db1774f85f2975c9d9c62719a0e95deabf20a50dbbdfddf71563314f4dc29d88"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_plaza_clock_face/context-wall_mount.png",
+          "bytes": 511855,
+          "sha256": "e49407d33b9767c9006d996696f4dde58d2806875b4af29b247656744917510a",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": [
+        {
+          "name": "distance-16m",
+          "distanceMeters": 16,
+          "fovDegrees": 70,
+          "resolution": [
+            640,
+            640
+          ],
+          "referenceScale": 2,
+          "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+          "camera": "front perspective aimed at model bounds center",
+          "notice": "Blender distance approximation; not a Minecraft screenshot.",
+          "image": {
+            "path": "review/models/prop_plaza_clock_face/distance-16m.png",
+            "bytes": 423934,
+            "sha256": "5f907ef4ab94a194930be4784e5d137e52f63004d83cddb4e9033b94dba4dee4",
+            "width": 640,
+            "height": 640
+          }
+        },
+        {
+          "name": "distance-32m",
+          "distanceMeters": 32,
+          "fovDegrees": 70,
+          "resolution": [
+            640,
+            640
+          ],
+          "referenceScale": 2,
+          "lighting": "Reference-scale compensation: energy * scale^2, area size * scale; identical lights at both distances.",
+          "camera": "front perspective aimed at model bounds center",
+          "notice": "Blender distance approximation; not a Minecraft screenshot.",
+          "image": {
+            "path": "review/models/prop_plaza_clock_face/distance-32m.png",
+            "bytes": 406787,
+            "sha256": "6d5dde8cec8b1ba9f071700d20f74c1f6d44f0c12edd9c6dd0853fd86ae4779a",
+            "width": 640,
+            "height": 640
+          }
+        }
+      ]
+    },
+    {
+      "id": "prop_training_dummy",
+      "elements": 232,
+      "blend": {
+        "path": "sources/blend/prop_training_dummy.blend",
+        "bytes": 2281713,
+        "sha256": "e56beba0868784b1258f572d6b43909dc3ae6a512dfd81c67d1545af882462bb"
+      },
+      "geometry": {
+        "path": "review/models/prop_training_dummy/geometry.json",
+        "bytes": 1730,
+        "sha256": "46882e3959df129f32666df8a033cbebd279773097b97dba33c8b467c0662cad"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_training_dummy/front.png",
+          "bytes": 469045,
+          "sha256": "25cfde05544213750d97742d8509ed908df1445cda4237929383066748cc8bf5",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_training_dummy/side.png",
+          "bytes": 441530,
+          "sha256": "bc7768c23a2f101cc24a8595e5278ae64b4584b8ea723d4dafa8dd3034b9af7e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_training_dummy/rear.png",
+          "bytes": 455723,
+          "sha256": "e340e473a3cad2151f22b1ff381f16432d1ec60c52a8dd6cb69e21bf7bd8ef63",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_training_dummy/threequarter.png",
+          "bytes": 492562,
+          "sha256": "1dfb1998559fcfc2afae663c6df748cbb9faf972ba340706ef45e4e6e357b7c8",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_training_dummy/contexts.json",
+        "bytes": 1131,
+        "sha256": "0466004f61777ebdf64cc466839f717c7a135f78daea3992f491be59340889c8"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_training_dummy/context-floor_mount.png",
+          "bytes": 496242,
+          "sha256": "d8a1360fa3176e528c9fc34f0222fcfbac6b59a410659f7af6e0d1bfa9c2e1cc",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": []
+    },
+    {
+      "id": "prop_sakura_lantern_arch",
+      "elements": 469,
+      "blend": {
+        "path": "sources/blend/prop_sakura_lantern_arch.blend",
+        "bytes": 4044242,
+        "sha256": "83ac0f88c0c1689edbe1517f5083587794405b791fa8abfeb46aa6b7f0f70704"
+      },
+      "geometry": {
+        "path": "review/models/prop_sakura_lantern_arch/geometry.json",
+        "bytes": 1744,
+        "sha256": "373e43eeac22cbebfe2abb3c268380e0da7d7ee19e352abf5d94b8a4a86b5027"
+      },
+      "device": {
+        "requested": "AUTO",
+        "device": "GPU",
+        "backend": "OPTIX",
+        "devices": [
+          "NVIDIA GeForce RTX 3070"
+        ]
+      },
+      "images": [
+        {
+          "path": "review/models/prop_sakura_lantern_arch/front.png",
+          "bytes": 449028,
+          "sha256": "37edef30fdb7af94967e15998df54e1eeb61438218cf6bc4467f3d70861cbc6f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_sakura_lantern_arch/side.png",
+          "bytes": 417472,
+          "sha256": "53773168628ac363ffea338500f3b667bd5b42c4124b0f8e23dafd8c1484d04b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_sakura_lantern_arch/rear.png",
+          "bytes": 438243,
+          "sha256": "9f27cc7a7c4c70c0b82e42ee0d6b22b27168d61fb4e5a83e0a0ae76ebe02bf46",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_sakura_lantern_arch/threequarter.png",
+          "bytes": 462993,
+          "sha256": "74a58462bdf8ecb0695e58ae66776ba81db96c9dde80d542f05e7773b8bda6f3",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_sakura_lantern_arch/contexts.json",
+        "bytes": 1027,
+        "sha256": "b9c18b209dc35b5c8809b8d84a16ea1cc8d70f15a7f011d2f22fcf677008dce1"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_sakura_lantern_arch/context-gate_mount.png",
+          "bytes": 463172,
+          "sha256": "91637e035ee63cef7bfa7396a6cc555d20adbd046fbd20e95d96aefedbf17850",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "distance": []
+    }
+  ],
+  "boards": [
+    {
+      "path": "review/landmarks-v31.png",
+      "bytes": 2678361,
+      "sha256": "b281fae887af30c50b9073c19e677acb0b5063fe443be8f4785dca6aa6125427",
+      "width": 1440,
+      "height": 3152
+    },
+    {
+      "path": "review/landmarks-v31-contexts.png",
+      "bytes": 1330995,
+      "sha256": "a712346ac72f8f5697f41958fce5c86cd07432b8d2ea0dc44fc81abe4b3bed72",
+      "width": 1440,
+      "height": 1616
+    },
+    {
+      "path": "review/landmarks-v31-distance.png",
+      "bytes": 647447,
+      "sha256": "026064f761d40637e7aa7e43380d92b892a631b29beb1c865ef6801a391f40d7",
+      "width": 1280,
+      "height": 1424
+    }
+  ],
+  "visualReview": {
+    "path": "review/v31-visual-review.md",
+    "bytes": 6491,
+    "sha256": "61328e98aa9717aabc7b0151fd4b616b5b7f1f3c025fe7c75c3f454e33c167ab",
+    "record": "# v3.1 랜드마크 시각 검수 기록\n\n2026-11-15. 승인된 범위: 신규 복셀 랜드마크 6종, 기존 29종/57아이콘 보존. 확장 지시서의 NBT 9종은 이번 납품 범위가 아니다.\n\n## 실제 관찰 환경\n\n- Blender 5.2.1 LTS, Cycles 20 samples, RTX 3070 / OPTIX. Standard, exposure −0.7, nearest texture.\n- 납품 JSON과 PNG를 읽어 이름 붙은 cuboid 메시와 UV로 구성한 뒤 `.blend`에 텍스처를 패킹해 저장했다. 모델마다 새 Blender 프로세스로 다시 열어 원본 JSON/PNG·장착 메타데이터 SHA256과 패킹 상태를 확인하고 렌더했다.\n- 기본 4뷰: 정면, 측면, 후면, 3/4, 각 640×640. 최종 6행×3열 시트는 정면·측면·3/4 18장으로 구성했다. 후면은 개별 폴더와 4뷰 시트에 보존했다.\n- 장착 지그는 wall 2, ceiling 1, floor 2, gate 1이다. 왕좌는 전방 고양이 크기의 단순 cuboid 참고물을 추가했다. 이는 실제 바닐라 고양이 메시·히트박스가 아니다.\n- 원거리: 마키 scale 2.7, 시계 scale 2.0, 16m/32m, 70° FOV, 640×640 정면 원근. 두 거리에서 조명은 동일하다. 기준 스케일 적용 시 조명 에너지에 scale², area size에 scale을 적용해 불필요한 밝기 저하를 보정했다.\n- 제작자 및 주 검수자가 실제 저장된 PNG를 열어 관찰했다. 이미지의 존재나 생성 로그만으로 시각 통과를 판정하지 않았다.\n\n## 모델별 관찰\n\n| ID | 관찰 및 판정 |\n| --- | --- |\n| prop_casino_marquee | 금색 아치와 진홍색 벨벳이 분리되고 3색 777가 앞쪽으로 돌출된다. 7의 사선은 정방향이다. 왕관 쓴 고양이의 한쪽 눈과 윙크, 두 에이스·주사위·동전 묶음이 구분된다. 측면은 후면 부착판과 부조 깊이가 있고 후면은 닫혀 있다. 16m와 32m에서 세 7을 구분했다. |\n| prop_casino_chandelier | 열린 3단 링과 대각 지지대, 행거 체인이 이어진다. 33개 청록/보라 결정과 16개 촛불이 공간적으로 배치되어 측면·후면에서도 입체로 보인다. 천장 지그가 Y24 행거에 닿고 최하단 결정은 Y−4이다. |\n| prop_dealer_throne | 낮은 좌석과 팔걸이, 깊은 등받이 퀼팅, 금색 아치와 에메랄드 장식이 분리된다. 측면에서 좌석·등받이 구조, 후면에서 보강 패널이 보인다. Y0 받침 접촉이 맞으며 전방 고양이 참고물의 중앙 실루엣을 기둥·장식이 가리지 않는다. |\n| prop_plaza_clock_face | 금색 팔각 베젤·백색 자개 링·남색판이 구분되고 12개 보석, 중앙 기어, 귀 장식이 읽힌다. 금/백색 두 바늘은 정적인 10:10 방향이며 우측 분침이 더 길다. 측면에서 바늘과 기어의 깊이가 보인다. 16m·32m에서 두 바늘의 방향과 길이 차이를 구분했다. |\n| prop_training_dummy | 밀짚 고양이·붉은 머리띠·입체 적백 과녁·목검·십자 받침이 명확하다. 스프링 양끝과 소켓/압축판이 연결되며 Y0에 놓인다. 뒤에서도 짚과 목재 몸통이 이어진다. |\n| prop_sakura_lantern_arch | 붉은 현판 아래 둥근 주황빛 제등과 발도장이 있고, 양쪽 꽃가지·리본·태슬이 이어진다. 낮은 꽃 두 송이에도 꽃자루가 연결된다. 일부 작은 떠 있는 분홍 조각은 의도한 흩날리는 꽃잎이다. 측면에서 둥근 제등의 부피가 확인되고 상단 Y20 고정부가 대문 보 지그에 닿는다. 지상 대문 기둥은 포함하지 않는다. |\n\n## 관찰에 따른 수정\n\n1. 마키의 초기 정면/3/4에서 금색 판이 벨벳을 가렸다. 원인은 안쪽 판의 전면 Z가 바깥 금색 판보다 뒤에 있는 깊이 순서였다. shadow → velvet → tuft를 −Z 방향으로 꺼내고 필라스터·하단 inset 깊이를 맞췄다. 같은 기본 카메라·조명으로 다시 렌더해 진홍색 노출과 노란 7의 대비 개선을 확인했다. 수정 전 원본·JSON·PNG·blend·다각도/거리 렌더는 `backups/v31-before-marquee-depth-fix`에 있다.\n2. 더미의 스프링 양끝 작은 틈은 소켓 상단 2.7→3.1, 압축판 하단 9.25→9.0으로 보완해 0.1 단위씩 연결했다. 낮은 벚꽃 두 송이에는 꽃자루를 추가했다. 동일 기본 카메라/조명에서 재렌더해 접합과 기존 실루엣 보존을 확인했다. 수정 전은 `backups/v31-before-join-fix`에 있다.\n3. 초기 큰 스케일의 장착 지그는 조명만 멀어져 기본 뷰보다 어두웠다. 모델 색을 바꾸지 않고 조명 에너지·면광원 크기를 기준 스케일에 맞춰 보정했다. 최초 장착 이미지는 `backups/v31-before-light-fix`에 보존했다. 이 이전 장착 이미지를 모델 품질의 전후 비교로 사용하지 않는다. 형상 수정의 비교는 조명이 동일한 기본 4뷰에서 했다.\n\n## 산출물과 검증 경계\n\n- `landmarks-v31.png`: 필수 18칸 시트. `landmarks-v31-contexts.png`: 장착/딜러 참고 7장. `landmarks-v31-distance.png`: 원거리 4장. 개별 기본 뷰는 24장, 편집 가능한 `.blend`는 6개다.\n- 실제 납품과 검사 수치·최종 SHA256는 `v31-delivery.json`, 정적 검사는 `static-validation-v31.json`에 기록한다. 모델/아틀라스 35종, 아이콘 57종, GUI 18종, item definition 29종, override 175파일이며 이전 atlas 제외 156파일과 기존 검수 증거 200파일의 보존을 검사한다.\n- 남은 확정 조형 결함은 관찰하지 못했다. 실제 Minecraft 리소스 로딩, SOL의 배치 좌표/yaw, 서버 엔티티 변환과 히트박스, 야간 조명은 미실행이다. 밝은 도색은 자체 발광 검증을 의미하지 않는다. 현장 장착 수식과 기준점은 `README_V31.md`에 기록했다.\n- `-Build`, PackBuilder, Gradle, 서버 실행·배포는 하지 않았다. Java 플러그인·scripts·server 파일을 변경하지 않았다.\n\n## 작업 계측\n\nHigh / 실사용 복셀 원본과 Minecraft JSON·PNG. 장착 방식 차이, 복잡한 연결부, 777와 바늘의 거리 판독 때문에 선택했다. 초기 예상 45–70분, 운영 상한 90분. 최초 실행 측정 12:24:48 UTC, 최종 시각 관찰 12:43:22 UTC(18분 34초). 최종 검증 완료 시각/총 경과는 별도 `v31-work-log.json`에 기록한다. 병렬 에이전트 벽시계 시간은 중복 합산하지 않았다. 토큰/금액은 측정 불가. 종료 기준은 시간 소진이 아니라 승인된 모델·검수 목표 충족이다.\n",
+    "notice": "Observed images documented by reviewer; this script does not grade aesthetics."
+  },
+  "build": {
+    "status": "NOT_RUN",
+    "reason": "No -Build, PackBuilder, Java compilation or server changes."
+  },
+  "minecraftClient": {
+    "status": "NOT_RUN",
+    "reason": "SOL integration must verify actual placement/yaw, resource loading and nighttime lighting."
+  },
+  "manifest": [
+    {
+      "path": "assets/minecraft/atlases/blocks.json",
+      "bytes": 3462,
+      "sha256": "d6f5fd8d62d4a67e4ce0914700e2201c98036686ce0c2efd33f9f5b9b648816f"
+    },
+    {
+      "path": "assets/yuumi97/items/book_of_thresholds.json",
+      "bytes": 383,
+      "sha256": "60315daccd5cdbd33f355a6ba29143a97b9d5e1f559a010b6a89ca18d1480245"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_cat_tower.json",
+      "bytes": 375,
+      "sha256": "c31a5c0f2063fbf9459af28bbaa7f67c652fa7bc1f9158373bbcea631d15b746"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_kotatsu.json",
+      "bytes": 371,
+      "sha256": "a30c40d42d51023b10521f55149d16586152710771dd2bf81decfe8191fd44f3"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_neon_sign.json",
+      "bytes": 375,
+      "sha256": "44487095d1ad559eb25af0042d3bfb0be28fc4be187a14b593e881cbae49b1bf"
+    },
+    {
+      "path": "assets/yuumi97/items/hat_chef_toque.json",
+      "bytes": 375,
+      "sha256": "f77da0fba7adcde4f488d918cb8fff59c88aa97081eb15edf45cce88a0be221d"
+    },
+    {
+      "path": "assets/yuumi97/items/hat_stock_tophat.json",
+      "bytes": 379,
+      "sha256": "76e4273a678910cab58773122d1dd99c0b91d052527b35784a900beaa2bb2575"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_boon_altar.json",
+      "bytes": 96,
+      "sha256": "6894066ed17dd8d4b9dc04e13ee0c782aab6faafe6dc8b346e81a54474063efb"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_casino_chandelier.json",
+      "bytes": 103,
+      "sha256": "5179c1a96a72ef0789af1f4b2cf0fb06f88e13a3d9942722417ab5d5afc0f1c0"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_casino_marquee.json",
+      "bytes": 100,
+      "sha256": "b451bb4c85886503489abba6cba098c596f785aa90b9a78a76544b637f0a613b"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_dealer_throne.json",
+      "bytes": 99,
+      "sha256": "0fc2e84dac5f65c6fa5dc6db0eefeacf22ac0c9a80b12620b4b96864ca3cf4df"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_dungeon_obelisk.json",
+      "bytes": 101,
+      "sha256": "dfa3790917207f37b71cf5658381bb7073c1cbc983b81ac6099294ee80844677"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_feast_cauldron.json",
+      "bytes": 100,
+      "sha256": "2e1e8ebf557ae3e42646277cb8178ba9780a164e30e5a887ace8e3f6a0e1d9ed"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_gacha_machine.json",
+      "bytes": 99,
+      "sha256": "b37e6bb1b3ea2445c31e7a7f95b96e52677c75bf67181e6fc16a3da694cfb194"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_plaza_clock_face.json",
+      "bytes": 102,
+      "sha256": "3abca04022fe832a9d79b6a90eecfa6cfb9c383f379f0349bbe4be752d05e604"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_sakura_lantern_arch.json",
+      "bytes": 105,
+      "sha256": "308b4735fd57ba4553faab2a5a0659a3a12a43c5364f59d22e4ee85d7fae0cf5"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_stock_board.json",
+      "bytes": 97,
+      "sha256": "1c76b78d850721ee8534d74c587726fe08d8e06e8ceba66e5d9b012bdb0282ab"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_training_dummy.json",
+      "bytes": 100,
+      "sha256": "06d06e41ee15bf764c0fbf7649071c592fa54e27234ca6013eae84b4e5f6226c"
+    },
+    {
+      "path": "assets/yuumi97/items/prowling_wand.json",
+      "bytes": 373,
+      "sha256": "b4d3688679bcda8591ad68de653119fb059099e3c373ac9efdc24ded904fc100"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_angler_harpoon.json",
+      "bytes": 385,
+      "sha256": "383640640460fad0c22470bfd0eb2be431b5f0e46c817edc3f003ead5f7167ef"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_carpenter_axe.json",
+      "bytes": 383,
+      "sha256": "ab2891721094df3098165dac88bf5af5b1a0a60a97b262c6b9a6df5b7c10277b"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_chef_wok.json",
+      "bytes": 373,
+      "sha256": "743bf4fb9dc7cfe2be28b1bff0154965780030f8d92eed1d6800feceb0438882"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_farmer_scythe.json",
+      "bytes": 383,
+      "sha256": "9518f287c748d31b25d3a039dc9bd7a219be50468996a22f6fb20f0ac235034d"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_miner_drill.json",
+      "bytes": 379,
+      "sha256": "f8ac1567cb2e98bdd96d657b26f2e5cd50b3ff13c1cbc34b1529709bd3ea5f56"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_smith_hammer.json",
+      "bytes": 381,
+      "sha256": "6bd7c0c87804a50b79228cafcc19526991b146bdfbd70eb235829872a0991f9b"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_arcane_grimoire.json",
+      "bytes": 391,
+      "sha256": "96a797fa016caf1c38fe10d9d6c2913db84835f937dcd20fcab48c2e4525bc38"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_paladin_sword.json",
+      "bytes": 387,
+      "sha256": "fd27896b913059fad77c1c31c318d86a80e7019cc126c7e7cd525ef1e9f25b4c"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_ranger_bow.json",
+      "bytes": 381,
+      "sha256": "18d72c2430269803b06471a651092b4f56f8b892c03eedda0c2bf100b2f0739f"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_shadow_daggers.json",
+      "bytes": 389,
+      "sha256": "46abf8b00d65ff171946e2891f8ba411fae3369f60ed77f4293f1639d87607af"
+    },
+    {
+      "path": "assets/yuumi97/items/you_and_me_bell.json",
+      "bytes": 377,
+      "sha256": "b20f825f3fc0f79493c4e0afa76d4f6297e584e57dc45280fc981641348bcba9"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/book_of_thresholds.json",
+      "bytes": 112,
+      "sha256": "4162b556eda8f172af2e5f22939d26800aa3a4f096accc022e898be7ef6526df"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_cat_tower.json",
+      "bytes": 108,
+      "sha256": "fdd6a7ef2488a0e3575dea9247c15be802a3c8c6eba4abc37b87c066471f3ea4"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_kotatsu.json",
+      "bytes": 106,
+      "sha256": "7e49f706363746d15f0e774ecfce0f690de3180eb429c41e3ae451afbbf05167"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_neon_sign.json",
+      "bytes": 108,
+      "sha256": "22bc41852351ee004ae512ea1ef4a6d9822043708b6bbc53b296b3fca08ce908"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/hat_chef_toque.json",
+      "bytes": 108,
+      "sha256": "0699ae88240832eff221154876584d340e4a698eb85b8ee5b6e78f9910b7542e"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/hat_stock_tophat.json",
+      "bytes": 110,
+      "sha256": "475e7cc02b131f1a336f3af349a32a7f37dcb072e0b081e0c3421541e5038a23"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/prowling_wand.json",
+      "bytes": 107,
+      "sha256": "ad6781518dddfc0dd7647abdaea18b494006714ce29b1bad3427baff02c0f1de"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_angler_harpoon.json",
+      "bytes": 113,
+      "sha256": "6a25f981e63ea3a9019cc617718ce2acebab38e52eaac915ae7b86db42f99cf3"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_carpenter_axe.json",
+      "bytes": 112,
+      "sha256": "8c54911805e1e84f7102023aa20b41e8dad830e74aeec685d310b56a84854398"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_chef_wok.json",
+      "bytes": 107,
+      "sha256": "c314491d3348ceab9f1feb610936d37dd9bfa81ba0386af8f708970a648132e3"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_farmer_scythe.json",
+      "bytes": 112,
+      "sha256": "3c8fec96048d43453eea4b5ec7d06bf92042c80a28755cee69dc37807c7cf905"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_miner_drill.json",
+      "bytes": 110,
+      "sha256": "949a92a5c6659212bd1724718721b5f7639b6cd044c2d5638d09d4ba3f301513"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_smith_hammer.json",
+      "bytes": 111,
+      "sha256": "6d478c500b6bc49e1eca1490ca6486460a7cc75e904741b3cbfd73c2a1ccad47"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_arcane_grimoire.json",
+      "bytes": 116,
+      "sha256": "982fd4108777606aefe42ce055d80e143cbdb13e9381caecc6f29a3c145ebe6a"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_paladin_sword.json",
+      "bytes": 114,
+      "sha256": "ada16b2dd72089b12c2cbafdb4225c2b6cf186dfa503da8d626abc417219c339"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_ranger_bow.json",
+      "bytes": 111,
+      "sha256": "976050f0c96b33af42c433a136864b2999123fef34d21b398bbe7382dd70eae2"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_shadow_daggers.json",
+      "bytes": 115,
+      "sha256": "02686dfdc20ccd7f85bbe67c0660c58da698a29571120e215be5029051bbf931"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/you_and_me_bell.json",
+      "bytes": 109,
+      "sha256": "700f89aa7998c689ac4ec77f8205c5413bb2adf35a8221c1b5e450cc60de07ab"
+    },
+    {
+      "path": "assets/yuumi97/models/item/book_of_thresholds.json",
+      "bytes": 63555,
+      "sha256": "6cec7dd858bd0db2f51ede3db289df9cbe6e5e14cb36ffbac58038dc2ec4afcb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_cat_tower.json",
+      "bytes": 304370,
+      "sha256": "f0228ff879792b0660259f9ff8a9518426c34746ff1da30f8b9396da229ccbdc"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_kotatsu.json",
+      "bytes": 263298,
+      "sha256": "a0058190cc8f2b436ccec05056b053a367fc059822595ef05d76be7af4b0bd71"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_neon_sign.json",
+      "bytes": 276079,
+      "sha256": "f356b39f61c92b4ed140c215e6ad9c7d1fb14c6fb9f465868efd27941cdcec25"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_chef_toque.json",
+      "bytes": 120546,
+      "sha256": "e13796c125c73a2958a73395c025ca67a49300cf9b3d6c1c0a2ceda9b7b35acf"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_stock_tophat.json",
+      "bytes": 109778,
+      "sha256": "6fae747d4dd1c5621bf66688dc80b25dbccb55cd4d53188b591ca365c9a95969"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_yuumi_ears.json",
+      "bytes": 45819,
+      "sha256": "7f5e5365a9d203c82946a789c09523942c99458e8a2a4ef90601f249fcd274e4"
+    },
+    {
+      "path": "assets/yuumi97/models/item/plushie_yuumi.json",
+      "bytes": 117864,
+      "sha256": "60b9cf7a0747d6cfb071223cb420e67c4dfb973da0a3c6d670ed6955f15c3e71"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_boon_altar.json",
+      "bytes": 107351,
+      "sha256": "8a70671c0ac120024fca35e6d7e3e7bdd9784f35cc4dc84de97968daee844760"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_casino_chandelier.json",
+      "bytes": 987292,
+      "sha256": "33989493ff50cdf970201fdb7a0a898c227a33ab4de8886edebc60274178d468"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_casino_marquee.json",
+      "bytes": 998643,
+      "sha256": "ad25e0d7cfd6fad93a3d37d5bf3c2e9593c115b7690edebf459bc9f528f19fa2"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_dealer_throne.json",
+      "bytes": 283123,
+      "sha256": "d2045231e94d6f98a97ee567f47c3e2c2effa213c6256b1a9a68e800e2b314fb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_derby_trophy.json",
+      "bytes": 89812,
+      "sha256": "951293d6196425a61066f83a3c6fd32c0ee87d0421951e463fa61c042a482142"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_dungeon_obelisk.json",
+      "bytes": 185733,
+      "sha256": "a1a0d4cbed7efc9e602179f3465ab0f2f6829828937b4267ae328c567ea49da7"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_feast_cauldron.json",
+      "bytes": 206915,
+      "sha256": "e5f05b99dc15a218d60b4844ba1c87db1f7dfdcb51e284897b1392214d238184"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_gacha_machine.json",
+      "bytes": 309565,
+      "sha256": "22ab1becd31542dd427a3e8ca0c8ae71852bbd132ca6620e1cc70fbc91cb46c3"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_plaza_clock_face.json",
+      "bytes": 999772,
+      "sha256": "eaa870dad5114ec25b84b2455c3ca616d5561b2e454aca488250004838a118b4"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_roulette_wheel.json",
+      "bytes": 161324,
+      "sha256": "3d50f2727e8fd668c9bea93e7e531c3f201d638ada324ba8762318d866cffd85"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_sakura_lantern_arch.json",
+      "bytes": 546021,
+      "sha256": "3a3ae00211ac007090d90d0e7eb6fdfec1dcc678ee09d59fa0fefa52a1ca95e6"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_slot_cabinet.json",
+      "bytes": 85487,
+      "sha256": "6f7c303691f470861de3b743fee74c5541478c2b58dc38c598de57b7a8c1672d"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_stock_board.json",
+      "bytes": 158729,
+      "sha256": "451a9ad37ec5f987411285f06c3a179d391055787d6576f23fb8ef9ee7434580"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_training_dummy.json",
+      "bytes": 275798,
+      "sha256": "67d5d3f1892cbf3d9449e796dd787a5ffb50edd988c558ecb67dfa4ea3759106"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_yuumi_statue.json",
+      "bytes": 111641,
+      "sha256": "d7b2311a43498698eda89a96aa746e8d36a1da997c696043df3cf0718d9e1eb6"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prowling_wand.json",
+      "bytes": 74869,
+      "sha256": "17e180117f1acb40d0c50ec7aaaca48eeff72a54faed62e68bb3b8206bf5061b"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_angler_harpoon.json",
+      "bytes": 169764,
+      "sha256": "4278679d12ff0bc672382765ad5c0d96a9be8aa34bacf30c451d503bd32971ca"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_carpenter_axe.json",
+      "bytes": 229372,
+      "sha256": "5f81e59e8f07fa18863cde92797842f7c6a4fb58a80c9cfd2b271bdf3410a672"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_chef_wok.json",
+      "bytes": 214441,
+      "sha256": "dbea6c21a7a6721d68e65b4e26a8ba0702b838f8ce9fd68f999e4f9f728b674e"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_farmer_scythe.json",
+      "bytes": 176434,
+      "sha256": "8e0fa520b4ceef94e7dc112666c393b4c032e0a4e07d8daf0acffd2854b8e64f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_miner_drill.json",
+      "bytes": 98859,
+      "sha256": "a18f2b00d32a9293775de8f46bddee79f6ac9f6d3c3f7ed51e6328bce1d0574c"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_smith_hammer.json",
+      "bytes": 92999,
+      "sha256": "53b22055efeff5458e64f8af9d5e5de943194a2cb2276eea978333dec8b25b61"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_arcane_grimoire.json",
+      "bytes": 382350,
+      "sha256": "f14b07b23add11a1db1a54040bdb13cc5da3204b518709c376f3bf441fc8b35f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_paladin_sword.json",
+      "bytes": 320066,
+      "sha256": "c0f144f354f796d04067e5b12510a3f1f541a53755591ce5f622989c36d3a168"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_ranger_bow.json",
+      "bytes": 253161,
+      "sha256": "91b78bfa5712d971b5cfeec35479e09058d48edb7fc96fb571f979637a1b8b34"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_shadow_daggers.json",
+      "bytes": 223067,
+      "sha256": "49109dfaab03377caf4b935be5bb8388852962b470e373dda12f9c439e206a4c"
+    },
+    {
+      "path": "assets/yuumi97/models/item/you_and_me_bell.json",
+      "bytes": 49547,
+      "sha256": "27eefd7bfeb4e598e41928b6366600788d72884730ad3c4a0129bb9077144e83"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/ancient_cat_coin.png",
+      "bytes": 400,
+      "sha256": "88f5c703c04423a54237c4ef673be7ad33058296697af7916d0d242cdeaff0a7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/book_of_thresholds.png",
+      "bytes": 400,
+      "sha256": "d6c555fa309f02913b5ee1feeb6d5ee801e00329c9c357ceaea1da21be285e62"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_hound.png",
+      "bytes": 396,
+      "sha256": "484b203070d80782051d92bd98772250127a61be67ce87d93b97db0212cdc7bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_rat.png",
+      "bytes": 409,
+      "sha256": "f3636d9ef441a3faec0109cf3b4d7a93968e22e8e854e8e228132f64c222b91d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_void.png",
+      "bytes": 376,
+      "sha256": "32ae6534a3163307ddf80b81af49dfb65f7167b2e7a18054ca5883ec072cfdf5"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/casino_chip.png",
+      "bytes": 392,
+      "sha256": "08bb4523144b5b5995c028887720b938ca1690150ad1395c63e038009a4a3404"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/catnip_elixir.png",
+      "bytes": 388,
+      "sha256": "47e940c7da34ccc2408a9b29bb003882ce35673c5287b995dbcf93d3a4e0ce43"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_crimson_claw.png",
+      "bytes": 352,
+      "sha256": "dfa9514a01d33c41c98cf1a1b7dd31a22d0cc8a59c563840fcb8c7bffa49711c"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_golden_whisker.png",
+      "bytes": 340,
+      "sha256": "3de8fb8a865fba47380c17ed4c2ae43509cf588e3bb91ba7bde692e83e1051d1"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_starlight_aegis.png",
+      "bytes": 349,
+      "sha256": "957e7fa2c377849d87dde87ef5a6a404265a5589821cf9732e38b2e61f03f560"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_vampiric_purr.png",
+      "bytes": 353,
+      "sha256": "c476ab679daa9909d669e1456ce287b28de3c88302fbd7e0edb9666b2bc9cea3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_100.png",
+      "bytes": 413,
+      "sha256": "78cbbcba98d5dc5975292aa314538ddb9e73fed671180429266536ee09cdbb90"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_1000.png",
+      "bytes": 458,
+      "sha256": "ef4f6f1eebef103981366e893a7cbe333c2355613c838bd3db9ee39052ab0f0c"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_10000.png",
+      "bytes": 438,
+      "sha256": "bfce5a047fef4b1123afffd202202dc8a190d25c7b613f4f796c9ecdc17c0000"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_golden.png",
+      "bytes": 370,
+      "sha256": "2c994bfe9eaae8e8c486d570548ab49fa189eb9c1444ab6c9c17219b4ec0352d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_salmon.png",
+      "bytes": 331,
+      "sha256": "9f2d06d6664a180a7f5766e03449a3a2028b769389bbcaf0fc92a2abb8302936"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_tuna.png",
+      "bytes": 341,
+      "sha256": "58afd89b16484cd69f9034e7e600315697e3d682355640853ed754a3e05ace61"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/class_emblem.png",
+      "bytes": 381,
+      "sha256": "3c9f06f3a9435140805e7deadb6bcc9d9788806883fb1fed1542f4782b27c44a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/deep_sea_fillet.png",
+      "bytes": 363,
+      "sha256": "8a9299eeab0a700eac2a221d00d7c57e8be719d238d64148f0883fd7d94f3512"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/final_chapter_tome.png",
+      "bytes": 439,
+      "sha256": "db18cadd0e843c6a9b8c335b6327c26276d1af14f0f60da24883f846ef94cd0a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_cat_tower.png",
+      "bytes": 337,
+      "sha256": "4c41776cd43a48d32cb59b289bae71bf5742ae5443d46683f592809f23b5ec5d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_kotatsu.png",
+      "bytes": 374,
+      "sha256": "79a048c6b0203502c8d0efe14e196504e130d656106ce070f31241fcf996d54f"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_neon_sign.png",
+      "bytes": 263,
+      "sha256": "a007d984753daadcf16221f30ea37662c07f4e18a559c9c3550ed0f68722ca8f"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/gacha_capsule.png",
+      "bytes": 357,
+      "sha256": "5a19f31b3b5327cfa5aadb46d60009a985d12f96670f149e2462a2dcf820bc23"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/golden_catnip.png",
+      "bytes": 334,
+      "sha256": "dc39001f1dae4e904a2b07331afd955fd8a2ac62ccfef094fe4e3298abbf5d83"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/hat_chef_toque.png",
+      "bytes": 299,
+      "sha256": "0e4b07437d74fe137e689cc7c00005afaed0474b3b73209b778da8b933e1c4d0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/hat_stock_tophat.png",
+      "bytes": 346,
+      "sha256": "97a6e8b491f2517a71f60bb55436b13256b6b16b255a99d21b0eab0ba0b87dbf"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/jackpot_crown.png",
+      "bytes": 353,
+      "sha256": "a6ae2bde1ab5c9a1d1d349d9576a69db55ca6d11b6eedafd446ba45d5482b9e0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/kneading_bento.png",
+      "bytes": 373,
+      "sha256": "8c2e35d8d3a78b45537560dc0f621f4d4f4f49e31f5af13bfe858bb8377624d7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/labyrinth_key.png",
+      "bytes": 292,
+      "sha256": "cb66cc2070eeccbb0b14762b911a22f026d15da2752ba2a4bca41143caf377b8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/michelin_feast.png",
+      "bytes": 422,
+      "sha256": "704aed9dba8c50d84d57cb8624d634a2a30727983892f48c3706f3a8dd1718f9"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/monster_soul_core.png",
+      "bytes": 349,
+      "sha256": "bdf618b3938a1be61014a0da5c524a400afd0494510d8df065ab711bb61c4ee5"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/nine_lives_charm.png",
+      "bytes": 378,
+      "sha256": "eb3d74736e3f060aaba63e253f51772ecf3238fdb28d4b5c323b7ed24a7d0b82"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/prowling_wand.png",
+      "bytes": 374,
+      "sha256": "7c404e815c2f183517736c322a4362f8dcddf0b9b32831f5f33ce723d0940c6e"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/recall_bookmark.png",
+      "bytes": 359,
+      "sha256": "c3c26e3e8aca444ce81ca4882811c84ea3d2610e6f4bef9255e6e29bf75c9a58"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/respec_potion.png",
+      "bytes": 316,
+      "sha256": "25428f917fdc4a2a8d7ad8090044dbc04d23e5067563c548f0bd114491f15bc3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/royal_feast_can.png",
+      "bytes": 395,
+      "sha256": "8c173b475b7330d248b3355d0bd556328e825526b08ce1551f8a1aac74326dd7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/rune_scroll.png",
+      "bytes": 360,
+      "sha256": "e298ab9a4f1f8f0405d2b53858cbede9c5043fef0cd93b1de4c0cc7a94f3e06d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_paw.png",
+      "bytes": 356,
+      "sha256": "d50c7a4801a690ce696b1150840b70fb04abd8eaabd9e04ef62f8f31bdfe87c9"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_seven.png",
+      "bytes": 292,
+      "sha256": "666470b4d38423161f057b0a9670366e90555a0791f0736d28a4a1a3df7cf4be"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_yuumi.png",
+      "bytes": 436,
+      "sha256": "2ea6cdc940e480c55bda7e6039ceb22f99b8ab235df4f36065eb347f4a5f9c6d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/starlight_scroll.png",
+      "bytes": 361,
+      "sha256": "64bc048cb95ad71743abd685c804b99460f0c55766451b6a60dbe248c15b4f5a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/starlight_stone.png",
+      "bytes": 400,
+      "sha256": "fdb79539476b9e1d8575a82cbe412d85da9e13991c671589c781d71e528a01b8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_angler_harpoon.png",
+      "bytes": 332,
+      "sha256": "5dcf38f0beb230221122ca1198487da777035eb51691eb1f5ccac431b88def36"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_carpenter_axe.png",
+      "bytes": 374,
+      "sha256": "6ab1a24e863ef97da8247e61bea36ca9e56397e8b164c9dcfa38997e139f5299"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_chef_wok.png",
+      "bytes": 415,
+      "sha256": "88b6ee2120c784131d5aca48bd9e3e28f8104e737c31047753b55ed9440c7bf3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_farmer_scythe.png",
+      "bytes": 352,
+      "sha256": "bf697c016157679726247629c1ed8f04631772c4d53ecd0893a0a6a93a4a90d8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_miner_drill.png",
+      "bytes": 346,
+      "sha256": "08b87baf3fd63ad2139f172f8c4d6f5f091aca3e7721c67ae2d814ab5e235861"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_smith_hammer.png",
+      "bytes": 358,
+      "sha256": "5597e80f77c3b4cffd8a0c5ebbb70823ef2909ae7fb2f4e5d4c88564a6edcfae"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/torn_page.png",
+      "bytes": 312,
+      "sha256": "ffadb3ce85d46c10336243f20507d6b8fe4fe577979f8515af592368ca1f0e22"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/unidentified_geode.png",
+      "bytes": 370,
+      "sha256": "308220adbe6fb8a8b5040c3fe4c63ab79de667d27408e67ac64b648d4ac9ef3a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_arcane_grimoire.png",
+      "bytes": 361,
+      "sha256": "36d8675fc96666777806833d8134dd122a134ed4e9679db72bf4765f68311115"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_paladin_sword.png",
+      "bytes": 308,
+      "sha256": "afcf5578e3d44ca7d3c3325bf80722aa5d9daa38093161b235e91bcdf5bdc1a3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_ranger_bow.png",
+      "bytes": 328,
+      "sha256": "4278295306c10cc20ff555b68f8e8054665efea2ad4d7d7b84492b3dd367394d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_shadow_daggers.png",
+      "bytes": 302,
+      "sha256": "a90d6d73f887dcda2490df1173e89def86f0f1f17aa390724a5f33a421cf00c2"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/you_and_me_bell.png",
+      "bytes": 386,
+      "sha256": "999ba2ba8327a4d099073a55a2227a3efefa923c10bd1d727b58060091bfeda0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/zoomies_skewer.png",
+      "bytes": 342,
+      "sha256": "f5f4499b5f0dcec26522ff16b5ae6eca3a44b7fc893e29d31f3dbdab4d79e0fd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/book_of_thresholds.png",
+      "bytes": 1684,
+      "sha256": "38b7adff77d94736675ea0502eb68dd40547135993ed89dcd6c00a3c28f4e792"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_cat_tower.png",
+      "bytes": 2263,
+      "sha256": "b04346060d6c6c38e8a23d8e96495a2f99b616af849ec5b906aa683695a9ff8a"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_kotatsu.png",
+      "bytes": 2714,
+      "sha256": "5db46f115ffad373a76f548491639739d746ed6e4f39f5a5edec29dab26e233c"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_neon_sign.png",
+      "bytes": 1838,
+      "sha256": "73640c119f87bc633297eb549c3ccc15bf4d6badc0828919e627ae5fdc11225f"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_chef_toque.png",
+      "bytes": 1694,
+      "sha256": "f7e93aedcb401ec66da1b2fe045e4b8cdd4a66c724f015dd54adb39220357957"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_stock_tophat.png",
+      "bytes": 1509,
+      "sha256": "f1237a3b9a3a34833c78ae1a5025edfaef93bacc79c930552af0357361a70dcc"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_yuumi_ears.png",
+      "bytes": 1564,
+      "sha256": "1cf66af0e3adf7d06a38f2f7b44743c3ed16cf7caa88e7d7476183eac1a17afa"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/plushie_yuumi.png",
+      "bytes": 1987,
+      "sha256": "58a5b7661887d07c799e88f2c9ac8ebcfb85704949f6549445a7e28291cba223"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_boon_altar.png",
+      "bytes": 4328,
+      "sha256": "1f305254b1e1ad649843d2a5c3217efc6882b4f2c55a9278951f937bbf238539"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_casino_chandelier.png",
+      "bytes": 3303,
+      "sha256": "95eac33e27d1d9de40c255479bb7688655745d1f5e3f84073e1da2319dae0dc3"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_casino_marquee.png",
+      "bytes": 4452,
+      "sha256": "7171d7ff17cc7667410110a275f8e26332797911967d8439526f099ae0ea936d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_dealer_throne.png",
+      "bytes": 3776,
+      "sha256": "b27d0304998a650dea861fe16065cb6337fc8654de0230bcc9b3eeff109b16cb"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_derby_trophy.png",
+      "bytes": 3504,
+      "sha256": "2e0a62cd72570359fc0fe610659fce500bcf8194505ff9c2f1e14fd35c05bc5e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_dungeon_obelisk.png",
+      "bytes": 4177,
+      "sha256": "0cdd18af1d71d6e24ab9a1372aae07a7ae1d3483f8ff0ce125c03111e9fc7012"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_feast_cauldron.png",
+      "bytes": 4778,
+      "sha256": "64fc160a2b82896cc3c1af62fe042150177943323c864d519a7615f72f5854b5"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_gacha_machine.png",
+      "bytes": 3931,
+      "sha256": "7d01952e5521e9f780b3eb9939036d7e4ef0d96de679d612c854e752f99a97e4"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_plaza_clock_face.png",
+      "bytes": 4452,
+      "sha256": "7171d7ff17cc7667410110a275f8e26332797911967d8439526f099ae0ea936d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_roulette_wheel.png",
+      "bytes": 3354,
+      "sha256": "3219194e7e03e8d847cdc11c09f7a0862816005ff3459ac68ca2457aeb6a860d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_sakura_lantern_arch.png",
+      "bytes": 4812,
+      "sha256": "5b46b57ce53306a229c9f701622e21070b1a7d0740e4546cae99e0b42ce48d20"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_slot_cabinet.png",
+      "bytes": 3668,
+      "sha256": "847433b243cff9d489c8c6ba238e6525fbbacca52b920ed5c7528cfca71240cd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_stock_board.png",
+      "bytes": 4368,
+      "sha256": "fd4f6c25186fb675e4569f9daeea25d801e116dc4d9a4cd003a8cea0a0a78a9d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_training_dummy.png",
+      "bytes": 4019,
+      "sha256": "fd614b4c1178d2a31e0c6508365d53deddeafb806e83138b0a1d478d816b0acc"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_yuumi_statue.png",
+      "bytes": 3750,
+      "sha256": "e0d9ba7738d5fa187d0b1fbea88319a775c3bac5914b6893f020164bbb3f17f6"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prowling_wand.png",
+      "bytes": 1388,
+      "sha256": "c706f0845e2152e0aecc9c775662d877a8fb585a8a986187b5d8018790eba99f"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_angler_harpoon.png",
+      "bytes": 1855,
+      "sha256": "d0c93435309e01a865464fe338320eb10a1b3bb93c6dbc179911fcd851950b62"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_carpenter_axe.png",
+      "bytes": 1764,
+      "sha256": "cedacd1f9b464d663bb8b8be7a1d7efeb4ceb2f0ab222b8c7561950f81d96953"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_chef_wok.png",
+      "bytes": 1847,
+      "sha256": "5699a4828fe1032289e55a44e37cf17738e4beada1011706d8a3c7233ff44163"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_farmer_scythe.png",
+      "bytes": 1833,
+      "sha256": "cbcdd15a4cd0e3b54fd29f2e70c2e29d9b5f1b1b14a240b0a8f1a78c3c310d45"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_miner_drill.png",
+      "bytes": 1767,
+      "sha256": "1967e27cb76c5c76e4c130ed4c37cb623c5d243966def179a4c99f91148e301a"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_smith_hammer.png",
+      "bytes": 1877,
+      "sha256": "5a2c8303d08cd4d3168eca15a9db9f9f96c6e79735b8dcc7fbdf2999677bf24d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_arcane_grimoire.png",
+      "bytes": 1888,
+      "sha256": "3664ce2c0904d9eaf80f7cef70493e5464971bba0e54b750db65f4360ee93bcd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_paladin_sword.png",
+      "bytes": 1639,
+      "sha256": "6253d990808032b18da9e52201af8ef91ff3f919564849421b4e65f802446cde"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_ranger_bow.png",
+      "bytes": 1636,
+      "sha256": "a353e6895d7af08a47e82f82b4d117811ff7022b77ca86563341ce30e1623bed"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_shadow_daggers.png",
+      "bytes": 1770,
+      "sha256": "b5d1c3fefe8c0d91ff7673e08435a14f12526e014c1603dc8086adadb24217e3"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/you_and_me_bell.png",
+      "bytes": 1233,
+      "sha256": "4943e700beb5e6a97becde71dd542203b8144019994295ecf18771c2dd75a175"
+    }
+  ],
+  "failures": []
+}

@@ -90,7 +90,8 @@ public final class V3RuntimeChecks {
                 }finally{data.set(ownerKey,null);if(sentinel!=null)sentinel.remove();for(var state:before)state.update(true,false);rpg.save.run();}
             }
         }
-        String result="V3_RUNTIME_CHECKS PASS: 30 item factories and YAML round trips; signature evolution metadata; 20 NBT resources; adjacent inventory protection; hub migration; dungeon world";
+        V31RuntimeChecks.run(plugin,hub,data);
+        String result="V3_RUNTIME_CHECKS PASS: 30 item factories and YAML round trips; signature evolution metadata; 20 NBT resources; adjacent inventory protection; hub migration; dungeon world; v3.1 landmarks, training and dealer sightlines";
         plugin.getLogger().info(result);return result;
     }
     private static void check(boolean passed,String message){if(!passed)throw new IllegalStateException("V3 verification: "+message);}

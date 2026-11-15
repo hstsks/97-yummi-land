@@ -1,0 +1,56 @@
+{
+  "id": "prop_dealer_throne",
+  "mount": {
+    "kind": "floor",
+    "anchor": [
+      8,
+      0,
+      8
+    ],
+    "referenceScale": 1.5
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "floor_mount",
+      "kind": "floor",
+      "anchorModelUnits": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.5,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "boundsModelUnits": [
+        [
+          -5.0,
+          0.0,
+          -2.05
+        ],
+        [
+          21.0,
+          30.72,
+          18.0
+        ]
+      ],
+      "attachmentGapModelUnits": 0.0,
+      "touchesMount": true,
+      "penetratesMount": false,
+      "lighting": "Reference-scale compensation: area light energy * scale^2 and size * scale.",
+      "notice": "ItemDisplay NONE reference; actual server location/yaw not applied.",
+      "lowestYModelUnits": 0.0,
+      "touchesFloor": true,
+      "penetratesFloor": false
+    },
+    {
+      "context": "dealer_clearance",
+      "approximation": true,
+      "reference": "Cuboid seated cat silhouette in foreground; not actual vanilla cat or hitbox.",
+      "requiresClientVerification": true
+    }
+  ]
+}

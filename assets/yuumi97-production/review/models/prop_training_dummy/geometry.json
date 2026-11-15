@@ -1,0 +1,50 @@
+{
+  "id": "prop_training_dummy",
+  "elements": 232,
+  "bounds_model_units": [
+    [
+      -3.2161,
+      0.0,
+      -0.6
+    ],
+    [
+      16.8732,
+      31.1862,
+      16.6
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_training_dummy.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_training_dummy.json": "67d5d3f1892cbf3d9449e796dd787a5ffb50edd988c558ecb67dfa4ea3759106",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\landmarks-v31-mounts.json": "7aa2a1815e297d39cb4703bc0ab74f2b343a025801a217748a38f8d3169e5d12",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_training_dummy.png": "fd614b4c1178d2a31e0c6508365d53deddeafb806e83138b0a1d478d816b0acc"
+  },
+  "contextImages": [
+    "floor_mount"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "prop_sakura_lantern_arch",
+  "elements": 469,
+  "bounds_model_units": [
+    [
+      -13.1,
+      -5.1,
+      2.44
+    ],
+    [
+      29.1,
+      20.0,
+      12.335
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\prop_sakura_lantern_arch.blend",
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "AUTO",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\prop_sakura_lantern_arch.json": "3a3ae00211ac007090d90d0e7eb6fdfec1dcc678ee09d59fa0fefa52a1ca95e6",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\landmarks-v31-mounts.json": "7aa2a1815e297d39cb4703bc0ab74f2b343a025801a217748a38f8d3169e5d12",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\prop_sakura_lantern_arch.png": "5b46b57ce53306a229c9f701622e21070b1a7d0740e4546cae99e0b42ce48d20"
+  },
+  "contextImages": [
+    "gate_mount"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

@@ -20,6 +20,7 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
+import java.util.function.IntFunction;
 
 public final class HallOfFameManager implements Listener,CommandExecutor {
     private static final class TitleHolder implements InventoryHolder {
@@ -29,10 +30,12 @@ public final class HallOfFameManager implements Listener,CommandExecutor {
     private final Runnable save;private final Supplier<World> hub;private final NamespacedKey boardKey;
     private final Map<UUID,Component> active=new ConcurrentHashMap<>();private BukkitTask task;
     private Runnable mythicRefresh=()->{};
+    private IntFunction<Location> boardLocation;
     public HallOfFameManager(JavaPlugin plugin,ChuruManager churu,FileConfiguration data,Runnable save,Supplier<World> hub){
         this.plugin=plugin;this.churu=churu;this.data=data;this.save=save;this.hub=hub;boardKey=new NamespacedKey(plugin,"hall_board");
     }
     public void setMythicRefresh(Runnable callback){mythicRefresh=callback;}
+    public void setBoardLocation(IntFunction<Location> location){boardLocation=location;}
     public void start(){Bukkit.getPluginManager().registerEvents(this,plugin);task=Bukkit.getScheduler().runTaskTimer(plugin,()->{mythicRefresh.run();refresh();},100L,1200L);}
     public void stop(){if(task!=null)task.cancel();for(Player p:Bukkit.getOnlinePlayers())applyTab(p,null);}
     public void recordSmith(Player p,int targetStar){
@@ -55,11 +58,14 @@ public final class HallOfFameManager implements Listener,CommandExecutor {
         default->data.getLong("social.smith."+id,0);
     };}
     public void refresh(){
-        World world=hub.get();if(world==null)return;world.getChunkAt(14>>4,-14>>4).load();
+        World world=hub.get();if(world==null)return;
+        // Load the former and current board chunks before reconciling persistent displays.
+        world.getChunkAt(14>>4,-14>>4).load();
+        for(int category=0;category<3;category++)if(boardLocation!=null)world.getChunkAt(boardLocation.apply(category)).load();
         String[] labels={"최고 갑부","미궁 정복왕","별빛 세공 명장"};String[] keys={"wealth","dungeon","smith"};
         for(int category=0;category<3;category++){
             final int c=category;List<UUID> ranked=candidates().stream().filter(id->score(id,c)>0).sorted(Comparator.<UUID>comparingDouble(id->score(id,c)).reversed().thenComparing(UUID::toString)).limit(3).toList();
-            Location at=new Location(world,10.5+category*4,69,-17.5);
+            Location at=boardLocation==null?new Location(world,10.5+category*4,69,-17.5):boardLocation.apply(category);
             world.getChunkAt(at).load();
             StringBuilder text=new StringBuilder("<gold><bold>🏆 "+labels[category]+" Top 3</bold></gold>\n");
             for(int i=0;i<ranked.size();i++){
@@ -70,6 +76,8 @@ public final class HallOfFameManager implements Listener,CommandExecutor {
             if(ranked.isEmpty())text.append("<gray>첫 번째 주인공을 기다립니다!</gray>");
             List<TextDisplay> existing=world.getEntitiesByClass(TextDisplay.class).stream().filter(e->keys[c].equals(e.getPersistentDataContainer().get(boardKey,PersistentDataType.STRING))).toList();
             TextDisplay board=existing.isEmpty()?world.spawn(at,TextDisplay.class):existing.getFirst();for(int i=1;i<existing.size();i++)existing.get(i).remove();
+            board.teleport(at);board.setLineWidth(128);
+            board.setTransformation(new org.bukkit.util.Transformation(new org.joml.Vector3f(),new org.joml.Quaternionf(),new org.joml.Vector3f(.8f),new org.joml.Quaternionf()));
             board.getPersistentDataContainer().set(boardKey,PersistentDataType.STRING,keys[c]);board.setBillboard(Display.Billboard.CENTER);board.setPersistent(true);board.text(TextUtil.mm(text.toString()));
         }
         for(Player p:Bukkit.getOnlinePlayers())loadTitle(p);

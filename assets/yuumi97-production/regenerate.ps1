@@ -22,6 +22,7 @@ $GenerationSteps = @(
     (Join-Path $SourceDir 'environment-v3.mjs'),
     (Join-Path $SourceDir 'housing-v3.mjs'),
     (Join-Path $SourceDir 'class-weapons.mjs'),
+    (Join-Path $SourceDir 'landmarks-v31.mjs'),
     (Join-Path $SourceDir 'icons.mjs'),
     (Join-Path $SourceDir 'item-definitions.mjs'),
     (Join-Path $ToolsDir 'validate-assets.mjs')

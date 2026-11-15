@@ -1,0 +1,47 @@
+{
+  "id": "prop_sakura_lantern_arch",
+  "mount": {
+    "kind": "gate",
+    "anchor": [
+      8,
+      20,
+      8
+    ],
+    "referenceScale": 2.0
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "gate_mount",
+      "kind": "gate",
+      "anchorModelUnits": [
+        8,
+        20,
+        8
+      ],
+      "referenceScale": 2.0,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "boundsModelUnits": [
+        [
+          -13.1,
+          -5.1,
+          2.44
+        ],
+        [
+          29.1,
+          20.0,
+          12.335
+        ]
+      ],
+      "attachmentGapModelUnits": 0.0,
+      "touchesMount": true,
+      "penetratesMount": false,
+      "lighting": "Reference-scale compensation: area light energy * scale^2 and size * scale.",
+      "notice": "ItemDisplay NONE reference; actual server location/yaw not applied."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "prop_casino_chandelier",
+  "mount": {
+    "kind": "ceiling",
+    "anchor": [
+      8,
+      24,
+      8
+    ],
+    "minimumY": -4,
+    "referenceScale": 2.3
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "ceiling_mount",
+      "kind": "ceiling",
+      "anchorModelUnits": [
+        8,
+        24,
+        8
+      ],
+      "referenceScale": 2.3,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "boundsModelUnits": [
+        [
+          -4.88725,
+          -4.0,
+          -4.88725
+        ],
+        [
+          20.88725,
+          24.0,
+          20.88725
+        ]
+      ],
+      "attachmentGapModelUnits": 0.0,
+      "touchesMount": true,
+      "penetratesMount": false,
+      "lighting": "Reference-scale compensation: area light energy * scale^2 and size * scale.",
+      "notice": "ItemDisplay NONE reference; actual server location/yaw not applied."
+    }
+  ]
+}

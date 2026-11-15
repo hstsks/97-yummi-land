@@ -1,53 +1,126 @@
+﻿param(
+    [ValidateRange(1, 3600)][int]$StartupTimeoutSeconds = 180,
+    [ValidateRange(1, 3600)][int]$CheckTimeoutSeconds = 120,
+    [ValidateRange(1, 600)][int]$ShutdownTimeoutSeconds = 45,
+    [ValidateRange(1, 3600)][int]$BlueMapTimeoutSeconds = 300,
+    [string]$Memory = "4G"
+)
 $ErrorActionPreference = "Stop"
+$Utf8NoBom = New-Object Text.UTF8Encoding($false)
+[Console]::InputEncoding = $Utf8NoBom
+[Console]::OutputEncoding = $Utf8NoBom
+$OutputEncoding = $Utf8NoBom
 $RootDir = Split-Path -Parent $PSScriptRoot
 $JavaExe = Join-Path $RootDir "runtime\jdk-21\bin\java.exe"
 $ServerDir = Join-Path $RootDir "server"
 $LatestLog = Join-Path $ServerDir "logs\latest.log"
-if (Test-Path $LatestLog) { Remove-Item -Force $LatestLog }
-
-$Psi = New-Object System.Diagnostics.ProcessStartInfo
-$Psi.FileName = $JavaExe
-$Psi.WorkingDirectory = $ServerDir
-$Psi.Arguments = "-Xms4G -Xmx4G -Dfile.encoding=UTF-8 -jar paper.jar --nogui"
-$Psi.UseShellExecute = $false
-$Psi.RedirectStandardInput = $true
-$Psi.RedirectStandardOutput = $true
-$Psi.RedirectStandardError = $true
-
-$Proc = New-Object System.Diagnostics.Process
-$Proc.StartInfo = $Psi
-
-Write-Host "[VerifyBoot] Starting Paper 1.21.4 server (verifying v2.0 yuumi_hub + .nbt structures + LuckPerms)..." -ForegroundColor Cyan
-[void]$Proc.Start()
-$OutTask = $Proc.StandardOutput.ReadToEndAsync()
-$ErrTask = $Proc.StandardError.ReadToEndAsync()
-
+$ServerLease = $null
+$Proc = $null
+$Started = $false
+$StopSent = $false
+$ForcedKill = $false
 $Ready = $false
-$StartWait = Get-Date
-while (-not $Ready -and -not $Proc.HasExited) {
-    Start-Sleep -Seconds 2
-    if (Test-Path $LatestLog) {
-        $Raw = Get-Content -Path $LatestLog -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
-        if ($Raw -match "Done \([0-9.,]+s\)! For help") {
-            $Ready = $true
-            break
+$ChecksPassed = $false
+$Failure = $null
+$OutputTask = $null
+$ErrorTask = $null
+$ExitCode = $null
+function Test-GamePortListening {
+    try {
+        foreach ($Endpoint in [Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties().GetActiveTcpListeners()) {
+            if ($Endpoint.Port -eq 25565) { return $true }
         }
-    }
-    $Elapsed = [int]((Get-Date) - $StartWait).TotalSeconds
-    if ($Elapsed % 10 -eq 0) {
-        Write-Host "  ... booting ($Elapsed s)" -ForegroundColor DarkGray
-    }
-    if ($Elapsed -gt 180) {
-        Write-Warning "Timeout waiting for Ready!"
-        break
+        return $false
+    } catch {
+        # Sandboxes may deny network-table queries. Exclusive bind probes need no connection or admin rights.
+        foreach ($Address in @([Net.IPAddress]::Any, [Net.IPAddress]::IPv6Any)) {
+            $Socket = New-Object Net.Sockets.Socket($Address.AddressFamily, [Net.Sockets.SocketType]::Stream, [Net.Sockets.ProtocolType]::Tcp)
+            try {
+                $Socket.ExclusiveAddressUse = $true
+                $Socket.Bind((New-Object Net.IPEndPoint($Address, 25565)))
+            } catch {
+                $Cause = $_.Exception.GetBaseException()
+                if ($Cause -is [Net.Sockets.SocketException]) {
+                    if ($Cause.SocketErrorCode -in @([Net.Sockets.SocketError]::AddressAlreadyInUse, [Net.Sockets.SocketError]::AccessDenied)) { return $true }
+                    if ($Cause.SocketErrorCode -in @([Net.Sockets.SocketError]::AddressFamilyNotSupported, [Net.Sockets.SocketError]::NetworkUnreachable, [Net.Sockets.SocketError]::AddressNotAvailable)) { continue }
+                }
+                throw
+            } finally { $Socket.Dispose() }
+        }
+        return $false
     }
 }
-
-if ($Ready) {
-    Write-Host "[VerifyBoot] Server READY! Waiting 8s for yuumi_hub v2.0 city & .nbt stamping, then applying LuckPerms..." -ForegroundColor Green
-    Start-Sleep -Seconds 8
-
-    # v2.0 Physical Visit Philosophy: Disable remote /spawn, /home, /tpa, /back warps & legacy quickshop permissions!
+function Read-VerificationLog {
+    if (Test-Path -LiteralPath $LatestLog -PathType Leaf) { return [string](Get-Content -LiteralPath $LatestLog -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) }
+    return ""
+}
+try {
+    if (-not (Test-Path -LiteralPath $ServerDir -PathType Container)) { throw "Server directory not found: $ServerDir" }
+    try {
+        $ServerLease = [IO.File]::Open((Join-Path $ServerDir ".yuumi-server.lock"), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+    } catch [IO.IOException] { throw "Another server launcher or verification already owns this server. Existing logs were left untouched." }
+    if (Test-GamePortListening) { throw "Port 25565 is already listening. Check the existing console; no server or log was changed." }
+    if (-not (Test-Path -LiteralPath $JavaExe -PathType Leaf)) { throw "Portable Java 21 not found: $JavaExe" }
+    if (-not (Test-Path -LiteralPath (Join-Path $ServerDir "paper.jar") -PathType Leaf)) { throw "Paper 1.21.4 jar not found." }
+    # Preserve the old log; stale Done/PASS messages must not satisfy this verification.
+    if (Test-Path -LiteralPath $LatestLog -PathType Leaf) {
+        $PreviousName = "verify-previous-" + (Get-Date -Format "yyyyMMdd-HHmmssfff") + "-" + [Guid]::NewGuid().ToString("N").Substring(0, 8) + ".log"
+        Move-Item -LiteralPath $LatestLog -Destination (Join-Path (Split-Path -Parent $LatestLog) $PreviousName) -ErrorAction Stop
+    }
+    if (Test-GamePortListening) { throw "Port 25565 became busy before launch. Verification was cancelled." }
+    $Psi = New-Object Diagnostics.ProcessStartInfo
+    $Psi.FileName = $JavaExe
+    $Psi.WorkingDirectory = $ServerDir
+    $Psi.Arguments = "-Xms$Memory -Xmx$Memory -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -jar paper.jar --nogui"
+    $Psi.UseShellExecute = $false
+    $Psi.CreateNoWindow = $true
+    $Psi.RedirectStandardInput = $true
+    $Psi.RedirectStandardOutput = $true
+    $Psi.RedirectStandardError = $true
+    # StandardInputEncoding is not available in Windows PowerShell 5.1 / .NET Framework.
+    $Psi.StandardOutputEncoding = New-Object Text.UTF8Encoding($false)
+    $Psi.StandardErrorEncoding = New-Object Text.UTF8Encoding($false)
+    $Proc = New-Object Diagnostics.Process
+    $Proc.StartInfo = $Psi
+    Write-Host "[VerifyBoot] Starting portable Paper 1.21.4; checking v3.1 hub, dealer visibility, training dummies and dungeon..." -ForegroundColor Cyan
+    [void]$Proc.Start()
+    $Started = $true
+    $OutputTask = $Proc.StandardOutput.ReadToEndAsync()
+    $ErrorTask = $Proc.StandardError.ReadToEndAsync()
+    $Deadline = [DateTime]::UtcNow.AddSeconds($StartupTimeoutSeconds)
+    while ([DateTime]::UtcNow -lt $Deadline) {
+        if ($Proc.HasExited) { throw "Server exited before readiness (code $($Proc.ExitCode))." }
+        $Log = Read-VerificationLog
+        if ($Log -match "Done \([0-9.,]+s\)! For help") { $Ready = $true; break }
+        Start-Sleep -Milliseconds 500
+    }
+    if (-not $Ready) { throw "Timed out waiting for Paper readiness." }
+    $HubReady = $false
+    $Deadline = [DateTime]::UtcNow.AddSeconds($CheckTimeoutSeconds)
+    while ([DateTime]::UtcNow -lt $Deadline) {
+        if ($Proc.HasExited) { throw "Server exited before the v3.1 hub was ready." }
+        $Log = Read-VerificationLog
+        if ($Log -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b") { throw "Server logged an error while preparing the v3.1 hub." }
+        if ($Log -match "V31_HUB_READY") { $HubReady = $true; break }
+        Start-Sleep -Milliseconds 500
+    }
+    if (-not $HubReady) { throw "Timed out waiting for V31_HUB_READY." }
+    $BlueMapInstalled = @(Get-ChildItem -LiteralPath (Join-Path $ServerDir "plugins") -File -Filter "BlueMap*.jar" -ErrorAction SilentlyContinue).Count -gt 0
+    if ($BlueMapInstalled) {
+        # Paper's Done marker precedes BlueMap's asynchronous resource load. Its own Loaded! marker
+        # follows Plugin.load()/isLoaded(); wait before dispatching commands and requesting shutdown.
+        Write-Host "[VerifyBoot] Waiting for BlueMap asynchronous resource loading to finish..." -ForegroundColor Cyan
+        $BlueMapReady = $false
+        $Deadline = [DateTime]::UtcNow.AddSeconds($BlueMapTimeoutSeconds)
+        while ([DateTime]::UtcNow -lt $Deadline) {
+            if ($Proc.HasExited) { throw "Server exited before BlueMap finished loading." }
+            $Log = Read-VerificationLog
+            if ($Log -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b") { throw "Server logged an error while waiting for BlueMap readiness." }
+            if ($Log -match "(?m)\[BlueMap\]\s+Loaded!\s*$") { $BlueMapReady = $true; break }
+            Start-Sleep -Milliseconds 500
+        }
+        if (-not $BlueMapReady) { throw "Timed out waiting for BlueMap Loaded!; refusing an early verification shutdown." }
+    }
     $Commands = @(
         "plugins",
         "lp group default permission set essentials.spawn false",
@@ -69,25 +142,73 @@ if ($Ready) {
         "lp group default permission set gsit.sitclick true",
         "lp group default permission set gsit.lay true",
         "lp group default permission set gsit.crawl true",
-        "lp group default permission set evenmorefish.use true"
+        "lp group default permission set evenmorefish.use true",
+        "yuumi verify-v3"
     )
-    foreach ($cmd in $Commands) {
-        $Proc.StandardInput.WriteLine($cmd)
-        Start-Sleep -Milliseconds 150
+    foreach ($Command in $Commands) {
+        if ($Proc.HasExited) { throw "Server exited while dispatching verification commands." }
+        $Proc.StandardInput.WriteLine($Command)
+        $Proc.StandardInput.Flush()
+        Start-Sleep -Milliseconds 100
     }
-
-    Start-Sleep -Seconds 4
-    Write-Host "[VerifyBoot] Sending graceful 'stop'..." -ForegroundColor Cyan
-    $Proc.StandardInput.WriteLine("stop")
-    [void]$Proc.WaitForExit(45000)
+    $Deadline = [DateTime]::UtcNow.AddSeconds($CheckTimeoutSeconds)
+    while ([DateTime]::UtcNow -lt $Deadline) {
+        if ($Proc.HasExited) { throw "Server exited before v3.1 checks completed." }
+        $Log = Read-VerificationLog
+        if ($Log -match "V3(?:1)?_RUNTIME_CHECKS FAILED") { throw "The core runtime checks reported failure." }
+        if ($Log -match "V3_RUNTIME_CHECKS PASS" -and $Log -match "V31_RUNTIME_CHECKS PASS") { $ChecksPassed = $true; break }
+        Start-Sleep -Milliseconds 500
+    }
+    if (-not $ChecksPassed) { throw "Timed out waiting for both V3_RUNTIME_CHECKS PASS and V31_RUNTIME_CHECKS PASS." }
+} catch {
+    $Failure = $_.Exception.Message
+} finally {
+    if ($Started) {
+        try {
+            if (-not $Proc.HasExited) {
+                Write-Host "[VerifyBoot] Sending graceful stop..." -ForegroundColor Cyan
+                $Proc.StandardInput.WriteLine("stop")
+                $Proc.StandardInput.Flush()
+                $StopSent = $true
+                if (-not $Proc.WaitForExit($ShutdownTimeoutSeconds * 1000)) {
+                    $ForcedKill = $true
+                    $Proc.Kill()
+                    [void]$Proc.WaitForExit(10000)
+                }
+            }
+            if ($Proc.HasExited) { $ExitCode = $Proc.ExitCode }
+        } catch {
+            if ($null -eq $Failure) { $Failure = "Failed to stop the owned verification process: " + $_.Exception.Message }
+            try { if (-not $Proc.HasExited) { $ForcedKill = $true; $Proc.Kill(); [void]$Proc.WaitForExit(10000) } } catch { }
+        }
+    }
 }
-
-if (-not $Proc.HasExited) { $Proc.Kill() }
-
-Write-Host "`n=== FINAL VERIFICATION LOG SUMMARY ===" -ForegroundColor Yellow
-$Lines = Get-Content -Path $LatestLog -Encoding UTF8
-foreach ($l in $Lines) {
-    if ($l -match "Enabling |Bukkit Plugins:|Server Plugins|YuumiLandCore|HubWorldManager|Done \(|ERROR|Exception") {
-        Write-Host $l
-    }
+try {
+$CombinedLog = ""
+if ($Started) { $CombinedLog = Read-VerificationLog }
+if ($Started -and $Proc.HasExited) {
+    if ($null -ne $OutputTask) { $CombinedLog += [Environment]::NewLine + $OutputTask.GetAwaiter().GetResult() }
+    if ($null -ne $ErrorTask) { $CombinedLog += [Environment]::NewLine + $ErrorTask.GetAwaiter().GetResult() }
+}
+Write-Host ""
+Write-Host "=== FINAL VERIFICATION LOG SUMMARY ===" -ForegroundColor Yellow
+foreach ($Line in ($CombinedLog -split "\r?\n")) {
+    if ($Line -match "Enabling |YuumiLandCore|HubWorldManager|DungeonManager|V31?_RUNTIME_CHECKS|\[BlueMap\].*Loaded!|Done \(|Stopping server|ERROR|Exception|SEVERE") { Write-Host $Line }
+}
+if ($ForcedKill) { $Failure = "Server required a forced kill; graceful shutdown failed." }
+if ($Started -and (-not $StopSent -or $ExitCode -ne 0)) {
+    if ($null -eq $Failure) { $Failure = "Server did not exit gracefully with code 0." }
+}
+if ($Started -and $CombinedLog -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b|V3(?:1)?_RUNTIME_CHECKS FAILED|(?:missing|not found|could not load)[^\r\n]*\.nbt") {
+    if ($null -eq $Failure) { $Failure = "Server logs contain errors, exceptions or missing NBT resources." }
+}
+if ($null -ne $Proc) { $Proc.Dispose() }
+if ($null -ne $Failure -or -not $Ready -or -not $ChecksPassed) {
+    [Console]::Error.WriteLine("[VerifyBoot] FAILED: " + $Failure)
+    exit 1
+}
+Write-Host "[VerifyBoot] PASS: v3.1 runtime checks, clean logs and graceful exit code 0." -ForegroundColor Green
+exit 0
+} finally {
+    if ($null -ne $ServerLease) { $ServerLease.Dispose() }
 }
