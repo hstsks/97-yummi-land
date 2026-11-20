@@ -9,8 +9,15 @@ public final class DungeonRulesCheck {
         double last = 0;
         for (int n = 1; n <= 8; n++) {
             check(DungeonRules.healthScale(n) > last, "monotonic scaling"); last = DungeonRules.healthScale(n);
-            check(DungeonRules.plateCount(n) >= 2 && DungeonRules.plateCount(n) <= 4, "solvable plate count");
         }
+        check(DungeonLayout.STRIDE==1024&&DungeonLayout.FLOOR_Y==66,"seamless coordinate contract");
+        int length=0;for(int i=0;i<DungeonLayout.ZONES.size();i++){
+            var zone=DungeonLayout.ZONES.get(i);length+=zone.length();
+            check(DungeonLayout.zoneAt(zone.north())==zone.number()&&DungeonLayout.zoneAt(zone.south()+.999)==zone.number(),"zone boundaries");
+            if(i<5)check(zone.north()-1==DungeonLayout.ZONES.get(i+1).south(),"seamless adjacency");
+        }
+        check(length==221&&DungeonLayout.zoneAt(0)==0&&DungeonLayout.zoneAt(-221.01)==0,"full spine extent");
+        check(((22>>4)-(-22>>4)+1)*((-1>>4)-(-221>>4)+1)==56,"bounded ticket footprint");
         check(DungeonRules.coins(4, 1.25) == 5, "whisker exact 25 percent");
         check(DungeonRules.coins(8, 1.25 + .4) == 13, "two gold boons plus whisker");
         check(!DungeonRules.expired(179999, 180000) && DungeonRules.expired(180000, 180000), "exact reconnect boundary");

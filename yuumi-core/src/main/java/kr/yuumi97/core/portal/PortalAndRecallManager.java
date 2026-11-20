@@ -246,6 +246,10 @@ public final class PortalAndRecallManager implements Listener {
 
     // ==================== 3초 정신집중 귀환 & 고속 귀환 책갈피 ====================
 
+    public void cancelRecall(Player player) {
+        channelingPlayers.remove(player.getUniqueId());
+    }
+
     public void startChanneledRecall(Player player, boolean useBookmark) {
         if (channelingPlayers.contains(player.getUniqueId())) {
             player.sendActionBar(TextUtil.mm("<yellow>이미 귀환 주문을 정신집중하고 있습니다!"));

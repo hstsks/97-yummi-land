@@ -1,0 +1,41 @@
+{
+  "id": "vfx_arcane_meteor",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "volume",
+    "travel": [
+      0,
+      -1,
+      -1
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "volume",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": [
+        0,
+        -1,
+        -1
+      ],
+      "displayTransform": "NONE"
+    }
+  ]
+}

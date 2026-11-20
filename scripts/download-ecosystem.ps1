@@ -75,7 +75,7 @@ $PluginLoaders = @("paper", "purpur", "spigot", "bukkit")
 $StrictVers = @("1.21.4")
 $CompatVers = @("1.21.4", "1.21.3", "1.21.2", "1.21.1", "1.21")
 
-# Economy & Permissions (v2.0: QuickShop-Hikari removed in favor of NPC Market + Face-to-Face Safe Trade)
+# Economy & Permissions (NPC Market + Face-to-Face Safe Trade)
 Remove-Item -Force (Join-Path $PluginsDir "QuickShop-Hikari*.jar") -ErrorAction SilentlyContinue
 Get-ModrinthAsset -Slug "vaultunlocked" -Loaders $PluginLoaders -PreferredVersions $CompatVers -OutDir $PluginsDir -PrefixName "VaultUnlocked"
 Get-ModrinthAsset -Slug "essentialsx" -Loaders $PluginLoaders -PreferredVersions $CompatVers -OutDir $PluginsDir -PrefixName "EssentialsX"

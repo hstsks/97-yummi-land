@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "inspect_validation",
+  "observedAt": "2026-11-15T21:47:01.367Z",
+  "status": "IN_PROGRESS",
+  "pending": [
+    "mob_grimoire_mimic",
+    "mob_ink_librarian",
+    "mob_nebula_golem",
+    "boss_archivist_astro",
+    "boss_novarion"
+  ],
+  "method": "Opened all seven rendered PNG views for each listed rig using view_image; source, manifest, saved-scene and evaluated-pose hashes checked separately. Blender review only.",
+  "rigs": [
+    {
+      "id": "mob_grimoire_mimic",
+      "status": "IN_PROGRESS",
+      "notes": "후방 책등 힌지가 중립·-60° 개방·+55° 물기에서 연결된다. 위아래 종이 송곳니, 보라색 혀와 양측 종이 날개가 구분되며 바닥 관통이나 새 분리 결함이 보이지 않는다.",
+      "reportSha256": "fce7866862351a3a05a7b3cc8d04e0d016008c6235567f5656f4cb9157e638af",
+      "images": [
+        {
+          "path": "review/rigs/mob_grimoire_mimic/front.png",
+          "sha256": "1ee848c4dcf0ad2b1c33f655a4514eae5606a8a24e1dd940c89bef9bf956ba9c"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/side.png",
+          "sha256": "7b42096ca7862b1e94c93a3162ba8b9d5911808ea92a534c8dea7216b622cb38"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/rear.png",
+          "sha256": "eab33d9c18deca2eab4ff70d2cdfa932acf9a90dfdda90151166daf178fa0b69"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/threequarter.png",
+          "sha256": "3779aecc268a9d71907ce14db1402efb9482eeb5c4e33509e4c0f915616d4dfc"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60.png",
+          "sha256": "ede32fd1eedf6025416ede5ad37436ddd0b11482be884fc34654fc767cd6d61f"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60-side.png",
+          "sha256": "4595c978d7926b1a1308c3d1e2cb91460b631f7f4f7664b92400e57921f86b72"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/strike-plus55.png",
+          "sha256": "07dbad891a058820cde63d74b70792e3f6fb3fb0460dc6bd7abc07604169e3a4"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearanceFindings": {
+        "method": "Actual element rotation followed by Rx(-semanticPitch), exact 15-axis OBB SAT; intentional shoulder/neck/axle joins excluded. Numeric findings supersede the earlier image-only no-visible-intersection observation.",
+        "representativeIntersections": [
+          {
+            "pitch": 55,
+            "moving": "chain_front_hasplate",
+            "fixed": "lower_fang_base_4",
+            "penetrationModelUnits": 1.006
+          },
+          {
+            "pitch": 55,
+            "moving": "upper_fang_tip_4",
+            "fixed": "curling_magic_tongue_0",
+            "penetrationModelUnits": 0.497
+          }
+        ]
+      }
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "status": "PASS",
+      "notes": "방패와 후방 태엽의 팔각 고리가 연속된 형태로 수정되었다. 어깨 바깥 할버드 팔이 중립·준비·타격 포즈에서 연결을 유지하고 머리·몸통·바닥을 뚫지 않는다. 단안경, 별 방패, 태엽 실루엣이 식별된다.",
+      "reportSha256": "8f667f6726cf61bca4279bb442cc2e6fa56595e29809e69aab621ca24d396c6f",
+      "images": [
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/front.png",
+          "sha256": "c1b0eb21199aa557a0d09979111611d914ea8472024e8403fd5bdda744e009ad"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/side.png",
+          "sha256": "5ba6700cdb75874591132c8f3c36198f416901f01a2fa23dfc6fc385f7647919"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/rear.png",
+          "sha256": "232929b24941ead077c58fd3a941add0e582913ac5761aaa709a9be56ce76906"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/threequarter.png",
+          "sha256": "ae8b769a3a6bb25ecd2ab3df7737ddf4b8c05281c6d2cb33d7249d2403c091a0"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60.png",
+          "sha256": "cb7726ff376596155236a6e16e14cb7bf6e492dceee1cc9b623bc480c1e4a321"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60-side.png",
+          "sha256": "f471f13dec5e1c0cceda38d81c78d8acc0130a09003447b2333e8c6950351332"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/strike-plus55.png",
+          "sha256": "64b078ecdf504fd22d4065008b6ff9f5f6d3d6c08c646f2ae23d6d3ef2b6cb63"
+        }
+      ],
+      "visualStatus": "PASS"
+    },
+    {
+      "id": "mob_ink_librarian",
+      "status": "IN_PROGRESS",
+      "notes": "등불을 받치는 손잡이와 연결봉의 이전 틈이 닫혔고 정면·측면·두 공격 포즈에서도 연결이 유지된다. 낮춘 후드 위의 두 고양이 귀가 분명하다. 먹물 꼬리, 찢어진 로브, 청록 불꽃 등불이 읽히며 타격 시 등불은 바닥 위에 남는다.",
+      "reportSha256": "614ae7c69471fde8cb70168d6455146733861b152ad49b47b7d67655970ecc5e",
+      "images": [
+        {
+          "path": "review/rigs/mob_ink_librarian/front.png",
+          "sha256": "152b95863b09c0b3a34930bd7da6442b8d0a14f1de0abc00488137696b0c5d2f"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/side.png",
+          "sha256": "5b0978f0375a6e0cdb281c223b61c1543a8a6a95da8fbafe486341c18bc847d7"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/rear.png",
+          "sha256": "c9e3d847e57548faa2ba16a139476557e3991dcafd8181a3f893983d3d96ae10"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/threequarter.png",
+          "sha256": "572ee1a74fc307d813de5e9bd540170e1a64365e715fda5fca39c9fbda42d6db"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60.png",
+          "sha256": "6b5282df4e4d6c9cdc1692d2cf964afadeceeeaadbf04a857fd1e16dfd72d56e"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60-side.png",
+          "sha256": "b2694364ee8aab7dde708394a004fc5b290ee2234d8c19334fccfe01c0d90b6b"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/strike-plus55.png",
+          "sha256": "08a04a849031dfb3e485c4d0db28389469e31174784a00d55871b336fceb7503"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearanceFindings": {
+        "method": "Actual element rotation followed by Rx(-semanticPitch), exact 15-axis OBB SAT; intentional shoulder/neck/axle joins excluded. Numeric findings supersede the earlier image-only no-visible-intersection observation.",
+        "representativeIntersections": [
+          {
+            "pitch": 55,
+            "moving": "right_elbow_binding",
+            "fixed": "ragged_front_robe_panel_0",
+            "penetrationModelUnits": 0.907
+          }
+        ]
+      }
+    },
+    {
+      "id": "mob_nebula_golem",
+      "status": "IN_PROGRESS",
+      "notes": "책과 자수정이 섞인 비대칭 바위 몸체, 큰 양팔 망치 주먹이 다른 몬스터와 구별된다. 두 팔은 세 포즈에서 몸통 외측을 따라 움직이고 어깨 소켓과 발 접지가 유지된다. 7개 실제 이미지에서 추가 분리·몸통 관통 결함이 보이지 않는다.",
+      "reportSha256": "ba08b874fd573b38419fc3a5a542b7391be029fa601a535a8c8c3832062b35ca",
+      "images": [
+        {
+          "path": "review/rigs/mob_nebula_golem/front.png",
+          "sha256": "85f759739c2efcca6f3bbcac733375a3ea06495a958acf132d75c75fa52046e2"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/side.png",
+          "sha256": "57a4040968b08d83029161643e43c3f6ee8615416bc00b7abb8946b843ede009"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/rear.png",
+          "sha256": "ad8ac1bce30aa1f860ff67d71c055bb918866c5045610d7b5174ba00f598c118"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/threequarter.png",
+          "sha256": "55eee137b18093e21b5dee11b06791cb138ff3a36f2732eb1433deb7e0905a4d"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60.png",
+          "sha256": "d49ab3693b3f2a8122a51b2930910cf2f0b8e8a0c0c79f53812822390006ef99"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60-side.png",
+          "sha256": "ad95cc87ccfb32982489ed57e96150383d8a80504129fdc87f90f244a3ed769b"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/strike-plus55.png",
+          "sha256": "69255293cd15f2d733b50ad35bf6ce3b36a762204a404e38e6f63a5cd7363c27"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearanceFindings": {
+        "method": "Actual element rotation followed by Rx(-semanticPitch), exact 15-axis OBB SAT; intentional shoulder/neck/axle joins excluded. Numeric findings supersede the earlier image-only no-visible-intersection observation.",
+        "representativeIntersections": [
+          {
+            "pitch": 0,
+            "moving": "right_giant_hammer_fist_middle",
+            "fixed": "hip_fused_tome_front_inset",
+            "penetrationModelUnits": 1.643
+          },
+          {
+            "pitch": 0,
+            "moving": "right_gold_binding_top",
+            "fixed": "massive_stone_ribcage_middle",
+            "penetrationModelUnits": 1.45
+          },
+          {
+            "pitch": -70,
+            "moving": "right_amethyst_spike_0_crown_middle",
+            "fixed": "right_offset_stone_shoulder",
+            "penetrationModelUnits": 1.495
+          }
+        ]
+      }
+    },
+    {
+      "id": "boss_archivist_astro",
+      "status": "IN_PROGRESS",
+      "notes": "부양 고리·단안경·성물 고리의 대각 봉 방향이 수정되어 닫힌 고리로 읽힌다. 고양이 머리와 목, 후방 무기 캐리어 연결이 안정적이다. 4권의 열린 책과 의도적으로 떠 있는 중앙 지팡이가 모든 포즈에서 유지되며 새 관통·분리 결함이 보이지 않는다.",
+      "reportSha256": "2e1748158ca8dda5406b17493ddf64e4748c865ae171e92026acb4a10b49a003",
+      "images": [
+        {
+          "path": "review/rigs/boss_archivist_astro/front.png",
+          "sha256": "418e7b126e0534570813ecf08177fae52073b927fe53211c76e2bc60109d5a1d"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/side.png",
+          "sha256": "d0e37a883a21f0da888de88928110b1645b8b86320efb56bd8fdebcc4d471f49"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/rear.png",
+          "sha256": "7e044ab33b8bf47e1559f93ab15213420e8a6e69528c04afa06f268bd4ee511f"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/threequarter.png",
+          "sha256": "cf771da35faf50b9eb9e61cbf63ffaf8e19b52a17c805c54fb83698147534f3b"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60.png",
+          "sha256": "7b5e3edc57c540b845c1416bf99aab4c516b339b3a5cb9f7eab6036ddb95fb46"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60-side.png",
+          "sha256": "a79353917af721634fd5e2625b88a11ae94295838388fd85b5fd51084db051fb"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/strike-plus55.png",
+          "sha256": "d295133f997528f5d274af0012d9910cca243fdf17f1264b901a78014f876aaa"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearanceFindings": {
+        "method": "Actual element rotation followed by Rx(-semanticPitch), exact 15-axis OBB SAT; intentional shoulder/neck/axle joins excluded. Numeric findings supersede the earlier image-only no-visible-intersection observation.",
+        "representativeIntersections": [
+          {
+            "pitch": 55,
+            "moving": "astronomical_staff_shaft",
+            "fixed": "flared_hem_front",
+            "penetrationModelUnits": 0.878
+          }
+        ]
+      }
+    },
+    {
+      "id": "boss_novarion",
+      "status": "IN_PROGRESS",
+      "notes": "최신 7개 PNG를 직접 확인했다. 청록·보라 수정판과 불투명 금테가 네 날개의 실루엣을 유지하고, 변경으로 인한 구멍·소실·새 연결부 틈은 보이지 않는다. 후면과 사선에서 외부 팔각 고리와 기울어진 내부 혼천의 고리가 깊이를 갖고 교차하여 이전 평면 링보다 입체적으로 읽힌다. 사자형 고양이 머리, 태양관, 은하 핵, 오른쪽 장창이 식별된다. 중립·-60° 준비·+55° 타격 모두 목·후방 축 연결과 발 접지를 유지하고 날개/장창의 몸통·바닥 관통이 보이지 않는다. alpha 200의 반투명 효과는 이 스튜디오 조명에서는 은은하며 Minecraft의 실제 알파/조명은 별도 클라이언트 확인 대상이다.",
+      "reportSha256": "e423886fb2cc1073214b9cb4ebc712cb34ffde7fef1f5312d8645766124e2a85",
+      "images": [
+        {
+          "path": "review/rigs/boss_novarion/front.png",
+          "sha256": "f1b67b0e112326a6bc61d57a740fa3b9d74cb902d352fd1308f018f5e000b150"
+        },
+        {
+          "path": "review/rigs/boss_novarion/side.png",
+          "sha256": "e38f175c7d2e9bd3291ad97fa1a93782e78846b7a88811dba803e3d2c12197d3"
+        },
+        {
+          "path": "review/rigs/boss_novarion/rear.png",
+          "sha256": "dd593e18a7e859b2295705a7b78f30f8a40ab414988835d6b86a8c1caaaada22"
+        },
+        {
+          "path": "review/rigs/boss_novarion/threequarter.png",
+          "sha256": "b98e20362ae9442dbe52eb4b84ecd98c54a8e079f174f2628b70718e09bac526"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60.png",
+          "sha256": "a15cd640f8e279d440137fbc5d3a8673846e474f16cb4396f5b4a672ac9bb251"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60-side.png",
+          "sha256": "6d81bea9d53c4111536be94506bcb852fe898a351c25362626fb466f7967462f"
+        },
+        {
+          "path": "review/rigs/boss_novarion/strike-plus55.png",
+          "sha256": "dd7dff4221daa49f34eee956430a816016100d11d6d3d11257f5ee8e4842d4b2"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearanceFindings": {
+        "method": "Actual element rotation followed by Rx(-semanticPitch), exact 15-axis OBB SAT; intentional shoulder/neck/axle joins excluded. Numeric findings supersede the earlier image-only no-visible-intersection observation.",
+        "representativeIntersections": [
+          {
+            "pitch": -70,
+            "moving": "grand_brass_armillary_outer_5",
+            "fixed": "rear_cape_panel_-1",
+            "penetrationModelUnits": 1.362
+          },
+          {
+            "pitch": -65,
+            "moving": "grand_brass_armillary_outer_6",
+            "fixed": "rear_cape_panel_-1",
+            "penetrationModelUnits": 0.417
+          }
+        ]
+      }
+    }
+  ],
+  "clearanceAuditAt": "2026-11-15T21:50:22.541Z"
+}

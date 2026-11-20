@@ -1,0 +1,56 @@
+{
+  "id": "vfx_magic_circle_arcane",
+  "elements": 862,
+  "bounds_model_units": [
+    [
+      -14.0,
+      7.6,
+      -14.0
+    ],
+    [
+      30.0,
+      8.4,
+      30.0
+    ]
+  ],
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\vfx_magic_circle_arcane.blend",
+  "blendSha256": "f08570cce5641cbdb2a07c1f7886ad287e91f26c27c14db969b8ae6e3dd3cc50",
+  "preparedPid": 34740,
+  "renderPid": 25576,
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter",
+    "top"
+  ],
+  "engine": "Blender Cycles 20 samples / Standard / nearest texture",
+  "exposure": -0.699999988079071,
+  "exposureNote": "Baseline review exposure -0.7.",
+  "device": {
+    "requested": "GPU",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "freshProcessReopen": true,
+  "packedTextures": true,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\vfx_magic_circle_arcane.json": "b855cc83e98335d937da829195ec47a2dfc32638f6a73e0c5c24da191706f2e9",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\vfx_magic_circle_arcane.png": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\model-review-contract.json": "d75b745c13cd10ee333e3f8b71e8d8a2b7fceb893e056949552491519604fe6a",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\hero-grip-anchors.json": "0b9c7564707d215c0c24891a9db8ec6a62d1f3e53a5faab253b1ed3d04125e74",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\skill-vfx-contract.json": "f397fa9996afd8c2254d371e82c918af7272d4ccea4bd806bbfe93e0af72df88"
+  },
+  "contextImages": [
+    "orientation-plane"
+  ],
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Face UV rotation not fixture-certified against Minecraft.",
+    "Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.",
+    "Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation."
+  ]
+}

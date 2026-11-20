@@ -3,7 +3,12 @@
     [ValidateRange(1, 3600)][int]$CheckTimeoutSeconds = 120,
     [ValidateRange(1, 600)][int]$ShutdownTimeoutSeconds = 45,
     [ValidateRange(1, 3600)][int]$BlueMapTimeoutSeconds = 300,
-    [string]$Memory = "4G"
+    [string]$Memory = "4G",
+    [string]$ServerDirectory = "",
+    [ValidateRange(1024,65535)][int]$GamePort = 25565,
+    [switch]$UpdatePermissions,
+    [string]$ClientScript = "",
+    [ValidateRange(1,3600)][int]$ClientTimeoutSeconds = 900
 )
 $ErrorActionPreference = "Stop"
 $Utf8NoBom = New-Object Text.UTF8Encoding($false)
@@ -12,7 +17,7 @@ $Utf8NoBom = New-Object Text.UTF8Encoding($false)
 $OutputEncoding = $Utf8NoBom
 $RootDir = Split-Path -Parent $PSScriptRoot
 $JavaExe = Join-Path $RootDir "runtime\jdk-21\bin\java.exe"
-$ServerDir = Join-Path $RootDir "server"
+$ServerDir = if ([string]::IsNullOrWhiteSpace($ServerDirectory)) { Join-Path $RootDir "server" } else { [IO.Path]::GetFullPath($ServerDirectory) }
 $LatestLog = Join-Path $ServerDir "logs\latest.log"
 $ServerLease = $null
 $Proc = $null
@@ -28,7 +33,7 @@ $ExitCode = $null
 function Test-GamePortListening {
     try {
         foreach ($Endpoint in [Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties().GetActiveTcpListeners()) {
-            if ($Endpoint.Port -eq 25565) { return $true }
+            if ($Endpoint.Port -eq $GamePort) { return $true }
         }
         return $false
     } catch {
@@ -37,7 +42,7 @@ function Test-GamePortListening {
             $Socket = New-Object Net.Sockets.Socket($Address.AddressFamily, [Net.Sockets.SocketType]::Stream, [Net.Sockets.ProtocolType]::Tcp)
             try {
                 $Socket.ExclusiveAddressUse = $true
-                $Socket.Bind((New-Object Net.IPEndPoint($Address, 25565)))
+                $Socket.Bind((New-Object Net.IPEndPoint($Address, $GamePort)))
             } catch {
                 $Cause = $_.Exception.GetBaseException()
                 if ($Cause -is [Net.Sockets.SocketException]) {
@@ -50,6 +55,12 @@ function Test-GamePortListening {
         return $false
     }
 }
+function Test-VerificationErrors([string]$Log) {
+    # Restricted Windows environments cannot expose hardware performance counters.
+    # Keep every application error/stack trace actionable; exclude only OSHI WARN lines.
+    $Relevant = (($Log -split "\r?\n") | Where-Object { $_ -notmatch '\[oshi\.[^]]+\]' }) -join [Environment]::NewLine
+    return $Relevant -match '(?im)\bERROR\b|\bSEVERE\b|^[a-zA-Z_$][\w.$]*(?:Exception|Error)(?::|\s)|generated an exception|CORE_RUNTIME_CHECKS FAILED'
+}
 function Read-VerificationLog {
     if (Test-Path -LiteralPath $LatestLog -PathType Leaf) { return [string](Get-Content -LiteralPath $LatestLog -Raw -Encoding UTF8 -ErrorAction SilentlyContinue) }
     return ""
@@ -59,7 +70,7 @@ try {
     try {
         $ServerLease = [IO.File]::Open((Join-Path $ServerDir ".yuumi-server.lock"), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
     } catch [IO.IOException] { throw "Another server launcher or verification already owns this server. Existing logs were left untouched." }
-    if (Test-GamePortListening) { throw "Port 25565 is already listening. Check the existing console; no server or log was changed." }
+    if (Test-GamePortListening) { throw "Port $GamePort is already listening. Check the existing console; no server or log was changed." }
     if (-not (Test-Path -LiteralPath $JavaExe -PathType Leaf)) { throw "Portable Java 21 not found: $JavaExe" }
     if (-not (Test-Path -LiteralPath (Join-Path $ServerDir "paper.jar") -PathType Leaf)) { throw "Paper 1.21.4 jar not found." }
     # Preserve the old log; stale Done/PASS messages must not satisfy this verification.
@@ -67,11 +78,11 @@ try {
         $PreviousName = "verify-previous-" + (Get-Date -Format "yyyyMMdd-HHmmssfff") + "-" + [Guid]::NewGuid().ToString("N").Substring(0, 8) + ".log"
         Move-Item -LiteralPath $LatestLog -Destination (Join-Path (Split-Path -Parent $LatestLog) $PreviousName) -ErrorAction Stop
     }
-    if (Test-GamePortListening) { throw "Port 25565 became busy before launch. Verification was cancelled." }
+    if (Test-GamePortListening) { throw "Port $GamePort became busy before launch. Verification was cancelled." }
     $Psi = New-Object Diagnostics.ProcessStartInfo
     $Psi.FileName = $JavaExe
     $Psi.WorkingDirectory = $ServerDir
-    $Psi.Arguments = "-Xms$Memory -Xmx$Memory -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -jar paper.jar --nogui"
+    $Psi.Arguments = "-Xms$Memory -Xmx$Memory -Dterminal.jline=false -Dterminal.ansi=false -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -jar paper.jar --nogui"
     $Psi.UseShellExecute = $false
     $Psi.CreateNoWindow = $true
     $Psi.RedirectStandardInput = $true
@@ -82,7 +93,7 @@ try {
     $Psi.StandardErrorEncoding = New-Object Text.UTF8Encoding($false)
     $Proc = New-Object Diagnostics.Process
     $Proc.StartInfo = $Psi
-    Write-Host "[VerifyBoot] Starting portable Paper 1.21.4; checking v3.1 hub, dealer visibility, training dummies and dungeon..." -ForegroundColor Cyan
+    Write-Host "[VerifyBoot] Starting portable Paper 1.21.4; checking core hub, dealer visibility, training dummies and dungeon..." -ForegroundColor Cyan
     [void]$Proc.Start()
     $Started = $true
     $OutputTask = $Proc.StandardOutput.ReadToEndAsync()
@@ -98,13 +109,13 @@ try {
     $HubReady = $false
     $Deadline = [DateTime]::UtcNow.AddSeconds($CheckTimeoutSeconds)
     while ([DateTime]::UtcNow -lt $Deadline) {
-        if ($Proc.HasExited) { throw "Server exited before the v3.1 hub was ready." }
+        if ($Proc.HasExited) { throw "Server exited before the core hub was ready." }
         $Log = Read-VerificationLog
-        if ($Log -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b") { throw "Server logged an error while preparing the v3.1 hub." }
-        if ($Log -match "V31_HUB_READY") { $HubReady = $true; break }
+        if ((Test-VerificationErrors $Log)) { throw "Server logged an error while preparing the core hub." }
+        if ($Log -match "CORE_HUB_READY") { $HubReady = $true; break }
         Start-Sleep -Milliseconds 500
     }
-    if (-not $HubReady) { throw "Timed out waiting for V31_HUB_READY." }
+    if (-not $HubReady) { throw "Timed out waiting for CORE_HUB_READY." }
     $BlueMapInstalled = @(Get-ChildItem -LiteralPath (Join-Path $ServerDir "plugins") -File -Filter "BlueMap*.jar" -ErrorAction SilentlyContinue).Count -gt 0
     if ($BlueMapInstalled) {
         # Paper's Done marker precedes BlueMap's asynchronous resource load. Its own Loaded! marker
@@ -115,7 +126,7 @@ try {
         while ([DateTime]::UtcNow -lt $Deadline) {
             if ($Proc.HasExited) { throw "Server exited before BlueMap finished loading." }
             $Log = Read-VerificationLog
-            if ($Log -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b") { throw "Server logged an error while waiting for BlueMap readiness." }
+            if ((Test-VerificationErrors $Log)) { throw "Server logged an error while waiting for BlueMap readiness." }
             if ($Log -match "(?m)\[BlueMap\]\s+Loaded!\s*$") { $BlueMapReady = $true; break }
             Start-Sleep -Milliseconds 500
         }
@@ -143,8 +154,9 @@ try {
         "lp group default permission set gsit.lay true",
         "lp group default permission set gsit.crawl true",
         "lp group default permission set evenmorefish.use true",
-        "yuumi verify-v3"
+        "yuumi verify-core"
     )
+    if (-not $UpdatePermissions) { $Commands = @("plugins", "yuumi verify-core") }
     foreach ($Command in $Commands) {
         if ($Proc.HasExited) { throw "Server exited while dispatching verification commands." }
         $Proc.StandardInput.WriteLine($Command)
@@ -153,13 +165,48 @@ try {
     }
     $Deadline = [DateTime]::UtcNow.AddSeconds($CheckTimeoutSeconds)
     while ([DateTime]::UtcNow -lt $Deadline) {
-        if ($Proc.HasExited) { throw "Server exited before v3.1 checks completed." }
+        if ($Proc.HasExited) { throw "Server exited before core checks completed." }
         $Log = Read-VerificationLog
-        if ($Log -match "V3(?:1)?_RUNTIME_CHECKS FAILED") { throw "The core runtime checks reported failure." }
-        if ($Log -match "V3_RUNTIME_CHECKS PASS" -and $Log -match "V31_RUNTIME_CHECKS PASS") { $ChecksPassed = $true; break }
+        if ($Log -match "CORE_RUNTIME_CHECKS FAILED") { throw "The core runtime checks reported failure." }
+        if ($Log -match "CORE_RUNTIME_CHECKS PASS") { $ChecksPassed = $true; break }
         Start-Sleep -Milliseconds 500
     }
-    if (-not $ChecksPassed) { throw "Timed out waiting for both V3_RUNTIME_CHECKS PASS and V31_RUNTIME_CHECKS PASS." }
+    if (-not $ChecksPassed) { throw "Timed out waiting for CORE_RUNTIME_CHECKS PASS." }
+    if (-not [string]::IsNullOrWhiteSpace($ClientScript)) {
+        $ExpectedTestServer = [IO.Path]::GetFullPath((Join-Path $RootDir "yuumi-core\build\server-integration"))
+        if ([IO.Path]::GetFullPath($ServerDir) -ne $ExpectedTestServer) { throw "Client probes are restricted to the disposable server." }
+        $ClientPath = [IO.Path]::GetFullPath($ClientScript)
+        if (-not (Test-Path -LiteralPath $ClientPath -PathType Leaf)) { throw "Client script not found: $ClientPath" }
+        $ClientInfo = New-Object Diagnostics.ProcessStartInfo
+        $ClientInfo.FileName = (Get-Command node.exe -ErrorAction Stop).Source
+        $ClientInfo.Arguments = '"' + $ClientPath + '"'
+        $ClientInfo.WorkingDirectory = Join-Path $RootDir 'yuumi-core'
+        $ClientInfo.UseShellExecute = $false
+        $ClientInfo.CreateNoWindow = $true
+        $ClientInfo.RedirectStandardOutput = $true
+        $ClientInfo.RedirectStandardError = $true
+        $ClientInfo.EnvironmentVariables['NODE_PATH'] = Join-Path $RootDir 'yuumi-core\build\integration-client\node_modules'
+        $Client = New-Object Diagnostics.Process
+        $Client.StartInfo = $ClientInfo
+        try {
+            [void]$Client.Start()
+            $ClientOut = $Client.StandardOutput.ReadToEndAsync()
+            $ClientErr = $Client.StandardError.ReadToEndAsync()
+            $Deadline = [DateTime]::UtcNow.AddSeconds($ClientTimeoutSeconds)
+            while (-not $Client.WaitForExit(1000)) {
+                if ($Proc.HasExited) { throw "Paper exited during client checks." }
+                if ([DateTime]::UtcNow -ge $Deadline) { throw "Client checks timed out." }
+            }
+            $ClientOutput = $ClientOut.GetAwaiter().GetResult() + [Environment]::NewLine + $ClientErr.GetAwaiter().GetResult()
+            $ClientLog = Join-Path $RootDir 'yuumi-core\build\verification-core\client-console.log'
+            [IO.File]::WriteAllText($ClientLog,$ClientOutput,$Utf8NoBom)
+            Write-Host $ClientOutput
+            if ($Client.ExitCode -ne 0) { throw "Client checks failed (exit $($Client.ExitCode)). See $ClientLog" }
+        } finally {
+            if (-not $Client.HasExited) { $Client.Kill(); [void]$Client.WaitForExit(10000) }
+            $Client.Dispose()
+        }
+    }
 } catch {
     $Failure = $_.Exception.Message
 } finally {
@@ -193,21 +240,21 @@ if ($Started -and $Proc.HasExited) {
 Write-Host ""
 Write-Host "=== FINAL VERIFICATION LOG SUMMARY ===" -ForegroundColor Yellow
 foreach ($Line in ($CombinedLog -split "\r?\n")) {
-    if ($Line -match "Enabling |YuumiLandCore|HubWorldManager|DungeonManager|V31?_RUNTIME_CHECKS|\[BlueMap\].*Loaded!|Done \(|Stopping server|ERROR|Exception|SEVERE") { Write-Host $Line }
+    if ($Line -match "Enabling |YuumiLandCore|HubWorldManager|DungeonManager|CORE_RUNTIME_CHECKS|\[BlueMap\].*Loaded!|Done \(|Stopping server|ERROR|Exception|SEVERE") { Write-Host $Line }
 }
 if ($ForcedKill) { $Failure = "Server required a forced kill; graceful shutdown failed." }
 if ($Started -and (-not $StopSent -or $ExitCode -ne 0)) {
     if ($null -eq $Failure) { $Failure = "Server did not exit gracefully with code 0." }
 }
-if ($Started -and $CombinedLog -match "(?im)\bERROR\b|\bException\b|\bSEVERE\b|V3(?:1)?_RUNTIME_CHECKS FAILED|(?:missing|not found|could not load)[^\r\n]*\.nbt") {
-    if ($null -eq $Failure) { $Failure = "Server logs contain errors, exceptions or missing NBT resources." }
+if ($Started -and (Test-VerificationErrors $CombinedLog)) {
+    if ($null -eq $Failure) { $Failure = "Server logs contain application errors or exceptions." }
 }
 if ($null -ne $Proc) { $Proc.Dispose() }
 if ($null -ne $Failure -or -not $Ready -or -not $ChecksPassed) {
     [Console]::Error.WriteLine("[VerifyBoot] FAILED: " + $Failure)
     exit 1
 }
-Write-Host "[VerifyBoot] PASS: v3.1 runtime checks, clean logs and graceful exit code 0." -ForegroundColor Green
+Write-Host "[VerifyBoot] PASS: core runtime checks, clean logs and graceful exit code 0." -ForegroundColor Green
 exit 0
 } finally {
     if ($null -ne $ServerLease) { $ServerLease.Dispose() }

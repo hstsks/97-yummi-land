@@ -1,0 +1,9 @@
+{
+  "project": "PrismarineJS/minecraft-data",
+  "url": "https://github.com/PrismarineJS/minecraft-data",
+  "packageVersion": "3.119.0",
+  "minecraftVersion": "1.21.4",
+  "dataVersion": 4189,
+  "source": "Local pre-existing integration-client dependency; block records reduced to state, light and collision metadata",
+  "license": "MIT"
+}

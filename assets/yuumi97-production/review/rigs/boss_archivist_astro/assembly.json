@@ -1,0 +1,214 @@
+{
+  "id": "boss_archivist_astro",
+  "status": "PASS",
+  "baseScale": 1.65,
+  "parts": {
+    "root": "yuumi97:boss_archivist_astro_core",
+    "head": "yuumi97:boss_archivist_astro_head",
+    "weapon": "yuumi97:boss_archivist_astro_weapon"
+  },
+  "socketManifest": "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\monster_rigs.json",
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\rigs\\boss_archivist_astro.blend",
+  "blendSha256": "2bb77397ac7684b9cee6cca0823bb6be93267d6e25bc302ce0562494fe5480a9",
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\monster_rigs.json": "3021c950bea667c8e1c81a070e4007160828b3d09494e21bc7a6adb7eaed25f9",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_core.json": "0e4e4a5fd56b5ec71a1aa82d6224cbd0df39f1eec8e24ccf8afd94ed3409bf5f",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_archivist_astro_core.png": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_head.json": "496e600b3d5099154d16b1eab5c91d965c8d21a9b2339c66a0c3e2b4bfd3a203",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_archivist_astro_head.png": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_weapon.json": "3fad2da38da91d35610f0285aea6d01a97e7f7ecaeea24e0e8d4a2d320a07237",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_archivist_astro_weapon.png": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+  },
+  "freshProcessReopen": true,
+  "preparedPid": 25120,
+  "renderPid": 29800,
+  "packedTextures": true,
+  "device": {
+    "requested": "GPU",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter",
+    "windup-minus60",
+    "windup-minus60-side",
+    "strike-plus55"
+  ],
+  "elements": 273,
+  "rootMinimumYBlocks": 0.0,
+  "math": {
+    "goldenFixture": {
+      "bukkitYaw": 0,
+      "pitch": -60,
+      "nativeExpectedPoint": [
+        0,
+        1.8660254037844386,
+        0.5
+      ],
+      "pass": true
+    },
+    "cases": 60,
+    "maximumSocketErrorBlocks": 1.5298985395450384e-07,
+    "maximumPosedEndpointErrorBlocks": 3.4969110622167836e-07,
+    "yawValues": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "pitchValues": [
+      -70,
+      -65,
+      -60,
+      0,
+      55
+    ],
+    "scaleValues": [
+      1,
+      2,
+      1.65
+    ]
+  },
+  "headChecks": [
+    {
+      "yaw": -45,
+      "pivotErrorBlocks": 0.0
+    },
+    {
+      "yaw": 45,
+      "pivotErrorBlocks": 0.0
+    }
+  ],
+  "evaluatedPoses": [
+    {
+      "view": "front",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        1.649999976158142,
+        0.0
+      ]
+    },
+    {
+      "view": "side",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        1.649999976158142,
+        0.0
+      ]
+    },
+    {
+      "view": "rear",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        1.649999976158142,
+        0.0
+      ]
+    },
+    {
+      "view": "threequarter",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        1.649999976158142,
+        0.0
+      ]
+    },
+    {
+      "view": "windup-minus60",
+      "semanticPitch": -60,
+      "actualLocalXDegrees": 60.000001669652114,
+      "forwardWorld": [
+        0.0,
+        0.8249999284744263,
+        1.4289419651031494
+      ]
+    },
+    {
+      "view": "windup-minus60-side",
+      "semanticPitch": -60,
+      "actualLocalXDegrees": 60.000001669652114,
+      "forwardWorld": [
+        0.0,
+        0.8249999284744263,
+        1.4289419651031494
+      ]
+    },
+    {
+      "view": "strike-plus55",
+      "semanticPitch": 55,
+      "actualLocalXDegrees": -54.999999253784715,
+      "forwardWorld": [
+        0.0,
+        0.9464011192321777,
+        -1.3516008853912354
+      ]
+    }
+  ],
+  "poses": {
+    "neutral": {
+      "semanticPitch": 0,
+      "boundsBlenderBlocks": [
+        [
+          -1.6706151962280273,
+          -1.0776562690734863,
+          0.0
+        ],
+        [
+          1.6706154346466064,
+          1.5429563522338867,
+          4.723124980926514
+        ]
+      ]
+    },
+    "windup-minus60": {
+      "semanticPitch": -60,
+      "boundsBlenderBlocks": [
+        [
+          -1.6706151962280273,
+          -2.007195472717285,
+          0.0
+        ],
+        [
+          1.6706154346466064,
+          0.6393749713897705,
+          5.432810306549072
+        ]
+      ]
+    },
+    "strike-plus55": {
+      "semanticPitch": 55,
+      "boundsBlenderBlocks": [
+        [
+          -1.6706151962280273,
+          -1.8889583349227905,
+          0.0
+        ],
+        [
+          1.6706154346466064,
+          2.4528143405914307,
+          4.021874904632568
+        ]
+      ]
+    }
+  },
+  "camera": "All poses share union bounds, identical lights, exposure -0.7 and 640px resolution.",
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Rigid ItemDisplay parts, not a deforming skinned mesh.",
+    "Runtime interpolation, AI, hitboxes and Minecraft lighting need SOL integration checks.",
+    "Geometric socket tests do not certify silhouette or absence of interpenetration; inspect rendered poses."
+  ]
+}

@@ -1,0 +1,4730 @@
+{
+  "schemaVersion": 1,
+  "timestamp": "2026-11-16T01:30:07.305Z",
+  "target": "Minecraft Java 1.21.4 / pack_format 46",
+  "status": "PASS",
+  "counts": {
+    "overrideFiles": 367,
+    "models3d": 96,
+    "propAtlases": 96,
+    "icons32": 61,
+    "guiSelectors": 22,
+    "itemDefinitions": 90,
+    "atlasSources": 96,
+    "newModels3d": 61,
+    "preservedOverrideFiles": 174,
+    "preservedHistoricalEvidence": 262,
+    "standaloneBlends": 19,
+    "assembledBlends": 18,
+    "assembledBones": 42,
+    "multiangleImages": 221,
+    "contextImages": 32
+  },
+  "staticValidation": {
+    "path": "review/validation.json",
+    "bytes": 71909,
+    "sha256": "cb4a43d372399e907a78a101fe829a7e40dfce61bc6aadc79b85b65dfd7b28df"
+  },
+  "baseline": {
+    "path": "sources/preservation-baseline.json",
+    "bytes": 30020,
+    "sha256": "a6a1b990d8682e81021e4bb33aaf0e97ae11ecaf177aa6df4a04de021ac71fba"
+  },
+  "historicalBaseline": {
+    "path": "sources/historical-evidence-baseline.json",
+    "bytes": 121,
+    "sha256": "17ae78e8b55b8da5b35affd3e84633dd66a150d5afdac53ada315647d874a065"
+  },
+  "clearance": [
+    {
+      "chapter": 1,
+      "path": "review/astral-clearance.json",
+      "bytes": 115363,
+      "sha256": "6c54f402fe56fc82fb1f949e9656989e5562c945bf9e58d6a13d11be8fa6a0ce",
+      "poses": 30,
+      "unwantedIntersections": 0,
+      "minimumYModelUnits": 0.677845
+    },
+    {
+      "chapter": 2,
+      "path": "review/foundry-clearance.json",
+      "bytes": 297659,
+      "sha256": "55556ea43a83b7b75245e71bd522b4bb02acdd06a2f88f22894e1a73be53ba84",
+      "poses": 30,
+      "unwantedIntersections": 0,
+      "minimumYModelUnits": 0.15
+    },
+    {
+      "chapter": 3,
+      "path": "review/void-clearance.json",
+      "bytes": 432264,
+      "sha256": "979f8a54700c7230f4aafe789c7def8f3c48c139e6880ed16648711460b7e0e4",
+      "poses": 30,
+      "unwantedIntersections": 0,
+      "minimumYModelUnits": 0.085663
+    }
+  ],
+  "standalone": [
+    {
+      "id": "weapon_berserker_greatsword",
+      "blend": {
+        "path": "sources/blend/weapon_berserker_greatsword.blend",
+        "bytes": 4562830,
+        "sha256": "c310e925cdb9953199fe8d7e57622c64e568aa29031dbaadfb87f471fe44e6ed"
+      },
+      "geometry": {
+        "path": "review/models/weapon_berserker_greatsword/geometry.json",
+        "bytes": 2303,
+        "sha256": "f5f8566b68a5a9105eafeaa493660194d22cad37adb885797015af43a990d8a4"
+      },
+      "images": [
+        {
+          "path": "review/models/weapon_berserker_greatsword/front.png",
+          "bytes": 432810,
+          "sha256": "230ad06a6e71404d0d912ec6c74d7e5eee4b5b1fe4a48b8c90d66f303565e4e9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/side.png",
+          "bytes": 417632,
+          "sha256": "6bef8c59a8cd0a670054548dd077f2f508fe53508bfb6a2f917d19e5ba13c85b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/rear.png",
+          "bytes": 420219,
+          "sha256": "25a451041cf9cd5e30bf489f10746eee1deeaa231d43168672a5099ddb22ff48",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/threequarter.png",
+          "bytes": 444603,
+          "sha256": "b7535d4bbf0a3a3174c3b089b5ffdf61184ff422759c6cbe4b3b3f9dddbb322c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/top.png",
+          "bytes": 406028,
+          "sha256": "f5628e40053e88d7e1d79d176114aa8f028d862daadd38cd38024e758d0ef3cd",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/weapon_berserker_greatsword/contexts.json",
+        "bytes": 3822,
+        "sha256": "93b4853cd05f5ac303c4abd326027351d20c974a9643884bd794de68778b89ff"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_righthand.png",
+          "bytes": 255015,
+          "sha256": "7cfa6c3c0387dbd8dff56a2e4b79ac85bf1d6b4e23efde1ef1aa20cde62049ab",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_lefthand.png",
+          "bytes": 254851,
+          "sha256": "40eb2aacbf9401591fd7bcd30a4768536c78316a908ab7c534f781f73066ce64",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_righthand.png",
+          "bytes": 257675,
+          "sha256": "d71beed2f4714d5c931d0e47bb6c523a8ea8f9cd1ea531a9850a8c0fde38294b",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_lefthand.png",
+          "bytes": 258079,
+          "sha256": "f5a8663421906af5f26396d097cc228498c90eb95ae1f551df55116f2ab786c9",
+          "width": 480,
+          "height": 480
+        }
+      ],
+      "sheet": {
+        "path": "review/models/weapon_berserker_greatsword/contact-sheet.png",
+        "bytes": 379379,
+        "sha256": "2872d57cb04f2d7c600881e9a402ce9a90517e451d906411acda80a048b21d37",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "weapon_priest_staff",
+      "blend": {
+        "path": "sources/blend/weapon_priest_staff.blend",
+        "bytes": 2844560,
+        "sha256": "2aa17604fdd65bf2d1f853c6cbe52be690c9aeb65d6a3c4a60e8377970308d70"
+      },
+      "geometry": {
+        "path": "review/models/weapon_priest_staff/geometry.json",
+        "bytes": 2269,
+        "sha256": "c117c6af5e8397c1e2981f95b96719604d9cff28826af850505c09d48e1ea391"
+      },
+      "images": [
+        {
+          "path": "review/models/weapon_priest_staff/front.png",
+          "bytes": 427376,
+          "sha256": "8fba6c13b26c57adf43b76ca2fd09ebf39ce69d285964e9268250db679b0f39d",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_priest_staff/side.png",
+          "bytes": 418423,
+          "sha256": "84b3074f73e6b424cde537e92fb5b0cc13bf80ffd9c359277f98a40c94347264",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_priest_staff/rear.png",
+          "bytes": 424346,
+          "sha256": "8de3328100bb9a529b57831d845e491ea88bdc29513eb4cb663f1df672d711cd",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_priest_staff/threequarter.png",
+          "bytes": 439236,
+          "sha256": "36f974004397ed6307071d203a37177dea7c0b9ce89a0d341bd4621b0061cf75",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_priest_staff/top.png",
+          "bytes": 401660,
+          "sha256": "d260cd2ca926f68d62b22e447e298ed82163e044da789d9912d08323a8ba42e9",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/weapon_priest_staff/contexts.json",
+        "bytes": 3756,
+        "sha256": "861a182b5a5116cd25784d30541683af0755473b26ed0bd8faff668e3894f3ad"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_righthand.png",
+          "bytes": 252956,
+          "sha256": "fcfb00fdb7d587e64c49c735c63583db70cfec5f6f23f7f13cc523ee41a8c9c8",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_lefthand.png",
+          "bytes": 253586,
+          "sha256": "10c957def512324619a9b12f0bee770a558c376930e0aa77a5bc844dd2f8cc07",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_righthand.png",
+          "bytes": 254887,
+          "sha256": "b01163d0a38179ff69596ff72126201c1ad19bc31a67925de55264489822baad",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_lefthand.png",
+          "bytes": 254386,
+          "sha256": "edc50988f3e1b768b6484cecf75c13f4bc4abb3a9349a466b8920dab17459a28",
+          "width": 480,
+          "height": 480
+        }
+      ],
+      "sheet": {
+        "path": "review/models/weapon_priest_staff/contact-sheet.png",
+        "bytes": 344201,
+        "sha256": "9e846264b3e0f63ec9288434947b59804579281d0f4a6c9872495d8889e64c37",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "blend": {
+        "path": "sources/blend/weapon_arcane_orb_tome.blend",
+        "bytes": 3040027,
+        "sha256": "b5f32bc0795d11f0035be1fc2494563d00fda8e87d369af8e29ceb1dbd9e1d8d"
+      },
+      "geometry": {
+        "path": "review/models/weapon_arcane_orb_tome/geometry.json",
+        "bytes": 2283,
+        "sha256": "7e59aada9d255dfc94d3bcdec0a336da7cd495622768e5354effddfa58e3b7b1"
+      },
+      "images": [
+        {
+          "path": "review/models/weapon_arcane_orb_tome/front.png",
+          "bytes": 450960,
+          "sha256": "dc36f2c48e4afc1536cd97e42d24d510b09e80ee7eda5b18b2b080a2e409f26e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/side.png",
+          "bytes": 428131,
+          "sha256": "e1b6af14d309b683acac74c2d54ceef545f8588052b333575bfb5bf62b311989",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/rear.png",
+          "bytes": 443326,
+          "sha256": "70300a7131536fd3247388d10043ca07ab88deab05139f63496af1730cf268e3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/threequarter.png",
+          "bytes": 497914,
+          "sha256": "9eac22f1964f718be906924f2c2edf74a49b0dbc8a7c6c80839a8534aab771a7",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/top.png",
+          "bytes": 449779,
+          "sha256": "57d1b7d72dd2ede2517d3b68864cfb972976af2ea77a5a0c2a1b4335699f4bf9",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/weapon_arcane_orb_tome/contexts.json",
+        "bytes": 3769,
+        "sha256": "b554fdef90da1cf7e54b021aa323893bff4054a6aa624f8a321a055ae5793936"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_righthand.png",
+          "bytes": 281379,
+          "sha256": "9bdec9d647aaf828e2da805f0a597bc4880a423bd2d3ea0a8c60c81b5d0a004c",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_lefthand.png",
+          "bytes": 277777,
+          "sha256": "fe9027cea5f60822d179afa20af2d9dcf16a3f676515974fb7afbb1510422fad",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_righthand.png",
+          "bytes": 275649,
+          "sha256": "2d8c01d4472ba402e8eef5c53b8d740917a0f33780f10f1f0e9e52f515d0065f",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_lefthand.png",
+          "bytes": 274463,
+          "sha256": "cf8063007bc3efe7e97e582191b24e79b67c8e0161700c72fe7c85ec2b9cf9ba",
+          "width": 480,
+          "height": 480
+        }
+      ],
+      "sheet": {
+        "path": "review/models/weapon_arcane_orb_tome/contact-sheet.png",
+        "bytes": 540002,
+        "sha256": "01c7745103b012e8ab51afc8954e2ab2fef44a62bf3a82772149c83fb2e7a33d",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "guidebook",
+      "blend": {
+        "path": "sources/blend/guidebook.blend",
+        "bytes": 1633403,
+        "sha256": "f6d577f426746b89a37a507502a77bd10f9a8ed4efa2ed2b1f3dd48a8b360141"
+      },
+      "geometry": {
+        "path": "review/models/guidebook/geometry.json",
+        "bytes": 2225,
+        "sha256": "035f1020aecfacd5040cd898b7815a9e56f003509b6addc283ba86b6226aab47"
+      },
+      "images": [
+        {
+          "path": "review/models/guidebook/front.png",
+          "bytes": 451475,
+          "sha256": "a85020d1e809514439f0bf2e1427cb387a9e07ad4bea9682b9d9045825999483",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/guidebook/side.png",
+          "bytes": 425348,
+          "sha256": "d3dbde5b6bb12d8e25b5e4bd845f1ed2ecafd5b0f40ced37cd4286845974dfd3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/guidebook/rear.png",
+          "bytes": 412914,
+          "sha256": "879a594eeea3c1a340e414edd3012b9a09d127f0ca98a27a866799a63303f179",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/guidebook/threequarter.png",
+          "bytes": 484558,
+          "sha256": "1d8d563d5c50746479ec31aa62f85fce25f3433a1a6e222c8fd8af14f3917943",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/guidebook/top.png",
+          "bytes": 410625,
+          "sha256": "fcca302b8f7536c06299d1dadfa4fa6531815343dfaeb026aca2c744dc9d2e41",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/guidebook/contexts.json",
+        "bytes": 3800,
+        "sha256": "7620ba7a2a566fe70d9d83dcad9f31f76585a44b1eb0c8a1082b70484ca0d668"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_righthand.png",
+          "bytes": 284031,
+          "sha256": "9c9f4cada34b9bd08f5aae681866cc540b00562b5a46a4a3a71e1125bc0143b5",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_lefthand.png",
+          "bytes": 280497,
+          "sha256": "9f42a14af7a2ff79a2a8bc5798a7e81b6569d72db38da8d8b847195c18ff9f24",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_righthand.png",
+          "bytes": 274045,
+          "sha256": "775a154d86d8c1af1c25a61f22f1c651d71e79f3e6825c09129dfa843dbe8f0e",
+          "width": 480,
+          "height": 480
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_lefthand.png",
+          "bytes": 271421,
+          "sha256": "87abeb8a979ca9b67bee1c3d76fe42da980c1837ebef8b8bcc7db1bfbaa97c89",
+          "width": 480,
+          "height": 480
+        }
+      ],
+      "sheet": {
+        "path": "review/models/guidebook/contact-sheet.png",
+        "bytes": 507601,
+        "sha256": "aa81b6a95b24be9721ffd5e37dd3a6aad6f8a4a0448d0fe858cc5470a449b560",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "prop_wayfinder_arrow",
+      "blend": {
+        "path": "sources/blend/prop_wayfinder_arrow.blend",
+        "bytes": 4406336,
+        "sha256": "ecdc5a2417f8eb9870fd945eed00470c99d59266405451db7c5373ba15a01b4d"
+      },
+      "geometry": {
+        "path": "review/models/prop_wayfinder_arrow/geometry.json",
+        "bytes": 2201,
+        "sha256": "249e42b94f79c7a9e18494fab5b9e81ec79c0edd6221842b9a7152009c4768b3"
+      },
+      "images": [
+        {
+          "path": "review/models/prop_wayfinder_arrow/front.png",
+          "bytes": 417495,
+          "sha256": "f6bbaf852b55a40f093b0fac1201cbf7b9b049b76ef252784ffcb55fe6fa6f52",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/side.png",
+          "bytes": 423154,
+          "sha256": "ee7dadc7f3906c7c009ee037ee20c9046ffde39c8471ff478e3e6eb9b74ae13a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/rear.png",
+          "bytes": 416119,
+          "sha256": "52e5eb79d40edd16c612987be2ecaa826d09d17973a691f0e2fa836dc2ce7756",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/threequarter.png",
+          "bytes": 436345,
+          "sha256": "e7af8b644fdba443fb064cdf7246f390e192fc6f9d5e6ac082e81965ac507d1f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/top.png",
+          "bytes": 435693,
+          "sha256": "824d720f5a0524c7459172254267f8836b7f5896a254a8a97bc4e45c0d729ea0",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/prop_wayfinder_arrow/contexts.json",
+        "bytes": 971,
+        "sha256": "c42bb55a1ccfae97c66f6ea7b413044e273a38f200656ca798465954cd24c668"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw180.png",
+          "bytes": 436605,
+          "sha256": "367da152e7565ce204165da700115c01c670f73c762c993d1c43d25913ae663b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw0.png",
+          "bytes": 435284,
+          "sha256": "584dc0365c9ff43c352e4c71301b6954d245ec2da1fb5ea26400852dbff5e1f6",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/prop_wayfinder_arrow/contact-sheet.png",
+        "bytes": 372872,
+        "sha256": "bde0271a1b00a8d97419555aacdef06b531d1c61882925067d548750ee6ea236",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_slash_crescent_gold",
+      "blend": {
+        "path": "sources/blend/vfx_slash_crescent_gold.blend",
+        "bytes": 3970859,
+        "sha256": "79042caa5b25cf273ca8e1201e8b799691cd8b0331357ab8c8bf07b86e44f779"
+      },
+      "geometry": {
+        "path": "review/models/vfx_slash_crescent_gold/geometry.json",
+        "bytes": 2192,
+        "sha256": "f00cc05c8b199267ecd6837a66f24c72882ead182a5d656c05c8cafb08900b83"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_gold/front.png",
+          "bytes": 408014,
+          "sha256": "0b4eecfb1d07cfe8577120d99c562b47a5867bd883ba21b08adc8f30659be62b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/side.png",
+          "bytes": 403680,
+          "sha256": "09b4bde303f28dbda5f8ac7ab1b76c085774182ffb1cf073fbe1497e2d12550f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/rear.png",
+          "bytes": 406597,
+          "sha256": "41ad7dbe73d8fd14f79bb2f5b9b2e471401243f05f3fc86a5724cb97b19a6773",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/threequarter.png",
+          "bytes": 451152,
+          "sha256": "6dba9cbc43316a81fee7602618fe5175e5084215c2eb7b4762d1db8b49da82c9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/top.png",
+          "bytes": 459990,
+          "sha256": "15432774475695d465353e9db33fc1e8e4747342c169f65105db12845d26ec8f",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_slash_crescent_gold/contexts.json",
+        "bytes": 699,
+        "sha256": "1464decae66ab4e57320c4132ca74cc4ea1b0840f3edf613add4b2adc062d87c"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_slash_crescent_gold/context-direction-yaw180.png",
+          "bytes": 451596,
+          "sha256": "37524e8d1930c987c7e6475a38d15c8b7205e4ad14e189713005ae5ae797053a",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_slash_crescent_gold/contact-sheet.png",
+        "bytes": 366988,
+        "sha256": "ff512df4213c5fa4e65392771eaeb10e68adc003df47a82050ac13d6b04fbf93",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_slash_crimson_heavy",
+      "blend": {
+        "path": "sources/blend/vfx_slash_crimson_heavy.blend",
+        "bytes": 3199603,
+        "sha256": "68b695063326520f339328c09b178cbe903ef6031f51a338b0dbee1de531da47"
+      },
+      "geometry": {
+        "path": "review/models/vfx_slash_crimson_heavy/geometry.json",
+        "bytes": 2197,
+        "sha256": "c7c5a6eedb19b7e082e6ef57fb595dd4c0dd0b3ee8073ccd37792e68d54c1d3e"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/front.png",
+          "bytes": 413054,
+          "sha256": "1f29e1ebb049e612eba9cd16ace3bb8cbd788a34303523a32e30417864e7cd47",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/side.png",
+          "bytes": 407894,
+          "sha256": "1b4e089b8e4f774dc401c970da8f4adfe32450bfebb6e61988142e2fef35feeb",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/rear.png",
+          "bytes": 408860,
+          "sha256": "8b7cdb1bd1880b949aa842ca9f92c48732b24f0d5f5cfed4bebea23dbd34cb16",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/threequarter.png",
+          "bytes": 438427,
+          "sha256": "357d9aaa6f172957c8dfb20fe2998e516e241385740a7b048bb6b17ce10c9bf2",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/top.png",
+          "bytes": 444035,
+          "sha256": "f378d17529a2f9f0dd0d59cbee68f6ad2f2b693cf97dc2844748132df6ba6da8",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_slash_crimson_heavy/contexts.json",
+        "bytes": 715,
+        "sha256": "5da33aa63a3447f782d14fb5f444ea3c4e9f333681ab8afca2f2efd43dfcd8d3"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_slash_crimson_heavy/context-direction-yaw180.png",
+          "bytes": 439050,
+          "sha256": "49cce76b2dfe6351889c3d512a0edec47c7401dd50c8f56cac815baff0d7b13f",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_slash_crimson_heavy/contact-sheet.png",
+        "bytes": 362611,
+        "sha256": "6f71ab151a79d61740e22f957d21a5e6a7b1ca2e677b92c6298f120e8cc408d6",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_titan_greatsword_drop",
+      "blend": {
+        "path": "sources/blend/vfx_titan_greatsword_drop.blend",
+        "bytes": 2349811,
+        "sha256": "c39fbf8f60ec7784f1765f93d3cb6e9496de9ed8e97f3c3529cf2b7999cd5a59"
+      },
+      "geometry": {
+        "path": "review/models/vfx_titan_greatsword_drop/geometry.json",
+        "bytes": 2199,
+        "sha256": "61f99f6bfef5da70882794e7dcc44fdbfe4abf4db0978d5cff7d4a76aec8af94"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/front.png",
+          "bytes": 434056,
+          "sha256": "3d82772b537e9a29d2af6d86b613f9f741bd3e95920765dbaf01111b17e47aba",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/side.png",
+          "bytes": 425381,
+          "sha256": "595aa7fbd49d7fe8dda3b977ac2af51508408eecc6f195580c6b01f4cb40ef2a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/rear.png",
+          "bytes": 425150,
+          "sha256": "15bb7e1b19808869b571cd53c9d457f8576a59b8abaa0f3f03cdfa026c33e331",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/threequarter.png",
+          "bytes": 442539,
+          "sha256": "a4f61f99c8222fd769591df89b963ec439068f4f937040ea2ec7c006658cd474",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/top.png",
+          "bytes": 413411,
+          "sha256": "8e8dd9b438a4baaaaef65fd5887f2033a97c09cbe1d272261606bed5ce0e1d79",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_titan_greatsword_drop/contexts.json",
+        "bytes": 725,
+        "sha256": "6f831d4c8da37288d5c17019e266131a4de5ec4a527a28806dd60d0f4a622dce"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_titan_greatsword_drop/context-direction-yaw180.png",
+          "bytes": 442843,
+          "sha256": "1532834c76ac4dda3a130f8951c95f0e8e301945649500aa4fa8c4a6c9b58cc7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_titan_greatsword_drop/contact-sheet.png",
+        "bytes": 362143,
+        "sha256": "5ec244e4c6c13821b5ca9d2ce87c85eec11e0092c3a4fc6fa3eb5e1c5a8b43b0",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_slash_crescent_shadow",
+      "blend": {
+        "path": "sources/blend/vfx_slash_crescent_shadow.blend",
+        "bytes": 2371563,
+        "sha256": "f18098844428dc8efb7af3bbc910b9e718b67a147deeb2c4a784a33f8337786c"
+      },
+      "geometry": {
+        "path": "review/models/vfx_slash_crescent_shadow/geometry.json",
+        "bytes": 2206,
+        "sha256": "993d6d0249d6d05e0bd6734a09c8d7a2ab95643179b0792b89e8a71b02d2a7a3"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/front.png",
+          "bytes": 443251,
+          "sha256": "ad9d8b76544175487fec17f810727e416d2de98e861d1af1c21a326f0bed1c17",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/side.png",
+          "bytes": 408269,
+          "sha256": "8fb0b0292848705c10da21c19242f42fa90490bc1d42f7c38fee009e2050b2e3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/rear.png",
+          "bytes": 436603,
+          "sha256": "e1576aa124af6fdbf87e5bd085951401d408458ea1e1c4091a0ed748af513ae4",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/threequarter.png",
+          "bytes": 444353,
+          "sha256": "4d9d431054046a05dc10c7fa717229974558c9a857fbcfb1caedce1098161b91",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/top.png",
+          "bytes": 403098,
+          "sha256": "d4f1823220748d4bb3a0ae6e2d2c8c42d9af32eb26f436b69e3d3dbf665d146f",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_slash_crescent_shadow/contexts.json",
+        "bytes": 671,
+        "sha256": "9d1ee62c5f3470d15aef3b7b6c62f9ebccf7f1efa797bb5b9d69b34dc13979fb"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_slash_crescent_shadow/context-direction-yaw180.png",
+          "bytes": 444584,
+          "sha256": "7e3fcf3a1e4104541542b35a5bb38083ee6536e80dee2b1c4e2ea469b5714450",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_slash_crescent_shadow/contact-sheet.png",
+        "bytes": 383415,
+        "sha256": "84fb9f137bebfddc61fe9b0e74341b41361ef178dc6fb216c2a2fd3e5d2031bb",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_shadow_mark_crest",
+      "blend": {
+        "path": "sources/blend/vfx_shadow_mark_crest.blend",
+        "bytes": 2293922,
+        "sha256": "10eb94f5a5d523ecc0eda3b31c4328b53b37ba49fe0b19dea0b7a06b013e0e71"
+      },
+      "geometry": {
+        "path": "review/models/vfx_shadow_mark_crest/geometry.json",
+        "bytes": 2176,
+        "sha256": "ea9559803591f4f7226c935c9c8308a2848d167b656c39051196210b3770978a"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_shadow_mark_crest/front.png",
+          "bytes": 446983,
+          "sha256": "2636e7d97091e3359f833c40dca7cca9473896e12eb86d468f4a16ea91a80e6d",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/side.png",
+          "bytes": 414279,
+          "sha256": "2ffa9f91ec975e062bb16f9964e2965f6042fa58b18a24ace217b214a07bd13d",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/rear.png",
+          "bytes": 449232,
+          "sha256": "ab813ea3ce4c61d669a837f1d3e8a37c02c527759548f3b54334818052c4e738",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/threequarter.png",
+          "bytes": 465623,
+          "sha256": "f9f24579241e3ea39b0369b90280543d3ce489c1252139a5695034bc219bd533",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/top.png",
+          "bytes": 409773,
+          "sha256": "5ec003ddf54f31c518ed8ae2324af60dbec030cb87d10b8cf824a09c67b8271e",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_shadow_mark_crest/contexts.json",
+        "bytes": 667,
+        "sha256": "c156055e871cbff28ffe57811d1835310a1ded6b533c0477b405135f72074cd1"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_shadow_mark_crest/context-direction-yaw180.png",
+          "bytes": 465939,
+          "sha256": "e4c2d85720bc59e6c7ddbfc06b86acda5bc8d95306d1da7a9792908cbe0ecaf7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_shadow_mark_crest/contact-sheet.png",
+        "bytes": 460254,
+        "sha256": "405d51e14c03c046f620e5b82098f839bb2db2d937e76ad8339bd61acf4319c1",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_star_arrow_volley",
+      "blend": {
+        "path": "sources/blend/vfx_star_arrow_volley.blend",
+        "bytes": 1424527,
+        "sha256": "f45e15a9e11d98ddaf27396467cc77aac626d71f1e5d75d5ceb92f40ac417e23"
+      },
+      "geometry": {
+        "path": "review/models/vfx_star_arrow_volley/geometry.json",
+        "bytes": 2179,
+        "sha256": "21099a454b2237bdd2b06d77495e5d6c63db2c561c3c898f79d1e5c87727a396"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_star_arrow_volley/front.png",
+          "bytes": 405447,
+          "sha256": "83b1aa780e54d0841439bb5fc53cbf355de58023768e7dbb4645829651a6dbfe",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/side.png",
+          "bytes": 412044,
+          "sha256": "2ed3ecd74d0ca6bee08a5d92965132ed0fd58bee97961ec76b74cb2a0dd981fd",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/rear.png",
+          "bytes": 405932,
+          "sha256": "a7871e4639ce6d5cc2c1ac51bc3d3c2b61197b9bf7703f7710748f88b0815a71",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/threequarter.png",
+          "bytes": 421415,
+          "sha256": "ad341fda3ad56fa24fd8baa8a20e4e0767de8d47622292c5c522ddddc726dd86",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/top.png",
+          "bytes": 424945,
+          "sha256": "f98ec75e8736d4cbb2ef55683e9c2b7ed9825ca7334e74dbab9861d424aa90f2",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_star_arrow_volley/contexts.json",
+        "bytes": 690,
+        "sha256": "e38193c9503960b4a5bb3d4de9be0c6c49ec27ebf5edfc1f91f5c27f48b8b09c"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_star_arrow_volley/context-direction-yaw180.png",
+          "bytes": 421509,
+          "sha256": "31e131866ba2488a80776ccd538cf2943814ceae0855f31e821da34f63a02714",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_star_arrow_volley/contact-sheet.png",
+        "bytes": 330110,
+        "sha256": "965d176469b9ae2e6507871f4126e12fb77bc65ff0653d09e49901d4ac88fd28",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_astral_bow_sigil",
+      "blend": {
+        "path": "sources/blend/vfx_astral_bow_sigil.blend",
+        "bytes": 3926095,
+        "sha256": "f3e7188db2a033f7d79073ab29cf0782fd327bc389b7d0ffae80daf441b2fd2d"
+      },
+      "geometry": {
+        "path": "review/models/vfx_astral_bow_sigil/geometry.json",
+        "bytes": 2175,
+        "sha256": "e67c4c1f7d41e02967ab19b7c7b687e899c4d28059f9ea226332ad01a4581f90"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_astral_bow_sigil/front.png",
+          "bytes": 405541,
+          "sha256": "faa01c067378b5eac1f684b0a4e4f0e3330e8c742d79abc368aff6a29f9ec55c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/side.png",
+          "bytes": 404863,
+          "sha256": "7c3d4de25fb5eb199b2f92c2233c101d323b54b704e0f2a116e6db92fbd25b00",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/rear.png",
+          "bytes": 405711,
+          "sha256": "f42c8e833d0abffd0a46d43664701a0d49b13ded226861519f47ad85fd890cca",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/threequarter.png",
+          "bytes": 445447,
+          "sha256": "7c906a07105b205e28fe3f1ee2fb2413760b4327b5baf5eb8df20f342829002c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/top.png",
+          "bytes": 463037,
+          "sha256": "d164f2fc6491004b9c88f422763611a6088dfb3ebc16eb26406214c81e4f2c1a",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_astral_bow_sigil/contexts.json",
+        "bytes": 578,
+        "sha256": "85448adac57890da1689d9fc495fd15fd16e41b562d402c1ddcb7b38c9af8a92"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_astral_bow_sigil/context-orientation-plane.png",
+          "bytes": 444124,
+          "sha256": "2ac1adb9bb8dc027db2ddaaa74bc76fea84ec42582e6b31888146834293dc2bb",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_astral_bow_sigil/contact-sheet.png",
+        "bytes": 350655,
+        "sha256": "0e6299ac1bcc8867e25cc017d55320d4aa21056a4180dcb5fb6f1b7f65fa814c",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_magic_circle_arcane",
+      "blend": {
+        "path": "sources/blend/vfx_magic_circle_arcane.blend",
+        "bytes": 6857536,
+        "sha256": "f08570cce5641cbdb2a07c1f7886ad287e91f26c27c14db969b8ae6e3dd3cc50"
+      },
+      "geometry": {
+        "path": "review/models/vfx_magic_circle_arcane/geometry.json",
+        "bytes": 2187,
+        "sha256": "fdeb394cd6ed84c133151c1a63308f4c7c1cc5778bc31f9ef59cf5efbaf158f0"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_arcane/front.png",
+          "bytes": 402547,
+          "sha256": "88a4be4f7f8c0683a322e4da1c82fac5b4c2b80508e3732efd96ae32fd6e6b45",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/side.png",
+          "bytes": 402316,
+          "sha256": "ea5c910df916c95ef57726204f23e2eea7f4fe8546c234eca10f5460c8cad947",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/rear.png",
+          "bytes": 402692,
+          "sha256": "1ca8399751065e07160f9bd772f340e267f88484deb322d0698045a94aed73be",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/threequarter.png",
+          "bytes": 468646,
+          "sha256": "0313d7806da53754ca0ae81d65cbea0bab23ce4f7e5f75a0d49c3119a2f97c78",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/top.png",
+          "bytes": 496286,
+          "sha256": "abf432d5c5fa2a32ad0b0472238909f8cc231f6bdab937ec089a46699dfbf9e0",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_magic_circle_arcane/contexts.json",
+        "bytes": 623,
+        "sha256": "4c6277f855ce47c1221079999d3f5bee4217fa8483c3b83b32d060bef2b59390"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_magic_circle_arcane/context-orientation-plane.png",
+          "bytes": 472251,
+          "sha256": "016b2ef151209c3492f05b35abfadcbed5350f0d02c411ab1be0acfe7061ca41",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_magic_circle_arcane/contact-sheet.png",
+        "bytes": 377238,
+        "sha256": "b81b41fa9d1a8d2316d07d750ae548ea1c429e7e73cbb2a13cb23b5e67782984",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_gravity_singularity",
+      "blend": {
+        "path": "sources/blend/vfx_gravity_singularity.blend",
+        "bytes": 4441121,
+        "sha256": "0aecbddb883324d82c9f167b052c1cb5ab94070306084fb79a92926dff6dd5b3"
+      },
+      "geometry": {
+        "path": "review/models/vfx_gravity_singularity/geometry.json",
+        "bytes": 2200,
+        "sha256": "0c5d3cef499d1c81b22690c09610691c3d6a2a4632920aa62a6bd0c30e682f11"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_gravity_singularity/front.png",
+          "bytes": 435157,
+          "sha256": "6e34b30fa2cb9b91d2535d6cac5409f659f8bcce835317d5e2997761efd15e36",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/side.png",
+          "bytes": 421755,
+          "sha256": "34238e429e7cc09c94851f16a7ab71ee23d804a3319e6921d09ee782769b0e8e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/rear.png",
+          "bytes": 447976,
+          "sha256": "a2c00c1434cff6e537de43784655975ac45ba7426eb07240a15fbd251abeb836",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/threequarter.png",
+          "bytes": 437843,
+          "sha256": "89c0846b66f152a6ef5a8d2f72583e2dde2df48b511c9792ebb454c84272382c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/top.png",
+          "bytes": 477695,
+          "sha256": "58a25bcfd4c6062f176b1661daa3803dfbe4370c9d04d8711fb984d1d3056813",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_gravity_singularity/contexts.json",
+        "bytes": 634,
+        "sha256": "4a3ca90cc10e0280d6e8a81d31dd58f9dfef51f50890f9c4145f18d3c39f4f0f"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_gravity_singularity/context-direction-yaw180.png",
+          "bytes": 438132,
+          "sha256": "4c87942badc8f3fe079109ecf9dacfe2da4d9e2e7a090397b48de5cd482c9e0d",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_gravity_singularity/contact-sheet.png",
+        "bytes": 471578,
+        "sha256": "e818893d6060e9f30545c6d2d4e84489924a1be63451cece59dc90b6437cccc1",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_arcane_meteor",
+      "blend": {
+        "path": "sources/blend/vfx_arcane_meteor.blend",
+        "bytes": 2187500,
+        "sha256": "c5a8b07f915241acc03bc624bcec06a401d9e3e7153855464885c5647c281159"
+      },
+      "geometry": {
+        "path": "review/models/vfx_arcane_meteor/geometry.json",
+        "bytes": 2175,
+        "sha256": "7bceee22f281ab42b65ec902242ead22653c1faccc2f072aaa3a4a380edeef9b"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_arcane_meteor/front.png",
+          "bytes": 447616,
+          "sha256": "f4669f6fac3881c4ac3e0e88f33a0fd230b8d7522559b8816b0e286283702ce3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/side.png",
+          "bytes": 451440,
+          "sha256": "33fb30150522cd881a74c55fb403348149bd259995128d32135653960bb812be",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/rear.png",
+          "bytes": 432825,
+          "sha256": "9c08b5adf5e5f6c19a1989fafc7caad6083a1bedafd803b14e4b80338144d275",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/threequarter.png",
+          "bytes": 495602,
+          "sha256": "6a1b53d2c83d3b1c10fb2b7585b6dca830cd6c5e402690b66b02d0d9a8d547d9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/top.png",
+          "bytes": 451241,
+          "sha256": "87269c10bc28d6fc80e238eae6bfdb645e163ed6ce72b5e27cb3bacc8ae8133c",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_arcane_meteor/contexts.json",
+        "bytes": 704,
+        "sha256": "612873801b40cff02ad24a582118d5f4604018b19bef1f00d694dce0665cfcd5"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_arcane_meteor/context-direction-yaw180.png",
+          "bytes": 495706,
+          "sha256": "3327c5f3dbaa95681e17c1b913f1a5977f632fabb965f5b1e3637e564e3c9ab7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_arcane_meteor/contact-sheet.png",
+        "bytes": 563900,
+        "sha256": "f31d8d852cde9ba886d9133a6b62800dc2bf959d235d1260314f1c0cd65d74e7",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_magic_circle_sanctuary",
+      "blend": {
+        "path": "sources/blend/vfx_magic_circle_sanctuary.blend",
+        "bytes": 6423044,
+        "sha256": "534f86b296f89aee9e90e2832844b251824b82fc39e17b90e1ff1c97174d3df0"
+      },
+      "geometry": {
+        "path": "review/models/vfx_magic_circle_sanctuary/geometry.json",
+        "bytes": 2199,
+        "sha256": "5566841f5caa018d00dd4652e6b6510e29e16dc7f22ed4e284cf0e9ec6f7b064"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/front.png",
+          "bytes": 403729,
+          "sha256": "ac4fbc9c6fc3008a5b25997f548f2ed27805331341e22a8271a295bd73e61356",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/side.png",
+          "bytes": 403514,
+          "sha256": "7cbed655438b93c98a293b823f1f2c5261079e5e2a0d72b4681fe5a51845767a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/rear.png",
+          "bytes": 403978,
+          "sha256": "0d228220075da73deb062ed1e9e7d670f82ea9748b726f3b58e21af06d35b742",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/threequarter.png",
+          "bytes": 467461,
+          "sha256": "5a38ea26a9ecc37d1de653a8a71aa7a41bde09bea6b7521e6bbe5911ecce2ff0",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/top.png",
+          "bytes": 494797,
+          "sha256": "6461e52739effaa7da7805cc343114b663fcf754ab0e525ca37d9e208cedd0a7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_magic_circle_sanctuary/contexts.json",
+        "bytes": 626,
+        "sha256": "74b23489aa59e2d259a9fb68017da34e39903ba0c4a0f29520c5e7c2ba8f7558"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_magic_circle_sanctuary/context-orientation-plane.png",
+          "bytes": 473271,
+          "sha256": "6eb27f33e370dc60f971f5aec922c3630b83122597c8ad790cf09398c9c87f7f",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_magic_circle_sanctuary/contact-sheet.png",
+        "bytes": 380732,
+        "sha256": "74ceda765912eebe287b5a8eca5e046d0be34c468d4be4039400c498cba40894",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_holy_spear",
+      "blend": {
+        "path": "sources/blend/vfx_holy_spear.blend",
+        "bytes": 5578586,
+        "sha256": "e3dbc27047e4a360c5736ed7faa298d47429ff80b34a86856369075b3e8d3a2a"
+      },
+      "geometry": {
+        "path": "review/models/vfx_holy_spear/geometry.json",
+        "bytes": 2152,
+        "sha256": "05fb4cdec658c2febc7b4e973e277139d61ff45b16dae0bc73a9e82d2ff31e78"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_holy_spear/front.png",
+          "bytes": 436309,
+          "sha256": "98dd65fde996ed03d9162613ee667dc3e3285ecf6ae9a93db3033723f527bb00",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_holy_spear/side.png",
+          "bytes": 410968,
+          "sha256": "c5146eac702bbb7824867d9b33f3e7a48de7d61687405a6f813f5925c7f95d88",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_holy_spear/rear.png",
+          "bytes": 428702,
+          "sha256": "b63b9b2bf1755a0b6504cf9947510209a8fbfb747597d31e6ce0f011bd5c0df2",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_holy_spear/threequarter.png",
+          "bytes": 440058,
+          "sha256": "9536d9fbed5f39f5f11ceeb26632a53a25bd11a8f45e6ec8c326d48d21d943e8",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_holy_spear/top.png",
+          "bytes": 407503,
+          "sha256": "5ab24ba748e51b498996c701d6fe423320e5fd59b76c231ce492830b110fcdda",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_holy_spear/contexts.json",
+        "bytes": 709,
+        "sha256": "49c4cfe10e6a3dd9352675a533d8389a49641a798c572f3bf53ac0b64550c8e1"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_holy_spear/context-direction-yaw180.png",
+          "bytes": 440339,
+          "sha256": "1ab857a49883d052cf18ad3307d9da586cc9a5f9eb9279fef567472c45418bdf",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_holy_spear/contact-sheet.png",
+        "bytes": 361327,
+        "sha256": "91b5d88a19f7912732ed8b204ad1b6253906f51ae0a16e2afd9043aa9a5d9dd0",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_golden_fishing_vortex",
+      "blend": {
+        "path": "sources/blend/vfx_golden_fishing_vortex.blend",
+        "bytes": 6042767,
+        "sha256": "5cc62bbbe256217ddeb88ddb1762c98b8427d6ab4970e6a8f383121fa18ee493"
+      },
+      "geometry": {
+        "path": "review/models/vfx_golden_fishing_vortex/geometry.json",
+        "bytes": 2195,
+        "sha256": "10954eced668345dbdb6583ae825bfc9769866a8dc4cc60d329288427d7f09d5"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/front.png",
+          "bytes": 424342,
+          "sha256": "af7a4d77d9bc257e55eb004910fad6a6e2a68ef9b637a57b43f26a61c48099a3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/side.png",
+          "bytes": 423716,
+          "sha256": "4f23c626d3b101e635bfe8320b88bb065f2582630dd46f4b2904ee507e0eeac5",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/rear.png",
+          "bytes": 425306,
+          "sha256": "9630a987cc2f1a42b40e3db8e0bfae6c9aa95308f8c72abd5699da6bb4b96934",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/threequarter.png",
+          "bytes": 488043,
+          "sha256": "25afac24265fbd2e91b2349f375272315ad4c7c89743cdf1719a8c997ee5bd87",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/top.png",
+          "bytes": 517738,
+          "sha256": "077d0fe4d90eaa3585f152fcc63d4329578e488ee21648b5832b409b2d58bf28",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_golden_fishing_vortex/contexts.json",
+        "bytes": 626,
+        "sha256": "ab155164914a0d9af1519dff550b7450351634e9e641892c84de68acb11e4212"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_golden_fishing_vortex/context-orientation-plane.png",
+          "bytes": 480746,
+          "sha256": "c109e64d012f393782b1b2aecad01e7839cafd1917d1b371c50bd495f0b06ba7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_golden_fishing_vortex/contact-sheet.png",
+        "bytes": 457390,
+        "sha256": "493338726053167983f9087f9d4fb81cba6b8763a23b18e668111dcc4eebc3f1",
+        "width": 1260,
+        "height": 984
+      }
+    },
+    {
+      "id": "vfx_feast_cauldron_aura",
+      "blend": {
+        "path": "sources/blend/vfx_feast_cauldron_aura.blend",
+        "bytes": 1496969,
+        "sha256": "a1d1de373c48b8bf7014d58a91e640f31d13f00ae6059c4fe7e5f51f4118eba9"
+      },
+      "geometry": {
+        "path": "review/models/vfx_feast_cauldron_aura/geometry.json",
+        "bytes": 2183,
+        "sha256": "d26c76257c2cf4d58ed66f16ad1d86f03cd0304db9a869df3684f2f1d3d0c409"
+      },
+      "images": [
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/front.png",
+          "bytes": 436859,
+          "sha256": "fe92dc8dac47f657f7383002935ad2a7e1dd1b63fe0c412bf9a91ade0bc112f6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/side.png",
+          "bytes": 422699,
+          "sha256": "71a086a9d761c01f93839681497effe1ac0f67f4e2afd9a5ae1939662ab6f811",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/rear.png",
+          "bytes": 434527,
+          "sha256": "5c11eb7af17f14e8bd428699a07c6e6e4258a895c4168601103e08b8ff2b4a73",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/threequarter.png",
+          "bytes": 488880,
+          "sha256": "ff4bb8b49712ab9671fca28bdbfce4be741aa7c3a3acebba38b69380d32b64b2",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/top.png",
+          "bytes": 428395,
+          "sha256": "ad5ab0f32aeee9983701097379ef13f2bd716d6320c539c098335bcd34c4325b",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "contextReport": {
+        "path": "review/contexts/vfx_feast_cauldron_aura/contexts.json",
+        "bytes": 645,
+        "sha256": "ff1a171998cfc2da160596b5fe87af9f1c5720f46ecb709eb2e8aff77151b0e3"
+      },
+      "contextImages": [
+        {
+          "path": "review/contexts/vfx_feast_cauldron_aura/context-floor-contact.png",
+          "bytes": 488772,
+          "sha256": "123e810b3477a00932880889de86200e95b18e517381cab38e2a7c0fe5837866",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/models/vfx_feast_cauldron_aura/contact-sheet.png",
+        "bytes": 529139,
+        "sha256": "c3897abfbb578c93a7a985445430762f1033df436a18c5e10f7f4d6d8c1a12d3",
+        "width": 1260,
+        "height": 984
+      }
+    }
+  ],
+  "rigs": [
+    {
+      "id": "mob_grimoire_mimic",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_grimoire_mimic.blend",
+        "bytes": 1582333,
+        "sha256": "f1942b3ec589128f8124ab6166254e4e8f40b8b91c999c4f88f22eaa34d8104e"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_grimoire_mimic/assembly.json",
+        "bytes": 5363,
+        "sha256": "057408fd0b44ef005a5ff161e2a0ef393cdae6d98e131ee717a63323dcc4f35c"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_grimoire_mimic/front.png",
+          "bytes": 442339,
+          "sha256": "55a2f40a1e54db776458e0f40098d89d81f3a01823898a37bf0fea7a3b6e5e63",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/side.png",
+          "bytes": 433332,
+          "sha256": "0232192f9a95007b26f1fa0726b718a3c35c35a00f028b1ecead509d85dc568f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/rear.png",
+          "bytes": 433739,
+          "sha256": "8d85b2801d7da6ae478ddfe558697e777b73c975d4c8d28adcf9fc652faba5a6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/threequarter.png",
+          "bytes": 499605,
+          "sha256": "7f354787834793437d61fdb3712bb7c98ce8a9a248187b197075756f31900c3f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60.png",
+          "bytes": 515761,
+          "sha256": "79b613fcfc96ddcefa2a303e04fcd07a978202b06c78e21d2e3caff416320f46",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60-side.png",
+          "bytes": 429654,
+          "sha256": "f899188da7bbd3b140773175a0a55694bbdfb08a367684189c742d8e1f32f0ca",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/strike-plus55.png",
+          "bytes": 488627,
+          "sha256": "2914ce7b447dbbf3d8e782228a9d338c2a791e7232f12eca461b89bec6b2b85e",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_grimoire_mimic/contact-sheet.png",
+        "bytes": 737618,
+        "sha256": "d19523dc0bfd63e4003be7c849e4971c195d8ee185bae7ad7337a5069b22036e",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_clockwork_sentinel.blend",
+        "bytes": 1680004,
+        "sha256": "580f54a64ea7c6523e9af6f5026682f147ea1595d32cab1041690c85d8241d95"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_clockwork_sentinel/assembly.json",
+        "bytes": 5371,
+        "sha256": "8f667f6726cf61bca4279bb442cc2e6fa56595e29809e69aab621ca24d396c6f"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/front.png",
+          "bytes": 441496,
+          "sha256": "c1b0eb21199aa557a0d09979111611d914ea8472024e8403fd5bdda744e009ad",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/side.png",
+          "bytes": 428613,
+          "sha256": "5ba6700cdb75874591132c8f3c36198f416901f01a2fa23dfc6fc385f7647919",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/rear.png",
+          "bytes": 431868,
+          "sha256": "232929b24941ead077c58fd3a941add0e582913ac5761aaa709a9be56ce76906",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/threequarter.png",
+          "bytes": 478495,
+          "sha256": "ae8b769a3a6bb25ecd2ab3df7737ddf4b8c05281c6d2cb33d7249d2403c091a0",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60.png",
+          "bytes": 486399,
+          "sha256": "cb7726ff376596155236a6e16e14cb7bf6e492dceee1cc9b623bc480c1e4a321",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60-side.png",
+          "bytes": 433813,
+          "sha256": "f471f13dec5e1c0cceda38d81c78d8acc0130a09003447b2333e8c6950351332",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/strike-plus55.png",
+          "bytes": 484491,
+          "sha256": "64b078ecdf504fd22d4065008b6ff9f5f6d3d6c08c646f2ae23d6d3ef2b6cb63",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_clockwork_sentinel/contact-sheet.png",
+        "bytes": 665415,
+        "sha256": "23a4adade871a7b79706af8c9bb678d8f06f5d64c0e8377a5fca473485ac5881",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_ink_librarian",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_ink_librarian.blend",
+        "bytes": 1562176,
+        "sha256": "79da9a854aa2b29e7f380a3b817e02d9de2196ae86a3c8e1502ab77c0352f7be"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_ink_librarian/assembly.json",
+        "bytes": 5397,
+        "sha256": "4dead7baa35aeb6e889aee867de895b55064fe01269e4f0cbe0798eaa88bccd3"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_ink_librarian/front.png",
+          "bytes": 424648,
+          "sha256": "29547342f4e9f6b004d3221b283e491771e1fa646196a8beee34b18902fbfebc",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/side.png",
+          "bytes": 415675,
+          "sha256": "6a282373b76eb8a426d8ae46e35534888dbb6af8c3e5e05588f02eca9844c2c8",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/rear.png",
+          "bytes": 414604,
+          "sha256": "eace01547fa39a83273f5e97a6d08f7228a144808336373ee29ea4df851ce408",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/threequarter.png",
+          "bytes": 456982,
+          "sha256": "9b8860d61cec60c9d2465416ace1f4e6539849e5688dee0731044e9252347bcd",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60.png",
+          "bytes": 448042,
+          "sha256": "21568237a73230e4a2d1addcac7de56966d1898097326a151333cc05fc6ec3ca",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60-side.png",
+          "bytes": 423293,
+          "sha256": "3f5b89783c4a134cf16034b9e7e1385349357d89836273f4b5c0abd89fc65b85",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/strike-plus55.png",
+          "bytes": 454187,
+          "sha256": "b346ef80c08a9c395236467c0fd67460f17b5db4b0ff4df6d3801d2e103cf695",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_ink_librarian/contact-sheet.png",
+        "bytes": 566551,
+        "sha256": "62f64be046bb1212344be6e6ce10a257fa3a1a5807d31d8d9561337b706e86d7",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_nebula_golem",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_nebula_golem.blend",
+        "bytes": 2380184,
+        "sha256": "b511592801c9772061f6335d9b232251db238e0ee925d7bab033d5c1a8c43a62"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_nebula_golem/assembly.json",
+        "bytes": 5214,
+        "sha256": "fe7f00fd0b6a0bd080eebb4bc5f440d189909748bd36bb00fe248d57e98756fc"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_nebula_golem/front.png",
+          "bytes": 449835,
+          "sha256": "5b79740b13c0a08567c3ae14b19cbb66a1fb93cb93c71bf2636794f1f4c147a0",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/side.png",
+          "bytes": 422868,
+          "sha256": "07c59e87758b8daba6661afddc066e1f3b23edb8664c985b960718757ce9ce8f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/rear.png",
+          "bytes": 428921,
+          "sha256": "046bf138c111ff2f6777b91afda7d72bc98312ea200b830948cd374230e34909",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/threequarter.png",
+          "bytes": 489260,
+          "sha256": "21b89b0663d85adfa4773969383a2654c2d0e7e69bfbd518fbbfe71921b830df",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60.png",
+          "bytes": 488926,
+          "sha256": "5df5eeea9055b4a2f8c930743e7f97511973033e9b374e42e7890003e7d6c587",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60-side.png",
+          "bytes": 431095,
+          "sha256": "3e93d9dd02b99e66c250744cd9c54ca81402e0874a53112d07a7ae19e75189a8",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/strike-plus55.png",
+          "bytes": 488915,
+          "sha256": "c4821f5a7f774f317ca94291519306c90b1e82a2853fb4302937a7109d8efcd8",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_nebula_golem/contact-sheet.png",
+        "bytes": 745045,
+        "sha256": "76d6fa0626f60133d29200629ab9306d920550bc286491fcae1d2a0876559480",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_archivist_astro",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_archivist_astro.blend",
+        "bytes": 2658606,
+        "sha256": "2bb77397ac7684b9cee6cca0823bb6be93267d6e25bc302ce0562494fe5480a9"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_archivist_astro/assembly.json",
+        "bytes": 5966,
+        "sha256": "930db4915de8cc2a5d924160ae84ab7460322c91b09bdbc01a742b21d741f43e"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_archivist_astro/front.png",
+          "bytes": 452024,
+          "sha256": "6ec271212f9fb07e825204a60b95c98e1928f5fcc1c0fa7c2f5518f340c25273",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/side.png",
+          "bytes": 426641,
+          "sha256": "8ec39f822467eafbbc2fb1565a94f6d12f10739f49e7a48b8b1120ba248165a6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/rear.png",
+          "bytes": 433340,
+          "sha256": "789db73e48a751bf8251a43053e79a121b710753587e96dc6a41ff205585c340",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/threequarter.png",
+          "bytes": 469711,
+          "sha256": "5483b281bfc7f5be484b854b61338d60f639db1fdd4e9d133b09e96794716856",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60.png",
+          "bytes": 481168,
+          "sha256": "48996d3b8334ed7461e64e58d7e69865e9e0b4cd25aa897306fea7a34841e13c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60-side.png",
+          "bytes": 431781,
+          "sha256": "0cf4301fa8d726cf77d6566712d1ad3fd5403e2061f69891b8f6c594bf73a7f9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/strike-plus55.png",
+          "bytes": 463095,
+          "sha256": "2e88b39c38fad3e4db6c5511f9a3df5725d2441f22779618eb688787f6ad82ea",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_archivist_astro/contact-sheet.png",
+        "bytes": 590459,
+        "sha256": "a61f24768de8df2567f0fbfa1944f4460b5aee219ca71a0cacc3ddce5c6edfe0",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_novarion",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_novarion.blend",
+        "bytes": 4324147,
+        "sha256": "55f07827d733915daa36713e6008025b76fa6d5ee26a7d1f4b6b84f47d6e6999"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_novarion/assembly.json",
+        "bytes": 5872,
+        "sha256": "4cee5b0aa001ed81cdab5466232425bbad02857999f419aec2f08117c4db0504"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_novarion/front.png",
+          "bytes": 497777,
+          "sha256": "fdca0918f2c2ac92ba13b9adb5e9826d914fcdea9159f89473ac96f2934fdfa1",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/side.png",
+          "bytes": 445794,
+          "sha256": "6c9ceb608383ce3dab0cbceec701064931d41257fa67ae3a242a9f205dcb7f88",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/rear.png",
+          "bytes": 489004,
+          "sha256": "aacb0bcc9eb27b812e287f2ade0e827a622c1f2c4552513dc0e29234f279f580",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/threequarter.png",
+          "bytes": 532884,
+          "sha256": "06757760a12c4567cf127971566066dc918e1bdb2bf8b8feaa310532ccd67113",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60.png",
+          "bytes": 525724,
+          "sha256": "00cdceda67bd6ba90a21ce6575b42fd1fadd4ea28739f7818d9962cadd5424f0",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60-side.png",
+          "bytes": 460094,
+          "sha256": "667686cdef274e0b94e95815f8c6fe39aca67dab9f4a6654f8603d4df07f39ad",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_novarion/strike-plus55.png",
+          "bytes": 512943,
+          "sha256": "a8aba904fca647fbde62c8589934d792d12b13c6a993578d6f87aa88fa679786",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_novarion/contact-sheet.png",
+        "bytes": 813623,
+        "sha256": "568b50768decea3c121c4984391bb5666b2e7415f2d1f3465c9e29c782a996bc",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_cinder_imp",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_cinder_imp.blend",
+        "bytes": 2352672,
+        "sha256": "03fa22f9e8bc1fe38db80887f9410496bdf9f1d2fd7c32f7b1738cb24822759d"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_cinder_imp/assembly.json",
+        "bytes": 5345,
+        "sha256": "f70cfaf09953006d17d767a4176444609a383ff4431f35348d2ba95cf852e435"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_cinder_imp/front.png",
+          "bytes": 457366,
+          "sha256": "ae6c6131ddd94eac5658748da540e522f8a9487cf5e0fbba83283afbd41f5fb1",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/side.png",
+          "bytes": 435571,
+          "sha256": "9cdce2c63283a90cad5d565ed47e369314c0e4bc67816a8afd6389b17bf8f5f3",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/rear.png",
+          "bytes": 444946,
+          "sha256": "d185db39cec775507f7289fdb5196d4fc32ab44db2722306401abbc944596981",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/threequarter.png",
+          "bytes": 497765,
+          "sha256": "63851e1df3f6f7459d0bad20c20295eeead3a1415e1853172532d86b5859093b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60.png",
+          "bytes": 501875,
+          "sha256": "075c4b6a011d862375f18ed273cb92b5fc8b7df027f5a249fa04b5aa87d49bdc",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60-side.png",
+          "bytes": 443825,
+          "sha256": "534d8df2c91dfec8abc4cfbddbb1f35ec890831b8d1e3acb7e0bbfc551efaee4",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/strike-plus55.png",
+          "bytes": 498276,
+          "sha256": "448f06a4d8eb8e426a00221cdb6aea1799438d522efa081917944bb87038f760",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_cinder_imp/contact-sheet.png",
+        "bytes": 856090,
+        "sha256": "e2379a66aeb00ee8b4f677eaac52eb1fc6eb9a0d9d7c963973592dcbfdc19bc7",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_slag_hound",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_slag_hound.blend",
+        "bytes": 2231758,
+        "sha256": "868db4b9fbcb1a71a8d1476013b7b72134af5a56a72b2e0f6858bcc876f4dc09"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_slag_hound/assembly.json",
+        "bytes": 5366,
+        "sha256": "b2767428452cca639c8887bed588ba2cc3b43c737daf5d3454164713db902b29"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_slag_hound/front.png",
+          "bytes": 421420,
+          "sha256": "ef4db354dc3d27a96f0664150231482578b22b8b32375b3855d86375032e13b6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/side.png",
+          "bytes": 423476,
+          "sha256": "58a8b50fd389085b5b11334fe952da18abbe2de7b86a69f3950d2fbeb2deff45",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/rear.png",
+          "bytes": 414869,
+          "sha256": "cac66f1eb6e9cf72ee048ca6442f287e9bd4ce9976a2c10027fb6ca0e9b86fe1",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/threequarter.png",
+          "bytes": 464782,
+          "sha256": "e702615a488541ba1fe7f398c25d5db37a9902bef01bf707144e5880c262e6de",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60.png",
+          "bytes": 462851,
+          "sha256": "d4120db764870dbe1a211b47569c1651dda90dc871b5fd827104b9dcf9856e71",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60-side.png",
+          "bytes": 425095,
+          "sha256": "3d80a97e13c9e6ae665268449800ca28fe7d2a6fba4fecfc030ced7fd904dd4e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/strike-plus55.png",
+          "bytes": 462710,
+          "sha256": "b80736237aacca078d063bd081e7745f2946d4716837a100826b4dcc0a293ece",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_slag_hound/contact-sheet.png",
+        "bytes": 569300,
+        "sha256": "40af2461312dd999e8e7651f5ebf36e6cdcf7563f9be2fd09a8e4da4af86019d",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_obsidian_bombardier",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_obsidian_bombardier.blend",
+        "bytes": 2880710,
+        "sha256": "6123383a2f848520b1083d2d5a2bc2882286e37246967073365a5e1f670d2ac5"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_obsidian_bombardier/assembly.json",
+        "bytes": 5430,
+        "sha256": "36e7c283e0f6fbf48536ddf08cf12e8dee49d9bb60dfcfa4987aa152feeb24ed"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/front.png",
+          "bytes": 428427,
+          "sha256": "d34218e11c4101e6f80a55e9c9ea1c7764aa049fae91680a09be95e0967090fc",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/side.png",
+          "bytes": 424655,
+          "sha256": "0e963417684fe630a94751989f31f5867e1a83bb5f3d29bb9ce6a4dcf2316bc6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/rear.png",
+          "bytes": 418470,
+          "sha256": "8db81adfde7b456e0953d5a3dde69bb6696f47baf11b94bac38204c5c988a51f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/threequarter.png",
+          "bytes": 459310,
+          "sha256": "c97485da3ab841b3df2904592a9d4b53c47392a6e4b8a0e96595da71792b6311",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60.png",
+          "bytes": 468034,
+          "sha256": "63a58b0c793ee5de4db277550ea8df0048644069dc4705a92709081001bb927f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60-side.png",
+          "bytes": 424821,
+          "sha256": "e009b546ade4e91287cad216ba725ce4bf6bf66695219e2dcb1ce876c51f9528",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/strike-plus55.png",
+          "bytes": 463273,
+          "sha256": "d40851eca9eda004e079c87dc7e5f81b6252eb46b5ab6414108f3f2fa9e019d9",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_obsidian_bombardier/contact-sheet.png",
+        "bytes": 607209,
+        "sha256": "1cd2e7844e5cebf0146cfe9d3e81f45dac0060890326bb2f6d787cbc7415c4d3",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_chained_juggernaut",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_chained_juggernaut.blend",
+        "bytes": 3442423,
+        "sha256": "46b7b2351a7cb35d47e4a063b3619d3539668c88eaaada38cb54e76c3896cff1"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_chained_juggernaut/assembly.json",
+        "bytes": 5407,
+        "sha256": "02d94869034e093ea2db0ad5c88db7c612e817ea4dca0048cc090a23307d4d4f"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_chained_juggernaut/front.png",
+          "bytes": 438502,
+          "sha256": "f25e304c04188159e63f359bb755a573085f61b0b30dc603ebae6a311180fb16",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/side.png",
+          "bytes": 417011,
+          "sha256": "7a6aa87cc9386e562c8513e55f7e72688123c35b74d5887a5e792f8d8c08552b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/rear.png",
+          "bytes": 420682,
+          "sha256": "a55a1a85382fc34e16600bc6586d0d39ca41b405f5158db65c4731c65962e362",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/threequarter.png",
+          "bytes": 472137,
+          "sha256": "f56a0efb2cc57342d3dec06af493958e6a3f592ca4f8cfdd717c2edf7e14bcc6",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60.png",
+          "bytes": 474061,
+          "sha256": "ccc1a691f0bc601353efd5fa210989c109aad18d1d444721408534706d32f947",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60-side.png",
+          "bytes": 420326,
+          "sha256": "78b0d2887ac98424d9ba275e9c297a79f26f6d224e0cbb1295921f7faab5d2c7",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/strike-plus55.png",
+          "bytes": 460899,
+          "sha256": "bc6ed0174172886dd094e4d02be4d951228f772e6ab386aa1d215cc663be8aea",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_chained_juggernaut/contact-sheet.png",
+        "bytes": 654304,
+        "sha256": "552a32f2fd19cdb734b62f5670fb1ba292ac4ab3b30a53e2b68339496eee648d",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_warden_vulcantus",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_warden_vulcantus.blend",
+        "bytes": 3775606,
+        "sha256": "2ee9e30bd20fb40506e6f9cee77b48313232a7260bac2856526e1eb2b296e98d"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_warden_vulcantus/assembly.json",
+        "bytes": 5923,
+        "sha256": "eb3ad264fcd37cc9c642937952340f69caf5f605ad2f1df41f46cf7097e4ecfd"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_warden_vulcantus/front.png",
+          "bytes": 436849,
+          "sha256": "8877a7b57694b48708151a36af4378cd1faf73effd1cbf5ea5456515947c7803",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/side.png",
+          "bytes": 426452,
+          "sha256": "3b751bab3dc82a7ca875aed6b701ce9f199b48d54708a906a84d822fec9d7049",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/rear.png",
+          "bytes": 429278,
+          "sha256": "0132e360d4bf3b25b9a33c5372273675b49e3676552b2ddb54833914359c38c9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/threequarter.png",
+          "bytes": 486244,
+          "sha256": "2fc5bbbf0a0fc5addb29277ec6c025f730091932f4bdbc4e73e73b8ee9425aeb",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60.png",
+          "bytes": 489288,
+          "sha256": "ae6b8d701a7ba86f8d0b0057415fe041e51f50cc1b15627c3d8b4db134ca5bf5",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60-side.png",
+          "bytes": 438473,
+          "sha256": "f56118c81037c8b7ec8c080fb9a65351f9fa05249694f459b76248eb8eb06943",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/strike-plus55.png",
+          "bytes": 485722,
+          "sha256": "8baff8579d8f198d35bab63b6fd61a6664467c743d49773dc9c026bc50061059",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_warden_vulcantus/contact-sheet.png",
+        "bytes": 753148,
+        "sha256": "2e486a66f59bd66a6f0d016b2d7cd21a9b23aa23056a8fe3039efc74f3e3b8e9",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_ignion",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_ignion.blend",
+        "bytes": 3479843,
+        "sha256": "f4eb780bb93a9a20ca0821d26ab0f9356e1bb67c3b2f274c61641625e5a06614"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_ignion/assembly.json",
+        "bytes": 5846,
+        "sha256": "d7400fcc315a52a4e892d7eaecb63e47fe1d8c8247e131ee2a0639d0ff96ca55"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_ignion/front.png",
+          "bytes": 442670,
+          "sha256": "b0ddbcd53f823f8630d021890b8acda7244c86bd003a4e4ec55fb5e8b665af43",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/side.png",
+          "bytes": 418444,
+          "sha256": "6ee769c923f0e2015b7d9ec6133588f2c05248abf7bac84dc9bfa49a82cb75b0",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/rear.png",
+          "bytes": 418984,
+          "sha256": "22a95adaadeb2c8a9532f4844ecd48c9f998ff4a62d17c840d5fd4524a5f1a6b",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/threequarter.png",
+          "bytes": 483526,
+          "sha256": "1e5341a5838422d52a4ea8334068842f9c52e1d11637df22a4fb6da2b357c239",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60.png",
+          "bytes": 478937,
+          "sha256": "87d9f59a8cb3ed206fe15f2150d28eac755c66c0ef0c37d1df6a0a71d15955db",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60-side.png",
+          "bytes": 426311,
+          "sha256": "3d4606fe8effd42139f28191cacf8648c8aa6bf16c923c5a9180bf3bc7a4bb2c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_ignion/strike-plus55.png",
+          "bytes": 481718,
+          "sha256": "0e534ccbd963a0ca141559cfc456ef7fc87039589efc0f96a2207c8f05145272",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_ignion/contact-sheet.png",
+        "bytes": 711364,
+        "sha256": "b21900d2efff24ee83c5701d176ccd5015378f320c88431da21f78213788c9a4",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_mirror_stalker",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_mirror_stalker.blend",
+        "bytes": 2051253,
+        "sha256": "4103b1c03cf8fc6275f25ecdaef4635d3da7f4ec717efe8ff78f5984c4371302"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_mirror_stalker/assembly.json",
+        "bytes": 5403,
+        "sha256": "51b8c3105cfb16fddb8dc8d9cef57e2eb593082779ec32f2cbbb2b9abbdf59e2"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_mirror_stalker/front.png",
+          "bytes": 448347,
+          "sha256": "19170a4659a56200a3f9f3caf0dbd8b317e3fab08af241f53c8afaf303199dbb",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/side.png",
+          "bytes": 442900,
+          "sha256": "25cd90594546ad188565571e464d07dad0947d487d0b6c6adb5fc4c79576749c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/rear.png",
+          "bytes": 442259,
+          "sha256": "f11f094652013b4bcc630e11cac457ffed76825709750e0987d79731acd34243",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/threequarter.png",
+          "bytes": 501527,
+          "sha256": "a5f2e81e2415938bc2d7ca91341f731676f0d1e752bf454ccfb6ff98b79385b7",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60.png",
+          "bytes": 499393,
+          "sha256": "900fc8a77ae713c2ce102b29c411323426e72c07e13fecba4be932a894e5be20",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60-side.png",
+          "bytes": 447742,
+          "sha256": "fd793eef5f747c32a8ba672eb941b64f38b76f120bad734d062cf77a53e161a8",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/strike-plus55.png",
+          "bytes": 511780,
+          "sha256": "91c1d644efc162ab6ca87c65bb63bc18fd0bb82422999d337c844143c92164b7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_mirror_stalker/contact-sheet.png",
+        "bytes": 819351,
+        "sha256": "0df4669c136ac754281906310e8995bd978b459d50bfaf45987b122b00669436",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_void_choir",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_void_choir.blend",
+        "bytes": 3102649,
+        "sha256": "e8b072b451dc5fe08417cab528684c338378645c33a4eb5af2c47508457a8834"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_void_choir/assembly.json",
+        "bytes": 5345,
+        "sha256": "423926d2350d67f6e15c1b046423abc85c18491887c66cf3df172e2895467b8c"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_void_choir/front.png",
+          "bytes": 441486,
+          "sha256": "020eb014f0aadcacfac9c4f5bc711499f9628bae57631697130a8a6c71727e04",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/side.png",
+          "bytes": 426418,
+          "sha256": "7eaba930db33d3344f7853db93a2ca2ee38f00ada297c4ef1785f72cababb9e9",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/rear.png",
+          "bytes": 429418,
+          "sha256": "46b1b37b9e74942b1d86748b6130f1bda951b0430ee092221515a98252dd219d",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/threequarter.png",
+          "bytes": 472798,
+          "sha256": "09981df9d4591aae35c8cab5b766e2e598bd4867ae92b093479e3de8ac471e4c",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60.png",
+          "bytes": 463201,
+          "sha256": "56d45f31d89e7f543372cff6f5f0b088774f15f8a06eca8b24feaa33240df458",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60-side.png",
+          "bytes": 430182,
+          "sha256": "23718b44b2cd3f3bf91dd1a530f64b747e36915a60fd5b8e3313062dc601b26e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_void_choir/strike-plus55.png",
+          "bytes": 474441,
+          "sha256": "2201a11baceb3c3945c48c4cb8173178eee404d8121e2620a95f8253ba93a3ad",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_void_choir/contact-sheet.png",
+        "bytes": 632244,
+        "sha256": "e6bfab8fdc9c2acc874aa22d4cabcd63dd863c9e904c36f437845f722e20f318",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_abyssal_oculus",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_abyssal_oculus.blend",
+        "bytes": 5114884,
+        "sha256": "b852e16e9b198dd5e10288c8b1c09806bfe85a549fc1bfee8609c8790de33998"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_abyssal_oculus/assembly.json",
+        "bytes": 5345,
+        "sha256": "fdf1b33cc2dfcfa9ea0827dd5f2a2cc0c37b63419e020ada4045d156f3e17ef2"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_abyssal_oculus/front.png",
+          "bytes": 455340,
+          "sha256": "dd27dc3d4d14f126e9391370db7f9065b9243fdf51529a58386e6f14d1cf0482",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/side.png",
+          "bytes": 421362,
+          "sha256": "109aac472e2bba70fe81689d7c07c837991a3807d5be5acb752260b70889506f",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/rear.png",
+          "bytes": 431752,
+          "sha256": "ef779be9b2cfd915f898046363e40a555280e8595b95dbceb54e6074cd31ac81",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/threequarter.png",
+          "bytes": 481425,
+          "sha256": "5ed649792f0fb7babbbddf01bc2776bc6cc964e960a42404316b01dc5083d551",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60.png",
+          "bytes": 474261,
+          "sha256": "7a8524fb5e51ed745be7477b37204fb31da034971e63bc4b8a519c0b7f692592",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60-side.png",
+          "bytes": 423324,
+          "sha256": "26924a5878a0d2b8965c09f2377be3391defebb555d52b7b9a24fa2fde1f5d87",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/strike-plus55.png",
+          "bytes": 479778,
+          "sha256": "3590888d7650dd3461b14a1ee81a7d40189a9ab0020bb94f188246bc713ced14",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_abyssal_oculus/contact-sheet.png",
+        "bytes": 600239,
+        "sha256": "559b2e8be495a550f48b9059542ceff0952e76e8144b49e993ef5ca87e831a21",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "mob_eclipse_templar",
+      "bones": 2,
+      "blend": {
+        "path": "sources/blend/rigs/mob_eclipse_templar.blend",
+        "bytes": 1902094,
+        "sha256": "667b22a065e7eff9c57e5515923bf23c6209f18fba883ca642f5b65370209762"
+      },
+      "assembly": {
+        "path": "review/rigs/mob_eclipse_templar/assembly.json",
+        "bytes": 5406,
+        "sha256": "64f1f4f5693ab503b5068ce351333362bb239c574200c2c1d9dc13933067c860"
+      },
+      "images": [
+        {
+          "path": "review/rigs/mob_eclipse_templar/front.png",
+          "bytes": 437446,
+          "sha256": "304a3b6823dfba6da03e29ca660db024fbe7dc68b233f06c68fcc65fe31676bf",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/side.png",
+          "bytes": 422605,
+          "sha256": "811588658b5151c204f1f2b2a0e1219f616afa2bb5c06bc3f1445ea172899d82",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/rear.png",
+          "bytes": 426546,
+          "sha256": "bbdfb1625a255f36883336d5606e123780d2e3bd86a5cbf2b9bce29386a3c0bf",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/threequarter.png",
+          "bytes": 480373,
+          "sha256": "8a1ccf7497272d9838ed1b9ddf24b10c44a0664944d6b308f641f9b629777a78",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60.png",
+          "bytes": 481196,
+          "sha256": "d8413df772101c3fa66d7dfb716e0460cb474317e1751e9567f04e541c48b0a4",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60-side.png",
+          "bytes": 432592,
+          "sha256": "191d5eb5d6a05512f59db77e3b33fbc1994cc4ebbd6f7f58653b86a617c7fd4a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/strike-plus55.png",
+          "bytes": 489790,
+          "sha256": "71e79fd4f3f11ccf1ad6642a60c014637ce09724235a58b8dad12cd37b30bad8",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/mob_eclipse_templar/contact-sheet.png",
+        "bytes": 728331,
+        "sha256": "15f77f3b5d9ddf893c09c9a3f36a3753a9150a847b58c83ac99070ddb7572fde",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_twin_archons",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_twin_archons.blend",
+        "bytes": 5859780,
+        "sha256": "3ddee6dc061e4778b3cc91c1f47ac72ff7766e38bf2af063542d666cd44c8f20"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_twin_archons/assembly.json",
+        "bytes": 5912,
+        "sha256": "c19297bd23b9f1b70809b37885c6020690f8e62942cf82fa74e31df94841f6eb"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_twin_archons/front.png",
+          "bytes": 481978,
+          "sha256": "e9c4a887fc7498d3648825f01f600f1b0bb8f2156735c31bc8ea29696fd7a7ce",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/side.png",
+          "bytes": 427891,
+          "sha256": "3f697a060eeb11a709e76d2edc21d539287fc887230c12357fa7eb7e2e50fe7a",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/rear.png",
+          "bytes": 469539,
+          "sha256": "757a09209ed485fb8821cef77b5f3939f4cce8dbe671d13b7a7cfb94393f7ed7",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/threequarter.png",
+          "bytes": 512457,
+          "sha256": "19e990ae08483e636d7a4d2c476d9c2f0814cbafdae783703227a5d76b4d0d2e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60.png",
+          "bytes": 503926,
+          "sha256": "8c10089239b94c156af5c6ac900b3ec6f8437f4d242a360f35d618e27978dd03",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60-side.png",
+          "bytes": 434769,
+          "sha256": "9bdf7251ffe62699385675577cf4a9616e7d8f0061ca06f23d915c21bacf0150",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/strike-plus55.png",
+          "bytes": 498973,
+          "sha256": "97cfbca79d3519f40421670960dc10cde8ac6fe9fd515a2e0bf42f85c94386fd",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_twin_archons/contact-sheet.png",
+        "bytes": 816615,
+        "sha256": "28a5be8c9ca83ef5840fc21412650f18d3960ac9a2c0c950fb6128a19ddfa2b6",
+        "width": 1600,
+        "height": 944
+      }
+    },
+    {
+      "id": "boss_eclipsia",
+      "bones": 3,
+      "blend": {
+        "path": "sources/blend/rigs/boss_eclipsia.blend",
+        "bytes": 12437952,
+        "sha256": "e5810165e4fa28aae17821af26a45c38fad2ae4fe44e8c6b158c94313f11e4a3"
+      },
+      "assembly": {
+        "path": "review/rigs/boss_eclipsia/assembly.json",
+        "bytes": 5864,
+        "sha256": "b6024207c6aa0eaae680fbb23c0b6525134dae2e46faec8791a87852d24407c8"
+      },
+      "images": [
+        {
+          "path": "review/rigs/boss_eclipsia/front.png",
+          "bytes": 497143,
+          "sha256": "24eed91bfd4b2cbdc0ad3c6d075352aabd93b761de15a1f8fdcede02234a1b0e",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/side.png",
+          "bytes": 427587,
+          "sha256": "d3935c77502804448803a515bf7742936a428c2149016677efc07f2352205a26",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/rear.png",
+          "bytes": 473703,
+          "sha256": "3e98b513fc96f41c2c0890d2efdf130e9d6aca1eae98f658739b20339dfa3b01",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/threequarter.png",
+          "bytes": 523184,
+          "sha256": "62858aff4a1a7165cd8b31efb43973152bbf12d1e0c6717065d543fde05a2100",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60.png",
+          "bytes": 523275,
+          "sha256": "3aaf0eacfaa28a06254b998bea246cf54d858bd01d83cb327738ab879327e4b1",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60-side.png",
+          "bytes": 435428,
+          "sha256": "a646cece060df02fd4cb63d40af42b9e3f8c4e49780b71f9f00dd3c7837c183d",
+          "width": 640,
+          "height": 640
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/strike-plus55.png",
+          "bytes": 499607,
+          "sha256": "c167b798b7fbcf4cfbe2a093563fbf6e79d5671d6bfedff884286c0c044c36b7",
+          "width": 640,
+          "height": 640
+        }
+      ],
+      "sheet": {
+        "path": "review/rigs/boss_eclipsia/contact-sheet.png",
+        "bytes": 827613,
+        "sha256": "57341a45465cf146b64da1d6a079a06a7dc9685baf69dc6eff57eda6af9887c0",
+        "width": 1600,
+        "height": 944
+      }
+    }
+  ],
+  "boards": [
+    {
+      "path": "review/overhaul-relics-and-vfx.png",
+      "bytes": 4969502,
+      "sha256": "4c27a7af0985395e0e78417e3ff837163d9a91f03c79c8621657aec402d1b674",
+      "width": 1260,
+      "height": 8668
+    },
+    {
+      "path": "review/overhaul-monsters-ch1-ch2-ch3.png",
+      "bytes": 6432812,
+      "sha256": "dc76ce0a36e0cbee46d6b185e517b3786bf362065943ebec829b3132c7da28d3",
+      "width": 1260,
+      "height": 8216
+    },
+    {
+      "path": "review/relics-and-vfx-overview.png",
+      "bytes": 1608654,
+      "sha256": "7a2adc7e4764a1c9a9bcfbc1b1c8045d773f773cbc27f7edd3b274762ce92f54",
+      "width": 1600,
+      "height": 2240
+    },
+    {
+      "path": "review/monsters-overview.png",
+      "bytes": 1806059,
+      "sha256": "de3bac7c841a30817dbd3d44d38dd6dbef1644fa60a3167a68a44cb39329c27b",
+      "width": 2160,
+      "height": 1256
+    },
+    {
+      "path": "review/monsters-chapter-1.png",
+      "bytes": 2741667,
+      "sha256": "65d02400c082186fed19c4dc8b96ffc326f99f2410904dfa790724f18cd992c6",
+      "width": 1440,
+      "height": 3152
+    },
+    {
+      "path": "review/monsters-chapter-2.png",
+      "bytes": 2687473,
+      "sha256": "e898e82b7abe5c96329cc2fdac81f2421d034b80d7eb0a523e066f323c7801de",
+      "width": 1440,
+      "height": 3152
+    },
+    {
+      "path": "review/monsters-chapter-3.png",
+      "bytes": 2949318,
+      "sha256": "34641920626bddc058f687ed170989aa1957cf58f7b1e2041652e9d3ed4c9660",
+      "width": 1440,
+      "height": 3152
+    },
+    {
+      "path": "review/relic-grips.png",
+      "bytes": 1403084,
+      "sha256": "e9719527ab8f20f89595d87fc65878635f4effbcca5e7432fa1bb9e998831900",
+      "width": 1600,
+      "height": 1808
+    },
+    {
+      "path": "review/effect-placement.png",
+      "bytes": 1323944,
+      "sha256": "9da63f5eb050dcb059ea3d491842d7c364ba4a74e73a71ac771114e91e4c8dcb",
+      "width": 1600,
+      "height": 1808
+    },
+    {
+      "path": "review/hero-icons.png",
+      "bytes": 19770,
+      "sha256": "2a6cdbf3db4c5a02913c065954bbc2ef99268015c375d90584187ae1308ce85a",
+      "width": 1080,
+      "height": 390
+    }
+  ],
+  "visualReview": {
+    "path": "review/visual-review.json",
+    "bytes": 67603,
+    "sha256": "386a35a8943e16fc5e8d7fce0b60be002bd8de047d30c96eb3ae4d0d8523a1b3"
+  },
+  "build": {
+    "status": "NOT_RUN",
+    "reason": "No -Build, PackBuilder, plugin compilation, packaging or server changes."
+  },
+  "minecraftClient": {
+    "status": "NOT_RUN",
+    "reason": "SOL integration must verify real resource loading, rendering, AI, animation, hitboxes and gameplay."
+  },
+  "manifest": [
+    {
+      "path": "assets/minecraft/atlases/blocks.json",
+      "bytes": 9734,
+      "sha256": "0a20b3749089de29d1df2d9a4a60ce3286524e76666ea65c7c0bd2cf4e6ff732"
+    },
+    {
+      "path": "assets/yuumi97/items/book_of_thresholds.json",
+      "bytes": 383,
+      "sha256": "60315daccd5cdbd33f355a6ba29143a97b9d5e1f559a010b6a89ca18d1480245"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_archivist_astro_core.json",
+      "bytes": 106,
+      "sha256": "37cfa1451ed2ff13f6c60eb7f2be0f0fcc54d6615e4539df5db496ee085649b8"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_archivist_astro_head.json",
+      "bytes": 106,
+      "sha256": "10e5ba0ae1fe310cf322330338ddb8c34c14cbe1db46d9a403791fb50a689640"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_archivist_astro_weapon.json",
+      "bytes": 108,
+      "sha256": "3765efd084f5438d7bdeb9fccaf687791b666d3734bb8b3c4bd7d90877c99149"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_eclipsia_core.json",
+      "bytes": 99,
+      "sha256": "42ac272264c459dcaaf5596c81ce1fc66170312491c4cc0706e189c1571ff74a"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_eclipsia_head.json",
+      "bytes": 99,
+      "sha256": "4d6d3b1bc2dcecc0f926bf9811c2734b51dc5aa2c097105585f0061f49a3bb7d"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_eclipsia_weapon.json",
+      "bytes": 101,
+      "sha256": "1f0e8133c4af11f78fbb4452861e95c9bc727f510956c3ac956b99ba72a7f9ca"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_ignion_core.json",
+      "bytes": 97,
+      "sha256": "c00b64dab68b8e60280b0714795e2db14772493baf7bde1ffd253ee922a2ad34"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_ignion_head.json",
+      "bytes": 97,
+      "sha256": "00f4b6d7fce5b158781af3e98e4f25f9d2b79c7f990fb4aec45d850b600ec730"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_ignion_weapon.json",
+      "bytes": 99,
+      "sha256": "e26fcd1a46a70e93358095dbfedeb0bea37166f6ea043012cab7d635d1491b9c"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_novarion_core.json",
+      "bytes": 99,
+      "sha256": "45bed73abaec8fd866ba69566b575c432befd369f29cdc68abe3eb1be7f4fe43"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_novarion_head.json",
+      "bytes": 99,
+      "sha256": "76f395f128641fa03bac138328ef82e51c8814ef4cfb6fbbee1193f7bf84823d"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_novarion_weapon.json",
+      "bytes": 101,
+      "sha256": "a5532e6a2209e7c2daf5f1186a710fa785e640071668da762080fca8fa92532c"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_twin_archons_core.json",
+      "bytes": 103,
+      "sha256": "e64931de664da4739db48f4c5391a8c80832b06a21c810dbdfc5cc4325c960ae"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_twin_archons_head.json",
+      "bytes": 103,
+      "sha256": "b412f498ff9d75e37ed6ebb7f4e4506ad5535a7a313ba5e8dd5f17c1c20e35ce"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_twin_archons_weapon.json",
+      "bytes": 105,
+      "sha256": "886ba287612f40098444e55f73b77bad9a10abbdc6c524553a1e8185f68e6423"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_warden_vulcantus_core.json",
+      "bytes": 107,
+      "sha256": "0dc539a55e298be8d2e4bf79e14c3a079ca15e9413520f34d898973d498d5d0a"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_warden_vulcantus_head.json",
+      "bytes": 107,
+      "sha256": "b1c775929aadf2033f03966249405b8c0ffab14ee5b3c67af1c11257d8ef8cc4"
+    },
+    {
+      "path": "assets/yuumi97/items/boss_warden_vulcantus_weapon.json",
+      "bytes": 109,
+      "sha256": "f46414bf492a715619cc53d4b266a2488f2beb17e91c1b426f2f5c35d5b2d0c3"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_cat_tower.json",
+      "bytes": 375,
+      "sha256": "c31a5c0f2063fbf9459af28bbaa7f67c652fa7bc1f9158373bbcea631d15b746"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_kotatsu.json",
+      "bytes": 371,
+      "sha256": "a30c40d42d51023b10521f55149d16586152710771dd2bf81decfe8191fd44f3"
+    },
+    {
+      "path": "assets/yuumi97/items/furn_neon_sign.json",
+      "bytes": 375,
+      "sha256": "44487095d1ad559eb25af0042d3bfb0be28fc4be187a14b593e881cbae49b1bf"
+    },
+    {
+      "path": "assets/yuumi97/items/guidebook.json",
+      "bytes": 370,
+      "sha256": "062bc4fd4dd771cd97b98c7dd03077552e23c2773f7b92e6bbd791cb5889694e"
+    },
+    {
+      "path": "assets/yuumi97/items/hat_chef_toque.json",
+      "bytes": 375,
+      "sha256": "f77da0fba7adcde4f488d918cb8fff59c88aa97081eb15edf45cce88a0be221d"
+    },
+    {
+      "path": "assets/yuumi97/items/hat_stock_tophat.json",
+      "bytes": 379,
+      "sha256": "76e4273a678910cab58773122d1dd99c0b91d052527b35784a900beaa2bb2575"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_abyssal_oculus_arm.json",
+      "bytes": 103,
+      "sha256": "20e90dcce74b611afb2a00b49c2bfbbfcd5953d557161387a043623fc23fa626"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_abyssal_oculus_body.json",
+      "bytes": 104,
+      "sha256": "dc59437898673b8da8d39e89a9ab675f2cee078e4ef40f2d6967cd6bae65ced1"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_chained_juggernaut_arm.json",
+      "bytes": 107,
+      "sha256": "5cc82d652e5c7f2d8e1f87f70f1faecdfee58d1ee08e55e24767fda4a1a2d7dd"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_chained_juggernaut_body.json",
+      "bytes": 108,
+      "sha256": "1b4470cb6f4533f474ceec3717ef3d6f10276558c49f48d71d1bbdeb05ad8c91"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_cinder_imp_arm.json",
+      "bytes": 99,
+      "sha256": "8f520d251a4915b3d15428574524f7ec61f4fce98217664fc350a8cd0e2e3ce1"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_cinder_imp_body.json",
+      "bytes": 100,
+      "sha256": "637598d6a40ec6a7b87c4181890299ddd82b2cb628497ba0536a30ee30bea548"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_clockwork_sentinel_arm.json",
+      "bytes": 107,
+      "sha256": "26fa0756be4050ecd14bbdbdd06683491592050f2c042f7ff8f2dba79a8b15d7"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_clockwork_sentinel_body.json",
+      "bytes": 108,
+      "sha256": "6d054714692be7faf75514f79eb38f212e29cc01283e96e4fd87884a49f70fcf"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_eclipse_templar_arm.json",
+      "bytes": 104,
+      "sha256": "e9fc276f8cf830604b234c7bf843a1ed1df60958893ee23dd3d9455797e1e5ed"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_eclipse_templar_body.json",
+      "bytes": 105,
+      "sha256": "12040f13277605d0a0a98f383faa5a27445d1cd2537623f078d49ae4e1aee83a"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_grimoire_mimic_arm.json",
+      "bytes": 103,
+      "sha256": "f0d073fbdef109814524080bb1e5d7cb1adedabfc78e3d92763383ecdd6bfd3a"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_grimoire_mimic_body.json",
+      "bytes": 104,
+      "sha256": "18ee0feda85c0109d427e5e793d15d07577845066cfd13749dbbd9eb09f9b43c"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_ink_librarian_arm.json",
+      "bytes": 102,
+      "sha256": "4efd97a4ee5b7d94f7c846fda06a9524c9a384d98a48e3ee8e3ac0d4490d9f5d"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_ink_librarian_body.json",
+      "bytes": 103,
+      "sha256": "20b65cc6a22a01a9ffed7e8dba3e676c5185c6dc0203a9f01daff10a35874500"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_mirror_stalker_arm.json",
+      "bytes": 103,
+      "sha256": "e108842ba3bfeb7b71e1bc0e2ea642ea0e5a9b64bf8f60d5c11d8dc781ed8bbf"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_mirror_stalker_body.json",
+      "bytes": 104,
+      "sha256": "55b8cd8a82e7782b9d25b10377c58dc76b425b634c22835da214d6dbd8de4139"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_nebula_golem_arm.json",
+      "bytes": 101,
+      "sha256": "691710f59e0f3800e12faf34a381498dad285fe7ca41dc6c401f3785245c2ad0"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_nebula_golem_body.json",
+      "bytes": 102,
+      "sha256": "42f6c900e202745a45ee01524c145d5f50ba1148d6d97f099e2d3daf066487db"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_obsidian_bombardier_arm.json",
+      "bytes": 108,
+      "sha256": "939e4131eafb805e10b31819d13b538617793675bdaaf6dd666e1ab95897a888"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_obsidian_bombardier_body.json",
+      "bytes": 109,
+      "sha256": "25c41555cb05fb53e76d3e425c9ea0d23150c25a71a0657b0a3b435542f0aba1"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_slag_hound_arm.json",
+      "bytes": 99,
+      "sha256": "76996f91d65f6587e506d7c8c54c84a9773ab3774d45e9b9a2632afcf906f508"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_slag_hound_body.json",
+      "bytes": 100,
+      "sha256": "949f3e2e6c719176219237578efb7f5904b8c0a538c77e180a674b02e78ad1f0"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_void_choir_arm.json",
+      "bytes": 99,
+      "sha256": "5a0368f2d92ae3f000ef0801677038562937829004557b1d54992a164d15d868"
+    },
+    {
+      "path": "assets/yuumi97/items/mob_void_choir_body.json",
+      "bytes": 100,
+      "sha256": "8b4a4b9c9b736cabbe365565b1f2ed4e2829a00de33dbb3618f47191d36c80ff"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_boon_altar.json",
+      "bytes": 96,
+      "sha256": "6894066ed17dd8d4b9dc04e13ee0c782aab6faafe6dc8b346e81a54474063efb"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_casino_chandelier.json",
+      "bytes": 103,
+      "sha256": "5179c1a96a72ef0789af1f4b2cf0fb06f88e13a3d9942722417ab5d5afc0f1c0"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_casino_marquee.json",
+      "bytes": 100,
+      "sha256": "b451bb4c85886503489abba6cba098c596f785aa90b9a78a76544b637f0a613b"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_dealer_throne.json",
+      "bytes": 99,
+      "sha256": "0fc2e84dac5f65c6fa5dc6db0eefeacf22ac0c9a80b12620b4b96864ca3cf4df"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_dungeon_obelisk.json",
+      "bytes": 101,
+      "sha256": "dfa3790917207f37b71cf5658381bb7073c1cbc983b81ac6099294ee80844677"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_feast_cauldron.json",
+      "bytes": 100,
+      "sha256": "2e1e8ebf557ae3e42646277cb8178ba9780a164e30e5a887ace8e3f6a0e1d9ed"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_gacha_machine.json",
+      "bytes": 99,
+      "sha256": "b37e6bb1b3ea2445c31e7a7f95b96e52677c75bf67181e6fc16a3da694cfb194"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_plaza_clock_face.json",
+      "bytes": 102,
+      "sha256": "3abca04022fe832a9d79b6a90eecfa6cfb9c383f379f0349bbe4be752d05e604"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_sakura_lantern_arch.json",
+      "bytes": 105,
+      "sha256": "308b4735fd57ba4553faab2a5a0659a3a12a43c5364f59d22e4ee85d7fae0cf5"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_stock_board.json",
+      "bytes": 97,
+      "sha256": "1c76b78d850721ee8534d74c587726fe08d8e06e8ceba66e5d9b012bdb0282ab"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_training_dummy.json",
+      "bytes": 100,
+      "sha256": "06d06e41ee15bf764c0fbf7649071c592fa54e27234ca6013eae84b4e5f6226c"
+    },
+    {
+      "path": "assets/yuumi97/items/prop_wayfinder_arrow.json",
+      "bytes": 101,
+      "sha256": "79fe8a7698425dfe5be213859c1b3a230a257c8054e85f15d8f5ad60a9000ae4"
+    },
+    {
+      "path": "assets/yuumi97/items/prowling_wand.json",
+      "bytes": 373,
+      "sha256": "b4d3688679bcda8591ad68de653119fb059099e3c373ac9efdc24ded904fc100"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_angler_harpoon.json",
+      "bytes": 385,
+      "sha256": "383640640460fad0c22470bfd0eb2be431b5f0e46c817edc3f003ead5f7167ef"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_carpenter_axe.json",
+      "bytes": 383,
+      "sha256": "ab2891721094df3098165dac88bf5af5b1a0a60a97b262c6b9a6df5b7c10277b"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_chef_wok.json",
+      "bytes": 373,
+      "sha256": "743bf4fb9dc7cfe2be28b1bff0154965780030f8d92eed1d6800feceb0438882"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_farmer_scythe.json",
+      "bytes": 383,
+      "sha256": "9518f287c748d31b25d3a039dc9bd7a219be50468996a22f6fb20f0ac235034d"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_miner_drill.json",
+      "bytes": 379,
+      "sha256": "f8ac1567cb2e98bdd96d657b26f2e5cd50b3ff13c1cbc34b1529709bd3ea5f56"
+    },
+    {
+      "path": "assets/yuumi97/items/tool_smith_hammer.json",
+      "bytes": 381,
+      "sha256": "6bd7c0c87804a50b79228cafcc19526991b146bdfbd70eb235829872a0991f9b"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_arcane_meteor.json",
+      "bytes": 98,
+      "sha256": "ca346928769b40c87e07d7b41659d039da36e087f3607eae2358dc023e466fca"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_astral_bow_sigil.json",
+      "bytes": 101,
+      "sha256": "69ffa92cd0c117ea9fedcae665058d196684233cd798d7ee5affa1849c333b68"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_feast_cauldron_aura.json",
+      "bytes": 104,
+      "sha256": "a629bc009428550e0ee135f795c7a986aeae15b2d210985bb3730569947548d6"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_golden_fishing_vortex.json",
+      "bytes": 106,
+      "sha256": "73f4fef8d92456c0d71362506733f76fd197474fd9fbd695c90cd5efdb9998e8"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_gravity_singularity.json",
+      "bytes": 104,
+      "sha256": "4e5d001514c9210780f320610fc40bca8f865e79139413a1ada21dc17de068d6"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_holy_spear.json",
+      "bytes": 95,
+      "sha256": "145a6753cbef14301fbb623d7607eeee289ec70a3702c5d4f16770e4791ae532"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_magic_circle_arcane.json",
+      "bytes": 104,
+      "sha256": "41e2a20af7221b057288a223ac3dc7a714f295526e04279c3b70fa5d29676893"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_magic_circle_sanctuary.json",
+      "bytes": 107,
+      "sha256": "8a45bc59196d6787ce20957db1562a78ecc5937ef6f46b3b0c444e0f11d4fd17"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_shadow_mark_crest.json",
+      "bytes": 102,
+      "sha256": "cd0a4b4215d5e16f92f8b04d46d3876da177f8aaad1ef1a20f3c1a85996ac9ea"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_slash_crescent_gold.json",
+      "bytes": 104,
+      "sha256": "2252e0829a63d249850da0aa531a0eb26515dd2963435dbd17e7585200c4b47b"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_slash_crescent_shadow.json",
+      "bytes": 106,
+      "sha256": "e4df3d913a16e7ce168b76689dfe2497b8e44abc0899e2e28461f10d2704c523"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_slash_crimson_heavy.json",
+      "bytes": 104,
+      "sha256": "fb54f0e661e6fa7a8df31ce64268056e952ad0af105d0ad3e807249d702d0e87"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_star_arrow_volley.json",
+      "bytes": 102,
+      "sha256": "e2dc89ab86bd4d8632e38e0fc45cdd150fda61987d00f25607d1c84b36e25316"
+    },
+    {
+      "path": "assets/yuumi97/items/vfx_titan_greatsword_drop.json",
+      "bytes": 106,
+      "sha256": "5b730b80b093ddf42c2ddddfde7de69b707acb80b0ad4e3d39379f80bc645ea1"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_arcane_grimoire.json",
+      "bytes": 391,
+      "sha256": "96a797fa016caf1c38fe10d9d6c2913db84835f937dcd20fcab48c2e4525bc38"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_arcane_orb_tome.json",
+      "bytes": 396,
+      "sha256": "001b95ba11ff766a02d5cc2b3117c532debfe1abfcccd59723402fb1fed344b5"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_berserker_greatsword.json",
+      "bytes": 406,
+      "sha256": "09f69f5a7d9b7fcf4fa627967ffb1445b0a9cdc6f602f38813ed3ba3cf68e90e"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_paladin_sword.json",
+      "bytes": 387,
+      "sha256": "fd27896b913059fad77c1c31c318d86a80e7019cc126c7e7cd525ef1e9f25b4c"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_priest_staff.json",
+      "bytes": 390,
+      "sha256": "3b2629367c67b6d5320d46da24f6097ba4239a9a7df5044cc3785158e88e6acd"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_ranger_bow.json",
+      "bytes": 381,
+      "sha256": "18d72c2430269803b06471a651092b4f56f8b892c03eedda0c2bf100b2f0739f"
+    },
+    {
+      "path": "assets/yuumi97/items/weapon_shadow_daggers.json",
+      "bytes": 389,
+      "sha256": "46abf8b00d65ff171946e2891f8ba411fae3369f60ed77f4293f1639d87607af"
+    },
+    {
+      "path": "assets/yuumi97/items/you_and_me_bell.json",
+      "bytes": 377,
+      "sha256": "b20f825f3fc0f79493c4e0afa76d4f6297e584e57dc45280fc981641348bcba9"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/book_of_thresholds.json",
+      "bytes": 112,
+      "sha256": "4162b556eda8f172af2e5f22939d26800aa3a4f096accc022e898be7ef6526df"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_cat_tower.json",
+      "bytes": 108,
+      "sha256": "fdd6a7ef2488a0e3575dea9247c15be802a3c8c6eba4abc37b87c066471f3ea4"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_kotatsu.json",
+      "bytes": 106,
+      "sha256": "7e49f706363746d15f0e774ecfce0f690de3180eb429c41e3ae451afbbf05167"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/furn_neon_sign.json",
+      "bytes": 108,
+      "sha256": "22bc41852351ee004ae512ea1ef4a6d9822043708b6bbc53b296b3fca08ce908"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/hat_chef_toque.json",
+      "bytes": 108,
+      "sha256": "0699ae88240832eff221154876584d340e4a698eb85b8ee5b6e78f9910b7542e"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/hat_stock_tophat.json",
+      "bytes": 110,
+      "sha256": "475e7cc02b131f1a336f3af349a32a7f37dcb072e0b081e0c3421541e5038a23"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/prowling_wand.json",
+      "bytes": 107,
+      "sha256": "ad6781518dddfc0dd7647abdaea18b494006714ce29b1bad3427baff02c0f1de"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_angler_harpoon.json",
+      "bytes": 113,
+      "sha256": "6a25f981e63ea3a9019cc617718ce2acebab38e52eaac915ae7b86db42f99cf3"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_carpenter_axe.json",
+      "bytes": 112,
+      "sha256": "8c54911805e1e84f7102023aa20b41e8dad830e74aeec685d310b56a84854398"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_chef_wok.json",
+      "bytes": 107,
+      "sha256": "c314491d3348ceab9f1feb610936d37dd9bfa81ba0386af8f708970a648132e3"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_farmer_scythe.json",
+      "bytes": 112,
+      "sha256": "3c8fec96048d43453eea4b5ec7d06bf92042c80a28755cee69dc37807c7cf905"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_miner_drill.json",
+      "bytes": 110,
+      "sha256": "949a92a5c6659212bd1724718721b5f7639b6cd044c2d5638d09d4ba3f301513"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/tool_smith_hammer.json",
+      "bytes": 111,
+      "sha256": "6d478c500b6bc49e1eca1490ca6486460a7cc75e904741b3cbfd73c2a1ccad47"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_arcane_grimoire.json",
+      "bytes": 116,
+      "sha256": "982fd4108777606aefe42ce055d80e143cbdb13e9381caecc6f29a3c145ebe6a"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_paladin_sword.json",
+      "bytes": 114,
+      "sha256": "ada16b2dd72089b12c2cbafdb4225c2b6cf186dfa503da8d626abc417219c339"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_ranger_bow.json",
+      "bytes": 111,
+      "sha256": "976050f0c96b33af42c433a136864b2999123fef34d21b398bbe7382dd70eae2"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/weapon_shadow_daggers.json",
+      "bytes": 115,
+      "sha256": "02686dfdc20ccd7f85bbe67c0660c58da698a29571120e215be5029051bbf931"
+    },
+    {
+      "path": "assets/yuumi97/models/gui/you_and_me_bell.json",
+      "bytes": 109,
+      "sha256": "700f89aa7998c689ac4ec77f8205c5413bb2adf35a8221c1b5e450cc60de07ab"
+    },
+    {
+      "path": "assets/yuumi97/models/item/book_of_thresholds.json",
+      "bytes": 63555,
+      "sha256": "6cec7dd858bd0db2f51ede3db289df9cbe6e5e14cb36ffbac58038dc2ec4afcb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_archivist_astro_core.json",
+      "bytes": 128384,
+      "sha256": "0e4e4a5fd56b5ec71a1aa82d6224cbd0df39f1eec8e24ccf8afd94ed3409bf5f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_archivist_astro_head.json",
+      "bytes": 75157,
+      "sha256": "496e600b3d5099154d16b1eab5c91d965c8d21a9b2339c66a0c3e2b4bfd3a203"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_archivist_astro_weapon.json",
+      "bytes": 124443,
+      "sha256": "3fad2da38da91d35610f0285aea6d01a97e7f7ecaeea24e0e8d4a2d320a07237"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_eclipsia_core.json",
+      "bytes": 139608,
+      "sha256": "e352dadd108d5cfeb551ebc8cb5da001f672eae84dc10bfd044177cb109694d1"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_eclipsia_head.json",
+      "bytes": 142927,
+      "sha256": "c7a01482ba331bcd2c04caa1fbcf9bb45c5d7d44cae716c5395a11930d5b8f77"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_eclipsia_weapon.json",
+      "bytes": 1480663,
+      "sha256": "86a8fc0410a9dab4fd816e2d4ec8c0b4236ccd1339a7805bab8f073f7b3faf84"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_ignion_core.json",
+      "bytes": 194807,
+      "sha256": "616ee166f04f74e3ff51931992847c8288f773acb771ec1b4f750c371363b2ed"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_ignion_head.json",
+      "bytes": 79980,
+      "sha256": "64ae7bbbad8b266014e5c1b10dcdf46fddf213b400db8656658fc7b901ebeed5"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_ignion_weapon.json",
+      "bytes": 160223,
+      "sha256": "31e02a8ebdd98126f7ca0330dc114d83e0ae65990f51693abcfefc3e5135c12b"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_novarion_core.json",
+      "bytes": 103255,
+      "sha256": "e82434cf5349d8f3bf6077e5198b29078423161d5c7c006dfec202bac28ca956"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_novarion_head.json",
+      "bytes": 103683,
+      "sha256": "0ae00c18fa29f3ebd197409b213d8d7926154352fb74d562960af4952986f7eb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_novarion_weapon.json",
+      "bytes": 407502,
+      "sha256": "3885ab6df43836f4665fe256a9f0806c27231f3d032e03b00a483029b02e44e0"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_twin_archons_core.json",
+      "bytes": 141237,
+      "sha256": "21662864ece61f3a25bd2d1d0f6e59b5fcce4dbbff034dbf353210ca24189327"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_twin_archons_head.json",
+      "bytes": 139972,
+      "sha256": "a7d0d0dd1176a223450020d6ab5b7df654078f3d1c796ba06c28665f2c7fa3e2"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_twin_archons_weapon.json",
+      "bytes": 506641,
+      "sha256": "b8390df7a717c6b52ee5621bebac9fd5585f574702d46af1ab8632e972e2f418"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_warden_vulcantus_core.json",
+      "bytes": 178100,
+      "sha256": "387330a69595dfb000137186008b3c3a3c9ff882837dafd0efaa153e158f6429"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_warden_vulcantus_head.json",
+      "bytes": 52480,
+      "sha256": "cb94806bf5a5ad569fbc5464b7bb8839e676ce71f8e3adf694e60f56c0005578"
+    },
+    {
+      "path": "assets/yuumi97/models/item/boss_warden_vulcantus_weapon.json",
+      "bytes": 246466,
+      "sha256": "c1c6b8230efcaa5f7ed88dfc6cff590f18f2c068631c1025938a3050ec8317d9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_cat_tower.json",
+      "bytes": 304370,
+      "sha256": "f0228ff879792b0660259f9ff8a9518426c34746ff1da30f8b9396da229ccbdc"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_kotatsu.json",
+      "bytes": 263298,
+      "sha256": "a0058190cc8f2b436ccec05056b053a367fc059822595ef05d76be7af4b0bd71"
+    },
+    {
+      "path": "assets/yuumi97/models/item/furn_neon_sign.json",
+      "bytes": 276079,
+      "sha256": "f356b39f61c92b4ed140c215e6ad9c7d1fb14c6fb9f465868efd27941cdcec25"
+    },
+    {
+      "path": "assets/yuumi97/models/item/guidebook.json",
+      "bytes": 178121,
+      "sha256": "d6f2857fd174f89cf427d3e26d561da4c8166f64d0414c0bd318002292e85b76"
+    },
+    {
+      "path": "assets/yuumi97/models/item/guidebook_gui.json",
+      "bytes": 103,
+      "sha256": "113063be8bf61a182e5ac1c3b3cedf16e268dd0de0ae1615cdd1f96d9bbc88f6"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_chef_toque.json",
+      "bytes": 120546,
+      "sha256": "e13796c125c73a2958a73395c025ca67a49300cf9b3d6c1c0a2ceda9b7b35acf"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_stock_tophat.json",
+      "bytes": 109778,
+      "sha256": "6fae747d4dd1c5621bf66688dc80b25dbccb55cd4d53188b591ca365c9a95969"
+    },
+    {
+      "path": "assets/yuumi97/models/item/hat_yuumi_ears.json",
+      "bytes": 45819,
+      "sha256": "7f5e5365a9d203c82946a789c09523942c99458e8a2a4ef90601f249fcd274e4"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_abyssal_oculus_arm.json",
+      "bytes": 366208,
+      "sha256": "17b68efeb3fcbffdab1421f5ef30c61cc3c09e4946cb0ae50e078be4e03d7151"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_abyssal_oculus_body.json",
+      "bytes": 316493,
+      "sha256": "32fe0668de2a7d143bc7aec00a4a4d6985e492f597e86bfa639ec5bc5bb7aa30"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_chained_juggernaut_arm.json",
+      "bytes": 225822,
+      "sha256": "63b6460a4678daf78d2ccf36842f9bed7d137428046e0661ecd98acc65399d2d"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_chained_juggernaut_body.json",
+      "bytes": 206388,
+      "sha256": "ae7e5d68eec5b3c9096514abef14bd9d71208bc0a2d1ab645fe47651f77d7e2f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_cinder_imp_arm.json",
+      "bytes": 43189,
+      "sha256": "618ce608062ba06fb87bfad3064855d61f0273f7d822a63994c4e450b0ff99dc"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_cinder_imp_body.json",
+      "bytes": 228227,
+      "sha256": "e8ebc9a85c545ab98871ac55da2ef17c4e8025f35c6f6d8c52990c7087444b5a"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_clockwork_sentinel_arm.json",
+      "bytes": 40889,
+      "sha256": "89b27a35f98e9e39a92823e21e4ab57604e75f2ae828d484abb50be3a5b68bd2"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_clockwork_sentinel_body.json",
+      "bytes": 138184,
+      "sha256": "65dfc78aa8b0b12f2b11fe00affa5da5fb9d4be3c2024c38439c2507a525ac88"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_eclipse_templar_arm.json",
+      "bytes": 100258,
+      "sha256": "e4e56e1d4659fc6b57c316d9e62df23506da28f090af039f944f7a80b0f1f9f3"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_eclipse_templar_body.json",
+      "bytes": 108014,
+      "sha256": "ce3d8f35eeedc6193aa86d7e4d877f2d6f91e28c5dc18f61c6c9a6150629c3d0"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_grimoire_mimic_arm.json",
+      "bytes": 59411,
+      "sha256": "ef294331ef264f5447d7b100f504790a7639f09438d26a732146e3eb44afa3b1"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_grimoire_mimic_body.json",
+      "bytes": 107875,
+      "sha256": "5d16d081258aec5f51b88541f076d6352a522238f26cfd06f19d4516b901a7c3"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_ink_librarian_arm.json",
+      "bytes": 68540,
+      "sha256": "bfab86c33c0090838fa65aec09f71af508b6624b8f1cef003f463c31f07bf906"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_ink_librarian_body.json",
+      "bytes": 87205,
+      "sha256": "61801f87463e82cb6287ed21c4ef5ddf7814931e60d48a33993c915fe17e0824"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_mirror_stalker_arm.json",
+      "bytes": 148395,
+      "sha256": "241e6f986e62870d3a2fc2af2c75a78425b5c006dbd666f37358f41573e5cc3e"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_mirror_stalker_body.json",
+      "bytes": 88236,
+      "sha256": "b85c3947874ea4fa6f60c59928f11227fa29c98679d10dbc9a0cd1f253475c96"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_nebula_golem_arm.json",
+      "bytes": 134987,
+      "sha256": "65a33cb2de65031631b7b2821f2464a9cbecd521cedd822eefe2184a08701779"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_nebula_golem_body.json",
+      "bytes": 158256,
+      "sha256": "24f8385504a66b2e0770eda96b70e9be14d6ce317d7a3ea43fd6ac7d6db87ba9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_obsidian_bombardier_arm.json",
+      "bytes": 265726,
+      "sha256": "a83d04427af3b51e7e327ada215c9dc6ccd4f85b74dc4f42e97fe17200d87211"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_obsidian_bombardier_body.json",
+      "bytes": 114511,
+      "sha256": "a0b846cdeec33b1e2187a6937d34d06e80755224bcd08dd12ea2c18eeaa8a719"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_slag_hound_arm.json",
+      "bytes": 40645,
+      "sha256": "8a08dff51f67d339891e3914cd316fe253a940a772c9f60713a67eb3833711ea"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_slag_hound_body.json",
+      "bytes": 214053,
+      "sha256": "25435534ff0c076f5085c2ac5b6b8807b1058c333b7f3012c8e3dce91a9989b9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_void_choir_arm.json",
+      "bytes": 253270,
+      "sha256": "8e5f8a0fd911870907531687a3ed15ae6fb804624b20df34d2d53ec820bbe2f4"
+    },
+    {
+      "path": "assets/yuumi97/models/item/mob_void_choir_body.json",
+      "bytes": 128427,
+      "sha256": "4918ea9ac1bfcaab549b3a9c503be9d13e61e3e7929e3c177c2f60e153133d47"
+    },
+    {
+      "path": "assets/yuumi97/models/item/plushie_yuumi.json",
+      "bytes": 117864,
+      "sha256": "60b9cf7a0747d6cfb071223cb420e67c4dfb973da0a3c6d670ed6955f15c3e71"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_boon_altar.json",
+      "bytes": 107351,
+      "sha256": "8a70671c0ac120024fca35e6d7e3e7bdd9784f35cc4dc84de97968daee844760"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_casino_chandelier.json",
+      "bytes": 987292,
+      "sha256": "33989493ff50cdf970201fdb7a0a898c227a33ab4de8886edebc60274178d468"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_casino_marquee.json",
+      "bytes": 998643,
+      "sha256": "ad25e0d7cfd6fad93a3d37d5bf3c2e9593c115b7690edebf459bc9f528f19fa2"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_dealer_throne.json",
+      "bytes": 283123,
+      "sha256": "d2045231e94d6f98a97ee567f47c3e2c2effa213c6256b1a9a68e800e2b314fb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_derby_trophy.json",
+      "bytes": 89812,
+      "sha256": "951293d6196425a61066f83a3c6fd32c0ee87d0421951e463fa61c042a482142"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_dungeon_obelisk.json",
+      "bytes": 185733,
+      "sha256": "a1a0d4cbed7efc9e602179f3465ab0f2f6829828937b4267ae328c567ea49da7"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_feast_cauldron.json",
+      "bytes": 206915,
+      "sha256": "e5f05b99dc15a218d60b4844ba1c87db1f7dfdcb51e284897b1392214d238184"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_gacha_machine.json",
+      "bytes": 309565,
+      "sha256": "22ab1becd31542dd427a3e8ca0c8ae71852bbd132ca6620e1cc70fbc91cb46c3"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_plaza_clock_face.json",
+      "bytes": 999772,
+      "sha256": "eaa870dad5114ec25b84b2455c3ca616d5561b2e454aca488250004838a118b4"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_roulette_wheel.json",
+      "bytes": 161324,
+      "sha256": "3d50f2727e8fd668c9bea93e7e531c3f201d638ada324ba8762318d866cffd85"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_sakura_lantern_arch.json",
+      "bytes": 546021,
+      "sha256": "3a3ae00211ac007090d90d0e7eb6fdfec1dcc678ee09d59fa0fefa52a1ca95e6"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_slot_cabinet.json",
+      "bytes": 85487,
+      "sha256": "6f7c303691f470861de3b743fee74c5541478c2b58dc38c598de57b7a8c1672d"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_stock_board.json",
+      "bytes": 158729,
+      "sha256": "451a9ad37ec5f987411285f06c3a179d391055787d6576f23fb8ef9ee7434580"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_training_dummy.json",
+      "bytes": 275798,
+      "sha256": "67d5d3f1892cbf3d9449e796dd787a5ffb50edd988c558ecb67dfa4ea3759106"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_wayfinder_arrow.json",
+      "bytes": 597541,
+      "sha256": "9474c3af04b1772c0b1997f844f45cfd2074c7bead05c65752fb7757dec59250"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prop_yuumi_statue.json",
+      "bytes": 111641,
+      "sha256": "d7b2311a43498698eda89a96aa746e8d36a1da997c696043df3cf0718d9e1eb6"
+    },
+    {
+      "path": "assets/yuumi97/models/item/prowling_wand.json",
+      "bytes": 74869,
+      "sha256": "17e180117f1acb40d0c50ec7aaaca48eeff72a54faed62e68bb3b8206bf5061b"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_angler_harpoon.json",
+      "bytes": 169764,
+      "sha256": "4278679d12ff0bc672382765ad5c0d96a9be8aa34bacf30c451d503bd32971ca"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_carpenter_axe.json",
+      "bytes": 229372,
+      "sha256": "5f81e59e8f07fa18863cde92797842f7c6a4fb58a80c9cfd2b271bdf3410a672"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_chef_wok.json",
+      "bytes": 214441,
+      "sha256": "dbea6c21a7a6721d68e65b4e26a8ba0702b838f8ce9fd68f999e4f9f728b674e"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_farmer_scythe.json",
+      "bytes": 176434,
+      "sha256": "8e0fa520b4ceef94e7dc112666c393b4c032e0a4e07d8daf0acffd2854b8e64f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_miner_drill.json",
+      "bytes": 98859,
+      "sha256": "a18f2b00d32a9293775de8f46bddee79f6ac9f6d3c3f7ed51e6328bce1d0574c"
+    },
+    {
+      "path": "assets/yuumi97/models/item/tool_smith_hammer.json",
+      "bytes": 92999,
+      "sha256": "53b22055efeff5458e64f8af9d5e5de943194a2cb2276eea978333dec8b25b61"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_arcane_meteor.json",
+      "bytes": 287431,
+      "sha256": "51bafddf9d69844a2562a1c0935881717725823e54f7351d53b15574451e12cd"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_astral_bow_sigil.json",
+      "bytes": 515691,
+      "sha256": "b05a5f2a51957dfa6a49613a1feb258767bc2005f1a70a8bf70aff83f688a2a0"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_feast_cauldron_aura.json",
+      "bytes": 152110,
+      "sha256": "eaa91c5d7b07b54dff725a409acc0ba1f6a052b3d804d9c1be33324741ac1bad"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_golden_fishing_vortex.json",
+      "bytes": 836850,
+      "sha256": "6d1e10a56c6137f8d5cf3fdc04e3ee15a80cd903182906b52f619c8cf3a3bafa"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_gravity_singularity.json",
+      "bytes": 659796,
+      "sha256": "98f9ce39f54434bfff0d4c440a0ffc007012fd1061d786c30e2a595dd633d195"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_holy_spear.json",
+      "bytes": 768452,
+      "sha256": "bc8e98e555e4e8113db9f46fbe2b89ffb03ee403e2635a1a4822bce8cf616c4a"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_magic_circle_arcane.json",
+      "bytes": 954763,
+      "sha256": "b855cc83e98335d937da829195ec47a2dfc32638f6a73e0c5c24da191706f2e9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_magic_circle_sanctuary.json",
+      "bytes": 884392,
+      "sha256": "f8ef8416f703a12e3f76041ea338b92c1ab89d01ce4b65afd04183ee8d127b65"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_shadow_mark_crest.json",
+      "bytes": 271557,
+      "sha256": "bf041c53571a1e0165f64a4a3433a3f21dfc984ea27811fe697c398be2be283b"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_slash_crescent_gold.json",
+      "bytes": 522784,
+      "sha256": "9fe38306026601d7f046118085cf3cc3929da57dc001157912fbac6d17cb3d45"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_slash_crescent_shadow.json",
+      "bytes": 318320,
+      "sha256": "4b423a96a94487e0d2c8a0854889fdd21953019d34c4c61e2e51f912bd8be997"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_slash_crimson_heavy.json",
+      "bytes": 411578,
+      "sha256": "df90806b4f6f091cdeb85bcdb2590dd2ef4cdd43ce8fb0e0bd39baf21d410621"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_star_arrow_volley.json",
+      "bytes": 142364,
+      "sha256": "74c07dc508e071805fa77144b9086ba4a2ceeca2de421389b39c98f401484bd9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/vfx_titan_greatsword_drop.json",
+      "bytes": 284098,
+      "sha256": "0e67e26ca132d57e6adf64097ae288df5b4ec44b080e2f5a06e6e803940979f9"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_arcane_grimoire.json",
+      "bytes": 382350,
+      "sha256": "f14b07b23add11a1db1a54040bdb13cc5da3204b518709c376f3bf441fc8b35f"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_arcane_orb_tome.json",
+      "bytes": 406247,
+      "sha256": "a6a84f4aac8c16bd48c9c9c5d272f5a50799900824e11855f2ee1a3e8b509bbd"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_arcane_orb_tome_gui.json",
+      "bytes": 116,
+      "sha256": "e9439b95a78967ff1191eaf85e7efb4e332a71603687a54c8e7e27d1e3759ce3"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_berserker_greatsword.json",
+      "bytes": 641949,
+      "sha256": "cc8fd1ae2557e3245fb4c7fbbaaff51f743ae4fbc33dcb8201443ac293360520"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_berserker_greatsword_gui.json",
+      "bytes": 121,
+      "sha256": "1bf21d166432439259ccd3456239c31b3629372dc6d5d2489e10030d998568fb"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_paladin_sword.json",
+      "bytes": 320066,
+      "sha256": "c0f144f354f796d04067e5b12510a3f1f541a53755591ce5f622989c36d3a168"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_priest_staff.json",
+      "bytes": 365989,
+      "sha256": "08f89e70ac061955c63fc382e96a5ff9419e47a0640dd09b906777ac1f6d0192"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_priest_staff_gui.json",
+      "bytes": 113,
+      "sha256": "702c81b7839f023c5b1935b54e64809a75831cb411ada29a992152d7bc80a7c2"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_ranger_bow.json",
+      "bytes": 253161,
+      "sha256": "91b78bfa5712d971b5cfeec35479e09058d48edb7fc96fb571f979637a1b8b34"
+    },
+    {
+      "path": "assets/yuumi97/models/item/weapon_shadow_daggers.json",
+      "bytes": 223067,
+      "sha256": "49109dfaab03377caf4b935be5bb8388852962b470e373dda12f9c439e206a4c"
+    },
+    {
+      "path": "assets/yuumi97/models/item/you_and_me_bell.json",
+      "bytes": 49547,
+      "sha256": "27eefd7bfeb4e598e41928b6366600788d72884730ad3c4a0129bb9077144e83"
+    },
+    {
+      "path": "assets/yuumi97/monster_rigs.json",
+      "bytes": 6605,
+      "sha256": "3021c950bea667c8e1c81a070e4007160828b3d09494e21bc7a6adb7eaed25f9"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/ancient_cat_coin.png",
+      "bytes": 400,
+      "sha256": "88f5c703c04423a54237c4ef673be7ad33058296697af7916d0d242cdeaff0a7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/book_of_thresholds.png",
+      "bytes": 400,
+      "sha256": "d6c555fa309f02913b5ee1feeb6d5ee801e00329c9c357ceaea1da21be285e62"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_hound.png",
+      "bytes": 396,
+      "sha256": "484b203070d80782051d92bd98772250127a61be67ce87d93b97db0212cdc7bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_rat.png",
+      "bytes": 409,
+      "sha256": "f3636d9ef441a3faec0109cf3b4d7a93968e22e8e854e8e228132f64c222b91d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/boss_core_void.png",
+      "bytes": 376,
+      "sha256": "32ae6534a3163307ddf80b81af49dfb65f7167b2e7a18054ca5883ec072cfdf5"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/casino_chip.png",
+      "bytes": 392,
+      "sha256": "08bb4523144b5b5995c028887720b938ca1690150ad1395c63e038009a4a3404"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/catnip_elixir.png",
+      "bytes": 388,
+      "sha256": "47e940c7da34ccc2408a9b29bb003882ce35673c5287b995dbcf93d3a4e0ce43"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_crimson_claw.png",
+      "bytes": 352,
+      "sha256": "dfa9514a01d33c41c98cf1a1b7dd31a22d0cc8a59c563840fcb8c7bffa49711c"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_golden_whisker.png",
+      "bytes": 340,
+      "sha256": "3de8fb8a865fba47380c17ed4c2ae43509cf588e3bb91ba7bde692e83e1051d1"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_starlight_aegis.png",
+      "bytes": 349,
+      "sha256": "957e7fa2c377849d87dde87ef5a6a404265a5589821cf9732e38b2e61f03f560"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/charm_vampiric_purr.png",
+      "bytes": 353,
+      "sha256": "c476ab679daa9909d669e1456ce287b28de3c88302fbd7e0edb9666b2bc9cea3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_100.png",
+      "bytes": 413,
+      "sha256": "78cbbcba98d5dc5975292aa314538ddb9e73fed671180429266536ee09cdbb90"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_1000.png",
+      "bytes": 458,
+      "sha256": "ef4f6f1eebef103981366e893a7cbe333c2355613c838bd3db9ee39052ab0f0c"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/chip_10000.png",
+      "bytes": 438,
+      "sha256": "bfce5a047fef4b1123afffd202202dc8a190d25c7b613f4f796c9ecdc17c0000"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_golden.png",
+      "bytes": 370,
+      "sha256": "2c994bfe9eaae8e8c486d570548ab49fa189eb9c1444ab6c9c17219b4ec0352d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_salmon.png",
+      "bytes": 331,
+      "sha256": "9f2d06d6664a180a7f5766e03449a3a2028b769389bbcaf0fc92a2abb8302936"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/churu_tuna.png",
+      "bytes": 341,
+      "sha256": "58afd89b16484cd69f9034e7e600315697e3d682355640853ed754a3e05ace61"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/class_emblem.png",
+      "bytes": 381,
+      "sha256": "3c9f06f3a9435140805e7deadb6bcc9d9788806883fb1fed1542f4782b27c44a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/deep_sea_fillet.png",
+      "bytes": 363,
+      "sha256": "8a9299eeab0a700eac2a221d00d7c57e8be719d238d64148f0883fd7d94f3512"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/final_chapter_tome.png",
+      "bytes": 439,
+      "sha256": "db18cadd0e843c6a9b8c335b6327c26276d1af14f0f60da24883f846ef94cd0a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_cat_tower.png",
+      "bytes": 337,
+      "sha256": "4c41776cd43a48d32cb59b289bae71bf5742ae5443d46683f592809f23b5ec5d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_kotatsu.png",
+      "bytes": 374,
+      "sha256": "79a048c6b0203502c8d0efe14e196504e130d656106ce070f31241fcf996d54f"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/furn_neon_sign.png",
+      "bytes": 263,
+      "sha256": "a007d984753daadcf16221f30ea37662c07f4e18a559c9c3550ed0f68722ca8f"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/gacha_capsule.png",
+      "bytes": 357,
+      "sha256": "5a19f31b3b5327cfa5aadb46d60009a985d12f96670f149e2462a2dcf820bc23"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/golden_catnip.png",
+      "bytes": 334,
+      "sha256": "dc39001f1dae4e904a2b07331afd955fd8a2ac62ccfef094fe4e3298abbf5d83"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/guidebook.png",
+      "bytes": 437,
+      "sha256": "f612f1660a38fcb96d36a1fef69d46ed57b7d9b29bdf84460b21b65f95685e11"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/hat_chef_toque.png",
+      "bytes": 299,
+      "sha256": "0e4b07437d74fe137e689cc7c00005afaed0474b3b73209b778da8b933e1c4d0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/hat_stock_tophat.png",
+      "bytes": 346,
+      "sha256": "97a6e8b491f2517a71f60bb55436b13256b6b16b255a99d21b0eab0ba0b87dbf"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/jackpot_crown.png",
+      "bytes": 353,
+      "sha256": "a6ae2bde1ab5c9a1d1d349d9576a69db55ca6d11b6eedafd446ba45d5482b9e0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/kneading_bento.png",
+      "bytes": 373,
+      "sha256": "8c2e35d8d3a78b45537560dc0f621f4d4f4f49e31f5af13bfe858bb8377624d7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/labyrinth_key.png",
+      "bytes": 292,
+      "sha256": "cb66cc2070eeccbb0b14762b911a22f026d15da2752ba2a4bca41143caf377b8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/michelin_feast.png",
+      "bytes": 422,
+      "sha256": "704aed9dba8c50d84d57cb8624d634a2a30727983892f48c3706f3a8dd1718f9"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/monster_soul_core.png",
+      "bytes": 349,
+      "sha256": "bdf618b3938a1be61014a0da5c524a400afd0494510d8df065ab711bb61c4ee5"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/nine_lives_charm.png",
+      "bytes": 378,
+      "sha256": "eb3d74736e3f060aaba63e253f51772ecf3238fdb28d4b5c323b7ed24a7d0b82"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/prowling_wand.png",
+      "bytes": 374,
+      "sha256": "7c404e815c2f183517736c322a4362f8dcddf0b9b32831f5f33ce723d0940c6e"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/recall_bookmark.png",
+      "bytes": 359,
+      "sha256": "c3c26e3e8aca444ce81ca4882811c84ea3d2610e6f4bef9255e6e29bf75c9a58"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/respec_potion.png",
+      "bytes": 316,
+      "sha256": "25428f917fdc4a2a8d7ad8090044dbc04d23e5067563c548f0bd114491f15bc3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/royal_feast_can.png",
+      "bytes": 395,
+      "sha256": "8c173b475b7330d248b3355d0bd556328e825526b08ce1551f8a1aac74326dd7"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/rune_scroll.png",
+      "bytes": 360,
+      "sha256": "e298ab9a4f1f8f0405d2b53858cbede9c5043fef0cd93b1de4c0cc7a94f3e06d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_paw.png",
+      "bytes": 356,
+      "sha256": "d50c7a4801a690ce696b1150840b70fb04abd8eaabd9e04ef62f8f31bdfe87c9"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_seven.png",
+      "bytes": 292,
+      "sha256": "666470b4d38423161f057b0a9670366e90555a0791f0736d28a4a1a3df7cf4be"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/slot_yuumi.png",
+      "bytes": 436,
+      "sha256": "2ea6cdc940e480c55bda7e6039ceb22f99b8ab235df4f36065eb347f4a5f9c6d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/starlight_scroll.png",
+      "bytes": 361,
+      "sha256": "64bc048cb95ad71743abd685c804b99460f0c55766451b6a60dbe248c15b4f5a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/starlight_stone.png",
+      "bytes": 400,
+      "sha256": "fdb79539476b9e1d8575a82cbe412d85da9e13991c671589c781d71e528a01b8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_angler_harpoon.png",
+      "bytes": 332,
+      "sha256": "5dcf38f0beb230221122ca1198487da777035eb51691eb1f5ccac431b88def36"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_carpenter_axe.png",
+      "bytes": 374,
+      "sha256": "6ab1a24e863ef97da8247e61bea36ca9e56397e8b164c9dcfa38997e139f5299"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_chef_wok.png",
+      "bytes": 415,
+      "sha256": "88b6ee2120c784131d5aca48bd9e3e28f8104e737c31047753b55ed9440c7bf3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_farmer_scythe.png",
+      "bytes": 352,
+      "sha256": "bf697c016157679726247629c1ed8f04631772c4d53ecd0893a0a6a93a4a90d8"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_miner_drill.png",
+      "bytes": 346,
+      "sha256": "08b87baf3fd63ad2139f172f8c4d6f5f091aca3e7721c67ae2d814ab5e235861"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/tool_smith_hammer.png",
+      "bytes": 358,
+      "sha256": "5597e80f77c3b4cffd8a0c5ebbb70823ef2909ae7fb2f4e5d4c88564a6edcfae"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/torn_page.png",
+      "bytes": 312,
+      "sha256": "ffadb3ce85d46c10336243f20507d6b8fe4fe577979f8515af592368ca1f0e22"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/unidentified_geode.png",
+      "bytes": 370,
+      "sha256": "308220adbe6fb8a8b5040c3fe4c63ab79de667d27408e67ac64b648d4ac9ef3a"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_arcane_grimoire.png",
+      "bytes": 361,
+      "sha256": "36d8675fc96666777806833d8134dd122a134ed4e9679db72bf4765f68311115"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_arcane_orb_tome.png",
+      "bytes": 485,
+      "sha256": "4daf7c79330ce941748f72de2adf42b168f1c413c7a25b5fac7d1a913eb292b4"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_berserker_greatsword.png",
+      "bytes": 367,
+      "sha256": "484b1981382389949ebad0ea5104eff59c4a6e01a939ea04c3d68fd6bfebcd14"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_paladin_sword.png",
+      "bytes": 308,
+      "sha256": "afcf5578e3d44ca7d3c3325bf80722aa5d9daa38093161b235e91bcdf5bdc1a3"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_priest_staff.png",
+      "bytes": 368,
+      "sha256": "a18d0582d7cde145b1918b19ab2b2eeffadb6a312f9c24bba73b3d2ba1075d37"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_ranger_bow.png",
+      "bytes": 328,
+      "sha256": "4278295306c10cc20ff555b68f8e8054665efea2ad4d7d7b84492b3dd367394d"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/weapon_shadow_daggers.png",
+      "bytes": 302,
+      "sha256": "a90d6d73f887dcda2490df1173e89def86f0f1f17aa390724a5f33a421cf00c2"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/you_and_me_bell.png",
+      "bytes": 386,
+      "sha256": "999ba2ba8327a4d099073a55a2227a3efefa923c10bd1d727b58060091bfeda0"
+    },
+    {
+      "path": "assets/yuumi97/textures/item/zoomies_skewer.png",
+      "bytes": 342,
+      "sha256": "f5f4499b5f0dcec26522ff16b5ae6eca3a44b7fc893e29d31f3dbdab4d79e0fd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/book_of_thresholds.png",
+      "bytes": 1684,
+      "sha256": "38b7adff77d94736675ea0502eb68dd40547135993ed89dcd6c00a3c28f4e792"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_archivist_astro_core.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_archivist_astro_head.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_archivist_astro_weapon.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_eclipsia_core.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_eclipsia_head.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_eclipsia_weapon.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_ignion_core.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_ignion_head.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_ignion_weapon.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_novarion_core.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_novarion_head.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_novarion_weapon.png",
+      "bytes": 5050,
+      "sha256": "ee8d1cfe62abfaed50d45886c3e976cba289f2405e83fd6fb62e401671075ec5"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_twin_archons_core.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_twin_archons_head.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_twin_archons_weapon.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_warden_vulcantus_core.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_warden_vulcantus_head.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/boss_warden_vulcantus_weapon.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_cat_tower.png",
+      "bytes": 2263,
+      "sha256": "b04346060d6c6c38e8a23d8e96495a2f99b616af849ec5b906aa683695a9ff8a"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_kotatsu.png",
+      "bytes": 2714,
+      "sha256": "5db46f115ffad373a76f548491639739d746ed6e4f39f5a5edec29dab26e233c"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/furn_neon_sign.png",
+      "bytes": 1838,
+      "sha256": "73640c119f87bc633297eb549c3ccc15bf4d6badc0828919e627ae5fdc11225f"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/guidebook.png",
+      "bytes": 2175,
+      "sha256": "1eca359d628ca2962ded6cf2f9770f5e8a34dc9c16a1179b5fc0d0e471eeea76"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_chef_toque.png",
+      "bytes": 1694,
+      "sha256": "f7e93aedcb401ec66da1b2fe045e4b8cdd4a66c724f015dd54adb39220357957"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_stock_tophat.png",
+      "bytes": 1509,
+      "sha256": "f1237a3b9a3a34833c78ae1a5025edfaef93bacc79c930552af0357361a70dcc"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/hat_yuumi_ears.png",
+      "bytes": 1564,
+      "sha256": "1cf66af0e3adf7d06a38f2f7b44743c3ed16cf7caa88e7d7476183eac1a17afa"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_abyssal_oculus_arm.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_abyssal_oculus_body.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_chained_juggernaut_arm.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_chained_juggernaut_body.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_cinder_imp_arm.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_cinder_imp_body.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_clockwork_sentinel_arm.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_clockwork_sentinel_body.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_eclipse_templar_arm.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_eclipse_templar_body.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_grimoire_mimic_arm.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_grimoire_mimic_body.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_ink_librarian_arm.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_ink_librarian_body.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_mirror_stalker_arm.png",
+      "bytes": 4018,
+      "sha256": "90eeae6a1e7616276dccdd70bd34aa062cacc0c8d0e2e4ec03453d2afb456180"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_mirror_stalker_body.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_nebula_golem_arm.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_nebula_golem_body.png",
+      "bytes": 4780,
+      "sha256": "ed5dc85a9e6f2ccb07298bdd4ec07ce69c98b08d96764de8924de68daabf4a23"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_obsidian_bombardier_arm.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_obsidian_bombardier_body.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_slag_hound_arm.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_slag_hound_body.png",
+      "bytes": 5002,
+      "sha256": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_void_choir_arm.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/mob_void_choir_body.png",
+      "bytes": 3594,
+      "sha256": "78dea978686e5a3d0c0f64a56edc7f1d87b391db6ecd5b316ad2b6173f01c0bd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/plushie_yuumi.png",
+      "bytes": 1987,
+      "sha256": "58a5b7661887d07c799e88f2c9ac8ebcfb85704949f6549445a7e28291cba223"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_boon_altar.png",
+      "bytes": 4328,
+      "sha256": "1f305254b1e1ad649843d2a5c3217efc6882b4f2c55a9278951f937bbf238539"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_casino_chandelier.png",
+      "bytes": 3303,
+      "sha256": "95eac33e27d1d9de40c255479bb7688655745d1f5e3f84073e1da2319dae0dc3"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_casino_marquee.png",
+      "bytes": 4452,
+      "sha256": "7171d7ff17cc7667410110a275f8e26332797911967d8439526f099ae0ea936d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_dealer_throne.png",
+      "bytes": 3776,
+      "sha256": "b27d0304998a650dea861fe16065cb6337fc8654de0230bcc9b3eeff109b16cb"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_derby_trophy.png",
+      "bytes": 3504,
+      "sha256": "2e0a62cd72570359fc0fe610659fce500bcf8194505ff9c2f1e14fd35c05bc5e"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_dungeon_obelisk.png",
+      "bytes": 4177,
+      "sha256": "0cdd18af1d71d6e24ab9a1372aae07a7ae1d3483f8ff0ce125c03111e9fc7012"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_feast_cauldron.png",
+      "bytes": 4778,
+      "sha256": "64fc160a2b82896cc3c1af62fe042150177943323c864d519a7615f72f5854b5"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_gacha_machine.png",
+      "bytes": 3931,
+      "sha256": "7d01952e5521e9f780b3eb9939036d7e4ef0d96de679d612c854e752f99a97e4"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_plaza_clock_face.png",
+      "bytes": 4452,
+      "sha256": "7171d7ff17cc7667410110a275f8e26332797911967d8439526f099ae0ea936d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_roulette_wheel.png",
+      "bytes": 3354,
+      "sha256": "3219194e7e03e8d847cdc11c09f7a0862816005ff3459ac68ca2457aeb6a860d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_sakura_lantern_arch.png",
+      "bytes": 4812,
+      "sha256": "5b46b57ce53306a229c9f701622e21070b1a7d0740e4546cae99e0b42ce48d20"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_slot_cabinet.png",
+      "bytes": 3668,
+      "sha256": "847433b243cff9d489c8c6ba238e6525fbbacca52b920ed5c7528cfca71240cd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_stock_board.png",
+      "bytes": 4368,
+      "sha256": "fd4f6c25186fb675e4569f9daeea25d801e116dc4d9a4cd003a8cea0a0a78a9d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_training_dummy.png",
+      "bytes": 4019,
+      "sha256": "fd614b4c1178d2a31e0c6508365d53deddeafb806e83138b0a1d478d816b0acc"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_wayfinder_arrow.png",
+      "bytes": 1599,
+      "sha256": "f88d40544d73fc9cc99fa9a9b57ad581f7322ae5e7cd936ca7790d7e1a7c88ac"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prop_yuumi_statue.png",
+      "bytes": 3750,
+      "sha256": "e0d9ba7738d5fa187d0b1fbea88319a775c3bac5914b6893f020164bbb3f17f6"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/prowling_wand.png",
+      "bytes": 1388,
+      "sha256": "c706f0845e2152e0aecc9c775662d877a8fb585a8a986187b5d8018790eba99f"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_angler_harpoon.png",
+      "bytes": 1855,
+      "sha256": "d0c93435309e01a865464fe338320eb10a1b3bb93c6dbc179911fcd851950b62"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_carpenter_axe.png",
+      "bytes": 1764,
+      "sha256": "cedacd1f9b464d663bb8b8be7a1d7efeb4ceb2f0ab222b8c7561950f81d96953"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_chef_wok.png",
+      "bytes": 1847,
+      "sha256": "5699a4828fe1032289e55a44e37cf17738e4beada1011706d8a3c7233ff44163"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_farmer_scythe.png",
+      "bytes": 1833,
+      "sha256": "cbcdd15a4cd0e3b54fd29f2e70c2e29d9b5f1b1b14a240b0a8f1a78c3c310d45"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_miner_drill.png",
+      "bytes": 1767,
+      "sha256": "1967e27cb76c5c76e4c130ed4c37cb623c5d243966def179a4c99f91148e301a"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/tool_smith_hammer.png",
+      "bytes": 1877,
+      "sha256": "5a2c8303d08cd4d3168eca15a9db9f9f96c6e79735b8dcc7fbdf2999677bf24d"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_arcane_meteor.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_astral_bow_sigil.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_feast_cauldron_aura.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_golden_fishing_vortex.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_gravity_singularity.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_holy_spear.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_magic_circle_arcane.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_magic_circle_sanctuary.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_shadow_mark_crest.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_slash_crescent_gold.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_slash_crescent_shadow.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_slash_crimson_heavy.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_star_arrow_volley.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/vfx_titan_greatsword_drop.png",
+      "bytes": 4830,
+      "sha256": "99882300b61861c235860de1f2a562a58c2c6ae3c32b5f4f6539319fb6009349"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_arcane_grimoire.png",
+      "bytes": 1888,
+      "sha256": "3664ce2c0904d9eaf80f7cef70493e5464971bba0e54b750db65f4360ee93bcd"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_arcane_orb_tome.png",
+      "bytes": 3064,
+      "sha256": "7526e8e06cf83c1c819a002827763f3276fe98fa006c8840a0fce8638bad775b"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_berserker_greatsword.png",
+      "bytes": 2222,
+      "sha256": "92ee918c1f0af4cfcdc587ae6a22792f8ea2405a0a35b368e5f25dd16ff62626"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_paladin_sword.png",
+      "bytes": 1639,
+      "sha256": "6253d990808032b18da9e52201af8ef91ff3f919564849421b4e65f802446cde"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_priest_staff.png",
+      "bytes": 2312,
+      "sha256": "bb827fdea847c1c9c97351ecbf4fd31442ac960ef1ee9e8d4be59a01645a0031"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_ranger_bow.png",
+      "bytes": 1636,
+      "sha256": "a353e6895d7af08a47e82f82b4d117811ff7022b77ca86563341ce30e1623bed"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/weapon_shadow_daggers.png",
+      "bytes": 1770,
+      "sha256": "b5d1c3fefe8c0d91ff7673e08435a14f12526e014c1603dc8086adadb24217e3"
+    },
+    {
+      "path": "assets/yuumi97/textures/prop/you_and_me_bell.png",
+      "bytes": 1233,
+      "sha256": "4943e700beb5e6a97becde71dd542203b8144019994295ecf18771c2dd75a175"
+    }
+  ],
+  "failures": []
+}

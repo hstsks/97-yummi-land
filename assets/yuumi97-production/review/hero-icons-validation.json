@@ -1,0 +1,82 @@
+{
+  "count": 4,
+  "antialiasing": false,
+  "icons": [
+    {
+      "id": "weapon_berserker_greatsword",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "binaryAlpha": true,
+      "transparentMargin": 1,
+      "visiblePixels": 316,
+      "paletteColors": 12,
+      "bounds": [
+        3,
+        1,
+        29,
+        30
+      ]
+    },
+    {
+      "id": "weapon_priest_staff",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "binaryAlpha": true,
+      "transparentMargin": 1,
+      "visiblePixels": 286,
+      "paletteColors": 11,
+      "bounds": [
+        5,
+        1,
+        29,
+        30
+      ]
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "binaryAlpha": true,
+      "transparentMargin": 1,
+      "visiblePixels": 526,
+      "paletteColors": 11,
+      "bounds": [
+        2,
+        1,
+        29,
+        30
+      ]
+    },
+    {
+      "id": "guidebook",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "binaryAlpha": true,
+      "transparentMargin": 1,
+      "visiblePixels": 625,
+      "paletteColors": 14,
+      "bounds": [
+        3,
+        2,
+        29,
+        29
+      ]
+    }
+  ]
+}

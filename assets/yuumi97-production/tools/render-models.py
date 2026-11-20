@@ -1,5 +1,5 @@
 """JSON/PNG review. Use --prepare, then --render-saved in a fresh Blender process.
-Run tools/render-v3.ps1 to serialize the complete workflow. Context rigs are
+Run tools/render-models.ps1 to serialize the complete workflow. Context rigs are
 approximations; they do not reproduce enclosing Minecraft player/entity poses.
 """
 import argparse, hashlib, json, math, os, sys
@@ -12,7 +12,7 @@ OUT=ROOT/'resourcepack-gen/overrides/assets/yuumi97'
 PROD=ROOT/'assets/yuumi97-production'
 AXIS=Matrix(((1,0,0),(0,0,-1),(0,1,0)))
 AXIS4=AXIS.to_4x4()
-VIEWS={'front':(0,6,.4),'side':(6,0,.4),'rear':(0,-6,.4),'threequarter':(4,6,3.4)}
+VIEWS={'front':(0,6,.05),'side':(6,0,.05),'rear':(0,-6,.05),'threequarter':(4,6,3.4),'top':(0,.001,6)}
 HANDS=['thirdperson_righthand','thirdperson_lefthand','firstperson_righthand','firstperson_lefthand']
 NOTICE='Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.'
 MOUNT_FILE=PROD/'sources/landmarks-v31-mounts.json'
@@ -62,20 +62,29 @@ def frame(scene,objects,direction=(4,6,3.4)):
             o.rotation_euler=(center-o.location).to_track_quat('-Z','Y').to_euler()
     return lo,hi
 
-def create_model(model_id,device):
+def initialize_scene(device,exposure=-.7):
     bpy.ops.wm.read_factory_settings(use_empty=True)
-    data=json.loads(model_path(model_id).read_text(encoding='utf-8'))
+    bpy.context.preferences.filepaths.file_preview_type='NONE'
     scene=bpy.context.scene;configure_cycles(scene,device)
     scene.render.resolution_x=640;scene.render.resolution_y=640;scene.render.resolution_percentage=100
     scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA';scene.render.film_transparent=False
     scene.view_settings.view_transform='Standard';scene.view_settings.look='None'
     # White chef cloth needs one lower review stop to retain its actual modeled folds.
     # This changes only the review lighting; delivered atlas colors are untouched.
-    scene.view_settings.exposure=-1.7 if model_id=='hat_chef_toque' else -.7
+    scene.view_settings.exposure=exposure
     world=bpy.data.worlds.new('Neutral studio');world.use_nodes=True
     nodes=world.node_tree.nodes;nodes.clear();background=nodes.new('ShaderNodeBackground');output=nodes.new('ShaderNodeOutputWorld')
     background.inputs[0].default_value=(.17,.19,.23,1);background.inputs[1].default_value=.45
     world.node_tree.links.new(background.outputs[0],output.inputs[0]);scene.world=world
+    for name,pos,energy,size in [('Key',(3,4,6),450,5),('Fill',(-4,2,3),180,4),('Rim',(1,-4,4),240,3)]:
+        light=bpy.data.lights.new(name,'AREA');light.energy=energy;light.shape='DISK';light.size=size
+        obj=bpy.data.objects.new(name,light);scene.collection.objects.link(obj);obj['review_direction']=pos
+    camera=bpy.data.objects.new('Review camera',bpy.data.cameras.new('Review camera'));scene.collection.objects.link(camera);scene.camera=camera
+    return scene
+
+def create_model(model_id,device,append_to=None):
+    scene=initialize_scene(device,-1.7 if model_id=='hat_chef_toque' else -.7) if append_to is None else bpy.context.scene
+    data=json.loads(model_path(model_id).read_text(encoding='utf-8'))
     materials={};hashes={str(model_path(model_id)):sha(model_path(model_id))}
     if model_id in LANDMARK_MOUNTS:hashes[str(MOUNT_FILE)]=sha(MOUNT_FILE)
     def material(ref):
@@ -93,7 +102,7 @@ def create_model(model_id,device):
         output=nodes.new('ShaderNodeOutputMaterial')
         mat.node_tree.links.new(tex.outputs['Color'],bsdf.inputs['Base Color']);mat.node_tree.links.new(tex.outputs['Alpha'],bsdf.inputs['Alpha'])
         mat.node_tree.links.new(bsdf.outputs['BSDF'],output.inputs['Surface']);materials[ref]=mat;return mat
-    root=bpy.data.objects.new('MODEL_ROOT',None);scene.collection.objects.link(root);objects=[]
+    root=bpy.data.objects.new('MODEL_ROOT' if append_to is None else model_id,None);scene.collection.objects.link(root);root.parent=append_to;objects=[]
     for index,e in enumerate(data['elements']):
         x0,y0,z0=e['from'];x1,y1,z1=e['to']
         sides={
@@ -127,14 +136,15 @@ def create_model(model_id,device):
         for i,uv in enumerate(uvs):layer.data[i].uv=uv
         for i,mat in enumerate(mats):mesh.materials.append(mat);mesh.polygons[i].material_index=i
         obj['minecraft_element']=json.dumps(e);obj['review_model_part']=True
-    for name,pos,energy,size in [('Key',(3,4,6),450,5),('Fill',(-4,2,3),180,4),('Rim',(1,-4,4),240,3)]:
-        light=bpy.data.lights.new(name,'AREA');light.energy=energy;light.shape='DISK';light.size=size
-        obj=bpy.data.objects.new(name,light);scene.collection.objects.link(obj);obj['review_direction']=pos
-    camera=bpy.data.objects.new('Review camera',bpy.data.cameras.new('Review camera'));scene.collection.objects.link(camera);scene.camera=camera
+    if append_to is not None:return objects,hashes,data,root
     lo,hi=frame(scene,objects)
     scene['model_id']=model_id;scene['bounds_low']=list(lo);scene['bounds_high']=list(hi)
     scene['review_notice']=NOTICE;scene['source_hashes']=json.dumps(hashes);scene['display_json']=json.dumps(data['display'])
-    scene['prepared_pid']=os.getpid();scene['importer_version']=3
+    for extra in ['model-review-contract.json','hero-grip-anchors.json','skill-vfx-contract.json']:
+        p=PROD/'sources'/extra
+        if p.exists():hashes[str(p)]=sha(p)
+    scene['source_hashes']=json.dumps(hashes)
+    scene['prepared_pid']=os.getpid();scene['importer_version']=4
     blend=PROD/'sources/blend'/f'{model_id}.blend';blend.parent.mkdir(parents=True,exist_ok=True)
     # Camera, lights and packed textures are all present in the saved editable source.
     bpy.ops.wm.save_as_mainfile(filepath=str(blend),compress=False)
@@ -175,9 +185,13 @@ def render_png(scene,path,note):
 
 def context_views(scene,model_id,objects,data):
     if model_id in LANDMARK_MOUNTS:return landmark_context_views(scene,model_id,objects)
+    contract=json.loads((PROD/'sources/model-review-contract.json').read_text(encoding='utf-8'))['models'].get(model_id,{})
+    if model_id.startswith('vfx_') or model_id=='prop_wayfinder_arrow':return effect_context_views(scene,model_id,objects,contract)
     root=scene.objects['MODEL_ROOT'];dest=PROD/'review/contexts'/model_id;records=[]
     anchor_path=PROD/'sources/class-weapons-anchors.json'
     anchors=json.loads(anchor_path.read_text(encoding='utf-8')).get('models',{}) if anchor_path.exists() else {}
+    hero_anchors=PROD/'sources/hero-grip-anchors.json'
+    if hero_anchors.exists():anchors.update(json.loads(hero_anchors.read_text(encoding='utf-8'))['models'])
     scene.render.resolution_x=scene.render.resolution_y=480
     neutral=plain_material('JIG slate',(.24,.31,.39));glove=plain_material('JIG glove',(.62,.40,.28))
     marker=plain_material('JIG anchor cyan',(.15,.82,.77))
@@ -223,6 +237,36 @@ def context_views(scene,model_id,objects,data):
             records.append(record)
     clear_jigs();scene.render.resolution_x=scene.render.resolution_y=640
     write_json(dest/'contexts.json',{'id':model_id,'notice':'APPROXIMATE JIG; Minecraft client verification required.','matrixConvention':'ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.','contexts':records})
+    return records
+
+def effect_context_views(scene,model_id,objects,contract):
+    root=scene.objects['MODEL_ROOT'];dest=PROD/'review/contexts'/model_id;kind=contract['kind'];records=[]
+    neutral=plain_material('JIG reference surface',(.12,.17,.23))
+    cyan=plain_material('JIG pivot marker',(.18,.64,.68))
+    if kind in ['floor','floor_disc','water_funnel','horizontal_ring']:
+        lo,hi=bounds(objects)
+        y=0 if kind=='floor' else (7.5 if kind in ['floor_disc','horizontal_ring'] else -.1)
+        z=(y-8)/16
+        fixture=jig_box('JIG reference plane',(lo.x-.16,lo.y-.16,z-.025),(hi.x+.16,hi.y+.16,z),neutral)
+        frame(scene,objects+[fixture]);name='floor-contact' if kind=='floor' else 'orientation-plane'
+        render_png(scene,dest/f'context-{name}.png',model_id+' / '+kind.upper()+' / AUTHORED PIVOT Y=8')
+        record={'context':name,'kind':kind,'planeYModelUnits':y,'minimumYModelUnits':round(lo.z*16+8,6),'pivot':[8,8,8]}
+        if kind=='floor':
+            record['touchesFloor']=abs(lo.z*16+8)<.001
+            if not record['touchesFloor']:raise RuntimeError('Floor aura has a gap or penetration')
+        records.append(record)
+    else:
+        for yaw in ([180,0] if model_id=='prop_wayfinder_arrow' else [180]):
+            root.matrix_world=Matrix.Rotation(math.radians(180-yaw),4,'Z');bpy.context.view_layer.update()
+            mark=jig_box('JIG model origin',(-.035,-.035,-.035),(.035,.035,.035),cyan)
+            frame(scene,objects+[mark]);name=f'direction-yaw{yaw}'
+            render_png(scene,dest/f'context-{name}.png',model_id+f' / BUKKIT YAW {yaw} / MODEL ORIGIN [8,8,8]')
+            records.append({'context':name,'kind':kind,'bukkitYaw':yaw,'pivot':[8,8,8],'frontNative':contract.get('front',[0,0,-1]),'travelNative':contract.get('travel'),'displayTransform':'NONE'})
+            bpy.data.objects.remove(mark,do_unlink=True)
+    for obj in list(scene.objects):
+        if obj.get('review_jig'):bpy.data.objects.remove(obj,do_unlink=True)
+    root.matrix_world=Matrix.Identity(4);bpy.context.view_layer.update()
+    write_json(dest/'contexts.json',{'id':model_id,'contract':contract,'notice':NOTICE,'contexts':records})
     return records
 
 def landmark_context_views(scene,model_id,objects):
@@ -303,8 +347,8 @@ def render_saved(model_id,device,with_contexts):
     lo,hi=bounds(objects);data=json.loads(model_path(model_id).read_text(encoding='utf-8'))
     records=context_views(scene,model_id,objects,data) if with_contexts else []
     distance_views(scene,model_id,objects)
-    write_json(dest/'geometry.json',{'id':model_id,'elements':len(objects),'bounds_model_units':[[round(v*16+8,4) for v in [lo.x,lo.z,-hi.y]],[round(v*16+8,4) for v in [hi.x,hi.z,-lo.y]]],'source':str(blend),'views':list(VIEWS),'engine':'Blender Cycles 20 samples / Standard / nearest texture','exposure':scene.view_settings.exposure,'exposureNote':'Chef review exposure reduced from -0.7 to -1.7 after initial highlight-clipping review; asset texture colors unchanged. Compare before/after geometry with this lighting difference in mind.' if model_id=='hat_chef_toque' else 'Baseline review exposure -0.7.','device':selection,'freshProcessReopen':True,'packedTextures':True,'sourceSha256':hashes,'contextImages':[r['context'] for r in records],'notice':NOTICE,'limitations':['Face UV rotation not fixture-certified against Minecraft.','Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.','Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation.']})
-    print(json.dumps({'phase':'rendered','id':model_id,'views':4,'contexts':len(records),'device':selection['device']}),flush=True)
+    write_json(dest/'geometry.json',{'id':model_id,'elements':len(objects),'bounds_model_units':[[round(v*16+8,4) for v in [lo.x,lo.z,-hi.y]],[round(v*16+8,4) for v in [hi.x,hi.z,-lo.y]]],'source':str(blend),'blendSha256':sha(blend),'preparedPid':scene['prepared_pid'],'renderPid':os.getpid(),'views':list(VIEWS),'engine':'Blender Cycles 20 samples / Standard / nearest texture','exposure':scene.view_settings.exposure,'exposureNote':'Chef review exposure reduced from -0.7 to -1.7 after initial highlight-clipping review; asset texture colors unchanged. Compare before/after geometry with this lighting difference in mind.' if model_id=='hat_chef_toque' else 'Baseline review exposure -0.7.','device':selection,'freshProcessReopen':True,'packedTextures':True,'sourceSha256':hashes,'contextImages':[r['context'] for r in records],'notice':NOTICE,'limitations':['Face UV rotation not fixture-certified against Minecraft.','Cycles alpha/lighting and ignored shade/cullface/gui_light differ from vanilla.','Context jigs do not certify enclosing player/entity transforms, FOV, attack or bow animation.']})
+    print(json.dumps({'phase':'rendered','id':model_id,'views':len(VIEWS),'contexts':len(records),'device':selection['device']}),flush=True)
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);mode=parser.add_mutually_exclusive_group(required=True)

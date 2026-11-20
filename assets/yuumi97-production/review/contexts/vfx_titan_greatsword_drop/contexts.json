@@ -1,0 +1,39 @@
+{
+  "id": "vfx_titan_greatsword_drop",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "downward",
+    "tip": [
+      8,
+      -14,
+      8
+    ],
+    "maximumY": 30,
+    "friendlyFirePalette": true
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "downward",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    }
+  ]
+}

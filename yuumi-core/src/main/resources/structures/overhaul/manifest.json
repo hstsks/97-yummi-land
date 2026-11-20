@@ -1,0 +1,4352 @@
+{
+  "minecraftVersion": "1.21.4",
+  "dataVersion": 4189,
+  "slotStride": 1024,
+  "coordinateConvention": "Integer positions are block cells. entityFeet anchors give standing feet; X/Z may use +0.5 cell centers. Dungeon origin X is relative to cx=slot*1024. No rotation or mirroring.",
+  "decisions": {
+    "roseWindow": {
+      "diameter": 19,
+      "localY": [
+        11,
+        29
+      ],
+      "basis": "User-approved circular window"
+    },
+    "balcony": {
+      "floorWorldY": 74,
+      "feetWorldY": 75
+    },
+    "sanctuary": {
+      "floorWorldY": 67,
+      "feetWorldY": 68
+    },
+    "runtime": "NBT contains no entities or closed dynamic gates. Stream03 attaches interactions and gates."
+  },
+  "structures": [
+    {
+      "title": "문턱의 만능 길드 대공방",
+      "theme": "cherry-platinum-gothic",
+      "world": "yuumi_hub",
+      "anchors": [
+        {
+          "name": "entrance_south",
+          "kind": "entityFeet",
+          "local": [
+            14.5,
+            1,
+            24.5
+          ],
+          "world": [
+            -21.5,
+            65,
+            -19.5
+          ]
+        },
+        {
+          "name": "entrance_west",
+          "kind": "entityFeet",
+          "local": [
+            0.5,
+            1,
+            12.5
+          ],
+          "world": [
+            -35.5,
+            65,
+            -31.5
+          ]
+        },
+        {
+          "name": "entrance_east",
+          "kind": "entityFeet",
+          "local": [
+            28.5,
+            1,
+            12.5
+          ],
+          "world": [
+            -7.5,
+            65,
+            -31.5
+          ]
+        },
+        {
+          "name": "entrance_north",
+          "kind": "entityFeet",
+          "local": [
+            21.5,
+            1,
+            0.5
+          ],
+          "world": [
+            -14.5,
+            65,
+            -43.5
+          ]
+        },
+        {
+          "name": "smith_npc",
+          "kind": "entityFeet",
+          "local": [
+            5.5,
+            1,
+            7.5
+          ],
+          "world": [
+            -30.5,
+            65,
+            -36.5
+          ]
+        },
+        {
+          "name": "vault_npc",
+          "kind": "entityFeet",
+          "local": [
+            23.5,
+            1,
+            7.5
+          ],
+          "world": [
+            -12.5,
+            65,
+            -36.5
+          ]
+        },
+        {
+          "name": "carpenter_chef_npc",
+          "kind": "entityFeet",
+          "local": [
+            23.5,
+            1,
+            15.5
+          ],
+          "world": [
+            -12.5,
+            65,
+            -28.5
+          ]
+        },
+        {
+          "name": "enchanting_table",
+          "kind": "block",
+          "local": [
+            14,
+            1,
+            4
+          ],
+          "world": [
+            -22,
+            65,
+            -40
+          ]
+        },
+        {
+          "name": "enchanting_approach",
+          "kind": "entityFeet",
+          "local": [
+            14.5,
+            1,
+            6.5
+          ],
+          "world": [
+            -21.5,
+            65,
+            -37.5
+          ]
+        },
+        {
+          "name": "ender_chest_approach",
+          "kind": "entityFeet",
+          "local": [
+            24.5,
+            1,
+            10.5
+          ],
+          "world": [
+            -11.5,
+            65,
+            -33.5
+          ]
+        },
+        {
+          "name": "forge_approach",
+          "kind": "entityFeet",
+          "local": [
+            4.5,
+            1,
+            11.5
+          ],
+          "world": [
+            -31.5,
+            65,
+            -32.5
+          ]
+        },
+        {
+          "name": "holy_water",
+          "kind": "block",
+          "local": [
+            14,
+            1,
+            12
+          ],
+          "world": [
+            -22,
+            65,
+            -32
+          ]
+        },
+        {
+          "name": "disposal_cauldron",
+          "kind": "block",
+          "local": [
+            25,
+            1,
+            19
+          ],
+          "world": [
+            -11,
+            65,
+            -25
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "south_to_enchanting",
+          "points": [
+            [
+              14.5,
+              1,
+              24.5
+            ],
+            [
+              14.5,
+              1,
+              17.5
+            ],
+            [
+              11.5,
+              1,
+              17.5
+            ],
+            [
+              11.5,
+              1,
+              8.5
+            ],
+            [
+              14.5,
+              1,
+              8.5
+            ],
+            [
+              14.5,
+              1,
+              6.5
+            ]
+          ]
+        },
+        {
+          "name": "west_to_smith",
+          "points": [
+            [
+              0.5,
+              1,
+              12.5
+            ],
+            [
+              2.5,
+              1,
+              12.5
+            ],
+            [
+              2.5,
+              1,
+              7.5
+            ],
+            [
+              5.5,
+              1,
+              7.5
+            ]
+          ]
+        },
+        {
+          "name": "east_to_vault",
+          "points": [
+            [
+              28.5,
+              1,
+              12.5
+            ],
+            [
+              23.5,
+              1,
+              12.5
+            ],
+            [
+              23.5,
+              1,
+              7.5
+            ]
+          ]
+        },
+        {
+          "name": "north_to_carpenter",
+          "points": [
+            [
+              21.5,
+              1,
+              0.5
+            ],
+            [
+              21.5,
+              1,
+              15.5
+            ],
+            [
+              23.5,
+              1,
+              15.5
+            ]
+          ]
+        }
+      ],
+      "reservations": [
+        {
+          "name": "npc_5_7",
+          "min": [
+            4,
+            1,
+            6
+          ],
+          "max": [
+            6,
+            4,
+            8
+          ],
+          "require": "air"
+        },
+        {
+          "name": "npc_23_7",
+          "min": [
+            22,
+            1,
+            6
+          ],
+          "max": [
+            24,
+            4,
+            8
+          ],
+          "require": "air"
+        },
+        {
+          "name": "npc_23_15",
+          "min": [
+            22,
+            1,
+            14
+          ],
+          "max": [
+            24,
+            4,
+            16
+          ],
+          "require": "air"
+        },
+        {
+          "name": "ender_lids",
+          "min": [
+            25,
+            2,
+            10
+          ],
+          "max": [
+            25,
+            3,
+            11
+          ],
+          "require": "air"
+        }
+      ],
+      "clockMounts": [
+        {
+          "face": "north",
+          "plane": 3,
+          "center": [
+            6.5,
+            16.5,
+            3
+          ],
+          "backing": [
+            5,
+            15,
+            3,
+            7,
+            17,
+            3
+          ]
+        },
+        {
+          "face": "south",
+          "plane": 10,
+          "center": [
+            6.5,
+            16.5,
+            10
+          ],
+          "backing": [
+            5,
+            15,
+            9,
+            7,
+            17,
+            9
+          ]
+        },
+        {
+          "face": "west",
+          "plane": 3,
+          "center": [
+            3,
+            16.5,
+            6.5
+          ],
+          "backing": [
+            3,
+            15,
+            5,
+            3,
+            17,
+            7
+          ]
+        },
+        {
+          "face": "east",
+          "plane": 10,
+          "center": [
+            10,
+            16.5,
+            6.5
+          ],
+          "backing": [
+            9,
+            15,
+            5,
+            9,
+            17,
+            7
+          ]
+        }
+      ],
+      "features": [
+        "four-open-arcades",
+        "ribbed-pitched-nave",
+        "four-clock-dial-backs",
+        "26-active-bookshelves",
+        "contained-waterlogged-basin",
+        "three-functional-service-bays"
+      ],
+      "id": "hub_grand_utility_hall",
+      "file": "hub_grand_utility_hall.nbt",
+      "size": [
+        29,
+        26,
+        25
+      ],
+      "origin": [
+        -36,
+        64,
+        -44
+      ],
+      "originMode": "absolute",
+      "sha256": "45e94c5a33a9df037e3aa0e18bae3246abbd2a3dec4046a133ac7bb21e1f558a",
+      "bytes": 51126,
+      "blockCount": 18850,
+      "counts": {
+        "minecraft:polished_diorite": 172,
+        "minecraft:chiseled_quartz_block": 119,
+        "minecraft:smooth_quartz": 455,
+        "minecraft:calcite": 83,
+        "minecraft:cherry_planks": 78,
+        "minecraft:ochre_froglight": 37,
+        "minecraft:gold_block": 192,
+        "minecraft:sea_lantern": 1,
+        "minecraft:air": 15876,
+        "minecraft:bookshelf": 26,
+        "minecraft:quartz_pillar": 164,
+        "minecraft:brewing_stand": 2,
+        "minecraft:enchanting_table": 1,
+        "minecraft:smithing_table": 2,
+        "minecraft:cartography_table": 1,
+        "minecraft:loom": 1,
+        "minecraft:anvil": 3,
+        "minecraft:ender_chest": 2,
+        "minecraft:quartz_stairs": 140,
+        "minecraft:water": 1,
+        "minecraft:grindstone": 2,
+        "minecraft:crafting_table": 3,
+        "minecraft:stonecutter": 1,
+        "minecraft:blast_furnace": 3,
+        "minecraft:smoker": 3,
+        "minecraft:cherry_fence": 5,
+        "minecraft:lava_cauldron": 1,
+        "minecraft:cherry_slab": 13,
+        "minecraft:lantern": 8,
+        "minecraft:deepslate_tiles": 65,
+        "minecraft:smooth_quartz_stairs": 91,
+        "minecraft:stripped_cherry_log": 222,
+        "minecraft:chain": 11,
+        "minecraft:smooth_quartz_slab": 116,
+        "minecraft:pink_stained_glass": 28,
+        "minecraft:cherry_stairs": 52,
+        "minecraft:cherry_log": 44,
+        "minecraft:deepslate_tile_stairs": 665,
+        "minecraft:cherry_leaves": 102,
+        "minecraft:blue_concrete": 36,
+        "minecraft:deepslate_tile_slab": 23
+      },
+      "seams": []
+    },
+    {
+      "title": "중앙 광장 만능 가이드북 키오스크",
+      "world": "yuumi_hub",
+      "anchors": [
+        {
+          "name": "guidebook_lectern",
+          "kind": "block",
+          "local": [
+            3,
+            2,
+            3
+          ],
+          "world": [
+            8,
+            66,
+            8
+          ]
+        },
+        {
+          "name": "lectern_approach_south",
+          "kind": "entityFeet",
+          "local": [
+            3.5,
+            2,
+            4.5
+          ],
+          "world": [
+            8.5,
+            66,
+            9.5
+          ]
+        },
+        {
+          "name": "lectern_approach_north",
+          "kind": "entityFeet",
+          "local": [
+            3.5,
+            2,
+            2.5
+          ],
+          "world": [
+            8.5,
+            66,
+            7.5
+          ]
+        },
+        {
+          "name": "lectern_approach_west",
+          "kind": "entityFeet",
+          "local": [
+            2.5,
+            2,
+            3.5
+          ],
+          "world": [
+            7.5,
+            66,
+            8.5
+          ]
+        },
+        {
+          "name": "lectern_approach_east",
+          "kind": "entityFeet",
+          "local": [
+            4.5,
+            2,
+            3.5
+          ],
+          "world": [
+            9.5,
+            66,
+            8.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "south_stair",
+          "points": [
+            [
+              3.5,
+              1,
+              6.5
+            ],
+            [
+              3.5,
+              1.5,
+              5.8
+            ],
+            [
+              3.5,
+              2,
+              5.2
+            ],
+            [
+              3.5,
+              2,
+              4.5
+            ]
+          ]
+        },
+        {
+          "name": "north_stair",
+          "points": [
+            [
+              3.5,
+              1,
+              0.5
+            ],
+            [
+              3.5,
+              1.5,
+              1.2
+            ],
+            [
+              3.5,
+              2,
+              1.8
+            ],
+            [
+              3.5,
+              2,
+              2.5
+            ]
+          ]
+        },
+        {
+          "name": "west_stair",
+          "points": [
+            [
+              0.5,
+              1,
+              3.5
+            ],
+            [
+              1.2,
+              1.5,
+              3.5
+            ],
+            [
+              1.8,
+              2,
+              3.5
+            ],
+            [
+              2.5,
+              2,
+              3.5
+            ]
+          ]
+        },
+        {
+          "name": "east_stair",
+          "points": [
+            [
+              6.5,
+              1,
+              3.5
+            ],
+            [
+              5.8,
+              1.5,
+              3.5
+            ],
+            [
+              5.2,
+              2,
+              3.5
+            ],
+            [
+              4.5,
+              2,
+              3.5
+            ]
+          ]
+        }
+      ],
+      "reservations": [
+        {
+          "name": "guidebook_hologram",
+          "min": [
+            2,
+            3,
+            2
+          ],
+          "max": [
+            4,
+            5,
+            4
+          ],
+          "require": "air"
+        }
+      ],
+      "features": [
+        "four-sided-stair-plinth",
+        "south-facing-lectern",
+        "supported-cat-ear-dome",
+        "reserved-3x3-hologram"
+      ],
+      "id": "hub_guidebook_kiosk",
+      "file": "hub_guidebook_kiosk.nbt",
+      "size": [
+        7,
+        9,
+        7
+      ],
+      "origin": [
+        5,
+        64,
+        5
+      ],
+      "originMode": "absolute",
+      "sha256": "3c5ad4e430aa963ccb98862f08a94f74e9e6da404f24ab70debc0e094e5cb45b",
+      "bytes": 1596,
+      "blockCount": 441,
+      "counts": {
+        "minecraft:polished_diorite": 49,
+        "minecraft:air": 293,
+        "minecraft:gold_block": 9,
+        "minecraft:smooth_quartz_stairs": 12,
+        "minecraft:smooth_quartz": 34,
+        "minecraft:chiseled_quartz_block": 4,
+        "minecraft:lectern": 1,
+        "minecraft:stripped_cherry_log": 8,
+        "minecraft:quartz_pillar": 4,
+        "minecraft:lantern": 4,
+        "minecraft:smooth_quartz_slab": 20,
+        "minecraft:ochre_froglight": 1,
+        "minecraft:cherry_stairs": 2
+      },
+      "seams": []
+    },
+    {
+      "chapter": 1,
+      "zone": 1,
+      "theme": "Starlight Astral Archive",
+      "role": "Expedition vestibule",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "party-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            15.5,
+            7,
+            21.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -6.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              21.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone1",
+      "file": "ch1_zone1.nbt",
+      "size": [
+        31,
+        24,
+        28
+      ],
+      "origin": [
+        -15,
+        60,
+        -28
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "741c482d90ebbbfa50394def2abb8a5dd1826b25bf74dd172216ac35bdefad36",
+      "bytes": 55772,
+      "blockCount": 20832,
+      "counts": {
+        "minecraft:bedrock": 868,
+        "minecraft:deepslate_tiles": 1867,
+        "minecraft:black_concrete": 714,
+        "minecraft:blue_stained_glass": 20,
+        "minecraft:light_blue_stained_glass": 20,
+        "minecraft:air": 14686,
+        "minecraft:sea_lantern": 42,
+        "minecraft:end_rod": 20,
+        "minecraft:chiseled_quartz_block": 321,
+        "minecraft:quartz_bricks": 341,
+        "minecraft:polished_deepslate": 284,
+        "minecraft:cyan_stained_glass": 182,
+        "minecraft:quartz_stairs": 2,
+        "minecraft:anvil": 2,
+        "minecraft:quartz_pillar": 62,
+        "minecraft:chiseled_bookshelf": 240,
+        "minecraft:soul_lantern": 6,
+        "minecraft:dark_oak_stairs": 52,
+        "minecraft:dark_oak_planks": 48,
+        "minecraft:gold_block": 30,
+        "minecraft:quartz_block": 176,
+        "minecraft:waxed_cut_copper": 28,
+        "minecraft:dark_prismarine": 806,
+        "minecraft:dark_oak_fence": 13,
+        "minecraft:chain": 2
+      }
+    },
+    {
+      "chapter": 1,
+      "zone": 2,
+      "theme": "Starlight Astral Archive",
+      "role": "Two-storey combat nave",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "west-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            7.5,
+            15,
+            10.5
+          ],
+          "world": [
+            -11.5,
+            75,
+            -55.5
+          ]
+        },
+        {
+          "name": "east-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            31.5,
+            15,
+            10.5
+          ],
+          "world": [
+            12.5,
+            75,
+            -55.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "west-gallery-stair",
+          "points": [
+            [
+              7.5,
+              7,
+              31.5
+            ],
+            [
+              7.5,
+              7.5,
+              30.85
+            ],
+            [
+              7.5,
+              8,
+              30.35
+            ],
+            [
+              7.5,
+              8.5,
+              29.85
+            ],
+            [
+              7.5,
+              9,
+              29.35
+            ],
+            [
+              7.5,
+              9.5,
+              28.85
+            ],
+            [
+              7.5,
+              10,
+              28.35
+            ],
+            [
+              7.5,
+              10.5,
+              27.85
+            ],
+            [
+              7.5,
+              11,
+              27.35
+            ],
+            [
+              7.5,
+              11.5,
+              26.85
+            ],
+            [
+              7.5,
+              12,
+              26.35
+            ],
+            [
+              7.5,
+              12.5,
+              25.85
+            ],
+            [
+              7.5,
+              13,
+              25.35
+            ],
+            [
+              7.5,
+              13.5,
+              24.85
+            ],
+            [
+              7.5,
+              14,
+              24.35
+            ],
+            [
+              7.5,
+              14.5,
+              23.85
+            ],
+            [
+              7.5,
+              15,
+              23.35
+            ],
+            [
+              7.5,
+              15,
+              22.5
+            ],
+            [
+              7.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "east-gallery-stair",
+          "points": [
+            [
+              31.5,
+              7,
+              31.5
+            ],
+            [
+              31.5,
+              7.5,
+              30.85
+            ],
+            [
+              31.5,
+              8,
+              30.35
+            ],
+            [
+              31.5,
+              8.5,
+              29.85
+            ],
+            [
+              31.5,
+              9,
+              29.35
+            ],
+            [
+              31.5,
+              9.5,
+              28.85
+            ],
+            [
+              31.5,
+              10,
+              28.35
+            ],
+            [
+              31.5,
+              10.5,
+              27.85
+            ],
+            [
+              31.5,
+              11,
+              27.35
+            ],
+            [
+              31.5,
+              11.5,
+              26.85
+            ],
+            [
+              31.5,
+              12,
+              26.35
+            ],
+            [
+              31.5,
+              12.5,
+              25.85
+            ],
+            [
+              31.5,
+              13,
+              25.35
+            ],
+            [
+              31.5,
+              13.5,
+              24.85
+            ],
+            [
+              31.5,
+              14,
+              24.35
+            ],
+            [
+              31.5,
+              14.5,
+              23.85
+            ],
+            [
+              31.5,
+              15,
+              23.35
+            ],
+            [
+              31.5,
+              15,
+              22.5
+            ],
+            [
+              31.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              19.5,
+              7,
+              37.5
+            ],
+            [
+              19.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 37,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone2",
+      "file": "ch1_zone2.nbt",
+      "size": [
+        39,
+        28,
+        38
+      ],
+      "origin": [
+        -19,
+        60,
+        -66
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "1ede48c5aaf8968e24a06c98a8b516f9ffe7681822f83a2da25dc1c8423b53f7",
+      "bytes": 106991,
+      "blockCount": 41496,
+      "counts": {
+        "minecraft:bedrock": 1482,
+        "minecraft:deepslate_tiles": 3260,
+        "minecraft:black_concrete": 1248,
+        "minecraft:blue_stained_glass": 42,
+        "minecraft:light_blue_stained_glass": 42,
+        "minecraft:air": 30442,
+        "minecraft:sea_lantern": 70,
+        "minecraft:end_rod": 42,
+        "minecraft:chiseled_quartz_block": 424,
+        "minecraft:quartz_bricks": 650,
+        "minecraft:polished_deepslate": 695,
+        "minecraft:cyan_stained_glass": 234,
+        "minecraft:quartz_pillar": 162,
+        "minecraft:dark_oak_stairs": 120,
+        "minecraft:chiseled_bookshelf": 544,
+        "minecraft:iron_bars": 32,
+        "minecraft:soul_lantern": 10,
+        "minecraft:dark_oak_planks": 136,
+        "minecraft:quartz_stairs": 32,
+        "minecraft:quartz_block": 272,
+        "minecraft:dark_oak_fence": 58,
+        "minecraft:lantern": 6,
+        "minecraft:gold_block": 56,
+        "minecraft:waxed_cut_copper": 32,
+        "minecraft:dark_prismarine": 1404,
+        "minecraft:chain": 1
+      }
+    },
+    {
+      "chapter": 1,
+      "zone": 3,
+      "theme": "Starlight Astral Archive",
+      "role": "Chasm bridge and hidden archive",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "hidden-treasure-chest",
+          "kind": "block",
+          "local": [
+            4,
+            7,
+            18
+          ],
+          "world": [
+            -11,
+            67,
+            -90
+          ]
+        },
+        {
+          "name": "hidden-treasure-approach",
+          "kind": "entityFeet",
+          "local": [
+            5.5,
+            7,
+            20.5
+          ],
+          "world": [
+            -9.5,
+            67,
+            -87.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "treasure-branch",
+          "points": [
+            [
+              15.5,
+              7,
+              20.5
+            ],
+            [
+              5.5,
+              7,
+              20.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              41.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 41,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone3",
+      "file": "ch1_zone3.nbt",
+      "size": [
+        31,
+        28,
+        42
+      ],
+      "origin": [
+        -15,
+        60,
+        -108
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "a3a8de012b1ca21d27f291d9d8bfdc1fcc492b90c57e041fd1153ed99e6c8a83",
+      "bytes": 95132,
+      "blockCount": 36456,
+      "counts": {
+        "minecraft:bedrock": 1302,
+        "minecraft:deepslate_tiles": 2740,
+        "minecraft:black_concrete": 1104,
+        "minecraft:blue_stained_glass": 28,
+        "minecraft:light_blue_stained_glass": 28,
+        "minecraft:air": 27285,
+        "minecraft:sea_lantern": 51,
+        "minecraft:end_rod": 28,
+        "minecraft:chiseled_quartz_block": 489,
+        "minecraft:quartz_bricks": 301,
+        "minecraft:polished_deepslate": 198,
+        "minecraft:cyan_stained_glass": 215,
+        "minecraft:iron_bars": 52,
+        "minecraft:chest": 1,
+        "minecraft:chiseled_bookshelf": 608,
+        "minecraft:quartz_pillar": 107,
+        "minecraft:soul_lantern": 19,
+        "minecraft:quartz_block": 289,
+        "minecraft:dark_oak_stairs": 80,
+        "minecraft:dark_oak_planks": 152,
+        "minecraft:gold_block": 56,
+        "minecraft:quartz_stairs": 24,
+        "minecraft:waxed_cut_copper": 32,
+        "minecraft:dark_prismarine": 1240,
+        "minecraft:dark_oak_fence": 26,
+        "minecraft:chain": 1
+      }
+    },
+    {
+      "chapter": 1,
+      "zone": 4,
+      "theme": "Starlight Astral Archive",
+      "role": "Champion rotunda and sanctuary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "champion-arena",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            7,
+            20.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -123.5
+          ]
+        },
+        {
+          "name": "checkpoint-floor",
+          "kind": "block",
+          "local": [
+            18,
+            7,
+            6
+          ],
+          "world": [
+            0,
+            67,
+            -138
+          ]
+        },
+        {
+          "name": "checkpoint-feet",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            8,
+            6.5
+          ],
+          "world": [
+            0.5,
+            68,
+            -137.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "raised-sanctuary",
+          "points": [
+            [
+              18.5,
+              7,
+              12.5
+            ],
+            [
+              18.5,
+              7,
+              11.5
+            ],
+            [
+              18.5,
+              7.5,
+              10.85
+            ],
+            [
+              18.5,
+              8,
+              10.35
+            ],
+            [
+              18.5,
+              8,
+              6.5
+            ],
+            [
+              18.5,
+              8,
+              3.5
+            ],
+            [
+              18.5,
+              8,
+              2.65
+            ],
+            [
+              18.5,
+              7.5,
+              2.15
+            ],
+            [
+              18.5,
+              7,
+              1.5
+            ]
+          ]
+        },
+        {
+          "name": "south-nave",
+          "points": [
+            [
+              18.5,
+              7,
+              35.5
+            ],
+            [
+              18.5,
+              7,
+              12.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 35,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone4",
+      "file": "ch1_zone4.nbt",
+      "size": [
+        37,
+        28,
+        36
+      ],
+      "origin": [
+        -18,
+        60,
+        -144
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "4a0a52e2c463bf0a4ec7900ebbe8268b8c6769e6c3b160ecb9cd3ba7ff20d4dd",
+      "bytes": 95917,
+      "blockCount": 37296,
+      "counts": {
+        "minecraft:bedrock": 1332,
+        "minecraft:deepslate_tiles": 2887,
+        "minecraft:black_concrete": 1130,
+        "minecraft:blue_stained_glass": 30,
+        "minecraft:light_blue_stained_glass": 30,
+        "minecraft:air": 27625,
+        "minecraft:sea_lantern": 60,
+        "minecraft:end_rod": 30,
+        "minecraft:chiseled_quartz_block": 421,
+        "minecraft:quartz_bricks": 503,
+        "minecraft:polished_deepslate": 650,
+        "minecraft:cyan_stained_glass": 115,
+        "minecraft:dark_oak_stairs": 82,
+        "minecraft:lantern": 6,
+        "minecraft:chiseled_bookshelf": 512,
+        "minecraft:quartz_pillar": 90,
+        "minecraft:polished_blackstone": 1,
+        "minecraft:campfire": 1,
+        "minecraft:soul_lantern": 8,
+        "minecraft:dark_oak_planks": 128,
+        "minecraft:quartz_block": 262,
+        "minecraft:gold_block": 56,
+        "minecraft:quartz_stairs": 20,
+        "minecraft:waxed_cut_copper": 32,
+        "minecraft:dark_prismarine": 1258,
+        "minecraft:dark_oak_fence": 26,
+        "minecraft:chain": 1
+      }
+    },
+    {
+      "chapter": 1,
+      "zone": 5,
+      "theme": "Starlight Astral Archive",
+      "role": "Fourfold puzzle atrium",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "puzzle-focus",
+          "kind": "block",
+          "local": [
+            16,
+            6,
+            16
+          ],
+          "world": [
+            0,
+            66,
+            -160
+          ]
+        },
+        {
+          "name": "puzzle-pad--9--7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            9
+          ],
+          "world": [
+            -9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad--9-7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            23
+          ],
+          "world": [
+            -9,
+            66,
+            -153
+          ]
+        },
+        {
+          "name": "puzzle-pad-9--7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            9
+          ],
+          "world": [
+            9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad-9-7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            23
+          ],
+          "world": [
+            9,
+            66,
+            -153
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              16.5,
+              7,
+              31.5
+            ],
+            [
+              16.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [
+        {
+          "name": "puzzle--9--7",
+          "min": [
+            6,
+            7,
+            8
+          ],
+          "max": [
+            8,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle--9-7",
+          "min": [
+            6,
+            7,
+            22
+          ],
+          "max": [
+            8,
+            10,
+            24
+          ]
+        },
+        {
+          "name": "puzzle-9--7",
+          "min": [
+            24,
+            7,
+            8
+          ],
+          "max": [
+            26,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle-9-7",
+          "min": [
+            24,
+            7,
+            22
+          ],
+          "max": [
+            26,
+            10,
+            24
+          ]
+        }
+      ],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 31,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone5",
+      "file": "ch1_zone5.nbt",
+      "size": [
+        33,
+        26,
+        32
+      ],
+      "origin": [
+        -16,
+        60,
+        -176
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "7915745914b3e01dd3926ed389b76a7c8412097e3429b66408b8050e8f745985",
+      "bytes": 70356,
+      "blockCount": 27456,
+      "counts": {
+        "minecraft:bedrock": 1056,
+        "minecraft:deepslate_tiles": 2273,
+        "minecraft:black_concrete": 880,
+        "minecraft:blue_stained_glass": 25,
+        "minecraft:light_blue_stained_glass": 25,
+        "minecraft:air": 19874,
+        "minecraft:sea_lantern": 57,
+        "minecraft:end_rod": 25,
+        "minecraft:chiseled_quartz_block": 341,
+        "minecraft:quartz_bricks": 362,
+        "minecraft:polished_deepslate": 427,
+        "minecraft:cyan_stained_glass": 163,
+        "minecraft:chiseled_bookshelf": 336,
+        "minecraft:quartz_pillar": 56,
+        "minecraft:soul_lantern": 8,
+        "minecraft:dark_oak_stairs": 60,
+        "minecraft:dark_oak_planks": 112,
+        "minecraft:gold_block": 104,
+        "minecraft:quartz_block": 207,
+        "minecraft:quartz_stairs": 16,
+        "minecraft:waxed_cut_copper": 32,
+        "minecraft:dark_prismarine": 990,
+        "minecraft:dark_oak_fence": 26,
+        "minecraft:chain": 1
+      }
+    },
+    {
+      "chapter": 1,
+      "zone": 6,
+      "theme": "Starlight Astral Archive",
+      "role": "Great cathedral and reliquary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "cover--10-13",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            13
+          ],
+          "world": [
+            -10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover--10-31",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            31
+          ],
+          "world": [
+            -10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "cover-10-13",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            13
+          ],
+          "world": [
+            10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover-10-31",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            31
+          ],
+          "world": [
+            10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "boss-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            12.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -208.5
+          ]
+        },
+        {
+          "name": "return-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            5.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -215.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              22.5,
+              7,
+              44.5
+            ],
+            [
+              22.5,
+              7,
+              5.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "observatory": {
+        "domeCenter": [
+          22,
+          19,
+          1
+        ],
+        "radius": 10,
+        "depth": 10,
+        "telescopeLens": [
+          26,
+          28,
+          17
+        ]
+      },
+      "seams": [
+        {
+          "face": "south",
+          "z": 44,
+          "x": [
+            18,
+            26
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch1_zone6",
+      "file": "ch1_zone6.nbt",
+      "size": [
+        45,
+        32,
+        45
+      ],
+      "origin": [
+        -22,
+        60,
+        -221
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "783544cd1a351c56bab3b1b7cd2886c68d6ba53efa008a81d5cfa7e0911a4bbf",
+      "bytes": 168473,
+      "blockCount": 64800,
+      "counts": {
+        "minecraft:bedrock": 2025,
+        "minecraft:deepslate_tiles": 4386,
+        "minecraft:black_concrete": 1737,
+        "minecraft:blue_stained_glass": 400,
+        "minecraft:light_blue_stained_glass": 56,
+        "minecraft:air": 48589,
+        "minecraft:sea_lantern": 123,
+        "minecraft:end_rod": 60,
+        "minecraft:polished_deepslate": 1086,
+        "minecraft:quartz_bricks": 678,
+        "minecraft:chiseled_quartz_block": 730,
+        "minecraft:cyan_stained_glass": 100,
+        "minecraft:quartz_pillar": 724,
+        "minecraft:chiseled_bookshelf": 984,
+        "minecraft:soul_lantern": 12,
+        "minecraft:dark_oak_stairs": 86,
+        "minecraft:dark_oak_planks": 164,
+        "minecraft:quartz_block": 486,
+        "minecraft:dark_prismarine": 2163,
+        "minecraft:gold_block": 94,
+        "minecraft:dark_oak_fence": 49,
+        "minecraft:quartz_stairs": 24,
+        "minecraft:waxed_cut_copper": 44
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 1,
+      "theme": "Crimson Titan Foundry",
+      "role": "Expedition vestibule",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "party-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            15.5,
+            7,
+            21.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -6.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              21.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone1",
+      "file": "ch2_zone1.nbt",
+      "size": [
+        31,
+        24,
+        28
+      ],
+      "origin": [
+        -15,
+        60,
+        -28
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "5a8b32ff88e3e8ad8f01a3859fea4e683b8c25347656825f79c37c55b73330fc",
+      "bytes": 54962,
+      "blockCount": 20832,
+      "counts": {
+        "minecraft:bedrock": 868,
+        "minecraft:polished_blackstone_bricks": 2938,
+        "minecraft:polished_basalt": 1178,
+        "minecraft:lava": 668,
+        "minecraft:air": 13481,
+        "minecraft:ochre_froglight": 19,
+        "minecraft:chiseled_polished_blackstone": 268,
+        "minecraft:waxed_cut_copper": 592,
+        "minecraft:gilded_blackstone": 56,
+        "minecraft:cracked_polished_blackstone_bricks": 32,
+        "minecraft:waxed_copper_grate": 209,
+        "minecraft:sea_lantern": 2,
+        "minecraft:chiseled_quartz_block": 16,
+        "minecraft:quartz_stairs": 2,
+        "minecraft:anvil": 2,
+        "minecraft:polished_blackstone": 54,
+        "minecraft:waxed_oxidized_copper": 180,
+        "minecraft:waxed_copper_trapdoor": 8,
+        "minecraft:gold_block": 6,
+        "minecraft:lantern": 6,
+        "minecraft:waxed_cut_copper_stairs": 52,
+        "minecraft:crimson_hyphae": 175,
+        "minecraft:chain": 20
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 2,
+      "theme": "Crimson Titan Foundry",
+      "role": "Two-storey combat nave",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "west-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            7.5,
+            15,
+            10.5
+          ],
+          "world": [
+            -11.5,
+            75,
+            -55.5
+          ]
+        },
+        {
+          "name": "east-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            31.5,
+            15,
+            10.5
+          ],
+          "world": [
+            12.5,
+            75,
+            -55.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "west-gallery-stair",
+          "points": [
+            [
+              7.5,
+              7,
+              31.5
+            ],
+            [
+              7.5,
+              7.5,
+              30.85
+            ],
+            [
+              7.5,
+              8,
+              30.35
+            ],
+            [
+              7.5,
+              8.5,
+              29.85
+            ],
+            [
+              7.5,
+              9,
+              29.35
+            ],
+            [
+              7.5,
+              9.5,
+              28.85
+            ],
+            [
+              7.5,
+              10,
+              28.35
+            ],
+            [
+              7.5,
+              10.5,
+              27.85
+            ],
+            [
+              7.5,
+              11,
+              27.35
+            ],
+            [
+              7.5,
+              11.5,
+              26.85
+            ],
+            [
+              7.5,
+              12,
+              26.35
+            ],
+            [
+              7.5,
+              12.5,
+              25.85
+            ],
+            [
+              7.5,
+              13,
+              25.35
+            ],
+            [
+              7.5,
+              13.5,
+              24.85
+            ],
+            [
+              7.5,
+              14,
+              24.35
+            ],
+            [
+              7.5,
+              14.5,
+              23.85
+            ],
+            [
+              7.5,
+              15,
+              23.35
+            ],
+            [
+              7.5,
+              15,
+              22.5
+            ],
+            [
+              7.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "east-gallery-stair",
+          "points": [
+            [
+              31.5,
+              7,
+              31.5
+            ],
+            [
+              31.5,
+              7.5,
+              30.85
+            ],
+            [
+              31.5,
+              8,
+              30.35
+            ],
+            [
+              31.5,
+              8.5,
+              29.85
+            ],
+            [
+              31.5,
+              9,
+              29.35
+            ],
+            [
+              31.5,
+              9.5,
+              28.85
+            ],
+            [
+              31.5,
+              10,
+              28.35
+            ],
+            [
+              31.5,
+              10.5,
+              27.85
+            ],
+            [
+              31.5,
+              11,
+              27.35
+            ],
+            [
+              31.5,
+              11.5,
+              26.85
+            ],
+            [
+              31.5,
+              12,
+              26.35
+            ],
+            [
+              31.5,
+              12.5,
+              25.85
+            ],
+            [
+              31.5,
+              13,
+              25.35
+            ],
+            [
+              31.5,
+              13.5,
+              24.85
+            ],
+            [
+              31.5,
+              14,
+              24.35
+            ],
+            [
+              31.5,
+              14.5,
+              23.85
+            ],
+            [
+              31.5,
+              15,
+              23.35
+            ],
+            [
+              31.5,
+              15,
+              22.5
+            ],
+            [
+              31.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              19.5,
+              7,
+              37.5
+            ],
+            [
+              19.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 37,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone2",
+      "file": "ch2_zone2.nbt",
+      "size": [
+        39,
+        28,
+        38
+      ],
+      "origin": [
+        -19,
+        60,
+        -66
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "d2c984376fd61067291ec5a3acf778b033e78d45b3451ca404da9ea351b13b22",
+      "bytes": 107125,
+      "blockCount": 41496,
+      "counts": {
+        "minecraft:bedrock": 1482,
+        "minecraft:polished_blackstone_bricks": 5749,
+        "minecraft:polished_basalt": 1852,
+        "minecraft:lava": 1274,
+        "minecraft:air": 28122,
+        "minecraft:orange_stained_glass": 60,
+        "minecraft:ochre_froglight": 27,
+        "minecraft:chiseled_polished_blackstone": 318,
+        "minecraft:waxed_cut_copper": 1098,
+        "minecraft:gilded_blackstone": 68,
+        "minecraft:cracked_polished_blackstone_bricks": 97,
+        "minecraft:waxed_copper_grate": 281,
+        "minecraft:polished_blackstone": 152,
+        "minecraft:waxed_cut_copper_stairs": 108,
+        "minecraft:waxed_oxidized_copper": 368,
+        "minecraft:iron_bars": 64,
+        "minecraft:waxed_copper_trapdoor": 10,
+        "minecraft:gold_block": 10,
+        "minecraft:lantern": 12,
+        "minecraft:quartz_stairs": 12,
+        "minecraft:crimson_hyphae": 268,
+        "minecraft:polished_blackstone_brick_stairs": 16,
+        "minecraft:chain": 48
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 3,
+      "theme": "Crimson Titan Foundry",
+      "role": "Chasm bridge and hidden archive",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "hidden-treasure-chest",
+          "kind": "block",
+          "local": [
+            4,
+            7,
+            18
+          ],
+          "world": [
+            -11,
+            67,
+            -90
+          ]
+        },
+        {
+          "name": "hidden-treasure-approach",
+          "kind": "entityFeet",
+          "local": [
+            5.5,
+            7,
+            20.5
+          ],
+          "world": [
+            -9.5,
+            67,
+            -87.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "treasure-branch",
+          "points": [
+            [
+              15.5,
+              7,
+              20.5
+            ],
+            [
+              5.5,
+              7,
+              20.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              41.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 41,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone3",
+      "file": "ch2_zone3.nbt",
+      "size": [
+        31,
+        28,
+        42
+      ],
+      "origin": [
+        -15,
+        60,
+        -108
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "354370ccbbe0edd689abc7c3f0c0a9126aba956ca09b3996d42b17a38b8309eb",
+      "bytes": 95433,
+      "blockCount": 36456,
+      "counts": {
+        "minecraft:bedrock": 1302,
+        "minecraft:polished_blackstone_bricks": 4653,
+        "minecraft:polished_basalt": 1648,
+        "minecraft:lava": 1110,
+        "minecraft:air": 25108,
+        "minecraft:orange_stained_glass": 60,
+        "minecraft:chiseled_polished_blackstone": 379,
+        "minecraft:waxed_cut_copper": 835,
+        "minecraft:gilded_blackstone": 72,
+        "minecraft:cracked_polished_blackstone_bricks": 14,
+        "minecraft:waxed_copper_grate": 262,
+        "minecraft:iron_bars": 52,
+        "minecraft:chest": 1,
+        "minecraft:waxed_oxidized_copper": 384,
+        "minecraft:polished_blackstone": 95,
+        "minecraft:lantern": 17,
+        "minecraft:crimson_hyphae": 284,
+        "minecraft:ochre_froglight": 22,
+        "minecraft:waxed_copper_trapdoor": 10,
+        "minecraft:gold_block": 8,
+        "minecraft:waxed_cut_copper_stairs": 68,
+        "minecraft:polished_blackstone_brick_stairs": 20,
+        "minecraft:chain": 52
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 4,
+      "theme": "Crimson Titan Foundry",
+      "role": "Champion rotunda and sanctuary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "champion-arena",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            7,
+            20.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -123.5
+          ]
+        },
+        {
+          "name": "checkpoint-floor",
+          "kind": "block",
+          "local": [
+            18,
+            7,
+            6
+          ],
+          "world": [
+            0,
+            67,
+            -138
+          ]
+        },
+        {
+          "name": "checkpoint-feet",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            8,
+            6.5
+          ],
+          "world": [
+            0.5,
+            68,
+            -137.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "raised-sanctuary",
+          "points": [
+            [
+              18.5,
+              7,
+              12.5
+            ],
+            [
+              18.5,
+              7,
+              11.5
+            ],
+            [
+              18.5,
+              7.5,
+              10.85
+            ],
+            [
+              18.5,
+              8,
+              10.35
+            ],
+            [
+              18.5,
+              8,
+              6.5
+            ],
+            [
+              18.5,
+              8,
+              3.5
+            ],
+            [
+              18.5,
+              8,
+              2.65
+            ],
+            [
+              18.5,
+              7.5,
+              2.15
+            ],
+            [
+              18.5,
+              7,
+              1.5
+            ]
+          ]
+        },
+        {
+          "name": "south-nave",
+          "points": [
+            [
+              18.5,
+              7,
+              35.5
+            ],
+            [
+              18.5,
+              7,
+              12.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 35,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone4",
+      "file": "ch2_zone4.nbt",
+      "size": [
+        37,
+        28,
+        36
+      ],
+      "origin": [
+        -18,
+        60,
+        -144
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "7400874519c238243686773a5056b8a40926857c1c82abc7b8abcb3cfcd748b3",
+      "bytes": 95536,
+      "blockCount": 37296,
+      "counts": {
+        "minecraft:bedrock": 1332,
+        "minecraft:polished_blackstone_bricks": 4749,
+        "minecraft:polished_basalt": 1726,
+        "minecraft:lava": 1106,
+        "minecraft:air": 25835,
+        "minecraft:ochre_froglight": 29,
+        "minecraft:chiseled_polished_blackstone": 364,
+        "minecraft:waxed_cut_copper": 961,
+        "minecraft:gilded_blackstone": 76,
+        "minecraft:cracked_polished_blackstone_bricks": 71,
+        "minecraft:waxed_copper_grate": 114,
+        "minecraft:waxed_copper_block": 48,
+        "minecraft:waxed_cut_copper_stairs": 82,
+        "minecraft:lantern": 14,
+        "minecraft:waxed_oxidized_copper": 384,
+        "minecraft:polished_blackstone": 81,
+        "minecraft:chiseled_quartz_block": 1,
+        "minecraft:campfire": 1,
+        "minecraft:waxed_copper_trapdoor": 10,
+        "minecraft:gold_block": 10,
+        "minecraft:crimson_hyphae": 262,
+        "minecraft:polished_blackstone_brick_stairs": 20,
+        "minecraft:chain": 20
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 5,
+      "theme": "Crimson Titan Foundry",
+      "role": "Fourfold puzzle atrium",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "puzzle-focus",
+          "kind": "block",
+          "local": [
+            16,
+            6,
+            16
+          ],
+          "world": [
+            0,
+            66,
+            -160
+          ]
+        },
+        {
+          "name": "puzzle-pad--9--7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            9
+          ],
+          "world": [
+            -9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad--9-7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            23
+          ],
+          "world": [
+            -9,
+            66,
+            -153
+          ]
+        },
+        {
+          "name": "puzzle-pad-9--7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            9
+          ],
+          "world": [
+            9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad-9-7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            23
+          ],
+          "world": [
+            9,
+            66,
+            -153
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              16.5,
+              7,
+              31.5
+            ],
+            [
+              16.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [
+        {
+          "name": "puzzle--9--7",
+          "min": [
+            6,
+            7,
+            8
+          ],
+          "max": [
+            8,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle--9-7",
+          "min": [
+            6,
+            7,
+            22
+          ],
+          "max": [
+            8,
+            10,
+            24
+          ]
+        },
+        {
+          "name": "puzzle-9--7",
+          "min": [
+            24,
+            7,
+            8
+          ],
+          "max": [
+            26,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle-9-7",
+          "min": [
+            24,
+            7,
+            22
+          ],
+          "max": [
+            26,
+            10,
+            24
+          ]
+        }
+      ],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 31,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone5",
+      "file": "ch2_zone5.nbt",
+      "size": [
+        33,
+        26,
+        32
+      ],
+      "origin": [
+        -16,
+        60,
+        -176
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "0ff1f5ba11a5f31f3550fe223f2f3a06ebdca22effd7330d1cd686afab72925b",
+      "bytes": 70091,
+      "blockCount": 27456,
+      "counts": {
+        "minecraft:bedrock": 1056,
+        "minecraft:polished_blackstone_bricks": 3666,
+        "minecraft:polished_basalt": 1402,
+        "minecraft:lava": 862,
+        "minecraft:air": 18405,
+        "minecraft:ochre_froglight": 26,
+        "minecraft:chiseled_polished_blackstone": 289,
+        "minecraft:waxed_cut_copper": 748,
+        "minecraft:gilded_blackstone": 72,
+        "minecraft:cracked_polished_blackstone_bricks": 53,
+        "minecraft:waxed_copper_grate": 210,
+        "minecraft:waxed_oxidized_copper": 244,
+        "minecraft:polished_blackstone": 48,
+        "minecraft:waxed_copper_trapdoor": 8,
+        "minecraft:gold_block": 8,
+        "minecraft:lantern": 8,
+        "minecraft:waxed_cut_copper_stairs": 60,
+        "minecraft:crimson_hyphae": 207,
+        "minecraft:polished_blackstone_brick_stairs": 16,
+        "minecraft:chain": 20,
+        "minecraft:waxed_copper_block": 48
+      }
+    },
+    {
+      "chapter": 2,
+      "zone": 6,
+      "theme": "Crimson Titan Foundry",
+      "role": "Great cathedral and reliquary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "cover--10-13",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            13
+          ],
+          "world": [
+            -10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover--10-31",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            31
+          ],
+          "world": [
+            -10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "cover-10-13",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            13
+          ],
+          "world": [
+            10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover-10-31",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            31
+          ],
+          "world": [
+            10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "boss-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            12.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -208.5
+          ]
+        },
+        {
+          "name": "return-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            5.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -215.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              22.5,
+              7,
+              44.5
+            ],
+            [
+              22.5,
+              7,
+              5.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "south",
+          "z": 44,
+          "x": [
+            18,
+            26
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch2_zone6",
+      "file": "ch2_zone6.nbt",
+      "size": [
+        45,
+        32,
+        45
+      ],
+      "origin": [
+        -22,
+        60,
+        -221
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "b330888420ece14ba1e4252f605e5095f000278877aec73ed5a82c6560805923",
+      "bytes": 168540,
+      "blockCount": 64800,
+      "counts": {
+        "minecraft:bedrock": 2025,
+        "minecraft:polished_blackstone_bricks": 8108,
+        "minecraft:polished_basalt": 2473,
+        "minecraft:lava": 1834,
+        "minecraft:air": 45548,
+        "minecraft:orange_stained_glass": 106,
+        "minecraft:ochre_froglight": 35,
+        "minecraft:gilded_blackstone": 240,
+        "minecraft:waxed_cut_copper": 1417,
+        "minecraft:chiseled_polished_blackstone": 632,
+        "minecraft:cracked_polished_blackstone_bricks": 87,
+        "minecraft:waxed_copper_grate": 174,
+        "minecraft:polished_blackstone": 892,
+        "minecraft:waxed_oxidized_copper": 616,
+        "minecraft:waxed_copper_trapdoor": 12,
+        "minecraft:gold_block": 12,
+        "minecraft:lantern": 8,
+        "minecraft:waxed_cut_copper_stairs": 74,
+        "minecraft:crimson_hyphae": 346,
+        "minecraft:obsidian": 95,
+        "minecraft:polished_blackstone_brick_stairs": 20,
+        "minecraft:polished_blackstone_stairs": 2,
+        "minecraft:chain": 44
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 1,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Expedition vestibule",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "party-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            15.5,
+            7,
+            21.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -6.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              21.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone1",
+      "file": "ch3_zone1.nbt",
+      "size": [
+        31,
+        24,
+        28
+      ],
+      "origin": [
+        -15,
+        60,
+        -28
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "b0091fd8cdbac64552c93cbb61b00767ba1f95a8874df5382476468b26faf911",
+      "bytes": 54782,
+      "blockCount": 20832,
+      "counts": {
+        "minecraft:bedrock": 868,
+        "minecraft:quartz_bricks": 2769,
+        "minecraft:black_concrete": 754,
+        "minecraft:air": 14609,
+        "minecraft:amethyst_block": 36,
+        "minecraft:pearlescent_froglight": 46,
+        "minecraft:magenta_stained_glass_pane": 32,
+        "minecraft:amethyst_cluster": 20,
+        "minecraft:chiseled_quartz_block": 319,
+        "minecraft:purpur_block": 358,
+        "minecraft:smooth_quartz": 371,
+        "minecraft:purple_stained_glass": 434,
+        "minecraft:sea_lantern": 2,
+        "minecraft:quartz_stairs": 2,
+        "minecraft:anvil": 2,
+        "minecraft:purpur_pillar": 62,
+        "minecraft:magenta_stained_glass": 36,
+        "minecraft:end_rod": 16,
+        "minecraft:soul_lantern": 6,
+        "minecraft:purpur_stairs": 52,
+        "minecraft:pink_stained_glass_pane": 14,
+        "minecraft:chain": 24
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 2,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Two-storey combat nave",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "west-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            7.5,
+            15,
+            10.5
+          ],
+          "world": [
+            -11.5,
+            75,
+            -55.5
+          ]
+        },
+        {
+          "name": "east-gallery-mob-feet",
+          "kind": "entityFeet",
+          "local": [
+            31.5,
+            15,
+            10.5
+          ],
+          "world": [
+            12.5,
+            75,
+            -55.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "west-gallery-stair",
+          "points": [
+            [
+              7.5,
+              7,
+              31.5
+            ],
+            [
+              7.5,
+              7.5,
+              30.85
+            ],
+            [
+              7.5,
+              8,
+              30.35
+            ],
+            [
+              7.5,
+              8.5,
+              29.85
+            ],
+            [
+              7.5,
+              9,
+              29.35
+            ],
+            [
+              7.5,
+              9.5,
+              28.85
+            ],
+            [
+              7.5,
+              10,
+              28.35
+            ],
+            [
+              7.5,
+              10.5,
+              27.85
+            ],
+            [
+              7.5,
+              11,
+              27.35
+            ],
+            [
+              7.5,
+              11.5,
+              26.85
+            ],
+            [
+              7.5,
+              12,
+              26.35
+            ],
+            [
+              7.5,
+              12.5,
+              25.85
+            ],
+            [
+              7.5,
+              13,
+              25.35
+            ],
+            [
+              7.5,
+              13.5,
+              24.85
+            ],
+            [
+              7.5,
+              14,
+              24.35
+            ],
+            [
+              7.5,
+              14.5,
+              23.85
+            ],
+            [
+              7.5,
+              15,
+              23.35
+            ],
+            [
+              7.5,
+              15,
+              22.5
+            ],
+            [
+              7.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "east-gallery-stair",
+          "points": [
+            [
+              31.5,
+              7,
+              31.5
+            ],
+            [
+              31.5,
+              7.5,
+              30.85
+            ],
+            [
+              31.5,
+              8,
+              30.35
+            ],
+            [
+              31.5,
+              8.5,
+              29.85
+            ],
+            [
+              31.5,
+              9,
+              29.35
+            ],
+            [
+              31.5,
+              9.5,
+              28.85
+            ],
+            [
+              31.5,
+              10,
+              28.35
+            ],
+            [
+              31.5,
+              10.5,
+              27.85
+            ],
+            [
+              31.5,
+              11,
+              27.35
+            ],
+            [
+              31.5,
+              11.5,
+              26.85
+            ],
+            [
+              31.5,
+              12,
+              26.35
+            ],
+            [
+              31.5,
+              12.5,
+              25.85
+            ],
+            [
+              31.5,
+              13,
+              25.35
+            ],
+            [
+              31.5,
+              13.5,
+              24.85
+            ],
+            [
+              31.5,
+              14,
+              24.35
+            ],
+            [
+              31.5,
+              14.5,
+              23.85
+            ],
+            [
+              31.5,
+              15,
+              23.35
+            ],
+            [
+              31.5,
+              15,
+              22.5
+            ],
+            [
+              31.5,
+              15,
+              10.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              19.5,
+              7,
+              37.5
+            ],
+            [
+              19.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 37,
+          "x": [
+            15,
+            23
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone2",
+      "file": "ch3_zone2.nbt",
+      "size": [
+        39,
+        28,
+        38
+      ],
+      "origin": [
+        -19,
+        60,
+        -66
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "838422a9453148b272046f0f7c99fdeecbd6b658071957d64185ff3ac9150f95",
+      "bytes": 106749,
+      "blockCount": 41496,
+      "counts": {
+        "minecraft:bedrock": 1482,
+        "minecraft:quartz_bricks": 4859,
+        "minecraft:black_concrete": 1332,
+        "minecraft:air": 30342,
+        "minecraft:amethyst_block": 61,
+        "minecraft:pearlescent_froglight": 78,
+        "minecraft:magenta_stained_glass_pane": 52,
+        "minecraft:amethyst_cluster": 42,
+        "minecraft:chiseled_quartz_block": 422,
+        "minecraft:purpur_block": 656,
+        "minecraft:smooth_quartz": 750,
+        "minecraft:purple_stained_glass": 880,
+        "minecraft:purpur_pillar": 162,
+        "minecraft:purpur_stairs": 120,
+        "minecraft:iron_bars": 32,
+        "minecraft:magenta_stained_glass": 90,
+        "minecraft:end_rod": 18,
+        "minecraft:soul_lantern": 10,
+        "minecraft:quartz_stairs": 32,
+        "minecraft:dark_oak_fence": 32,
+        "minecraft:lantern": 6,
+        "minecraft:pink_stained_glass_pane": 14,
+        "minecraft:chain": 24
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 3,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Chasm bridge and hidden archive",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "hidden-treasure-chest",
+          "kind": "block",
+          "local": [
+            4,
+            7,
+            18
+          ],
+          "world": [
+            -11,
+            67,
+            -90
+          ]
+        },
+        {
+          "name": "hidden-treasure-approach",
+          "kind": "entityFeet",
+          "local": [
+            5.5,
+            7,
+            20.5
+          ],
+          "world": [
+            -9.5,
+            67,
+            -87.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "treasure-branch",
+          "points": [
+            [
+              15.5,
+              7,
+              20.5
+            ],
+            [
+              5.5,
+              7,
+              20.5
+            ]
+          ]
+        },
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              15.5,
+              7,
+              41.5
+            ],
+            [
+              15.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 41,
+          "x": [
+            11,
+            19
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone3",
+      "file": "ch3_zone3.nbt",
+      "size": [
+        31,
+        28,
+        42
+      ],
+      "origin": [
+        -15,
+        60,
+        -108
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "e353022893d42b0e92e28d59093990f0f70fc7d214ae0ca2afad31bc6d86f240",
+      "bytes": 95014,
+      "blockCount": 36456,
+      "counts": {
+        "minecraft:bedrock": 1302,
+        "minecraft:quartz_bricks": 4234,
+        "minecraft:black_concrete": 1160,
+        "minecraft:air": 27197,
+        "minecraft:amethyst_block": 47,
+        "minecraft:pearlescent_froglight": 59,
+        "minecraft:magenta_stained_glass_pane": 44,
+        "minecraft:amethyst_cluster": 28,
+        "minecraft:chiseled_quartz_block": 487,
+        "minecraft:purpur_block": 344,
+        "minecraft:smooth_quartz": 478,
+        "minecraft:purple_stained_glass": 627,
+        "minecraft:purpur_slab": 52,
+        "minecraft:chest": 1,
+        "minecraft:purpur_pillar": 107,
+        "minecraft:lantern": 9,
+        "minecraft:magenta_stained_glass": 100,
+        "minecraft:end_rod": 20,
+        "minecraft:soul_lantern": 10,
+        "minecraft:purpur_stairs": 80,
+        "minecraft:pink_stained_glass_pane": 22,
+        "minecraft:quartz_stairs": 24,
+        "minecraft:chain": 24
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 4,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Champion rotunda and sanctuary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "champion-arena",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            7,
+            20.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -123.5
+          ]
+        },
+        {
+          "name": "checkpoint-floor",
+          "kind": "block",
+          "local": [
+            18,
+            7,
+            6
+          ],
+          "world": [
+            0,
+            67,
+            -138
+          ]
+        },
+        {
+          "name": "checkpoint-feet",
+          "kind": "entityFeet",
+          "local": [
+            18.5,
+            8,
+            6.5
+          ],
+          "world": [
+            0.5,
+            68,
+            -137.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "raised-sanctuary",
+          "points": [
+            [
+              18.5,
+              7,
+              12.5
+            ],
+            [
+              18.5,
+              7,
+              11.5
+            ],
+            [
+              18.5,
+              7.5,
+              10.85
+            ],
+            [
+              18.5,
+              8,
+              10.35
+            ],
+            [
+              18.5,
+              8,
+              6.5
+            ],
+            [
+              18.5,
+              8,
+              3.5
+            ],
+            [
+              18.5,
+              8,
+              2.65
+            ],
+            [
+              18.5,
+              7.5,
+              2.15
+            ],
+            [
+              18.5,
+              7,
+              1.5
+            ]
+          ]
+        },
+        {
+          "name": "south-nave",
+          "points": [
+            [
+              18.5,
+              7,
+              35.5
+            ],
+            [
+              18.5,
+              7,
+              12.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 35,
+          "x": [
+            14,
+            22
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone4",
+      "file": "ch3_zone4.nbt",
+      "size": [
+        37,
+        28,
+        36
+      ],
+      "origin": [
+        -18,
+        60,
+        -144
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "019ea0fb6f8b8e786134cf7fd9c696c00ee6707f62c2731c018b1b0022534ae5",
+      "bytes": 95765,
+      "blockCount": 37296,
+      "counts": {
+        "minecraft:bedrock": 1332,
+        "minecraft:quartz_bricks": 4328,
+        "minecraft:black_concrete": 1190,
+        "minecraft:air": 27539,
+        "minecraft:amethyst_block": 49,
+        "minecraft:pearlescent_froglight": 68,
+        "minecraft:magenta_stained_glass_pane": 46,
+        "minecraft:amethyst_cluster": 30,
+        "minecraft:chiseled_quartz_block": 419,
+        "minecraft:purpur_block": 525,
+        "minecraft:smooth_quartz": 771,
+        "minecraft:purple_stained_glass": 645,
+        "minecraft:purpur_stairs": 82,
+        "minecraft:lantern": 6,
+        "minecraft:purpur_pillar": 90,
+        "minecraft:polished_blackstone": 1,
+        "minecraft:campfire": 1,
+        "minecraft:magenta_stained_glass": 86,
+        "minecraft:end_rod": 18,
+        "minecraft:soul_lantern": 8,
+        "minecraft:pink_stained_glass_pane": 18,
+        "minecraft:quartz_stairs": 20,
+        "minecraft:chain": 24
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 5,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Fourfold puzzle atrium",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "puzzle-focus",
+          "kind": "block",
+          "local": [
+            16,
+            6,
+            16
+          ],
+          "world": [
+            0,
+            66,
+            -160
+          ]
+        },
+        {
+          "name": "puzzle-pad--9--7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            9
+          ],
+          "world": [
+            -9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad--9-7",
+          "kind": "block",
+          "local": [
+            7,
+            6,
+            23
+          ],
+          "world": [
+            -9,
+            66,
+            -153
+          ]
+        },
+        {
+          "name": "puzzle-pad-9--7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            9
+          ],
+          "world": [
+            9,
+            66,
+            -167
+          ]
+        },
+        {
+          "name": "puzzle-pad-9-7",
+          "kind": "block",
+          "local": [
+            25,
+            6,
+            23
+          ],
+          "world": [
+            9,
+            66,
+            -153
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              16.5,
+              7,
+              31.5
+            ],
+            [
+              16.5,
+              7,
+              0.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [
+        {
+          "name": "puzzle--9--7",
+          "min": [
+            6,
+            7,
+            8
+          ],
+          "max": [
+            8,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle--9-7",
+          "min": [
+            6,
+            7,
+            22
+          ],
+          "max": [
+            8,
+            10,
+            24
+          ]
+        },
+        {
+          "name": "puzzle-9--7",
+          "min": [
+            24,
+            7,
+            8
+          ],
+          "max": [
+            26,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "puzzle-9-7",
+          "min": [
+            24,
+            7,
+            22
+          ],
+          "max": [
+            26,
+            10,
+            24
+          ]
+        }
+      ],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "seams": [
+        {
+          "face": "north",
+          "z": 0,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        },
+        {
+          "face": "south",
+          "z": 31,
+          "x": [
+            12,
+            20
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone5",
+      "file": "ch3_zone5.nbt",
+      "size": [
+        33,
+        26,
+        32
+      ],
+      "origin": [
+        -16,
+        60,
+        -176
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "840ea55d728485807b320b0c082c285f4d70d51722f2b79162061cb33eeedc94",
+      "bytes": 70252,
+      "blockCount": 27456,
+      "counts": {
+        "minecraft:bedrock": 1056,
+        "minecraft:quartz_bricks": 3414,
+        "minecraft:black_concrete": 930,
+        "minecraft:air": 19807,
+        "minecraft:amethyst_block": 92,
+        "minecraft:pearlescent_froglight": 64,
+        "minecraft:magenta_stained_glass_pane": 39,
+        "minecraft:amethyst_cluster": 25,
+        "minecraft:chiseled_quartz_block": 339,
+        "minecraft:purpur_block": 384,
+        "minecraft:smooth_quartz": 525,
+        "minecraft:purple_stained_glass": 529,
+        "minecraft:purpur_pillar": 56,
+        "minecraft:magenta_stained_glass": 56,
+        "minecraft:end_rod": 16,
+        "minecraft:soul_lantern": 8,
+        "minecraft:purpur_stairs": 60,
+        "minecraft:quartz_stairs": 16,
+        "minecraft:pink_stained_glass_pane": 16,
+        "minecraft:chain": 24
+      }
+    },
+    {
+      "chapter": 3,
+      "zone": 6,
+      "theme": "Void-Glass Eclipsed Cathedral",
+      "role": "Great cathedral and reliquary",
+      "originMode": "slot-relative-x",
+      "slotStride": 1024,
+      "anchors": [
+        {
+          "name": "cover--10-13",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            13
+          ],
+          "world": [
+            -10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover--10-31",
+          "kind": "block",
+          "local": [
+            12,
+            7,
+            31
+          ],
+          "world": [
+            -10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "cover-10-13",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            13
+          ],
+          "world": [
+            10,
+            67,
+            -208
+          ]
+        },
+        {
+          "name": "cover-10-31",
+          "kind": "block",
+          "local": [
+            32,
+            7,
+            31
+          ],
+          "world": [
+            10,
+            67,
+            -190
+          ]
+        },
+        {
+          "name": "boss-spawn-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            12.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -208.5
+          ]
+        },
+        {
+          "name": "return-feet",
+          "kind": "entityFeet",
+          "local": [
+            22.5,
+            7,
+            5.5
+          ],
+          "world": [
+            0.5,
+            67,
+            -215.5
+          ]
+        }
+      ],
+      "routes": [
+        {
+          "name": "main-spine",
+          "points": [
+            [
+              22.5,
+              7,
+              44.5
+            ],
+            [
+              22.5,
+              7,
+              5.5
+            ]
+          ]
+        }
+      ],
+      "reservedAir": [],
+      "walkFloorLocalY": 6,
+      "walkFeetLocalY": 7,
+      "features": [
+        "three-depth wall bays",
+        "ribbed barrel vault",
+        "patterned luminous floor",
+        "theme-specific suspended sculpture"
+      ],
+      "roseWindow": {
+        "diameter": 19,
+        "center": [
+          22,
+          20,
+          0
+        ],
+        "bounds": {
+          "min": [
+            13,
+            11,
+            0
+          ],
+          "max": [
+            31,
+            29,
+            1
+          ]
+        },
+        "decision": "User approved circular window; Y range expanded from 14..29 to 11..29."
+      },
+      "seams": [
+        {
+          "face": "south",
+          "z": 44,
+          "x": [
+            18,
+            26
+          ],
+          "floorY": 6,
+          "airY": [
+            7,
+            14
+          ]
+        }
+      ],
+      "id": "ch3_zone6",
+      "file": "ch3_zone6.nbt",
+      "size": [
+        45,
+        32,
+        45
+      ],
+      "origin": [
+        -22,
+        60,
+        -221
+      ],
+      "world": "yuumi_dungeon",
+      "sha256": "f7af4cc2c91217d6feb3ed4d2de4f44ebc9a06ec565eda98afca4a8c25e5b098",
+      "bytes": 168605,
+      "blockCount": 64800,
+      "counts": {
+        "minecraft:bedrock": 2025,
+        "minecraft:quartz_bricks": 6392,
+        "minecraft:black_concrete": 1849,
+        "minecraft:air": 48985,
+        "minecraft:amethyst_block": 88,
+        "minecraft:pearlescent_froglight": 98,
+        "minecraft:magenta_stained_glass_pane": 74,
+        "minecraft:amethyst_cluster": 56,
+        "minecraft:smooth_quartz": 1225,
+        "minecraft:purpur_block": 683,
+        "minecraft:chiseled_quartz_block": 732,
+        "minecraft:purple_stained_glass": 1137,
+        "minecraft:purpur_pillar": 676,
+        "minecraft:magenta_stained_glass": 308,
+        "minecraft:end_rod": 20,
+        "minecraft:crying_obsidian": 160,
+        "minecraft:quartz_block": 80,
+        "minecraft:soul_lantern": 12,
+        "minecraft:purpur_stairs": 86,
+        "minecraft:pink_stained_glass_pane": 24,
+        "minecraft:obsidian": 42,
+        "minecraft:quartz_stairs": 24,
+        "minecraft:chain": 24
+      }
+    }
+  ]
+}

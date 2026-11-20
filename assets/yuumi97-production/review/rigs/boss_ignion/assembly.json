@@ -1,0 +1,214 @@
+{
+  "id": "boss_ignion",
+  "status": "PASS",
+  "baseScale": 2.65,
+  "parts": {
+    "root": "yuumi97:boss_ignion_core",
+    "head": "yuumi97:boss_ignion_head",
+    "weapon": "yuumi97:boss_ignion_weapon"
+  },
+  "socketManifest": "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\monster_rigs.json",
+  "source": "E:\\MinGem\\assets\\yuumi97-production\\sources\\blend\\rigs\\boss_ignion.blend",
+  "blendSha256": "f4eb780bb93a9a20ca0821d26ab0f9356e1bb67c3b2f274c61641625e5a06614",
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\monster_rigs.json": "3021c950bea667c8e1c81a070e4007160828b3d09494e21bc7a6adb7eaed25f9",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_ignion_core.json": "616ee166f04f74e3ff51931992847c8288f773acb771ec1b4f750c371363b2ed",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_ignion_core.png": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_ignion_head.json": "64ae7bbbad8b266014e5c1b10dcdf46fddf213b400db8656658fc7b901ebeed5",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_ignion_head.png": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_ignion_weapon.json": "31e02a8ebdd98126f7ca0330dc114d83e0ae65990f51693abcfefc3e5135c12b",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\textures\\prop\\boss_ignion_weapon.png": "c4c029e84c4c060a04ef83450894a8c3478bde6f346bf39b83a0f0b8b568881e"
+  },
+  "freshProcessReopen": true,
+  "preparedPid": 22412,
+  "renderPid": 28640,
+  "packedTextures": true,
+  "device": {
+    "requested": "GPU",
+    "device": "GPU",
+    "backend": "OPTIX",
+    "devices": [
+      "NVIDIA GeForce RTX 3070"
+    ]
+  },
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "threequarter",
+    "windup-minus60",
+    "windup-minus60-side",
+    "strike-plus55"
+  ],
+  "elements": 382,
+  "rootMinimumYBlocks": 0.0,
+  "math": {
+    "goldenFixture": {
+      "bukkitYaw": 0,
+      "pitch": -60,
+      "nativeExpectedPoint": [
+        0,
+        1.8660254037844386,
+        0.5
+      ],
+      "pass": true
+    },
+    "cases": 60,
+    "maximumSocketErrorBlocks": 0,
+    "maximumPosedEndpointErrorBlocks": 4.633407467025884e-07,
+    "yawValues": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "pitchValues": [
+      -70,
+      -65,
+      -60,
+      0,
+      55
+    ],
+    "scaleValues": [
+      1,
+      2,
+      2.65
+    ]
+  },
+  "headChecks": [
+    {
+      "yaw": -45,
+      "pivotErrorBlocks": 0.0
+    },
+    {
+      "yaw": 45,
+      "pivotErrorBlocks": 0.0
+    }
+  ],
+  "evaluatedPoses": [
+    {
+      "view": "front",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        2.6500000953674316,
+        0.0
+      ]
+    },
+    {
+      "view": "side",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        2.6500000953674316,
+        0.0
+      ]
+    },
+    {
+      "view": "rear",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        2.6500000953674316,
+        0.0
+      ]
+    },
+    {
+      "view": "threequarter",
+      "semanticPitch": 0,
+      "actualLocalXDegrees": 0.0,
+      "forwardWorld": [
+        0.0,
+        2.6500000953674316,
+        0.0
+      ]
+    },
+    {
+      "view": "windup-minus60",
+      "semanticPitch": -60,
+      "actualLocalXDegrees": 60.000001669652114,
+      "forwardWorld": [
+        0.0,
+        1.3249999284744263,
+        2.2949674129486084
+      ]
+    },
+    {
+      "view": "windup-minus60-side",
+      "semanticPitch": -60,
+      "actualLocalXDegrees": 60.000001669652114,
+      "forwardWorld": [
+        0.0,
+        1.3249999284744263,
+        2.2949674129486084
+      ]
+    },
+    {
+      "view": "strike-plus55",
+      "semanticPitch": 55,
+      "actualLocalXDegrees": -54.999999253784715,
+      "forwardWorld": [
+        0.0,
+        1.5199776887893677,
+        -2.170753002166748
+      ]
+    }
+  ],
+  "poses": {
+    "neutral": {
+      "semanticPitch": 0,
+      "boundsBlenderBlocks": [
+        [
+          -3.4284377098083496,
+          -1.697656273841858,
+          0.0
+        ],
+        [
+          3.9418749809265137,
+          2.6334376335144043,
+          7.121875286102295
+        ]
+      ]
+    },
+    "windup-minus60": {
+      "semanticPitch": -60,
+      "boundsBlenderBlocks": [
+        [
+          -3.4284377098083496,
+          -1.697656273841858,
+          0.0
+        ],
+        [
+          3.9418749809265137,
+          4.241315841674805,
+          7.121875286102295
+        ]
+      ]
+    },
+    "strike-plus55": {
+      "semanticPitch": 55,
+      "boundsBlenderBlocks": [
+        [
+          -3.4284377098083496,
+          -2.3666398525238037,
+          0.0
+        ],
+        [
+          3.9418749809265137,
+          1.2504688501358032,
+          7.121875286102295
+        ]
+      ]
+    }
+  },
+  "camera": "All poses share union bounds, identical lights, exposure -0.7 and 640px resolution.",
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "limitations": [
+    "Rigid ItemDisplay parts, not a deforming skinned mesh.",
+    "Runtime interpolation, AI, hitboxes and Minecraft lighting need SOL integration checks.",
+    "Geometric socket tests do not certify silhouette or absence of interpenetration; inspect rendered poses."
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "guidebook",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "thirdperson_righthand",
+      "display": {
+        "rotation": [
+          5,
+          -35,
+          12
+        ],
+        "translation": [
+          0.728874,
+          4.248483,
+          0.674346
+        ],
+        "scale": [
+          0.64,
+          0.64,
+          0.64
+        ]
+      },
+      "kind": "closed_book",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        5.8,
+        4,
+        8.1
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        0.573576,
+        0.816035,
+        0.071394
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "thirdperson_lefthand",
+      "display": {
+        "rotation": [
+          5,
+          -35,
+          12
+        ],
+        "translation": [
+          -1.52745,
+          3.802929,
+          -0.950565
+        ],
+        "scale": [
+          0.64,
+          0.64,
+          0.64
+        ]
+      },
+      "kind": "closed_book",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        5.8,
+        4,
+        8.1
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        0.0,
+        1.5,
+        1e-06
+      ],
+      "anchorErrorModelUnits": 1e-06,
+      "forwardBlender": [
+        -0.573576,
+        0.816035,
+        0.071394
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_righthand",
+      "display": {
+        "rotation": [
+          8,
+          -22,
+          8
+        ],
+        "translation": [
+          1.006133,
+          4.211777,
+          0.720516
+        ],
+        "scale": [
+          0.6528,
+          0.6528,
+          0.6528
+        ]
+      },
+      "kind": "closed_book",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        5.8,
+        4,
+        8.1
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        1e-06
+      ],
+      "anchorErrorModelUnits": 1e-06,
+      "forwardBlender": [
+        0.374607,
+        0.918161,
+        0.129039
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_lefthand",
+      "display": {
+        "rotation": [
+          8,
+          -22,
+          8
+        ],
+        "translation": [
+          -1.631118,
+          3.964209,
+          -0.390268
+        ],
+        "scale": [
+          0.6528,
+          0.6528,
+          0.6528
+        ]
+      },
+      "kind": "closed_book",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        5.8,
+        4,
+        8.1
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        0.0,
+        1.5,
+        -0.0
+      ],
+      "anchorErrorModelUnits": 1e-06,
+      "forwardBlender": [
+        -0.374607,
+        0.918161,
+        0.129039
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

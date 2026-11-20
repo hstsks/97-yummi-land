@@ -1,0 +1,9 @@
+{
+  "id": "vfx_holy_spear",
+  "elements": 688,
+  "rightWingProjectedAreaBefore": 26.654,
+  "rightWingProjectedAreaAfter": 60.114,
+  "preservedOtherFiles": 26,
+  "errors": [],
+  "visualStatus": "Requires fresh Blender rerender; numeric silhouette area does not replace visual inspection."
+}

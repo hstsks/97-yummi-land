@@ -32,6 +32,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EntityEquipment;
@@ -49,6 +50,9 @@ import org.bukkit.util.Vector;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.WeakHashMap;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
@@ -71,6 +75,10 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     private int activeTier = 0;
     private BossBar activeBossBar;
     private final Map<UUID, Double> damageContribution = new HashMap<>();
+    private final Map<EntityDamageEvent,Double> accepted=new WeakHashMap<>();
+    private final Set<UUID> minions=new HashSet<>();
+    private double logicalHealth;private long epoch;
+    public double acceptedDamage(EntityDamageEvent event){return accepted.getOrDefault(event,-1.0);}
 
     public RaidBossManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
                            ThresholdAltarManager altar, Supplier<Location> arenaCenterSupplier) {
@@ -89,6 +97,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     }
 
     public void cleanup() {
+        epoch++;for(UUID id:minions){Entity minion=Bukkit.getEntity(id);if(minion!=null)minion.remove();}minions.clear();
         if (activeBossBar != null) {
             for (Player p : Bukkit.getOnlinePlayers()) p.hideBossBar(activeBossBar);
             activeBossBar = null;
@@ -214,6 +223,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     }
 
     private void spawnRaidBoss(Player summoner, int tier, Location spawnLoc) {
+        epoch++;
         damageContribution.clear();
         damageContribution.put(summoner.getUniqueId(), 25.0); // Summoner base bonus
         activeTier = tier;
@@ -261,7 +271,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
             Zombie v = (Zombie) w.spawnEntity(spawnLoc, EntityType.HUSK);
             v.setAdult();
             setAttr(v, Attribute.SCALE, 2.0);
-            setAttr(v, Attribute.MAX_HEALTH, 1100.0);
+            setAttr(v, Attribute.MAX_HEALTH, 1024.0);
             setAttr(v, Attribute.ATTACK_DAMAGE, 17.0);
             setAttr(v, Attribute.MOVEMENT_SPEED, 0.34);
             setAttr(v, Attribute.KNOCKBACK_RESISTANCE, 0.95);
@@ -278,9 +288,9 @@ public final class RaidBossManager implements Listener, CommandExecutor {
             barColor = BossBar.Color.PINK;
         }
 
-        activeBoss.setHealth(maxHp);
+        logicalHealth=maxHp;activeBoss.setHealth(Math.min(1024,maxHp));
         activeBoss.setRemoveWhenFarAway(false);
-        activeBoss.setPersistent(true);
+        activeBoss.setPersistent(false);
         activeBoss.customName(TextUtil.mm("<gold><bold>" + bossName + "</bold></gold>"));
         activeBoss.setCustomNameVisible(true);
         activeBoss.getPersistentDataContainer().set(bossTierKey, PersistentDataType.INTEGER, tier);
@@ -299,11 +309,13 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     }
 
     private void startBossAiLoop(Location homeCenter, double maxHp, String bossName) {
+        long owner=epoch;
         new BukkitRunnable() {
             int seconds = 0;
 
             @Override
             public void run() {
+                if(owner!=epoch){cancel();return;}
                 if (activeBoss == null || activeBoss.isDead() || !activeBoss.isValid()) {
                     if (activeBossBar != null) {
                         for (Player p : Bukkit.getOnlinePlayers()) p.hideBossBar(activeBossBar);
@@ -320,9 +332,9 @@ public final class RaidBossManager implements Listener, CommandExecutor {
                 }
 
                 // Update BossBar for nearby players
-                float progress = (float) Math.max(0.0, Math.min(1.0, activeBoss.getHealth() / maxHp));
+                float progress = (float) Math.max(0.0, Math.min(1.0, logicalHealth / maxHp));
                 activeBossBar.progress(progress);
-                activeBossBar.name(TextUtil.mm("<gold><bold>" + bossName + "</bold></gold> <gray>(" + (int) activeBoss.getHealth() + " / " + (int) maxHp + " HP)"));
+                activeBossBar.name(TextUtil.mm("<gold><bold>" + bossName + "</bold></gold> <gray>(" + (int) logicalHealth + " / " + (int) maxHp + " HP)"));
 
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     if (p.getWorld().equals(homeCenter.getWorld()) && p.getLocation().distanceSquared(homeCenter) <= 3600.0) {
@@ -367,6 +379,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
             // Spawn 2 tiny thief rats
             for (int i = 0; i < 2; i++) {
                 Silverfish rat = (Silverfish) w.spawnEntity(activeBoss.getLocation().add(i == 0 ? 1.5 : -1.5, 0.5, 0), EntityType.SILVERFISH);
+                rat.setPersistent(false);minions.add(rat.getUniqueId());
                 rat.customName(TextUtil.mm("<gray>츄르 도둑 생쥐"));
                 rat.setCustomNameVisible(true);
             }
@@ -428,6 +441,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
     }
 
     private void drawCircleWarning(Location center, double radius, Color color, long durationTicks, Runnable onDetonate) {
+        long owner=epoch;
         World w = center.getWorld();
         if (w == null) return;
         Particle.DustOptions dust = new Particle.DustOptions(color, 1.5f);
@@ -437,6 +451,7 @@ public final class RaidBossManager implements Listener, CommandExecutor {
 
             @Override
             public void run() {
+                if(owner!=epoch||activeBoss==null||activeBoss.isDead()){cancel();return;}
                 elapsed += 5;
                 for (int deg = 0; deg < 360; deg += 15) {
                     double rad = Math.toRadians(deg);
@@ -451,23 +466,30 @@ public final class RaidBossManager implements Listener, CommandExecutor {
         }.runTaskTimer(plugin, 0L, 5L);
     }
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onBossDamaged(EntityDamageByEntityEvent event) {
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onBossDamaged(EntityDamageEvent event) {
         if (activeBoss == null || !event.getEntity().getUniqueId().equals(activeBoss.getUniqueId())) return;
+        if(logicalHealth<=0){accepted.put(event,0.0);event.setCancelled(true);return;}
+        double damage=Math.min(logicalHealth,Math.max(0,event.getFinalDamage()));accepted.put(event,damage);
+        var hit=kr.yuumi97.core.dungeon.DungeonRules.healthHit(logicalHealth,activeBoss.getHealth(),damage);logicalHealth=hit.remaining();
+        LivingEntity boss=activeBoss;long owner=epoch;
+        if(logicalHealth>0){if(hit.intercept())event.setCancelled(true);Bukkit.getScheduler().runTaskLater(plugin,()->{if(owner==epoch&&boss.isValid()&&!boss.isDead())boss.setHealth(Math.min(1024,logicalHealth));},1);}
+        else if(hit.nativeHealthBeforeDamage()<boss.getHealth())boss.setHealth(hit.nativeHealthBeforeDamage());
         Player attacker = null;
-        if (event.getDamager() instanceof Player p) attacker = p;
-        else if (event.getDamager() instanceof org.bukkit.entity.Projectile proj && proj.getShooter() instanceof Player p) attacker = p;
+        if(event instanceof EntityDamageByEntityEvent attack){if(attack.getDamager() instanceof Player p)attacker=p;else if(attack.getDamager() instanceof org.bukkit.entity.Projectile proj&&proj.getShooter() instanceof Player p)attacker=p;}
 
         if (attacker != null) {
-            damageContribution.merge(attacker.getUniqueId(), event.getFinalDamage(), Double::sum);
+            damageContribution.merge(attacker.getUniqueId(), damage, Double::sum);
         }
     }
 
     @EventHandler
     public void onBossDeath(EntityDeathEvent event) {
+        if(minions.remove(event.getEntity().getUniqueId())){event.getDrops().clear();event.setDroppedExp(0);return;}
         LivingEntity dead = event.getEntity();
         Integer tier = dead.getPersistentDataContainer().get(bossTierKey, PersistentDataType.INTEGER);
         if (tier == null) return;
+        epoch++;for(UUID id:minions){Entity minion=Bukkit.getEntity(id);if(minion!=null)minion.remove();}minions.clear();
 
         event.getDrops().clear();
         event.setDroppedExp(150 * tier);

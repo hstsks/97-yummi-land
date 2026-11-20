@@ -1,0 +1,8 @@
+name: CoreProbe
+version: '1'
+main: kr.yuumi97.core.integration.CoreProbe
+api-version: '1.21'
+depend: [YuumiLandCore]
+commands:
+  coreprobe:
+    description: Disposable integration server probe

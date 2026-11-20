@@ -1,0 +1,36 @@
+{
+  "id": "vfx_feast_cauldron_aura",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "floor",
+    "anchor": [
+      8,
+      0,
+      8
+    ],
+    "steamYRange": [
+      18,
+      28
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "floor-contact",
+      "kind": "floor",
+      "planeYModelUnits": 0,
+      "minimumYModelUnits": 0.0,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "touchesFloor": true
+    }
+  ]
+}

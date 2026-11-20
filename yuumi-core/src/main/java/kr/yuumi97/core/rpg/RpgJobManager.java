@@ -1,169 +1,53 @@
 package kr.yuumi97.core.rpg;
-
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.plot.PlotManager;
 import kr.yuumi97.core.util.TextUtil;
-import org.bukkit.*;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.*;
-import org.bukkit.event.*;
-import org.bukkit.event.inventory.*;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.*;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.java.JavaPlugin;
-import java.util.*;
-import java.util.function.*;
+import org.bukkit.*;import org.bukkit.configuration.ConfigurationSection;import org.bukkit.configuration.file.FileConfiguration;import org.bukkit.entity.*;import org.bukkit.event.*;import org.bukkit.event.entity.EntityDamageEvent;import org.bukkit.event.inventory.*;import org.bukkit.event.player.PlayerJoinEvent;import org.bukkit.inventory.*;import org.bukkit.plugin.java.JavaPlugin;import org.bukkit.scheduler.BukkitTask;
+import java.util.*;import java.util.function.*;
 
-/** Persistent identity and growth. Only the active job earns XP; other job records are untouched. */
+/** Independent combat and life progression. No gameplay reads the retired single-slot schema. */
 public final class RpgJobManager implements Listener {
-    public static final class RpgHolder implements InventoryHolder {
-        public final String screen;
-        public RpgHolder(String screen) { this.screen = screen; }
-        @Override public Inventory getInventory() { return null; }
-    }
-    public final JavaPlugin plugin;
-    public final YuumiItems items;
-    public final ChuruManager churu;
-    public final FileConfiguration data;
-    public final Runnable save;
-    public final PlotManager plots;
-    private final SignatureWeaponManager signatures;
-    private final PerkTreeManager perks;
-    private final BookmarkPouchManager pouch;
-    private final ArtisanWorkshopManager workshop;
-    private final RpgGatheringListener gathering;
-    private final RpgCombatListener combat;
-    private final FishingRarityBridge fishingBridge;
-    private Function<Player, Collection<Player>> partyMembers = p -> List.of(p);
-    private Predicate<Player> dungeon = p -> false;
-    private BiPredicate<Player, Entity> canAffect = (p,e) -> true;
-    private BiConsumer<Player,Double> obeliskDamage = (p,d) -> {};
-    private Consumer<Player> reviveOne = p -> {};
-    private boolean dirty;
-    private kr.yuumi97.core.util.RewardMailbox mailbox;
-    private Predicate<String> models = id -> false;
-    private Predicate<Entity> additionalHostile = entity -> false;
-    private Predicate<Entity> trainingDummy = entity -> false;
-    private ToDoubleFunction<org.bukkit.event.entity.EntityDamageEvent> trainingDamage = event -> -1;
-    private org.bukkit.scheduler.BukkitTask saveTask;
-
-    public RpgJobManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
-                         FileConfiguration data, Runnable save, PlotManager plots) {
-        this.plugin=plugin; this.items=items; this.churu=churu; this.data=data; this.save=save; this.plots=plots;
-        signatures=new SignatureWeaponManager(this); perks=new PerkTreeManager(this);
-        pouch=new BookmarkPouchManager(this); workshop=new ArtisanWorkshopManager(this);
-        gathering=new RpgGatheringListener(this); combat=new RpgCombatListener(this);fishingBridge=new FishingRarityBridge(this);
-    }
-    public void start() {
-        for (Listener l : List.of(this, signatures, perks, pouch, workshop, gathering, combat, fishingBridge))
-            Bukkit.getPluginManager().registerEvents(l,plugin);
-        combat.start(); pouch.start();fishingBridge.start();
-        saveTask=Bukkit.getScheduler().runTaskTimer(plugin, () -> { if(dirty) {save.run();dirty=false;} },100,100);
-    }
-    public void stop() {
-        if(saveTask!=null)saveTask.cancel(); combat.stop(); pouch.stop(); gathering.stop();fishingBridge.stop(); save.run();
-    }
-    public SignatureWeaponManager getSignatures(){return signatures;}
-    public BookmarkPouchManager getPouch(){return pouch;}
-    public ArtisanWorkshopManager getWorkshop(){return workshop;}
-    public RpgCombatListener getCombat(){return combat;}
-    public void setMailbox(kr.yuumi97.core.util.RewardMailbox mailbox){this.mailbox=mailbox;}
-    public void deliver(Player p,ItemStack...stacks){for(ItemStack stack:stacks)if(mailbox!=null)mailbox.give(p,stack);else give(p,stack);}
-    public void setModelAvailability(Predicate<String> availability){models=availability;}
-    public void setHostilePredicate(Predicate<Entity> predicate){additionalHostile=predicate;}
-    public boolean taggedEnemy(Entity entity){return additionalHostile.test(entity);}
-    public void setTrainingDummyHooks(Predicate<Entity> predicate,ToDoubleFunction<org.bukkit.event.entity.EntityDamageEvent> approvedDamage){trainingDummy=predicate;trainingDamage=approvedDamage;}
-    public boolean isTrainingDummy(Entity entity){return trainingDummy.test(entity);}
-    public double approvedTrainingDamage(org.bukkit.event.entity.EntityDamageEvent event){return trainingDamage.applyAsDouble(event);}
-    public void recordTrainingEffect(Player player,LivingEntity entity,org.bukkit.event.entity.EntityDamageEvent.DamageCause cause,int ticks){if(!isTrainingDummy(entity)||ticks<=0)return;
-        String key=cause==org.bukkit.event.entity.EntityDamageEvent.DamageCause.POISON?"yuumi_training_poison_owner":"yuumi_training_fire_owner";
-        String expiry=cause==org.bukkit.event.entity.EntityDamageEvent.DamageCause.POISON?"yuumi_training_poison_expires":"yuumi_training_fire_expires";
-        entity.getPersistentDataContainer().set(new NamespacedKey(plugin,key),org.bukkit.persistence.PersistentDataType.STRING,player.getUniqueId().toString());
-        entity.getPersistentDataContainer().set(new NamespacedKey(plugin,expiry),org.bukkit.persistence.PersistentDataType.LONG,System.nanoTime()+ticks*50_000_000L);}
-    public ItemStack prop(String id,Material fallback){ItemStack stack=new ItemStack(fallback);if(models.test(id))stack.editMeta(meta->meta.setItemModel(new NamespacedKey("yuumi97",id)));return stack;}
-    public void setPartyMembers(Function<Player,Collection<Player>> provider){partyMembers=provider;}
-    public void setDungeonHooks(Predicate<Player> participant, BiPredicate<Player,Entity> affect,
-                               BiConsumer<Player,Double> obelisks, Consumer<Player> revive) {
-        dungeon=participant;canAffect=affect;obeliskDamage=obelisks;reviveOne=revive;
-    }
-    public boolean inDungeon(Player p){return dungeon.test(p);}
-    public boolean canAffect(Player p, Entity e){return canAffect.test(p,e);}
-    public void damageObelisks(Player p,double damage){obeliskDamage.accept(p,damage);}
-    public void harvest(Player p,org.bukkit.block.Block block){gathering.harvest(p,block,block.getType());}
-    public void reviveOne(Player p){reviveOne.accept(p);}
-    public Collection<Player> allies(Player p,double radius) {
-        LinkedHashSet<Player> result=new LinkedHashSet<>(); result.add(p);
-        for(Player a:partyMembers.apply(p)) if(a.isOnline() && !a.isDead() && a.getGameMode()!=GameMode.SPECTATOR
-            && a.getWorld().equals(p.getWorld()) && a.getLocation().distanceSquared(p.getLocation())<=radius*radius) result.add(a);
-        return result;
-    }
-    public String root(Player p){return "rpg."+p.getUniqueId();}
-    public String jobPath(Player p){JobType j=getJob(p);return root(p)+".jobs."+(j==null?"NONE":j.name());}
-    public JobType getJob(Player p){return JobType.parse(data.getString(root(p)+".active_job"));}
-    public int getLevel(Player p){return getJob(p)==null?0:Math.clamp(data.getInt(jobPath(p)+".level",1),1,20);}
-    public String getAwakening(Player p){return data.getString(jobPath(p)+".awakening","");}
-    public int perk(Player p,String branch){return Math.clamp(data.getInt(jobPath(p)+".perks."+branch,0),0,10);}
-    public double cfg(String path,double fallback){return plugin.getConfig().getDouble(path,fallback);}
-    public String getSummary(Player p){JobType j=getJob(p); if(j==null)return "미선택";
-        String a=getAwakening(p);return j.display+" Lv."+getLevel(p)+(a.equals("A")?" · "+j.awakeningA:a.equals("B")?" · "+j.awakeningB:"");}
-    public boolean isSignature(ItemStack item){return JobType.fromItem(items.getCustomId(item))!=null;}
-    public boolean nearTeacher(Player p){if(!p.getWorld().getName().equals("yuumi_hub"))return false;
-        NamespacedKey key=new NamespacedKey(plugin,"hub_npc_role");for(Entity e:p.getNearbyEntities(7,5,7))if("class_master".equals(e.getPersistentDataContainer().get(key,org.bukkit.persistence.PersistentDataType.STRING)))return true;
-        p.sendMessage(TextUtil.msg("<yellow>직업·각성 변경과 성물 재발급은 광장 북서쪽 전직 교관을 방문하세요."));return false;}
-    public boolean holdingSignature(Player p){JobType j=getJob(p);return j!=null && items.isCustomItem(p.getInventory().getItemInMainHand(),j.itemId);}
-    public boolean hasCharm(Player p,String id){return pouch.hasCharm(p,id);}
-    public double getCoinMultiplier(Player p){return hasCharm(p,"charm_golden_whisker")?1.25:1;}
-    public void changed(){dirty=true;}
-    public int xpNeeded(int level){return RpgRules.xpNeeded(Math.clamp(level,1,19),(int)cfg("rpg.xp.base",80),(int)cfg("rpg.xp.linear",40),(int)cfg("rpg.xp.quadratic",10));}
-    public void awardXp(Player p,int amount){
-        if(getJob(p)==null||getLevel(p)>=20||amount<=0||p.getGameMode()==GameMode.CREATIVE)return;
-        double multiplier=workshop.feastEffect(p,"HARVEST","xp",.15);
-        int xp=data.getInt(jobPath(p)+".xp",0)+(int)Math.round(amount*(1+multiplier));int level=getLevel(p);
-        while(level<20 && xp>=xpNeeded(level)){xp-=xpNeeded(level);level++;p.sendMessage(TextUtil.msg("<gold>성향 성장! "+getJob(p).display+" Lv."+level+" · 특전 1 SP 획득"));}
-        data.set(jobPath(p)+".level",level);data.set(jobPath(p)+".xp",level==20?0:xp);changed();signatures.refreshInventory(p);
-    }
-    public void activityXp(Player p,String activity,int base){
-        JobType j=getJob(p);if(j==null)return;
-        boolean match=switch(activity){case "combat"->j.combat();case "mining"->j==JobType.MINER;
-            case "farming"->j==JobType.FARMER;case "fishing"->j==JobType.ANGLER;case "wood"->j==JobType.CARPENTER;
-            case "smith"->j==JobType.BLACKSMITH;case "furniture"->j==JobType.CARPENTER;case "cooking"->j==JobType.CHEF;default->false;};
-        awardXp(p,Math.max(1,(int)Math.round(base*(match?1:cfg("rpg.xp.other-activity-multiplier",.25)))));
-    }
-    public static ItemStack icon(Material material,String name,String...lore){ItemStack s=new ItemStack(material);ItemMeta m=s.getItemMeta();m.displayName(TextUtil.mm(name));m.lore(TextUtil.lore(lore));s.setItemMeta(m);return s;}
-    public static void give(Player p,ItemStack...items){for(ItemStack s:items)for(ItemStack left:p.getInventory().addItem(s).values())p.getWorld().dropItemNaturally(p.getLocation(),left);}
-    public int count(Player p,String id){int n=0;for(ItemStack s:p.getInventory().getStorageContents())if(items.isCustomItem(s,id))n+=s.getAmount();return n;}
-    public boolean consume(Player p,String id,int amount){if(count(p,id)<amount)return false;int n=amount;
-        for(ItemStack s:p.getInventory().getStorageContents())if(items.isCustomItem(s,id)){int take=Math.min(n,s.getAmount());s.setAmount(s.getAmount()-take);n-=take;if(n==0)break;}return true;}
-    public void openClassGui(Player p){
-        Inventory inv=Bukkit.createInventory(new RpgHolder("class"),54,TextUtil.mm("<gold>성향 교관 마스터냥 · 10대 직업"));
-        for(JobType j:JobType.values()){ItemStack s=items.create(j.itemId);ItemMeta m=s.getItemMeta();m.lore(TextUtil.lore("<yellow>클릭: "+j.display+" 선택","<gray>A: "+j.awakeningA,"<gray>B: "+j.awakeningB,"<gray>성장과 특전은 직업별 영구 보존"));s.setItemMeta(m);inv.setItem(10+j.ordinal()+(j.ordinal()>=7?2:0),s);}
-        inv.setItem(40,icon(Material.NETHER_STAR,"<aqua>내 성향 · 특전 · 책갈피함",getSummary(p)));
-        inv.setItem(49,icon(Material.BOOK,"<yellow>최초 변경 무료 · 이후 물약 1개 또는 5,000 츄르","<gray>변경 쿨타임 1시간 · A/B 재선택 3,000 츄르"));p.openInventory(inv);
-    }
-    public void openProfile(Player p){Inventory inv=Bukkit.createInventory(new RpgHolder("profile"),27,TextUtil.mm("<aqua>집사 성향 문장"));
-        inv.setItem(4,icon(Material.NETHER_STAR,"<gold>"+getSummary(p),"<gray>XP "+data.getInt(jobPath(p)+".xp",0)+" / "+xpNeeded(Math.max(1,getLevel(p)))));
-        inv.setItem(10,icon(Material.EXPERIENCE_BOTTLE,"<red>20 SP 특전 트리"));inv.setItem(12,icon(Material.BUNDLE,"<green>3슬롯 책갈피 유물함"));
-        inv.setItem(14,icon(Material.BLAZE_POWDER,"<yellow>각성 A 선택 / 재선택","<gray>Lv.10 이상 · 최초 무료 · 이후 3,000 츄르"));
-        inv.setItem(15,icon(Material.ENDER_PEARL,"<light_purple>각성 B 선택 / 재선택","<gray>Lv.10 이상 · 최초 무료 · 이후 3,000 츄르"));
-        inv.setItem(16,icon(Material.DIAMOND_SWORD,"<aqua>성물 / 문장 무료 재발급","<gray>스킬·보너스는 활성 직업의 성물만 적용"));p.openInventory(inv);}
-    private void selectJob(Player p,JobType next){if(!nearTeacher(p))return;JobType old=getJob(p);if(old==next){openProfile(p);return;}
-        long now=System.currentTimeMillis();int changes=data.getInt(root(p)+".changes",0);
-        if(old!=null&&now<data.getLong(root(p)+".change_ready_at",0)){p.sendMessage(TextUtil.msg("<red>성향 변경은 1시간마다 가능합니다."));return;}
-        if(old!=null&&changes>=1){if(count(p,"respec_potion")>0)consume(p,"respec_potion",1);else if(!churu.withdraw(p,cfg("rpg.job-change-cost",5000))){p.sendMessage(TextUtil.msg("<red>망각 물약 또는 5,000 츄르가 필요합니다."));return;}}
-        if(old!=null){data.set(root(p)+".changes",changes+1);data.set(root(p)+".change_ready_at",now+(long)(cfg("rpg.job-change-cooldown-seconds",3600)*1000));}
-        data.set(root(p)+".active_job",next.name());if(!data.contains(jobPath(p)+".level"))data.set(jobPath(p)+".level",1);
-        save.run();combat.clearTemporary(p);signatures.issue(p);p.sendMessage(TextUtil.msg("<gold>이제 "+next.display+"입니다! 다른 성향의 성장은 보존되었습니다."));openProfile(p);
-    }
-    private void awaken(Player p,String branch){if(!nearTeacher(p))return;if(getLevel(p)<10){p.sendMessage(TextUtil.msg("<red>초월 각성에는 Lv.10이 필요합니다."));return;}
-        String old=getAwakening(p);if(old.equals(branch))return;if(!old.isEmpty()&&!churu.withdraw(p,cfg("rpg.reawakening-cost",3000))){p.sendMessage(TextUtil.msg("<red>각성 변경에는 3,000 츄르가 필요합니다."));return;}
-        data.set(jobPath(p)+".awakening",branch);save.run();combat.clearTemporary(p);signatures.refreshInventory(p);openProfile(p);}
-    @EventHandler public void onClick(InventoryClickEvent e){if(!(e.getView().getTopInventory().getHolder() instanceof RpgHolder h))return;e.setCancelled(true);if(!(e.getWhoClicked() instanceof Player p))return;
-        int slot=e.getRawSlot();if(slot<0||slot>=e.getView().getTopInventory().getSize())return;
-        if(h.screen.equals("class")){if(slot==40){openProfile(p);return;}for(JobType j:JobType.values())if(slot==10+j.ordinal()+(j.ordinal()>=7?2:0)){selectJob(p,j);return;}}
-        if(h.screen.equals("profile"))switch(slot){case 10->perks.open(p);case 12->pouch.open(p);case 14->awaken(p,"A");case 15->awaken(p,"B");case 16->signatures.issue(p);}
-    }
-    @EventHandler public void onDrag(InventoryDragEvent e){if(e.getView().getTopInventory().getHolder() instanceof RpgHolder)e.setCancelled(true);}
-    @EventHandler public void onJoin(PlayerJoinEvent e){Bukkit.getScheduler().runTask(plugin,()->signatures.refreshInventory(e.getPlayer()));}
+ public interface PoiseDamage {void accept(Player p,LivingEntity target,double amount);}
+ private record Holder(String screen) implements InventoryHolder {public Inventory getInventory(){return null;}}
+ public final JavaPlugin plugin;public final YuumiItems items;public final ChuruManager churu;public final FileConfiguration data;public final Runnable save;public final PlotManager plots;
+ private final SignatureWeaponManager signatures;private final PerkTreeManager perks;private final BookmarkPouchManager pouch;private final ArtisanWorkshopManager workshop;private final RpgGatheringListener gathering;private final RpgCombatListener combat;private final LifeSkillManager life;private final CombatDamageService damage;private final SkillVfxChoreographer vfx;private final FishingRarityBridge fishing;
+ private Function<Player,Collection<Player>> party=p->List.of(p);private Predicate<Player> dungeon=p->false,practicing=p->false;private BiPredicate<Player,Entity> affect=(p,e)->true;private Predicate<Entity> hostile=e->false,boss=e->false,training=e->false;
+ private BiConsumer<Player,Double> revive=(p,r)->{};private PoiseDamage poise=(p,e,d)->{};private ToDoubleFunction<EntityDamageEvent> dungeonDamage=e->-1,trainingDamage=e->-1;private Predicate<String> models=id->false;private kr.yuumi97.core.util.RewardMailbox mailbox;private BukkitTask task;private boolean dirty;
+ public RpgJobManager(JavaPlugin plugin,YuumiItems items,ChuruManager churu,FileConfiguration data,Runnable save,PlotManager plots){this.plugin=plugin;this.items=items;this.churu=churu;this.data=data;this.save=save;this.plots=plots;
+  convertProfiles();vfx=new SkillVfxChoreographer(this);damage=new CombatDamageService(this);signatures=new SignatureWeaponManager(this);perks=new PerkTreeManager(this);pouch=new BookmarkPouchManager(this);workshop=new ArtisanWorkshopManager(this);gathering=new RpgGatheringListener(this);combat=new RpgCombatListener(this);life=new LifeSkillManager(this);fishing=new FishingRarityBridge(this);}
+ public void start(){for(Listener l:List.of(this,signatures,perks,pouch,workshop,gathering,combat,life,damage,fishing))Bukkit.getPluginManager().registerEvents(l,plugin);combat.start();life.start();pouch.start();vfx.start();fishing.start();task=Bukkit.getScheduler().runTaskTimer(plugin,()->{if(dirty){save.run();dirty=false;}},100,100);}
+ public void stop(){if(task!=null)task.cancel();combat.stop();life.stop();pouch.stop();vfx.stop();fishing.stop();gathering.stop();save.run();}
+ private void convertProfiles(){ConfigurationSection s=data.getConfigurationSection("rpg");if(s==null)return;for(String uuid:new ArrayList<>(s.getKeys(false))){String root="rpg."+uuid;ConfigurationSection jobs=data.getConfigurationSection(root+".jobs");if(jobs==null)continue;int cc=0,lc=0;
+  for(String id:jobs.getKeys(false)){RpgDomain d=CombatClass.parse(id)!=null?RpgDomain.COMBAT:LifeProfession.parse(id)!=null?RpgDomain.LIFE:null;if(d==null)continue;if(d==RpgDomain.COMBAT)cc++;else lc++;String from=root+".jobs."+id,to=root+"."+d.path+"."+id;if(!data.contains(to+".level")){data.set(to+".level",Math.clamp(data.getInt(from+".level",1),1,20));data.set(to+".xp",Math.max(0,data.getInt(from+".xp")));}}
+  String active=data.getString(root+".active_job","");if(CombatClass.parse(active)!=null)data.set(root+".active_combat",active);if(LifeProfession.parse(active)!=null)data.set(root+".active_life",active);data.set(root+".changes_combat",Math.max(0,cc-1));data.set(root+".changes_life",Math.max(0,lc-1));for(String key:List.of("jobs","active_job","changes","change_ready_at"))data.set(root+"."+key,null);dirty=true;}if(dirty)save.run();}
+ public SignatureWeaponManager getSignatures(){return signatures;}public BookmarkPouchManager getPouch(){return pouch;}public ArtisanWorkshopManager getWorkshop(){return workshop;}public RpgCombatListener combatSkills(){return combat;}public LifeSkillManager lifeSkills(){return life;}public CombatDamageService damage(){return damage;}public SkillVfxChoreographer vfx(){return vfx;}
+ public void setMailbox(kr.yuumi97.core.util.RewardMailbox m){mailbox=m;}public void setModelAvailability(Predicate<String> m){models=m;}public boolean hasModel(String id){return models.test(id);}public void setPracticingPredicate(Predicate<Player> p){practicing=p;}public boolean isPracticing(Player p){return practicing.test(p);}
+ public void setPartyMembers(Function<Player,Collection<Player>> p){party=p;}public void setHostilePredicate(Predicate<Entity> h){hostile=h;}public void setDungeonHooks(Predicate<Player> d,BiPredicate<Player,Entity> a,BiConsumer<Player,Double> r){dungeon=d;affect=a;revive=r;}
+ public void setDungeonCombatHooks(PoiseDamage p,Predicate<Entity> b,ToDoubleFunction<EntityDamageEvent> d){poise=p;boss=b;dungeonDamage=d;}public void setTrainingDummyHooks(Predicate<Entity> t,ToDoubleFunction<EntityDamageEvent> d){training=t;trainingDamage=d;}
+ public boolean inDungeon(Player p){return dungeon.test(p);}public boolean isTrainingDummy(Entity e){return training.test(e);}public boolean taggedEnemy(Entity e){return hostile.test(e);}public boolean canAffect(Player p,Entity e){return affect.test(p,e);}public boolean isBoss(Entity e){return boss.test(e)||e.getScoreboardTags().stream().anyMatch(t->t.contains("boss"));}
+ public boolean hostile(Player p,Entity e){return e instanceof LivingEntity l&&!(e instanceof Player)&&!l.isDead()&&(training.test(e)||e instanceof Monster||hostile.test(e))&&affect.test(p,e);}public double acceptedDamage(EntityDamageEvent e){double a=dungeonDamage.applyAsDouble(e);return a>=0?a:trainingDamage.applyAsDouble(e);}
+ public void damagePoise(Player p,LivingEntity t,double n){if(!isTrainingDummy(t)&&n>0)poise.accept(p,t,n);}public void reviveOne(Player p,double radius){revive.accept(p,radius);}
+ public static boolean usable(Player p){return p!=null&&p.isOnline()&&!p.isDead()&&p.getGameMode()!=GameMode.SPECTATOR;}
+ public Collection<Player> allies(Player p,double radius){Set<Player> out=new LinkedHashSet<>();if(usable(p))out.add(p);for(Player a:party.apply(p))if(usable(a)&&a.getWorld().equals(p.getWorld())&&a.getLocation().distanceSquared(p.getLocation())<=radius*radius)out.add(a);return out;}
+ public String root(Player p){return "rpg."+p.getUniqueId();}public CombatClass getCombat(Player p){return CombatClass.parse(data.getString(root(p)+".active_combat"));}public LifeProfession getLife(Player p){return LifeProfession.parse(data.getString(root(p)+".active_life"));}
+ public boolean selected(Player p,RpgDomain d){return d==RpgDomain.COMBAT?getCombat(p)!=null:getLife(p)!=null;}public String path(Player p,RpgDomain d){Object id=d==RpgDomain.COMBAT?getCombat(p):getLife(p);return root(p)+"."+d.path+"."+(id==null?"NONE":id);}
+ public int level(Player p,RpgDomain d){return selected(p,d)?Math.clamp(data.getInt(path(p,d)+".level",1),1,20):0;}public int combatLevel(Player p){return level(p,RpgDomain.COMBAT);}public int lifeLevel(Player p){return level(p,RpgDomain.LIFE);}public String branch(Player p,RpgDomain d){return data.getString(path(p,d)+(d==RpgDomain.COMBAT?".awakening":".spec"),"");}public String combatAwakening(Player p){return branch(p,RpgDomain.COMBAT);}public String lifeSpec(Player p){return branch(p,RpgDomain.LIFE);}
+ public int perk(Player p,RpgDomain d,String node){return Math.clamp(data.getInt(path(p,d)+".perks."+node),0,d==RpgDomain.COMBAT?4:5);}public boolean holdingCombat(Player p){var c=getCombat(p);return c!=null&&items.isCustomItem(p.getInventory().getItemInMainHand(),c.itemId);}public boolean holdingLife(Player p){var l=getLife(p);return l!=null&&items.isCustomItem(p.getInventory().getItemInMainHand(),l.itemId);}public boolean holdingSignature(Player p){return holdingCombat(p)||holdingLife(p);}public RpgDomain heldDomain(Player p){return holdingCombat(p)?RpgDomain.COMBAT:holdingLife(p)?RpgDomain.LIFE:null;}
+ public boolean isSignature(ItemStack s){String id=items.getCustomId(s);return CombatClass.fromItem(id)!=null||LifeProfession.fromItem(id)!=null;}public double cfg(String path,double fallback){return plugin.getConfig().getDouble(path,fallback);}public void changed(){dirty=true;}public boolean hasCharm(Player p,String id){return pouch.hasCharm(p,id);}public double getCoinMultiplier(Player p){return hasCharm(p,"charm_golden_whisker")?1.25:1;}
+ public String summary(Player p){return (getCombat(p)==null?"전투 미선택":getCombat(p).display+" Lv."+combatLevel(p))+" · "+(getLife(p)==null?"생활 미선택":getLife(p).display+" Lv."+lifeLevel(p));}
+ public int xpNeeded(int l){return RpgRules.xpNeeded(Math.clamp(l,1,19),(int)cfg("rpg.xp.base",80),(int)cfg("rpg.xp.linear",40),(int)cfg("rpg.xp.quadratic",10));}
+ private void award(Player p,RpgDomain d,int amount){if(!selected(p,d)||level(p,d)>=20||amount<=0||(p.getGameMode()==GameMode.CREATIVE||p.getGameMode()==GameMode.SPECTATOR))return;String path=path(p,d);int l=level(p,d),xp=data.getInt(path+".xp")+(int)Math.round(amount*(1+workshop.feastEffect(p,"HARVEST","xp",.15)));while(l<20&&xp>=xpNeeded(l)){xp-=xpNeeded(l++);p.sendMessage(TextUtil.msg("<gold>성향 성장 Lv."+l+" · 특전 1 SP"));}data.set(path+".level",l);data.set(path+".xp",l==20?0:xp);changed();signatures.refreshInventory(p);}
+ public void awardCombatXp(Player p,int n){award(p,RpgDomain.COMBAT,n);}public void awardLifeXp(Player p,String activity,int n){var l=getLife(p);if(l==null||n<=0)return;boolean match=switch(activity){case "mining"->l==LifeProfession.MINER;case "farming"->l==LifeProfession.FARMER;case "fishing"->l==LifeProfession.ANGLER;case "wood","furniture"->l==LifeProfession.CARPENTER;case "smith"->l==LifeProfession.BLACKSMITH;case "cooking"->l==LifeProfession.CHEF;default->true;};award(p,RpgDomain.LIFE,Math.max(1,(int)Math.round(n*(match?1:cfg("rpg.xp.other-activity-multiplier",.25)))));}
+ public void awardQuestXp(Player p,int n){if(getCombat(p)==null)award(p,RpgDomain.LIFE,n);else if(getLife(p)==null)awardCombatXp(p,n);else{awardCombatXp(p,n/2);award(p,RpgDomain.LIFE,n-n/2);}}
+ public static ItemStack icon(Material m,String name,String...lore){ItemStack s=new ItemStack(m);s.editMeta(meta->{meta.displayName(TextUtil.mm(name));meta.lore(TextUtil.lore(lore));});return s;}public static void give(Player p,ItemStack...stacks){for(ItemStack s:stacks)for(ItemStack left:p.getInventory().addItem(s).values())p.getWorld().dropItemNaturally(p.getLocation(),left);}public void deliver(Player p,ItemStack...stacks){for(ItemStack s:stacks)if(mailbox!=null)mailbox.give(p,s);else give(p,s);}
+ public int count(Player p,String id){int n=0;for(ItemStack s:p.getInventory().getStorageContents())if(items.isCustomItem(s,id))n+=s.getAmount();return n;}public boolean consume(Player p,String id,int n){if(count(p,id)<n)return false;for(ItemStack s:p.getInventory().getStorageContents())if(items.isCustomItem(s,id)){int a=Math.min(n,s.getAmount());s.setAmount(s.getAmount()-a);n-=a;if(n==0)break;}return true;}
+ public boolean nearTeacher(Player p){if(p.getWorld().getName().equals("yuumi_hub")){var key=new NamespacedKey(plugin,"hub_npc_role");for(Entity e:p.getNearbyEntities(8,5,8))if("class_master".equals(e.getPersistentDataContainer().get(key,org.bukkit.persistence.PersistentDataType.STRING)))return true;}p.sendMessage(TextUtil.msg("<yellow>전직·각성·성물 재발급은 성향 교관을 방문하세요."));return false;}
+ public void openClassGui(Player p){Inventory i=Bukkit.createInventory(new Holder("class"),54,TextUtil.mm("<gold>성향 교관 · 전투 6 + 생활 6"));for(var c:CombatClass.values())i.setItem(10+c.ordinal(),items.create(c.itemId));for(var l:LifeProfession.values())i.setItem(28+l.ordinal(),items.create(l.itemId));i.setItem(49,icon(Material.NETHER_STAR,"<aqua>내 성향 · 특전 · 책갈피함",summary(p)));p.openInventory(i);}
+ public void openProfile(Player p){Inventory i=Bukkit.createInventory(new Holder("profile"),36,TextUtil.mm("<aqua>전투와 생활의 듀얼 성향"));i.setItem(4,icon(Material.NETHER_STAR,"<gold>"+summary(p)));for(RpgDomain d:RpgDomain.values()){int o=d==RpgDomain.COMBAT?0:9;i.setItem(10+o,icon(Material.EXPERIENCE_BOTTLE,"<yellow>"+(o==0?"전투":"생활")+" 특전 각인"));i.setItem(12+o,icon(Material.BLAZE_POWDER,"<gold>A 선택 · Lv.10",branch(p,d)));i.setItem(14+o,icon(Material.ENDER_PEARL,"<light_purple>B 선택 · Lv.10",branch(p,d)));}i.setItem(31,icon(Material.BUNDLE,"<green>3슬롯 책갈피함"));i.setItem(33,icon(Material.DIAMOND,"<aqua>활성 성물 재발급"));p.openInventory(i);}
+ private void select(Player p,RpgDomain d,String id){if(!nearTeacher(p))return;String active=root(p)+".active_"+d.path,old=data.getString(active);if(id.equals(old)){openProfile(p);return;}int changes=data.getInt(root(p)+".changes_"+d.path);if(old!=null&&changes>=1&&!consume(p,"respec_potion",1)&&!churu.withdraw(p,cfg("rpg.job-change-cost",5000))){p.sendMessage(TextUtil.msg("<red>망각 물약 또는 5,000 츄르가 필요합니다."));return;}if(old!=null)data.set(root(p)+".changes_"+d.path,changes+1);data.set(active,id);if(!data.contains(path(p,d)+".level"))data.set(path(p,d)+".level",1);combat.clear(p,d);life.clear(p,d);combat.refreshStats(p);save.run();signatures.issue(p);openProfile(p);}
+ private void awaken(Player p,RpgDomain d,String next){if(!nearTeacher(p)||level(p,d)<10)return;String old=branch(p,d);if(old.equals(next))return;if(!old.isEmpty()&&!churu.withdraw(p,cfg("rpg.reawakening-cost",3000)))return;data.set(path(p,d)+(d==RpgDomain.COMBAT?".awakening":".spec"),next);combat.clear(p,d);life.clear(p,d);combat.refreshStats(p);save.run();signatures.refreshInventory(p);openProfile(p);}
+ @EventHandler public void click(InventoryClickEvent e){if(!(e.getView().getTopInventory().getHolder() instanceof Holder h))return;e.setCancelled(true);if(!(e.getWhoClicked() instanceof Player p))return;int s=e.getRawSlot();if(h.screen.equals("class")){if(s==49){openProfile(p);return;}for(var c:CombatClass.values())if(s==10+c.ordinal()){select(p,RpgDomain.COMBAT,c.name());return;}for(var l:LifeProfession.values())if(s==28+l.ordinal()){select(p,RpgDomain.LIFE,l.name());return;}}else{if(s==31)pouch.open(p);else if(s==33)signatures.issue(p);else for(var d:RpgDomain.values()){int o=d==RpgDomain.COMBAT?0:9;if(s==10+o)perks.open(p,d);else if(s==12+o)awaken(p,d,"A");else if(s==14+o)awaken(p,d,"B");}}}
+ @EventHandler public void drag(InventoryDragEvent e){if(e.getView().getTopInventory().getHolder() instanceof Holder)e.setCancelled(true);}@EventHandler public void join(PlayerJoinEvent e){Bukkit.getScheduler().runTask(plugin,()->signatures.refreshInventory(e.getPlayer()));}
+ public int harvest(Player p,org.bukkit.block.Block b){return gathering.harvest(p,b,b.getType());}public boolean naturalBreak(org.bukkit.event.block.BlockBreakEvent e){return gathering.naturalBreak(e);}public boolean fellNearby(Player p,int cap){return gathering.fellNearby(p,cap);}public ItemStack prop(String id,Material fallback){ItemStack s=new ItemStack(fallback);if(hasModel(id))s.editMeta(m->m.setItemModel(new NamespacedKey("yuumi97",id)));return s;}
 }

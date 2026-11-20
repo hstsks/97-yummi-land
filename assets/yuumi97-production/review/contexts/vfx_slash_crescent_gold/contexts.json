@@ -1,0 +1,38 @@
+{
+  "id": "vfx_slash_crescent_gold",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "horizontal_arc",
+    "front": [
+      0,
+      0,
+      -1
+    ],
+    "layers": 3
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "horizontal_arc",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    }
+  ]
+}

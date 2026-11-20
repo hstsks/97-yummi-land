@@ -55,7 +55,7 @@ public final class PartyManager implements CommandExecutor {
     }
     public void guide(Player player) {
         Location loc = gate.get();
-        if (loc != null) player.setCompassTarget(loc);
+        if(loc!=null){if(player.getWorld().equals(loc.getWorld()))player.teleport(loc);else player.setCompassTarget(loc);}
         player.sendMessage(TextUtil.msg("🗝 미궁 입장은 북쪽 성소 <yellow>미궁 수문장 유령냥 (18, 66, -55)</yellow>을 방문하세요. 파티: /파티 생성|초대|수락|탈퇴|추방|정보"));
     }
     private void tell(Party p, String message) {

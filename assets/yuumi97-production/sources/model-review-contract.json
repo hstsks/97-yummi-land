@@ -1,0 +1,1183 @@
+{
+  "unitsPerBlock": 16,
+  "modelOrigin": [
+    8,
+    8,
+    8
+  ],
+  "front": [
+    0,
+    0,
+    -1
+  ],
+  "singleReviewModels": [
+    "weapon_berserker_greatsword",
+    "weapon_priest_staff",
+    "weapon_arcane_orb_tome",
+    "guidebook",
+    "prop_wayfinder_arrow",
+    "vfx_slash_crescent_gold",
+    "vfx_slash_crimson_heavy",
+    "vfx_titan_greatsword_drop",
+    "vfx_slash_crescent_shadow",
+    "vfx_shadow_mark_crest",
+    "vfx_star_arrow_volley",
+    "vfx_astral_bow_sigil",
+    "vfx_magic_circle_arcane",
+    "vfx_gravity_singularity",
+    "vfx_arcane_meteor",
+    "vfx_magic_circle_sanctuary",
+    "vfx_holy_spear",
+    "vfx_golden_fishing_vortex",
+    "vfx_feast_cauldron_aura"
+  ],
+  "rigReviewIds": [
+    "mob_grimoire_mimic",
+    "mob_clockwork_sentinel",
+    "mob_ink_librarian",
+    "mob_nebula_golem",
+    "boss_archivist_astro",
+    "boss_novarion",
+    "mob_cinder_imp",
+    "mob_slag_hound",
+    "mob_obsidian_bombardier",
+    "mob_chained_juggernaut",
+    "boss_warden_vulcantus",
+    "boss_ignion",
+    "mob_mirror_stalker",
+    "mob_void_choir",
+    "mob_abyssal_oculus",
+    "mob_eclipse_templar",
+    "boss_twin_archons",
+    "boss_eclipsia"
+  ],
+  "models": {
+    "prop_yuumi_statue": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prop_slot_cabinet": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prop_roulette_wheel": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prop_derby_trophy": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prowling_wand": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "book_of_thresholds": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "you_and_me_bell": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "hat_yuumi_ears": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "plushie_yuumi": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prop_gacha_machine": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "prop_stock_board": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "prop_dungeon_obelisk": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "prop_boon_altar": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "prop_feast_cauldron": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "furn_cat_tower": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "furn_kotatsu": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "furn_neon_sign": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "hat_chef_toque": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "hat_stock_tophat": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "weapon_paladin_sword": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "weapon_shadow_daggers": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "weapon_ranger_bow": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "weapon_arcane_grimoire": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_miner_drill": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_smith_hammer": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_farmer_scythe": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_angler_harpoon": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_carpenter_axe": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "tool_chef_wok": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "object"
+    },
+    "prop_casino_marquee": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "wall",
+      "anchor": [
+        8,
+        8,
+        8
+      ],
+      "referenceScale": 2.7
+    },
+    "prop_casino_chandelier": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "ceiling",
+      "anchor": [
+        8,
+        24,
+        8
+      ],
+      "minimumY": -4,
+      "referenceScale": 2.3
+    },
+    "prop_dealer_throne": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.5
+    },
+    "prop_plaza_clock_face": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "wall",
+      "anchor": [
+        8,
+        8,
+        8
+      ],
+      "referenceScale": 2
+    },
+    "prop_training_dummy": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.35
+    },
+    "prop_sakura_lantern_arch": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "gate",
+      "anchor": [
+        8,
+        20,
+        8
+      ],
+      "referenceScale": 2
+    },
+    "weapon_berserker_greatsword": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "hand",
+      "anchorSource": "hero-grip-anchors.json"
+    },
+    "weapon_priest_staff": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "hand",
+      "anchorSource": "hero-grip-anchors.json"
+    },
+    "weapon_arcane_orb_tome": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "hand",
+      "anchorSource": "hero-grip-anchors.json"
+    },
+    "guidebook": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "hand",
+      "anchorSource": "hero-grip-anchors.json"
+    },
+    "prop_wayfinder_arrow": {
+      "atlasSize": 64,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "directional",
+      "front": [
+        0,
+        0,
+        -1
+      ]
+    },
+    "vfx_slash_crescent_gold": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "horizontal_arc",
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "layers": 3
+    },
+    "vfx_slash_crimson_heavy": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "horizontal_arc",
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "friendlyFirePalette": true
+    },
+    "vfx_titan_greatsword_drop": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "downward",
+      "tip": [
+        8,
+        -14,
+        8
+      ],
+      "maximumY": 30,
+      "friendlyFirePalette": true
+    },
+    "vfx_slash_crescent_shadow": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "vertical",
+      "front": [
+        0,
+        0,
+        -1
+      ]
+    },
+    "vfx_shadow_mark_crest": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "vertical",
+      "front": [
+        0,
+        0,
+        -1
+      ]
+    },
+    "vfx_star_arrow_volley": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "directional",
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "tails": 3
+    },
+    "vfx_astral_bow_sigil": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "horizontal_ring",
+      "yRange": [
+        7,
+        9
+      ]
+    },
+    "vfx_magic_circle_arcane": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor_disc",
+      "yRange": [
+        7.6,
+        8.4
+      ],
+      "xzRange": [
+        -14,
+        30
+      ]
+    },
+    "vfx_gravity_singularity": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "volume",
+      "ringTilt": 22.5
+    },
+    "vfx_arcane_meteor": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "volume",
+      "travel": [
+        0,
+        -1,
+        -1
+      ]
+    },
+    "vfx_magic_circle_sanctuary": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor_disc",
+      "yRange": [
+        7.6,
+        8.4
+      ],
+      "xzRange": [
+        -14,
+        30
+      ]
+    },
+    "vfx_holy_spear": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "downward",
+      "tip": [
+        8,
+        -14,
+        8
+      ],
+      "wingYRange": [
+        12,
+        24
+      ]
+    },
+    "vfx_golden_fishing_vortex": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "water_funnel",
+      "yRange": [
+        0,
+        8
+      ],
+      "xzRange": [
+        -14,
+        30
+      ]
+    },
+    "vfx_feast_cauldron_aura": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ],
+      "steamYRange": [
+        18,
+        28
+      ]
+    },
+    "mob_grimoire_mimic_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_grimoire_mimic_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_clockwork_sentinel_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_clockwork_sentinel_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_ink_librarian_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_ink_librarian_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_nebula_golem_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_nebula_golem_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_archivist_astro_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_archivist_astro_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_archivist_astro_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_novarion_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_novarion_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_novarion_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_cinder_imp_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_cinder_imp_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_slag_hound_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_slag_hound_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_obsidian_bombardier_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_obsidian_bombardier_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_chained_juggernaut_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_chained_juggernaut_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_warden_vulcantus_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_warden_vulcantus_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_warden_vulcantus_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_ignion_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_ignion_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_ignion_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_mirror_stalker_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_mirror_stalker_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_void_choir_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_void_choir_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_abyssal_oculus_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_abyssal_oculus_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "mob_eclipse_templar_body": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "mob_eclipse_templar_arm": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_twin_archons_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_twin_archons_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_twin_archons_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_eclipsia_core": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone",
+      "anchor": [
+        8,
+        0,
+        8
+      ]
+    },
+    "boss_eclipsia_head": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    },
+    "boss_eclipsia_weapon": {
+      "atlasSize": 128,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "kind": "bone"
+    }
+  }
+}

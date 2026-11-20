@@ -3,7 +3,8 @@ package kr.yuumi97.core.facility;
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.rpg.RpgJobManager;
-import kr.yuumi97.core.rpg.JobType;
+import kr.yuumi97.core.rpg.CombatClass;
+import kr.yuumi97.core.rpg.LifeProfession;
 import kr.yuumi97.core.util.TextUtil;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -76,6 +77,10 @@ public final class BlacksmithManager implements Listener {
     public void setRpgManager(RpgJobManager rpg) { this.rpg = rpg; }
     private java.util.function.BiConsumer<Player, Integer> successListener = (player, star) -> {};
     public void setSuccessListener(java.util.function.BiConsumer<Player, Integer> listener) { successListener = listener; }
+    private double configured(String key,int star,double[] fallback){java.util.List<Double> values=plugin.getConfig().getDoubleList("forge."+key);return values.size()>star?Math.max(0,values.get(star)):fallback[star];}
+    private double cost(Player player,int star){return configured("costs",star,STAR_CHURU_COST)*(rpg!=null&&rpg.getLife(player)==LifeProfession.BLACKSMITH?1-plugin.getConfig().getDouble("forge.profession-discount",.20):1);}
+    private int stones(int star){java.util.List<Integer> values=plugin.getConfig().getIntegerList("forge.stones");return Math.max(1,values.size()>star?values.get(star):STAR_STONE_COST[star]);}
+    public void applyStar(ItemStack item,int star){GearKind kind=classifyGear(item);if(kind!=null)applyStarLore(item,kind,Math.clamp(star,0,7));}
 
     public BlacksmithManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu) {
         this.plugin = plugin;
@@ -98,15 +103,15 @@ public final class BlacksmithManager implements Listener {
     private void syncPlayerStarlightStats(Player p) {
         ItemStack main = p.getInventory().getItemInMainHand();
         int toolStar = classifyGear(main) == GearKind.TOOL ? getStarLevel(main) : 0;
-        double miningBonus = TOOL_MINING_EFF[toolStar];
+        double miningBonus = configured("tool-efficiency",toolStar,TOOL_MINING_EFF);
 
         double hpBonus = 0.0;
         double toughBonus = 0.0;
         for (ItemStack armor : p.getInventory().getArmorContents()) {
             if (classifyGear(armor) == GearKind.ARMOR) {
                 int s = getStarLevel(armor);
-                hpBonus += ARMOR_BONUS_HP[s];
-                toughBonus += ARMOR_BONUS_TOUGH[s];
+                hpBonus += configured("armor-health",s,ARMOR_BONUS_HP);
+                toughBonus += configured("armor-toughness",s,ARMOR_BONUS_TOUGH);
             }
         }
 
@@ -131,7 +136,7 @@ public final class BlacksmithManager implements Listener {
     public int getStarLevel(ItemStack st) {
         if (st == null || st.getType().isAir() || !st.hasItemMeta()) return 0;
         Integer lv = st.getItemMeta().getPersistentDataContainer().get(starKey, PersistentDataType.INTEGER);
-        if (lv == null) lv = st.getItemMeta().getPersistentDataContainer().get(new NamespacedKey(plugin, "yuumi_star_level"), PersistentDataType.INTEGER);
+        NamespacedKey old=new NamespacedKey(plugin,"yuumi_star_level");if(st.getItemMeta().getPersistentDataContainer().has(old,PersistentDataType.INTEGER)){ItemMeta meta=st.getItemMeta();if(lv==null)lv=meta.getPersistentDataContainer().get(old,PersistentDataType.INTEGER);meta.getPersistentDataContainer().set(starKey,PersistentDataType.INTEGER,Math.clamp(lv,0,7));meta.getPersistentDataContainer().remove(old);st.setItemMeta(meta);}
         return lv == null ? 0 : Math.max(0, Math.min(7, lv));
     }
 
@@ -139,9 +144,8 @@ public final class BlacksmithManager implements Listener {
         if (st == null || st.getType().isAir()) return null;
         String customId = items.getCustomId(st);
         if (customId != null) {
-            JobType signature = JobType.fromItem(customId);
-            if (signature == null) return null;
-            return signature.combat() || signature == JobType.BLACKSMITH ? GearKind.WEAPON : GearKind.TOOL;
+            if(CombatClass.fromItem(customId)!=null)return GearKind.WEAPON;
+            return LifeProfession.fromItem(customId)!=null?GearKind.TOOL:null;
         }
         String n = st.getType().name();
         if (n.endsWith("_SWORD") || n.equals("BOW") || n.equals("CROSSBOW") || n.equals("TRIDENT") || n.equals("MACE")) {
@@ -220,9 +224,9 @@ public final class BlacksmithManager implements Listener {
         }
 
         int next = cur + 1;
-        double cost = STAR_CHURU_COST[next];
-        int stones = STAR_STONE_COST[next];
-        int ratePct = (int) Math.round(Math.min(1, STAR_SUCCESS_RATE[next] + (rpg != null && rpg.getJob(player) == JobType.BLACKSMITH ? .08 : 0)) * 100);
+        double cost = cost(player,next);
+        int stones = stones(next);
+        int ratePct = (int) Math.round(Math.min(1, configured("success",next,STAR_SUCCESS_RATE)) * 100);
         boolean canDrop = next >= 6;
         ItemStack scrollSlot = inv.getItem(SLOT_SCROLL);
         boolean protectedByScroll = canDrop && items.isCustomItem(scrollSlot, "starlight_scroll");
@@ -378,8 +382,8 @@ public final class BlacksmithManager implements Listener {
         if (cur >= 7) return;
 
         int next = cur + 1;
-        double cost = STAR_CHURU_COST[next];
-        int stonesNeeded = STAR_STONE_COST[next];
+        double cost = cost(player,next);
+        int stonesNeeded = stones(next);
 
         if (!hasCustomItemCount(player, "starlight_stone", stonesNeeded)) {
             player.playSound(player.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1f, 0.9f);
@@ -401,7 +405,7 @@ public final class BlacksmithManager implements Listener {
             else scrollSlot.setAmount(scrollSlot.getAmount() - 1);
         }
 
-        double successRate = Math.min(1, STAR_SUCCESS_RATE[next] + (rpg != null && rpg.getJob(player) == JobType.BLACKSMITH ? 0.08 : 0));
+        double successRate = Math.min(1, configured("success",next,STAR_SUCCESS_RATE));
         boolean success = ThreadLocalRandom.current().nextDouble() < successRate;
         if (success) {
             applyStarLore(gear, kind, next);
@@ -430,7 +434,7 @@ public final class BlacksmithManager implements Listener {
         refreshRepairButtons(top, player);
         if (rpg != null) {
             if (rpg.isSignature(gear)) rpg.getSignatures().refresh(gear, player);
-            rpg.activityXp(player, "smith", 40);
+            rpg.awardLifeXp(player, "smith", 40);
             if (success) { String stat = "stats." + player.getUniqueId() + ".forge_successes"; rpg.data.set(stat, rpg.data.getInt(stat, 0) + 1); rpg.changed(); }
         }
     }
@@ -446,15 +450,15 @@ public final class BlacksmithManager implements Listener {
         lore.add(TextUtil.mm("<gold>✦ 별빛 세공: <bold>" + starsBar + "</bold> <gray>(★" + star + ")"));
         switch (kind) {
             case WEAPON -> {
-                lore.add(TextUtil.mm("<green>  + 추가 별빛 공격력: <bold>+" + WEAPON_BONUS_DMG[star] + "</bold>"));
+                lore.add(TextUtil.mm("<green>  + 추가 별빛 공격력: <bold>+" + configured("weapon-damage",star,WEAPON_BONUS_DMG) + "</bold>"));
                 if (gear.getType().name().endsWith("_AXE")) {
                     lore.add(TextUtil.mm("<aqua>  + 벌목 효율 보너스 적용됨"));
                 }
             }
-            case TOOL -> lore.add(TextUtil.mm("<aqua>  + 채굴 효율 보너스: <bold>+" + TOOL_MINING_EFF[star] + "</bold>"));
+            case TOOL -> lore.add(TextUtil.mm("<aqua>  + 채굴 효율 보너스: <bold>+" + configured("tool-efficiency",star,TOOL_MINING_EFF) + "</bold>"));
             case ARMOR -> {
-                lore.add(TextUtil.mm("<red>  + 최대 체력: <bold>+" + ARMOR_BONUS_HP[star] + " HP</bold>"));
-                lore.add(TextUtil.mm("<blue>  + 방어 강도: <bold>+" + ARMOR_BONUS_TOUGH[star] + "</bold>"));
+                lore.add(TextUtil.mm("<red>  + 최대 체력: <bold>+" + configured("armor-health",star,ARMOR_BONUS_HP) + " HP</bold>"));
+                lore.add(TextUtil.mm("<blue>  + 방어 강도: <bold>+" + configured("armor-toughness",star,ARMOR_BONUS_TOUGH) + "</bold>"));
             }
         }
         meta.lore(lore);
@@ -482,7 +486,7 @@ public final class BlacksmithManager implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onStarlightWeaponDamage(EntityDamageByEntityEvent event) {
-        if (rpg != null && rpg.getCombat().isSecondaryDamage()) return;
+        if (rpg != null && rpg.damage().isSecondaryDamage()) return;
         Player attacker = null;
         if (event.getDamager() instanceof Player p) {
             attacker = p;
@@ -492,12 +496,12 @@ public final class BlacksmithManager implements Listener {
         if (attacker == null) return;
 
         ItemStack weapon = attacker.getInventory().getItemInMainHand();
-        if (rpg != null && event.getDamager() instanceof Projectile projectile && rpg.getCombat().shotWeapon(projectile) != null) weapon = rpg.getCombat().shotWeapon(projectile);
+        if (rpg != null && event.getDamager() instanceof Projectile projectile && rpg.damage().shotWeapon(projectile) != null) weapon = rpg.damage().shotWeapon(projectile);
         if (classifyGear(weapon) != GearKind.WEAPON) return;
         int star = getStarLevel(weapon);
         if (star <= 0) return;
 
-        event.setDamage(event.getDamage() + WEAPON_BONUS_DMG[star]);
+        event.setDamage(event.getDamage() + configured("weapon-damage",star,WEAPON_BONUS_DMG));
         if (star >= 5) {
             event.getEntity().getWorld().spawnParticle(Particle.END_ROD,
                     event.getEntity().getLocation().add(0, 1.0, 0), 6, 0.25, 0.3, 0.25, 0.05);
@@ -506,6 +510,7 @@ public final class BlacksmithManager implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onMineStarlightDrop(BlockBreakEvent event) {
+        if(rpg!=null&&!rpg.naturalBreak(event))return;
         String name = event.getBlock().getType().name();
         if (name.endsWith("_ORE") || name.equals("ANCIENT_DEBRIS")) {
             double chance = (name.contains("DIAMOND") || name.contains("EMERALD") || name.equals("ANCIENT_DEBRIS")) ? 0.16 : 0.025;

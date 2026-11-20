@@ -7,8 +7,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { Canvas, ROOT, OUT, REVIEW } from '../tools/asset-kit.mjs';
-import { icons as EXPECTED, newIcons } from './asset-contract.mjs';
-import { drawV3 } from './icons-v3.mjs';
+import { existingIcons as EXPECTED, existingExtraIcons as newIcons } from './asset-contract.mjs';
+import { drawInventoryExtras } from './inventory-icon-drawings.mjs';
 
 const P = {
   ink:'#29233F', ink2:'#48405D', gold:'#E9B94F', goldD:'#A86B35', goldS:'#765039',
@@ -424,7 +424,7 @@ icon('starlight_scroll',c=>{
   e(c,23,23,3,3,P.goldD);e(c,23,22,2,2,P.gold);px(c,22,21,P.goldL);px(c,23,22,P.pinkD);
 });
 
-drawV3({icon,P,r,p,e,l,px,spark,gem,paw,fish});
+drawInventoryExtras({icon,P,r,p,e,l,px,spark,gem,paw,fish});
 if(icons.size!==57 || EXPECTED.some(id=>!icons.has(id)))throw new Error('Icon catalog must exactly match the locked 57-icon contract.');
 
 const textureDir=path.join(OUT,'textures','item');
@@ -432,54 +432,4 @@ const reviewDir=path.join(REVIEW,'icons');
 fs.mkdirSync(textureDir,{recursive:true});fs.mkdirSync(reviewDir,{recursive:true});
 for(const id of EXPECTED)await icons.get(id).save(path.join(textureDir,id+'.png'));
 
-// Inspection sheets include light and dark grounds, native resolution, and nearest enlargement.
-function checker(c,x,y,w,h,cell=8,light=false){for(let yy=0;yy<h;yy+=cell)for(let xx=0;xx<w;xx+=cell)c.rect(x+xx,y+yy,Math.min(cell,w-xx),Math.min(cell,h-yy),((xx/cell+yy/cell)%2)?(light?'#E7E4DD':'#343342'):(light?'#F5F1E6':'#292936'));}
-const rows=Math.ceil(EXPECTED.length/6);
-const native=new Canvas(600,rows*54+40);native.rect(0,0,native.w,native.h,'#1E202C');native.text('YUUMI 97LAND / 57 ICONS / NATIVE 32PX',12,10,'#FFF0D2',1);
-const large=new Canvas(1660,rows*305+65);large.rect(0,0,large.w,large.h,'#1E202C');large.text('YUUMI 97LAND / PIXEL MASTERS / 8X NEAREST',20,15,'#FFF0D2',2);
-for(let i=0;i<EXPECTED.length;i++){
-  const id=EXPECTED[i],c=icons.get(id),col=i%6,row=Math.floor(i/6);
-  const nx=col*98+8,ny=row*54+33;checker(native,nx,ny,32,32,4);checker(native,nx+36,ny,32,32,4,true);native.blit(c,nx,ny);native.blit(c,nx+36,ny);
-  native.text(String(i+1).padStart(2,'0'),nx+74,ny+12,P.goldL,1);
-  const x=col*274+10,y=row*305+58;checker(large,x,y,256,256,32);large.blit(c,x,y,8);large.text(String(i+1).padStart(2,'0')+' '+id.toUpperCase(),x,y+265,'#D7D9DE',1);
-}
-await native.save(path.join(reviewDir,'icons-native-32.png'));
-await large.save(path.join(reviewDir,'icons-contact-8x.png'));
-const half=new Canvas(960,rows*100+50);half.rect(0,0,half.w,half.h,'#1E202C');half.text('16PX GUI STRESS CHECK / NATIVE 16 AND 4X NEAREST',12,12,P.cream,1);
-const validation=[];
-for(let i=0;i<EXPECTED.length;i++){
-  const id=EXPECTED[i],src=icons.get(id),small=new Canvas(16,16);
-  for(let y=0;y<16;y++)for(let x=0;x<16;x++){
-    const o=((y*2+1)*32+x*2+1)*4;small.pixel(x,y,Array.from(src.data.subarray(o,o+4)));
-  }
-  const x=(i%6)*158+10,y=Math.floor(i/6)*100+38;
-  checker(half,x,y,16,16,4);half.blit(small,x,y);checker(half,x+30,y,64,64,8);half.blit(small,x+30,y,4);
-  half.text(String(i+1).padStart(2,'0')+' '+id.toUpperCase().slice(0,31),x,y+74,P.goldL,1);
-  let opaque=0,partialAlpha=0,minX=32,minY=32,maxX=-1,maxY=-1;const colors=new Set();
-  for(let yy=0;yy<32;yy++)for(let xx=0;xx<32;xx++){
-    const o=(yy*32+xx)*4,a=src.data[o+3];if(a!==0&&a!==255)partialAlpha++;
-    if(a){opaque++;minX=Math.min(minX,xx);minY=Math.min(minY,yy);maxX=Math.max(maxX,xx);maxY=Math.max(maxY,yy);colors.add(src.data.subarray(o,o+3).toString('hex'));}
-  }
-  const encoded=fs.readFileSync(path.join(textureDir,id+'.png'));
-  const dimensions=[encoded.readUInt32BE(16),encoded.readUInt32BE(20)],bitDepth=encoded[24],colorType=encoded[25];
-  if(dimensions[0]!==32||dimensions[1]!==32||bitDepth!==8||colorType!==6||partialAlpha!==0||opaque<50||opaque>950)throw new Error('Invalid pixel master '+id);
-  if(minX<1||minY<1||maxX>30||maxY>30)throw new Error('Missing transparent contour margin '+id);
-  validation.push({id,dimensions,bitDepth,colorType,opaquePixels:opaque,partialAlphaPixels:partialAlpha,colors:colors.size,bounds:[minX,minY,maxX,maxY],transparentContourMargin:true});
-}
-await half.save(path.join(reviewDir,'icons-stress-16.png'));
-// New assets have a dedicated readable board; source catalog supplies full IDs.
-const v3=new Canvas(1200,Math.ceil(newIcons.length/5)*240+45);
-v3.rect(0,0,v3.w,v3.h,'#1E202C');v3.text('V3 / 30 NEW PIXEL MASTERS / 4X AND NATIVE 32',15,14,P.cream,2);
-for(let i=0;i<newIcons.length;i++){
-  const id=newIcons[i],c=icons.get(id),x=(i%5)*240+12,y=Math.floor(i/5)*240+50;
-  checker(v3,x,y,128,128,16);v3.blit(c,x,y,4);checker(v3,x+138,y,32,32,4,true);v3.blit(c,x+138,y);
-  const small=new Canvas(16,16);for(let yy=0;yy<16;yy++)for(let xx=0;xx<16;xx++){const o=((yy*2+1)*32+xx*2+1)*4;small.pixel(xx,yy,Array.from(c.data.subarray(o,o+4)));}
-  checker(v3,x+138,y+50,64,64,8);v3.blit(small,x+138,y+50,4);
-  v3.text(String(i+28).padStart(2,'0')+' '+id,x,y+139,P.goldL,1);
-  v3.text('32PX 4X / 32PX / 16PX 4X',x,y+155,'#ADB5C7',1);
-}
-v3.save(path.join(reviewDir,'icons-v3-contact.png'));
-fs.writeFileSync(path.join(reviewDir,'validation.json'),JSON.stringify({count:icons.size,exactCatalogMatch:true,antialiasing:false,masterSize:32,guiStressSize:16,icons:validation},null,2)+'\n');
-fs.writeFileSync(path.join(reviewDir,'catalog.json'),JSON.stringify(EXPECTED.map((id,i)=>({index:i+1,id,width:32,height:32,master:'textures/item/'+id+'.png'})),null,2)+'\n');
-fs.writeFileSync(path.join(reviewDir,'notes.md'),"# 57 inventory icons\n\n27 original masters are preserved; 30 v3 masters are added. All are 32x32 RGBA8, binary alpha, nearest-only review scaling and one-pixel transparent contour margin. Full IDs are in catalog.json; the dedicated v3 board covers all 30 new images. Sixteen-pixel reduction tests silhouette and palette, not tiny text.\n\nThis generator records technical evidence only. Actual visual observations and revisions are recorded separately in review/v3-visual-review.md after opening the generated images. Minecraft client validation is separate.\n");
-console.log(JSON.stringify({icons:icons.size,textureDir,reviewDir,ids:EXPECTED}));
+console.log('Preserved and regenerated 57 established pixel masters.');

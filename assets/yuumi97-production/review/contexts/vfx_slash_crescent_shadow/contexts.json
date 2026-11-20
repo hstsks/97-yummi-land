@@ -1,0 +1,37 @@
+{
+  "id": "vfx_slash_crescent_shadow",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "vertical",
+    "front": [
+      0,
+      0,
+      -1
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "vertical",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    }
+  ]
+}

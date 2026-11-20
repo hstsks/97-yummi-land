@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "reviewer": "root",
+  "models": [
+    {
+      "id": "weapon_berserker_greatsword",
+      "status": "PASS",
+      "notes": "흑요석 톱니와 용암 홈, 고양이 가드·루비·열린 링 포멜. 앞뒤와 두께, 좌우 1/3인칭 그립 확인.",
+      "reportSha256": "f5f8566b68a5a9105eafeaa493660194d22cad37adb885797015af43a990d8a4",
+      "images": [
+        {
+          "path": "review/models/weapon_berserker_greatsword/front.png",
+          "sha256": "230ad06a6e71404d0d912ec6c74d7e5eee4b5b1fe4a48b8c90d66f303565e4e9"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/side.png",
+          "sha256": "6bef8c59a8cd0a670054548dd077f2f508fe53508bfb6a2f917d19e5ba13c85b"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/rear.png",
+          "sha256": "25a451041cf9cd5e30bf489f10746eee1deeaa231d43168672a5099ddb22ff48"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/threequarter.png",
+          "sha256": "b7535d4bbf0a3a3174c3b089b5ffdf61184ff422759c6cbe4b3b3f9dddbb322c"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/top.png",
+          "sha256": "f5628e40053e88d7e1d79d176114aa8f028d862daadd38cd38024e758d0ef3cd"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_righthand.png",
+          "sha256": "7cfa6c3c0387dbd8dff56a2e4b79ac85bf1d6b4e23efde1ef1aa20cde62049ab"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_lefthand.png",
+          "sha256": "40eb2aacbf9401591fd7bcd30a4768536c78316a908ab7c534f781f73066ce64"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_righthand.png",
+          "sha256": "d71beed2f4714d5c931d0e47bb6c523a8ea8f9cd1ea531a9850a8c0fde38294b"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_lefthand.png",
+          "sha256": "f5a8663421906af5f26396d097cc228498c90eb95ae1f551df55116f2ab786c9"
+        }
+      ]
+    },
+    {
+      "id": "weapon_priest_staff",
+      "status": "PASS",
+      "notes": "열린 초승달 안의 청록 성배, 석영/금색 마디를 확인. 손잡이 축과 앞뒤 성배 공간 유지.",
+      "reportSha256": "c117c6af5e8397c1e2981f95b96719604d9cff28826af850505c09d48e1ea391",
+      "images": [
+        {
+          "path": "review/models/weapon_priest_staff/front.png",
+          "sha256": "8fba6c13b26c57adf43b76ca2fd09ebf39ce69d285964e9268250db679b0f39d"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/side.png",
+          "sha256": "84b3074f73e6b424cde537e92fb5b0cc13bf80ffd9c359277f98a40c94347264"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/rear.png",
+          "sha256": "8de3328100bb9a529b57831d845e491ea88bdc29513eb4cb663f1df672d711cd"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/threequarter.png",
+          "sha256": "36f974004397ed6307071d203a37177dea7c0b9ce89a0d341bd4621b0061cf75"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/top.png",
+          "sha256": "d260cd2ca926f68d62b22e447e298ed82163e044da789d9912d08323a8ba42e9"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_righthand.png",
+          "sha256": "fcfb00fdb7d587e64c49c735c63583db70cfec5f6f23f7f13cc523ee41a8c9c8"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_lefthand.png",
+          "sha256": "10c957def512324619a9b12f0bee770a558c376930e0aa77a5bc844dd2f8cc07"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_righthand.png",
+          "sha256": "b01163d0a38179ff69596ff72126201c1ad19bc31a67925de55264489822baad"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_lefthand.png",
+          "sha256": "edc50988f3e1b768b6484cecf75c13f4bc4abb3a9349a466b8920dab17459a28"
+        }
+      ]
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "status": "PASS",
+      "notes": "열린 별자리 책/입체 보주/서로 분리된 4장 룬 페이지를 확인. 닫힌 안내서와 실루엣 구별, 밑면 손 지지 확인.",
+      "reportSha256": "7e59aada9d255dfc94d3bcdec0a336da7cd495622768e5354effddfa58e3b7b1",
+      "images": [
+        {
+          "path": "review/models/weapon_arcane_orb_tome/front.png",
+          "sha256": "dc36f2c48e4afc1536cd97e42d24d510b09e80ee7eda5b18b2b080a2e409f26e"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/side.png",
+          "sha256": "e1b6af14d309b683acac74c2d54ceef545f8588052b333575bfb5bf62b311989"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/rear.png",
+          "sha256": "70300a7131536fd3247388d10043ca07ab88deab05139f63496af1730cf268e3"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/threequarter.png",
+          "sha256": "9eac22f1964f718be906924f2c2edf74a49b0dbc8a7c6c80839a8534aab771a7"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/top.png",
+          "sha256": "57d1b7d72dd2ede2517d3b68864cfb972976af2ea77a5a0c2a1b4335699f4bf9"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_righthand.png",
+          "sha256": "9bdec9d647aaf828e2da805f0a597bc4880a423bd2d3ea0a8c60c81b5d0a004c"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_lefthand.png",
+          "sha256": "fe9027cea5f60822d179afa20af2d9dcf16a3f676515974fb7afbb1510422fad"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_righthand.png",
+          "sha256": "2d8c01d4472ba402e8eef5c53b8d740917a0f33780f10f1f0e9e52f515d0065f"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_lefthand.png",
+          "sha256": "cf8063007bc3efe7e97e582191b24e79b67c8e0161700c72fe7c85ec2b9cf9ba"
+        }
+      ]
+    },
+    {
+      "id": "guidebook",
+      "status": "PASS",
+      "notes": "코랄·남색 장정, 고양이귀 프레임·발바닥 보석·잠금쇠·책갈피 확인. 뒷표지/책등/4손 지그 이상 없음.",
+      "reportSha256": "035f1020aecfacd5040cd898b7815a9e56f003509b6addc283ba86b6226aab47",
+      "images": [
+        {
+          "path": "review/models/guidebook/front.png",
+          "sha256": "a85020d1e809514439f0bf2e1427cb387a9e07ad4bea9682b9d9045825999483"
+        },
+        {
+          "path": "review/models/guidebook/side.png",
+          "sha256": "d3dbde5b6bb12d8e25b5e4bd845f1ed2ecafd5b0f40ced37cd4286845974dfd3"
+        },
+        {
+          "path": "review/models/guidebook/rear.png",
+          "sha256": "879a594eeea3c1a340e414edd3012b9a09d127f0ca98a27a866799a63303f179"
+        },
+        {
+          "path": "review/models/guidebook/threequarter.png",
+          "sha256": "1d8d563d5c50746479ec31aa62f85fce25f3433a1a6e222c8fd8af14f3917943"
+        },
+        {
+          "path": "review/models/guidebook/top.png",
+          "sha256": "fcca302b8f7536c06299d1dadfa4fa6531815343dfaeb026aca2c744dc9d2e41"
+        },
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_righthand.png",
+          "sha256": "9c9f4cada34b9bd08f5aae681866cc540b00562b5a46a4a3a71e1125bc0143b5"
+        },
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_lefthand.png",
+          "sha256": "9f42a14af7a2ff79a2a8bc5798a7e81b6569d72db38da8d8b847195c18ff9f24"
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_righthand.png",
+          "sha256": "775a154d86d8c1af1c25a61f22f1c651d71e79f3e6825c09129dfa843dbe8f0e"
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_lefthand.png",
+          "sha256": "87abeb8a979ca9b67bee1c3d76fe42da980c1837ebef8b8bcc7db1bfbaa97c89"
+        }
+      ]
+    },
+    {
+      "id": "prop_wayfinder_arrow",
+      "status": "PASS",
+      "notes": "긴 토끼귀처럼 보이던 핀을 짧고 넓은 삼각 고양이귀로 수정 후 채택. 다이아몬드 단면과 -Z 화살촉/+Z 꼬리, yaw180/0 지그 확인.",
+      "reportSha256": "249e42b94f79c7a9e18494fab5b9e81ec79c0edd6221842b9a7152009c4768b3",
+      "images": [
+        {
+          "path": "review/models/prop_wayfinder_arrow/front.png",
+          "sha256": "f6bbaf852b55a40f093b0fac1201cbf7b9b049b76ef252784ffcb55fe6fa6f52"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/side.png",
+          "sha256": "ee7dadc7f3906c7c009ee037ee20c9046ffde39c8471ff478e3e6eb9b74ae13a"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/rear.png",
+          "sha256": "52e5eb79d40edd16c612987be2ecaa826d09d17973a691f0e2fa836dc2ce7756"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/threequarter.png",
+          "sha256": "e7af8b644fdba443fb064cdf7246f390e192fc6f9d5e6ac082e81965ac507d1f"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/top.png",
+          "sha256": "824d720f5a0524c7459172254267f8836b7f5896a254a8a97bc4e45c0d729ea0"
+        },
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw180.png",
+          "sha256": "367da152e7565ce204165da700115c01c670f73c762c993d1c43d25913ae663b"
+        },
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw0.png",
+          "sha256": "584dc0365c9ff43c352e4c71301b6954d245ec2da1fb5ea26400852dbff5e1f6"
+        }
+      ]
+    }
+  ]
+}

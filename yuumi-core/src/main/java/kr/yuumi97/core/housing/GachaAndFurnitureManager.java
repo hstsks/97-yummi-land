@@ -51,8 +51,8 @@ public final class GachaAndFurnitureManager implements Listener {
         inv.setItem(15,icon(Material.PAPER,"<aqua>카지노 칩 1,500으로 뽑기"));
         double[] weights=weights();double total=java.util.Arrays.stream(weights).sum();
         String[] odds=new String[weights.length];for(int i=0;i<weights.length;i++){
-            String name=net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(items.create(V3Rules.GACHA_IDS[i]).getItemMeta().displayName());
-            odds[i]="<gray>"+name+(V3Rules.GACHA_IDS[i].equals("starlight_stone")?" 3개":"")+": "+String.format(java.util.Locale.ROOT,"%.2f%%",weights[i]*100/total);
+            String name=net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(items.create(EconomyRules.GACHA_IDS[i]).getItemMeta().displayName());
+            odds[i]="<gray>"+name+(EconomyRules.GACHA_IDS[i].equals("starlight_stone")?" 3개":"")+": "+String.format(java.util.Locale.ROOT,"%.2f%%",weights[i]*100/total);
         }
         inv.setItem(22,icon(Material.BOOK,"<white>보상 확률",odds));
         p.openInventory(inv);
@@ -69,19 +69,19 @@ public final class GachaAndFurnitureManager implements Listener {
         return true;
     }
     private double[] weights(){
-        double[] values=new double[V3Rules.GACHA_IDS.length];
-        for(int i=0;i<values.length;i++)values[i]=plugin.getConfig().getDouble("gacha.weights."+V3Rules.GACHA_IDS[i],V3Rules.GACHA_WEIGHTS[i]);
-        try{V3Rules.weightedIndex(0,values);}catch(IllegalArgumentException invalid){for(int i=0;i<values.length;i++)values[i]=V3Rules.GACHA_WEIGHTS[i];}
+        double[] values=new double[EconomyRules.GACHA_IDS.length];
+        for(int i=0;i<values.length;i++)values[i]=plugin.getConfig().getDouble("gacha.weights."+EconomyRules.GACHA_IDS[i],EconomyRules.GACHA_WEIGHTS[i]);
+        try{EconomyRules.weightedIndex(0,values);}catch(IllegalArgumentException invalid){for(int i=0;i<values.length;i++)values[i]=EconomyRules.GACHA_WEIGHTS[i];}
         return values;
     }
     private void draw(Player p,int payment,boolean handheld){
         if(!ready(p))return;
         if(!handheld){Location booth=hub.getGachaLocation();if(!p.getWorld().equals(booth.getWorld())||p.getLocation().distanceSquared(booth)>144){p.closeInventory();return;}}
         double[] weights=weights();
-        int index=V3Rules.weightedIndex(ThreadLocalRandom.current().nextDouble(),weights);
+        int index=EconomyRules.weightedIndex(ThreadLocalRandom.current().nextDouble(),weights);
         boolean paid=payment==0?take(p,"gacha_capsule",1):payment==1?take(p,"ancient_cat_coin",3):casino.spendChips(p,1500);
         if(!paid){p.sendMessage(TextUtil.msg("<red>선택한 결제 재료가 부족합니다."));return;}
-        String tx=UUID.randomUUID().toString();String id=V3Rules.GACHA_IDS[index];ItemStack reward=items.create(id,id.equals("starlight_stone")?3:1);
+        String tx=UUID.randomUUID().toString();String id=EconomyRules.GACHA_IDS[index];ItemStack reward=items.create(id,id.equals("starlight_stone")?3:1);
         // Commit the chosen reward before starting any visual task. Disconnect cannot reroll it.
         mailbox.enqueueOnce(p.getUniqueId(),"gacha_"+tx,reward);
         data.set("gacha.last."+p.getUniqueId(),id);save.run();p.closeInventory();animating.add(p.getUniqueId());

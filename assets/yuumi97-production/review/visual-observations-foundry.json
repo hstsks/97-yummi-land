@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "class_weapons",
+  "observedAt": "2026-11-15T22:14:14.404Z",
+  "status": "PASS",
+  "pending": [],
+  "method": "All six foundry rigs directly observed with view_image across seven final images each; the final mortar liner and Ignion chain revisions were rerendered and all fourteen images re-observed. Source/manifest/blend/report/image hashes verified. Five specified pitches also passed full moving-cuboid OBB SAT with explicitly named intentional joint pairs. Blender only; Minecraft client and build not run.",
+  "clearanceReportSha256": "55556ea43a83b7b75245e71bd522b4bb02acdd06a2f88f22894e1a73be53ba84",
+  "rigs": [
+    {
+      "id": "mob_cinder_imp",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 이마의 황동 용접 고글, 붉은 피부, 가죽 앞치마, 작은 박쥐 날개와 불꽃 꼬리가 식별된다. 측면에서 마지막 꼬리 마디가 끊김 없이 이어지고, 집게의 노란 끝 두 개가 붉은 집게 날에 붙어 있다. 양손 도구를 바깥으로 벌린 뒤 -60도 준비와 +55도 타격에서 망치·집게가 얼굴과 몸통을 피하며 그립 연결을 유지한다.",
+      "reportSha256": "f70cfaf09953006d17d767a4176444609a383ff4431f35348d2ba95cf852e435",
+      "images": [
+        {
+          "path": "review/rigs/mob_cinder_imp/front.png",
+          "sha256": "ae6c6131ddd94eac5658748da540e522f8a9487cf5e0fbba83283afbd41f5fb1"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/side.png",
+          "sha256": "9cdce2c63283a90cad5d565ed47e369314c0e4bc67816a8afd6389b17bf8f5f3"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/rear.png",
+          "sha256": "d185db39cec775507f7289fdb5196d4fc32ab44db2722306401abbc944596981"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/threequarter.png",
+          "sha256": "63851e1df3f6f7459d0bad20c20295eeead3a1415e1853172532d86b5859093b"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60.png",
+          "sha256": "075c4b6a011d862375f18ed273cb92b5fc8b7df027f5a249fa04b5aa87d49bdc"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60-side.png",
+          "sha256": "534d8df2c91dfec8abc4cfbddbb1f35ec890831b8d1e3acb7e0bbfc551efaee4"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/strike-plus55.png",
+          "sha256": "448f06a4d8eb8e426a00221cdb6aea1799438d522efa081917944bb87038f760"
+        }
+      ]
+    },
+    {
+      "id": "mob_slag_hound",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 네 발의 지면 접촉, 노출된 용암 노심과 열린 철제 늑골, 두 개의 열린 배기구가 읽힌다. 하악과 별도 전방 파쇄 클로는 고정 볼 지지대 아래에 연결된다. 중립은 입을 벌린 실루엣이며 -60도 준비에서도 하악이 눈과 상악을 가리지 않고, +55도 타격에서는 치아와 화염 내면을 드러내면서 바닥을 피한다.",
+      "reportSha256": "b2767428452cca639c8887bed588ba2cc3b43c737daf5d3454164713db902b29",
+      "images": [
+        {
+          "path": "review/rigs/mob_slag_hound/front.png",
+          "sha256": "ef4db354dc3d27a96f0664150231482578b22b8b32375b3855d86375032e13b6"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/side.png",
+          "sha256": "58a8b50fd389085b5b11334fe952da18abbe2de7b86a69f3950d2fbeb2deff45"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/rear.png",
+          "sha256": "cac66f1eb6e9cf72ee048ca6442f287e9bd4ce9976a2c10027fb6ca0e9b86fe1"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/threequarter.png",
+          "sha256": "e702615a488541ba1fe7f398c25d5db37a9902bef01bf707144e5880c262e6de"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60.png",
+          "sha256": "d4120db764870dbe1a211b47569c1651dda90dc871b5fd827104b9dcf9856e71"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60-side.png",
+          "sha256": "3d80a97e13c9e6ae665268449800ca28fe7d2a6fba4fecfc030ced7fd904dd4e"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/strike-plus55.png",
+          "sha256": "b80736237aacca078d063bd081e7745f2946d4716837a100826b4dcc0a293ece"
+        }
+      ]
+    },
+    {
+      "id": "mob_obsidian_bombardier",
+      "status": "PASS",
+      "notes": "마지막 라이너 보정 후 최신 7뷰를 다시 직접 확인. 금빛 흑요석 방호복과 철가면, 양손 받침대에 거치된 대구경 박격포가 읽힌다. 정면·사선·준비·타격에서 포구 안쪽의 주황색 가열 라이너가 보이고 중앙 통로는 뚫려 있어 깊은 관으로 유지된다. 측면에서 포신 후미가 흉갑·투구와 분리되며, 두 장갑과 받침대가 포신에 이어진다.",
+      "reportSha256": "36e7c283e0f6fbf48536ddf08cf12e8dee49d9bb60dfcfa4987aa152feeb24ed",
+      "images": [
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/front.png",
+          "sha256": "d34218e11c4101e6f80a55e9c9ea1c7764aa049fae91680a09be95e0967090fc"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/side.png",
+          "sha256": "0e963417684fe630a94751989f31f5867e1a83bb5f3d29bb9ce6a4dcf2316bc6"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/rear.png",
+          "sha256": "8db81adfde7b456e0953d5a3dde69bb6696f47baf11b94bac38204c5c988a51f"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/threequarter.png",
+          "sha256": "c97485da3ab841b3df2904592a9d4b53c47392a6e4b8a0e96595da71792b6311"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60.png",
+          "sha256": "63a58b0c793ee5de4db277550ea8df0048644069dc4705a92709081001bb927f"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60-side.png",
+          "sha256": "e009b546ade4e91287cad216ba725ce4bf6bf66695219e2dcb1ce876c51f9528"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/strike-plus55.png",
+          "sha256": "d40851eca9eda004e079c87dc7e5f81b6252eb46b5ab6414108f3f2fa9e019d9"
+        }
+      ]
+    },
+    {
+      "id": "mob_chained_juggernaut",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 창살 투구 안쪽의 눈, 중갑 어깨판, 흉갑 위의 실제 X자 사슬과 양손의 붉은 용암 닻이 식별된다. 중립에서 두 닻 끝은 바닥 가까이 내려오고 사슬로 주먹과 연결된다. 벌린 전완과 주먹은 준비·타격에서 허리와 허벅지를 피하며, 닻의 곡선 날과 사슬 연결이 유지된다.",
+      "reportSha256": "02d94869034e093ea2db0ad5c88db7c612e817ea4dca0048cc090a23307d4d4f",
+      "images": [
+        {
+          "path": "review/rigs/mob_chained_juggernaut/front.png",
+          "sha256": "f25e304c04188159e63f359bb755a573085f61b0b30dc603ebae6a311180fb16"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/side.png",
+          "sha256": "7a6aa87cc9386e562c8513e55f7e72688123c35b74d5887a5e792f8d8c08552b"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/rear.png",
+          "sha256": "a55a1a85382fc34e16600bc6586d0d39ca41b405f5158db65c4731c65962e362"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/threequarter.png",
+          "sha256": "f56a0efb2cc57342d3dec06af493958e6a3f592ca4f8cfdd717c2edf7e14bcc6"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60.png",
+          "sha256": "ccc1a691f0bc601353efd5fa210989c109aad18d1d444721408534706d32f947"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60-side.png",
+          "sha256": "78b0d2887ac98424d9ba275e9c297a79f26f6d224e0cbb1295921f7faab5d2c7"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/strike-plus55.png",
+          "sha256": "bc6ed0174172886dd094e4d02be4d951228f772e6ab386aa1d215cc663be8aea"
+        }
+      ]
+    },
+    {
+      "id": "boss_warden_vulcantus",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 왼팔의 독립된 세 개 열린 화염방사 노즐, 오른손 증기 해머의 큰 타격면과 피스톤, 황동 뿔과 붉은 슬릿 바이저가 읽힌다. 후면에서는 보일러 탱크·결속 띠·밸브·두 굴뚝이 보인다. 넓힌 그립과 전방 전완은 준비·타격에서도 연결되며 노즐과 망치가 몸통을 피하고 바닥 위에 남는다.",
+      "reportSha256": "eb3ad264fcd37cc9c642937952340f69caf5f605ad2f1df41f46cf7097e4ecfd",
+      "images": [
+        {
+          "path": "review/rigs/boss_warden_vulcantus/front.png",
+          "sha256": "8877a7b57694b48708151a36af4378cd1faf73effd1cbf5ea5456515947c7803"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/side.png",
+          "sha256": "3b751bab3dc82a7ca875aed6b701ce9f199b48d54708a906a84d822fec9d7049"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/rear.png",
+          "sha256": "0132e360d4bf3b25b9a33c5372273675b49e3676552b2ddb54833914359c38c9"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/threequarter.png",
+          "sha256": "2fc5bbbf0a0fc5addb29277ec6c025f730091932f4bdbc4e73e73b8ee9425aeb"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60.png",
+          "sha256": "ae6b8d701a7ba86f8d0b0057415fe041e51f50cc1b15627c3d8b4db134ca5bf5"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60-side.png",
+          "sha256": "f56118c81037c8b7ec8c080fb9a65351f9fa05249694f459b76248eb8eb06943"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/strike-plus55.png",
+          "sha256": "8baff8579d8f198d35bab63b6fd61a6664467c743d49773dc9c026bc50061059"
+        }
+      ]
+    },
+    {
+      "id": "boss_ignion",
+      "status": "PASS",
+      "notes": "마지막 사슬 노출 보정 후 최신 7뷰를 다시 직접 확인. 열린 철창 사이 용광로 심장, 두 용암 도가니 견갑, 부러진 흑요석 왕관과 빛나는 눈·입, 균열이 있는 양 건틀릿이 읽힌다. 오른주먹 앞쪽으로 돌린 회색 사슬이 정면·사선·측면 준비와 타격에서 추와 주먹 사이에 드러난다. 추의 위치는 유지되었고 +55도 타격에서도 발목 및 바닥과 분리된다.",
+      "reportSha256": "d7400fcc315a52a4e892d7eaecb63e47fe1d8c8247e131ee2a0639d0ff96ca55",
+      "images": [
+        {
+          "path": "review/rigs/boss_ignion/front.png",
+          "sha256": "b0ddbcd53f823f8630d021890b8acda7244c86bd003a4e4ec55fb5e8b665af43"
+        },
+        {
+          "path": "review/rigs/boss_ignion/side.png",
+          "sha256": "6ee769c923f0e2015b7d9ec6133588f2c05248abf7bac84dc9bfa49a82cb75b0"
+        },
+        {
+          "path": "review/rigs/boss_ignion/rear.png",
+          "sha256": "22a95adaadeb2c8a9532f4844ecd48c9f998ff4a62d17c840d5fd4524a5f1a6b"
+        },
+        {
+          "path": "review/rigs/boss_ignion/threequarter.png",
+          "sha256": "1e5341a5838422d52a4ea8334068842f9c52e1d11637df22a4fb6da2b357c239"
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60.png",
+          "sha256": "87d9f59a8cb3ed206fe15f2150d28eac755c66c0ef0c37d1df6a0a71d15955db"
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60-side.png",
+          "sha256": "3d4606fe8effd42139f28191cacf8648c8aa6bf16c923c5a9180bf3bc7a4bb2c"
+        },
+        {
+          "path": "review/rigs/boss_ignion/strike-plus55.png",
+          "sha256": "0e534ccbd963a0ca141559cfc456ef7fc87039589efc0f96a2207c8f05145272"
+        }
+      ]
+    }
+  ]
+}

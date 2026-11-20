@@ -12,7 +12,7 @@ public final class BookmarkPouchManager implements Listener {
     public boolean hasCharm(Player p,String id){for(int i=0;i<3;i++)if(r.items.isCustomItem(r.data.getItemStack(path(p,i)),id))return true;return false;}
     public boolean consumeCharm(Player p,String id){for(int i=0;i<3;i++)if(r.items.isCustomItem(r.data.getItemStack(path(p,i)),id)){r.data.set(path(p,i),null);r.save.run();return true;}return false;}
     public void start(){task=Bukkit.getScheduler().runTaskTimer(r.plugin,()->{long now=System.currentTimeMillis();for(Player p:Bukkit.getOnlinePlayers())if(!p.isDead()&&p.getGameMode()!=GameMode.SPECTATOR&&hasCharm(p,"charm_starlight_aegis")&&now>=shieldAt.getOrDefault(p.getUniqueId(),0L)){
-        double hp=p.getAttribute(Attribute.MAX_HEALTH).getValue();r.getCombat().shield(p,hp*.15);shieldAt.put(p.getUniqueId(),now+15000);}},20,20);}
+        double hp=p.getAttribute(Attribute.MAX_HEALTH).getValue();r.combatSkills().shield(p,hp*.15);shieldAt.put(p.getUniqueId(),now+15000);}},20,20);}
     public void stop(){if(task!=null)task.cancel();}
     public void open(Player p){Inventory i=Bukkit.createInventory(new Holder(),27,TextUtil.mm("<light_purple>3슬롯 마법 책갈피함"));
         for(int n=0;n<3;n++){ItemStack stored=r.data.getItemStack(path(p,n));i.setItem(11+n*2,stored==null?RpgJobManager.icon(Material.PAPER,"<yellow>빈 책갈피 슬롯 "+(n+1),"<gray>아래 인벤토리의 유물을 클릭해 장착"):stored.clone());}

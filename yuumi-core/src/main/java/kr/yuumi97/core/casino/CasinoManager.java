@@ -44,7 +44,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
 
 /**
- * 🎰 황금 냥냥 카지노 v2.0 (2층 단독 리얼 카지노 홀 시설)
+ * 🎰 황금 냥냥 카지노 (2층 단독 리얼 카지노 홀 시설)
  * - 원격 명령어 입장을 폐지하고 카지노 입구 [환전소] 실물 칩 환전 + 1F/2F 물리 기기·테이블 착석 체험으로 전면 개편!
  */
 public final class CasinoManager implements Listener, CommandExecutor {

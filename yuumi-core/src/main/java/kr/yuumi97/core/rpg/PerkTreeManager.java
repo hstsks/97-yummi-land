@@ -1,20 +1,14 @@
 package kr.yuumi97.core.rpg;
 import kr.yuumi97.core.util.TextUtil;
-import org.bukkit.*;import org.bukkit.entity.Player;import org.bukkit.event.*;import org.bukkit.event.inventory.*;import org.bukkit.inventory.*;
+import org.bukkit.*;import org.bukkit.entity.Player;import org.bukkit.event.*;import org.bukkit.event.inventory.*;import org.bukkit.inventory.*;import java.util.*;
 
 public final class PerkTreeManager implements Listener {
-    private record Holder() implements InventoryHolder {public Inventory getInventory(){return null;}}
-    private final RpgJobManager r;
-    public PerkTreeManager(RpgJobManager r){this.r=r;}
-    public int spent(Player p){return r.perk(p,"power")+r.perk(p,"mobility")+r.perk(p,"efficiency");}
-    public void open(Player p){if(r.getJob(p)==null)return;Inventory i=Bukkit.createInventory(new Holder(),27,TextUtil.mm("<gold>특전 트리 · 남은 SP "+(r.getLevel(p)-spent(p))));
-        i.setItem(11,RpgJobManager.icon(Material.RED_DYE,"<red>위력·숙련 "+r.perk(p,"power")+"/10","<gray>스킬 피해 +3%/pt · 채집 범위 증가"));
-        i.setItem(13,RpgJobManager.icon(Material.BLUE_DYE,"<aqua>기동·회전율 "+r.perk(p,"mobility")+"/10","<gray>쿨타임 -2.5%/pt · 이동속도 +1%/pt"));
-        i.setItem(15,RpgJobManager.icon(Material.LIME_DYE,"<green>효율·파티 "+r.perk(p,"efficiency")+"/10","<gray>특산물 +3%/pt · 1+1 +3%p/pt · 파티 범위 증가"));
-        i.setItem(22,RpgJobManager.icon(Material.MILK_BUCKET,"<yellow>특전 초기화 · 3,000 츄르"));p.openInventory(i);}
-    @EventHandler public void click(InventoryClickEvent e){if(!(e.getView().getTopInventory().getHolder() instanceof Holder))return;e.setCancelled(true);if(!(e.getWhoClicked() instanceof Player p)||r.getJob(p)==null)return;
-        int slot=e.getRawSlot();if(slot==22){if(spent(p)>0&&r.churu.withdraw(p,r.cfg("rpg.perk-reset-cost",3000))){for(String b:new String[]{"power","mobility","efficiency"})r.data.set(r.jobPath(p)+".perks."+b,0);r.save.run();open(p);}return;}
-        String b=switch(slot){case 11->"power";case 13->"mobility";case 15->"efficiency";default->null;};if(b==null||!RpgRules.canInvest(r.getLevel(p),spent(p),r.perk(p,b)))return;
-        r.data.set(r.jobPath(p)+".perks."+b,r.perk(p,b)+1);r.save.run();open(p);}
-    @EventHandler public void drag(InventoryDragEvent e){if(e.getView().getTopInventory().getHolder() instanceof Holder)e.setCancelled(true);}
+ public static final List<String> COMBAT=List.of("dodge","leech","poise","crisis","adrenaline"),LIFE=List.of("magnet","chain","pity","luck");
+ private static final Map<String,String> NAMES=Map.of("dodge","전술 회피","leech","전투 흡혈","poise","강인도 파쇄","crisis","위기 자동 보호막","adrenaline","아드레날린 쿨감","magnet","자석 반경·효율 강화","chain","연쇄 상한 돌파","pity","공방 대성공 천장","luck","특산물 행운 감각");
+ private record Holder(RpgDomain domain) implements InventoryHolder {public Inventory getInventory(){return null;}}private final RpgJobManager r;public PerkTreeManager(RpgJobManager r){this.r=r;}
+ public int spent(Player p,RpgDomain d){return (d==RpgDomain.COMBAT?COMBAT:LIFE).stream().mapToInt(n->r.perk(p,d,n)).sum();}
+ public void open(Player p,RpgDomain d){if(!r.selected(p,d))return;Inventory inv=Bukkit.createInventory(new Holder(d),36,TextUtil.mm("<gold>핵심 특전 각인 · 남은 SP "+(r.level(p,d)-spent(p,d))));List<String> nodes=d==RpgDomain.COMBAT?COMBAT:LIFE;int cap=d==RpgDomain.COMBAT?4:5;for(int n=0;n<nodes.size();n++){String node=nodes.get(n);inv.setItem(10+n,RpgJobManager.icon(Material.ENCHANTED_BOOK,"<aqua>"+NAMES.get(node)+" "+r.perk(p,d,node)+"/"+cap,description(node),"<yellow>클릭: 1 SP 투자"));}inv.setItem(31,RpgJobManager.icon(Material.MILK_BUCKET,"<yellow>각인 초기화 · 3,000 츄르"));p.openInventory(inv);}
+ private String description(String node){return switch(node){case "dodge"->"<gray>단계당 직접 공격 회피 +2%p";case "leech"->"<gray>단계당 실제 피해 1% 흡혈 · 0.5초 간격";case "poise"->"<gray>단계당 강인도 피해 +10%";case "crisis"->"<gray>체력 30% 위기: 단계당 최대체력 5% 보호막 · 60초";case "adrenaline"->"<gray>처치: 단계당 주력 0.5초 / 결전 0.25초 환급";case "magnet"->"<gray>단계당 수납 반경 +0.5m · 채굴 효율 +1";case "chain"->"<gray>단계당 광맥 +1 / 벌목 +3 / 수확 +2";case "pity"->"<gray>연속 실패 14-2×단계회 후 1+1 확정";default->"<gray>단계당 특산물 기본 확률 +5%";};}
+ @EventHandler public void click(InventoryClickEvent e){if(!(e.getView().getTopInventory().getHolder() instanceof Holder h))return;e.setCancelled(true);if(!(e.getWhoClicked() instanceof Player p))return;var nodes=h.domain==RpgDomain.COMBAT?COMBAT:LIFE;int slot=e.getRawSlot();if(slot==31){if(spent(p,h.domain)>0&&r.churu.withdraw(p,r.cfg("rpg.perk-reset-cost",3000))){r.data.set(r.path(p,h.domain)+".perks",null);r.save.run();open(p,h.domain);}return;}int n=slot-10;if(n<0||n>=nodes.size()||spent(p,h.domain)>=r.level(p,h.domain))return;String node=nodes.get(n);int value=r.perk(p,h.domain,node),cap=h.domain==RpgDomain.COMBAT?4:5;if(value>=cap)return;r.data.set(r.path(p,h.domain)+".perks."+node,value+1);r.save.run();open(p,h.domain);}
+ @EventHandler public void drag(InventoryDragEvent e){if(e.getView().getTopInventory().getHolder() instanceof Holder)e.setCancelled(true);}
 }

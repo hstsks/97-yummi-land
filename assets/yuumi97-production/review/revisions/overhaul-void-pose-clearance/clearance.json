@@ -1,0 +1,111 @@
+{
+  "method": "OBB SAT against actual named cuboids; element rotations + semantic pitch mapping; not a rendered/client collision test",
+  "records": [
+    {
+      "id": "mob_void_choir",
+      "posePitch": -70,
+      "physicalLocalX": 70,
+      "minYModelUnits": 9.321421,
+      "headIntersections": []
+    },
+    {
+      "id": "mob_void_choir",
+      "posePitch": -65,
+      "physicalLocalX": 65,
+      "minYModelUnits": 10.200236,
+      "headIntersections": []
+    },
+    {
+      "id": "mob_void_choir",
+      "posePitch": -60,
+      "physicalLocalX": 60,
+      "minYModelUnits": 11.115579,
+      "headIntersections": []
+    },
+    {
+      "id": "mob_void_choir",
+      "posePitch": 0,
+      "physicalLocalX": 0,
+      "minYModelUnits": 10.4,
+      "headIntersections": []
+    },
+    {
+      "id": "mob_void_choir",
+      "posePitch": 55,
+      "physicalLocalX": -55,
+      "minYModelUnits": 0.320013,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_twin_archons",
+      "posePitch": -70,
+      "physicalLocalX": 70,
+      "minYModelUnits": 13.711999,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_twin_archons",
+      "posePitch": -65,
+      "physicalLocalX": 65,
+      "minYModelUnits": 14.250924,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_twin_archons",
+      "posePitch": -60,
+      "physicalLocalX": 60,
+      "minYModelUnits": 14.825992,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_twin_archons",
+      "posePitch": 0,
+      "physicalLocalX": 0,
+      "minYModelUnits": 3,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_twin_archons",
+      "posePitch": 55,
+      "physicalLocalX": -55,
+      "minYModelUnits": 4.621162,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_eclipsia",
+      "posePitch": -70,
+      "physicalLocalX": 70,
+      "minYModelUnits": 12.908965,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_eclipsia",
+      "posePitch": -65,
+      "physicalLocalX": 65,
+      "minYModelUnits": 13.354273,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_eclipsia",
+      "posePitch": -60,
+      "physicalLocalX": 60,
+      "minYModelUnits": 13.850159,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_eclipsia",
+      "posePitch": 0,
+      "physicalLocalX": 0,
+      "minYModelUnits": 7.95,
+      "headIntersections": []
+    },
+    {
+      "id": "boss_eclipsia",
+      "posePitch": 55,
+      "physicalLocalX": -55,
+      "minYModelUnits": 2.889961,
+      "headIntersections": []
+    }
+  ],
+  "failures": 0
+}

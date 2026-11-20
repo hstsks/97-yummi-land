@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const base=path.dirname(fileURLToPath(import.meta.url)),output=path.resolve(base,'../../yuumi-core/src/main/resources/structures/overhaul');
+const snapshot=()=>Object.fromEntries(fs.readdirSync(output).filter(n=>n.endsWith('.nbt')||n==='manifest.json').sort().map(n=>[n,createHash('sha256').update(fs.readFileSync(path.join(output,n))).digest('hex')]));
+const before=snapshot(),run=spawnSync(process.execPath,[path.join(base,'build-structures.mjs')],{encoding:'utf8',windowsHide:true});
+if(run.status!==0)throw new Error(run.stderr||run.error?.message||'Build failed');
+const after=snapshot(),changed=Object.keys({...before,...after}).filter(n=>before[n]!==after[n]);
+const report={valid:changed.length===0,files:Object.keys(after).length,changed,sha256:after};
+fs.writeFileSync(path.join(base,'review/reproducibility-report.json'),JSON.stringify(report,null,2)+'\n');
+if(changed.length)throw new Error(`Non-deterministic outputs: ${changed.join(', ')}`);
+console.log(`Deterministic rebuild PASS: ${report.files} identical files (20 NBT + manifest)`);

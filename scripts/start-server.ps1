@@ -4,7 +4,7 @@ $Utf8NoBom = New-Object Text.UTF8Encoding($false)
 [Console]::InputEncoding = $Utf8NoBom
 [Console]::OutputEncoding = $Utf8NoBom
 $OutputEncoding = $Utf8NoBom
-try { $Host.UI.RawUI.WindowTitle = "[유미의 97랜드 v3.1] 마인크래프트 자율 운영 서버" } catch { }
+try { $Host.UI.RawUI.WindowTitle = "[유미의 97랜드] 마인크래프트 자율 운영 서버" } catch { }
 $ErrorActionPreference = "Stop"
 $RootDir = Split-Path -Parent $PSScriptRoot
 $JavaExe = Join-Path $RootDir "runtime\jdk-21\bin\java.exe"
@@ -70,7 +70,7 @@ try {
         if (Test-GamePortListening) { Write-AlreadyRunning; exit 1 }
         Write-Host ""
         Write-Host "==========================================================" -ForegroundColor Magenta
-        Write-Host "  [유미의 97랜드 v3.1] 서버를 시작합니다! (할당 RAM: $Memory)" -ForegroundColor Yellow
+        Write-Host "  [유미의 97랜드] 서버를 시작합니다! (할당 RAM: $Memory)" -ForegroundColor Yellow
         Write-Host "  종료하려면 콘솔에 'stop' 입력 (강제 창 닫기 지양)" -ForegroundColor Gray
         Write-Host "==========================================================" -ForegroundColor Magenta
         & $JavaExe @JvmArgs

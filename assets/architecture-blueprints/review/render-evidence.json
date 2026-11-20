@@ -1,0 +1,111 @@
+{
+  "source": "Final disk NBT parsed through independent reader",
+  "format": "CPU isometric/color diagrams, no Minecraft client or shader simulation",
+  "cutaway": "Near south/east wall above basal floor and upper east roof shell/ribs removed; far north facade and interior sculpture retained. Hall east roof cut at Y8. Long sections overlay center slice with darkened west wall elevation. Gate diagrams show both actual adjacent block faces side by side in each cell.",
+  "sources": [
+    {
+      "file": "hub_grand_utility_hall.nbt",
+      "sha256": "45e94c5a33a9df037e3aa0e18bae3246abbd2a3dec4046a133ac7bb21e1f558a"
+    },
+    {
+      "file": "hub_guidebook_kiosk.nbt",
+      "sha256": "3c5ad4e430aa963ccb98862f08a94f74e9e6da404f24ab70debc0e094e5cb45b"
+    },
+    {
+      "file": "ch1_zone1.nbt",
+      "sha256": "741c482d90ebbbfa50394def2abb8a5dd1826b25bf74dd172216ac35bdefad36"
+    },
+    {
+      "file": "ch1_zone2.nbt",
+      "sha256": "1ede48c5aaf8968e24a06c98a8b516f9ffe7681822f83a2da25dc1c8423b53f7"
+    },
+    {
+      "file": "ch1_zone3.nbt",
+      "sha256": "a3a8de012b1ca21d27f291d9d8bfdc1fcc492b90c57e041fd1153ed99e6c8a83"
+    },
+    {
+      "file": "ch1_zone4.nbt",
+      "sha256": "4a0a52e2c463bf0a4ec7900ebbe8268b8c6769e6c3b160ecb9cd3ba7ff20d4dd"
+    },
+    {
+      "file": "ch1_zone5.nbt",
+      "sha256": "7915745914b3e01dd3926ed389b76a7c8412097e3429b66408b8050e8f745985"
+    },
+    {
+      "file": "ch1_zone6.nbt",
+      "sha256": "783544cd1a351c56bab3b1b7cd2886c68d6ba53efa008a81d5cfa7e0911a4bbf"
+    },
+    {
+      "file": "ch2_zone1.nbt",
+      "sha256": "5a8b32ff88e3e8ad8f01a3859fea4e683b8c25347656825f79c37c55b73330fc"
+    },
+    {
+      "file": "ch2_zone2.nbt",
+      "sha256": "d2c984376fd61067291ec5a3acf778b033e78d45b3451ca404da9ea351b13b22"
+    },
+    {
+      "file": "ch2_zone3.nbt",
+      "sha256": "354370ccbbe0edd689abc7c3f0c0a9126aba956ca09b3996d42b17a38b8309eb"
+    },
+    {
+      "file": "ch2_zone4.nbt",
+      "sha256": "7400874519c238243686773a5056b8a40926857c1c82abc7b8abcb3cfcd748b3"
+    },
+    {
+      "file": "ch2_zone5.nbt",
+      "sha256": "0ff1f5ba11a5f31f3550fe223f2f3a06ebdca22effd7330d1cd686afab72925b"
+    },
+    {
+      "file": "ch2_zone6.nbt",
+      "sha256": "b330888420ece14ba1e4252f605e5095f000278877aec73ed5a82c6560805923"
+    },
+    {
+      "file": "ch3_zone1.nbt",
+      "sha256": "b0091fd8cdbac64552c93cbb61b00767ba1f95a8874df5382476468b26faf911"
+    },
+    {
+      "file": "ch3_zone2.nbt",
+      "sha256": "838422a9453148b272046f0f7c99fdeecbd6b658071957d64185ff3ac9150f95"
+    },
+    {
+      "file": "ch3_zone3.nbt",
+      "sha256": "e353022893d42b0e92e28d59093990f0f70fc7d214ae0ca2afad31bc6d86f240"
+    },
+    {
+      "file": "ch3_zone4.nbt",
+      "sha256": "019ea0fb6f8b8e786134cf7fd9c696c00ee6707f62c2731c018b1b0022534ae5"
+    },
+    {
+      "file": "ch3_zone5.nbt",
+      "sha256": "840ea55d728485807b320b0c082c285f4d70d51722f2b79162061cb33eeedc94"
+    },
+    {
+      "file": "ch3_zone6.nbt",
+      "sha256": "f7af4cc2c91217d6feb3ed4d2de4f44ebc9a06ec565eda98afca4a8c25e5b098"
+    }
+  ],
+  "outputs": [
+    "hub-utility-hall-sheet.png",
+    "megadungeon-ch1-ch2-ch3-cutaways.png",
+    "hub_grand_utility_hall.png",
+    "hub_guidebook_kiosk.png",
+    "ch1_zone1.png",
+    "ch1_zone2.png",
+    "ch1_zone3.png",
+    "ch1_zone4.png",
+    "ch1_zone5.png",
+    "ch1_zone6.png",
+    "ch2_zone1.png",
+    "ch2_zone2.png",
+    "ch2_zone3.png",
+    "ch2_zone4.png",
+    "ch2_zone5.png",
+    "ch2_zone6.png",
+    "ch3_zone1.png",
+    "ch3_zone2.png",
+    "ch3_zone3.png",
+    "ch3_zone4.png",
+    "ch3_zone5.png",
+    "ch3_zone6.png"
+  ]
+}

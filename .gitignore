@@ -18,6 +18,7 @@ runtime-state/
 server-test/
 /assets/yuumi97-production/review/http-served-pack.zip
 /assets/yuumi97-production/review/render-v3.lock
+/assets/yuumi97-production/review/render.lock
 logs/
 *.log
 *.log.*

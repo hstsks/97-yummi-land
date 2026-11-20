@@ -1,0 +1,1462 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "effort": "High",
+  "startedUtc": "2026-11-15T20:59:12Z",
+  "observedUntilUtc": "2026-11-15T22:15:07.470Z",
+  "timeLimit": "Removed by user; meaningful quality iterations continued",
+  "tokens": "unknown",
+  "cost": "unknown",
+  "method": "Actual final Blender images observed by assigned reviewers; root also inspected final overview and chapter sheets. Original observation hashes are retained.",
+  "minecraftClient": "NOT_RUN",
+  "observationReports": [
+    {
+      "path": "review/visual-observations-relics.json",
+      "sha256": "0f63662f3c68b467fa7d0f068e7a4dbac2c34da3197348f3763f4156bb659c3e"
+    },
+    {
+      "path": "review/visual-observations-vfx.json",
+      "sha256": "8d6779553729d6e5457e9fcd29788f23ee9fbb8dbcd85627d50e37ff62301b85"
+    },
+    {
+      "path": "review/visual-observations-astral.json",
+      "sha256": "294f355de1fdef82a9fb807febfe9e7a5bce2c841ac9e67dbfff522e8415b389"
+    },
+    {
+      "path": "review/visual-observations-foundry.json",
+      "sha256": "3a83fb4518683fc2b71bf0491c91dde49b6c66d8d9607a9b0259cb0fffab7788"
+    },
+    {
+      "path": "review/visual-observations-void.json",
+      "sha256": "a143f676e67deed4c92d11f1a5b61581cc36bb3175f7724472f4dbdd79f1799d"
+    }
+  ],
+  "models": [
+    {
+      "id": "weapon_berserker_greatsword",
+      "status": "PASS",
+      "notes": "흑요석 톱니와 용암 홈, 고양이 가드·루비·열린 링 포멜. 앞뒤와 두께, 좌우 1/3인칭 그립 확인.",
+      "reportSha256": "f5f8566b68a5a9105eafeaa493660194d22cad37adb885797015af43a990d8a4",
+      "images": [
+        {
+          "path": "review/models/weapon_berserker_greatsword/front.png",
+          "sha256": "230ad06a6e71404d0d912ec6c74d7e5eee4b5b1fe4a48b8c90d66f303565e4e9"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/side.png",
+          "sha256": "6bef8c59a8cd0a670054548dd077f2f508fe53508bfb6a2f917d19e5ba13c85b"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/rear.png",
+          "sha256": "25a451041cf9cd5e30bf489f10746eee1deeaa231d43168672a5099ddb22ff48"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/threequarter.png",
+          "sha256": "b7535d4bbf0a3a3174c3b089b5ffdf61184ff422759c6cbe4b3b3f9dddbb322c"
+        },
+        {
+          "path": "review/models/weapon_berserker_greatsword/top.png",
+          "sha256": "f5628e40053e88d7e1d79d176114aa8f028d862daadd38cd38024e758d0ef3cd"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_righthand.png",
+          "sha256": "7cfa6c3c0387dbd8dff56a2e4b79ac85bf1d6b4e23efde1ef1aa20cde62049ab"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-thirdperson_lefthand.png",
+          "sha256": "40eb2aacbf9401591fd7bcd30a4768536c78316a908ab7c534f781f73066ce64"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_righthand.png",
+          "sha256": "d71beed2f4714d5c931d0e47bb6c523a8ea8f9cd1ea531a9850a8c0fde38294b"
+        },
+        {
+          "path": "review/contexts/weapon_berserker_greatsword/context-firstperson_lefthand.png",
+          "sha256": "f5a8663421906af5f26396d097cc228498c90eb95ae1f551df55116f2ab786c9"
+        }
+      ]
+    },
+    {
+      "id": "weapon_priest_staff",
+      "status": "PASS",
+      "notes": "열린 초승달 안의 청록 성배, 석영/금색 마디를 확인. 손잡이 축과 앞뒤 성배 공간 유지.",
+      "reportSha256": "c117c6af5e8397c1e2981f95b96719604d9cff28826af850505c09d48e1ea391",
+      "images": [
+        {
+          "path": "review/models/weapon_priest_staff/front.png",
+          "sha256": "8fba6c13b26c57adf43b76ca2fd09ebf39ce69d285964e9268250db679b0f39d"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/side.png",
+          "sha256": "84b3074f73e6b424cde537e92fb5b0cc13bf80ffd9c359277f98a40c94347264"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/rear.png",
+          "sha256": "8de3328100bb9a529b57831d845e491ea88bdc29513eb4cb663f1df672d711cd"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/threequarter.png",
+          "sha256": "36f974004397ed6307071d203a37177dea7c0b9ce89a0d341bd4621b0061cf75"
+        },
+        {
+          "path": "review/models/weapon_priest_staff/top.png",
+          "sha256": "d260cd2ca926f68d62b22e447e298ed82163e044da789d9912d08323a8ba42e9"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_righthand.png",
+          "sha256": "fcfb00fdb7d587e64c49c735c63583db70cfec5f6f23f7f13cc523ee41a8c9c8"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-thirdperson_lefthand.png",
+          "sha256": "10c957def512324619a9b12f0bee770a558c376930e0aa77a5bc844dd2f8cc07"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_righthand.png",
+          "sha256": "b01163d0a38179ff69596ff72126201c1ad19bc31a67925de55264489822baad"
+        },
+        {
+          "path": "review/contexts/weapon_priest_staff/context-firstperson_lefthand.png",
+          "sha256": "edc50988f3e1b768b6484cecf75c13f4bc4abb3a9349a466b8920dab17459a28"
+        }
+      ]
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "status": "PASS",
+      "notes": "열린 별자리 책/입체 보주/서로 분리된 4장 룬 페이지를 확인. 닫힌 안내서와 실루엣 구별, 밑면 손 지지 확인.",
+      "reportSha256": "7e59aada9d255dfc94d3bcdec0a336da7cd495622768e5354effddfa58e3b7b1",
+      "images": [
+        {
+          "path": "review/models/weapon_arcane_orb_tome/front.png",
+          "sha256": "dc36f2c48e4afc1536cd97e42d24d510b09e80ee7eda5b18b2b080a2e409f26e"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/side.png",
+          "sha256": "e1b6af14d309b683acac74c2d54ceef545f8588052b333575bfb5bf62b311989"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/rear.png",
+          "sha256": "70300a7131536fd3247388d10043ca07ab88deab05139f63496af1730cf268e3"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/threequarter.png",
+          "sha256": "9eac22f1964f718be906924f2c2edf74a49b0dbc8a7c6c80839a8534aab771a7"
+        },
+        {
+          "path": "review/models/weapon_arcane_orb_tome/top.png",
+          "sha256": "57d1b7d72dd2ede2517d3b68864cfb972976af2ea77a5a0c2a1b4335699f4bf9"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_righthand.png",
+          "sha256": "9bdec9d647aaf828e2da805f0a597bc4880a423bd2d3ea0a8c60c81b5d0a004c"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-thirdperson_lefthand.png",
+          "sha256": "fe9027cea5f60822d179afa20af2d9dcf16a3f676515974fb7afbb1510422fad"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_righthand.png",
+          "sha256": "2d8c01d4472ba402e8eef5c53b8d740917a0f33780f10f1f0e9e52f515d0065f"
+        },
+        {
+          "path": "review/contexts/weapon_arcane_orb_tome/context-firstperson_lefthand.png",
+          "sha256": "cf8063007bc3efe7e97e582191b24e79b67c8e0161700c72fe7c85ec2b9cf9ba"
+        }
+      ]
+    },
+    {
+      "id": "guidebook",
+      "status": "PASS",
+      "notes": "코랄·남색 장정, 고양이귀 프레임·발바닥 보석·잠금쇠·책갈피 확인. 뒷표지/책등/4손 지그 이상 없음.",
+      "reportSha256": "035f1020aecfacd5040cd898b7815a9e56f003509b6addc283ba86b6226aab47",
+      "images": [
+        {
+          "path": "review/models/guidebook/front.png",
+          "sha256": "a85020d1e809514439f0bf2e1427cb387a9e07ad4bea9682b9d9045825999483"
+        },
+        {
+          "path": "review/models/guidebook/side.png",
+          "sha256": "d3dbde5b6bb12d8e25b5e4bd845f1ed2ecafd5b0f40ced37cd4286845974dfd3"
+        },
+        {
+          "path": "review/models/guidebook/rear.png",
+          "sha256": "879a594eeea3c1a340e414edd3012b9a09d127f0ca98a27a866799a63303f179"
+        },
+        {
+          "path": "review/models/guidebook/threequarter.png",
+          "sha256": "1d8d563d5c50746479ec31aa62f85fce25f3433a1a6e222c8fd8af14f3917943"
+        },
+        {
+          "path": "review/models/guidebook/top.png",
+          "sha256": "fcca302b8f7536c06299d1dadfa4fa6531815343dfaeb026aca2c744dc9d2e41"
+        },
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_righthand.png",
+          "sha256": "9c9f4cada34b9bd08f5aae681866cc540b00562b5a46a4a3a71e1125bc0143b5"
+        },
+        {
+          "path": "review/contexts/guidebook/context-thirdperson_lefthand.png",
+          "sha256": "9f42a14af7a2ff79a2a8bc5798a7e81b6569d72db38da8d8b847195c18ff9f24"
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_righthand.png",
+          "sha256": "775a154d86d8c1af1c25a61f22f1c651d71e79f3e6825c09129dfa843dbe8f0e"
+        },
+        {
+          "path": "review/contexts/guidebook/context-firstperson_lefthand.png",
+          "sha256": "87abeb8a979ca9b67bee1c3d76fe42da980c1837ebef8b8bcc7db1bfbaa97c89"
+        }
+      ]
+    },
+    {
+      "id": "prop_wayfinder_arrow",
+      "status": "PASS",
+      "notes": "긴 토끼귀처럼 보이던 핀을 짧고 넓은 삼각 고양이귀로 수정 후 채택. 다이아몬드 단면과 -Z 화살촉/+Z 꼬리, yaw180/0 지그 확인.",
+      "reportSha256": "249e42b94f79c7a9e18494fab5b9e81ec79c0edd6221842b9a7152009c4768b3",
+      "images": [
+        {
+          "path": "review/models/prop_wayfinder_arrow/front.png",
+          "sha256": "f6bbaf852b55a40f093b0fac1201cbf7b9b049b76ef252784ffcb55fe6fa6f52"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/side.png",
+          "sha256": "ee7dadc7f3906c7c009ee037ee20c9046ffde39c8471ff478e3e6eb9b74ae13a"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/rear.png",
+          "sha256": "52e5eb79d40edd16c612987be2ecaa826d09d17973a691f0e2fa836dc2ce7756"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/threequarter.png",
+          "sha256": "e7af8b644fdba443fb064cdf7246f390e192fc6f9d5e6ac082e81965ac507d1f"
+        },
+        {
+          "path": "review/models/prop_wayfinder_arrow/top.png",
+          "sha256": "824d720f5a0524c7459172254267f8836b7f5896a254a8a97bc4e45c0d729ea0"
+        },
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw180.png",
+          "sha256": "367da152e7565ce204165da700115c01c670f73c762c993d1c43d25913ae663b"
+        },
+        {
+          "path": "review/contexts/prop_wayfinder_arrow/context-direction-yaw0.png",
+          "sha256": "584dc0365c9ff43c352e4c71301b6954d245ec2da1fb5ea26400852dbff5e1f6"
+        }
+      ]
+    },
+    {
+      "id": "vfx_slash_crescent_gold",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 크기가 다른 3중 수평 초승달, 백금 코어와 황금 외곽 및 실제 빈 공간을 확인했다.",
+      "reportSha256": "f00cc05c8b199267ecd6837a66f24c72882ead182a5d656c05c8cafb08900b83",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_gold/front.png",
+          "sha256": "0b4eecfb1d07cfe8577120d99c562b47a5867bd883ba21b08adc8f30659be62b"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/side.png",
+          "sha256": "09b4bde303f28dbda5f8ac7ab1b76c085774182ffb1cf073fbe1497e2d12550f"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/rear.png",
+          "sha256": "41ad7dbe73d8fd14f79bb2f5b9b2e471401243f05f3fc86a5724cb97b19a6773"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/threequarter.png",
+          "sha256": "6dba9cbc43316a81fee7602618fe5175e5084215c2eb7b4762d1db8b49da82c9"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/top.png",
+          "sha256": "15432774475695d465353e9db33fc1e8e4747342c169f65105db12845d26ec8f"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crescent_gold/context-direction-yaw180.png",
+          "sha256": "37524e8d1930c987c7e6475a38d15c8b7205e4ad14e189713005ae5ae797053a"
+        }
+      ]
+    },
+    {
+      "id": "vfx_slash_crimson_heavy",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 두꺼운 반원, 용암 주황 코어·불꽃 톱니·어두운 재 파편이 황금 3중 검기와 구별된다.",
+      "reportSha256": "c7c5a6eedb19b7e082e6ef57fb595dd4c0dd0b3ee8073ccd37792e68d54c1d3e",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/front.png",
+          "sha256": "1f29e1ebb049e612eba9cd16ace3bb8cbd788a34303523a32e30417864e7cd47"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/side.png",
+          "sha256": "1b4e089b8e4f774dc401c970da8f4adfe32450bfebb6e61988142e2fef35feeb"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/rear.png",
+          "sha256": "8b7cdb1bd1880b949aa842ca9f92c48732b24f0d5f5cfed4bebea23dbd34cb16"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/threequarter.png",
+          "sha256": "357d9aaa6f172957c8dfb20fe2998e516e241385740a7b048bb6b17ce10c9bf2"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/top.png",
+          "sha256": "f378d17529a2f9f0dd0d59cbee68f6ad2f2b693cf97dc2844748132df6ba6da8"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crimson_heavy/context-direction-yaw180.png",
+          "sha256": "49cce76b2dfe6351889c3d512a0edec47c7401dd50c8f56cac815baff0d7b13f"
+        }
+      ]
+    },
+    {
+      "id": "vfx_titan_greatsword_drop",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 칼끝 -Y, 자루 +Y, 흑요석 칼날·용암 균열과 주변 나선 링의 입체 관계를 확인했다.",
+      "reportSha256": "61f99f6bfef5da70882794e7dcc44fdbfe4abf4db0978d5cff7d4a76aec8af94",
+      "images": [
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/front.png",
+          "sha256": "3d82772b537e9a29d2af6d86b613f9f741bd3e95920765dbaf01111b17e47aba"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/side.png",
+          "sha256": "595aa7fbd49d7fe8dda3b977ac2af51508408eecc6f195580c6b01f4cb40ef2a"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/rear.png",
+          "sha256": "15bb7e1b19808869b571cd53c9d457f8576a59b8abaa0f3f03cdfa026c33e331"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/threequarter.png",
+          "sha256": "a4f61f99c8222fd769591df89b963ec439068f4f937040ea2ec7c006658cd474"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/top.png",
+          "sha256": "8e8dd9b438a4baaaaef65fd5887f2033a97c09cbe1d272261606bed5ce0e1d79"
+        },
+        {
+          "path": "review/contexts/vfx_titan_greatsword_drop/context-direction-yaw180.png",
+          "sha256": "1532834c76ac4dda3a130f8951c95f0e8e301945649500aa4fa8c4a6c9b58cc7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_slash_crescent_shadow",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 ±45도 교차 궤적과 발톱 룬을 확인했다. 보정 후 후면 보라 코어가 읽히며 정면의 밝은 코어는 유지된다.",
+      "reportSha256": "993d6d0249d6d05e0bd6734a09c8d7a2ab95643179b0792b89e8a71b02d2a7a3",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/front.png",
+          "sha256": "ad9d8b76544175487fec17f810727e416d2de98e861d1af1c21a326f0bed1c17"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/side.png",
+          "sha256": "8fb0b0292848705c10da21c19242f42fa90490bc1d42f7c38fee009e2050b2e3"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/rear.png",
+          "sha256": "e1576aa124af6fdbf87e5bd085951401d408458ea1e1c4091a0ed748af513ae4"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/threequarter.png",
+          "sha256": "4d9d431054046a05dc10c7fa717229974558c9a857fbcfb1caedce1098161b91"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/top.png",
+          "sha256": "d4f1823220748d4bb3a0ae6e2d2c8c42d9af32eb26f436b69e3d3dbf665d146f"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crescent_shadow/context-direction-yaw180.png",
+          "sha256": "7e3fcf3a1e4104541542b35a5bb38083ee6536e80dee2b1c4e2ea469b5714450"
+        }
+      ]
+    },
+    {
+      "id": "vfx_shadow_mark_crest",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 초승달 송곳니·마름모 코어·눈 문양이 구분된다. 회전 시 후면이 검은 판으로 사라지던 문제를 보라 후면층으로 개선했다.",
+      "reportSha256": "ea9559803591f4f7226c935c9c8308a2848d167b656c39051196210b3770978a",
+      "images": [
+        {
+          "path": "review/models/vfx_shadow_mark_crest/front.png",
+          "sha256": "2636e7d97091e3359f833c40dca7cca9473896e12eb86d468f4a16ea91a80e6d"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/side.png",
+          "sha256": "2ffa9f91ec975e062bb16f9964e2965f6042fa58b18a24ace217b214a07bd13d"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/rear.png",
+          "sha256": "ab813ea3ce4c61d669a837f1d3e8a37c02c527759548f3b54334818052c4e738"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/threequarter.png",
+          "sha256": "f9f24579241e3ea39b0369b90280543d3ce489c1252139a5695034bc219bd533"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/top.png",
+          "sha256": "5ec003ddf54f31c518ed8ae2324af60dbec030cb87d10b8cf824a09c67b8271e"
+        },
+        {
+          "path": "review/contexts/vfx_shadow_mark_crest/context-direction-yaw180.png",
+          "sha256": "e4c2d85720bc59e6c7ddbfc06b86acda5bc8d95306d1da7a9792908cbe0ecaf7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_star_arrow_volley",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 -Z 화살촉, +Z로 갈라지는 3개 리본 꼬리와 별 파편을 확인했다.",
+      "reportSha256": "21099a454b2237bdd2b06d77495e5d6c63db2c561c3c898f79d1e5c87727a396",
+      "images": [
+        {
+          "path": "review/models/vfx_star_arrow_volley/front.png",
+          "sha256": "83b1aa780e54d0841439bb5fc53cbf355de58023768e7dbb4645829651a6dbfe"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/side.png",
+          "sha256": "2ed3ecd74d0ca6bee08a5d92965132ed0fd58bee97961ec76b74cb2a0dd981fd"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/rear.png",
+          "sha256": "a7871e4639ce6d5cc2c1ac51bc3d3c2b61197b9bf7703f7710748f88b0815a71"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/threequarter.png",
+          "sha256": "ad341fda3ad56fa24fd8baa8a20e4e0767de8d47622292c5c522ddddc726dd86"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/top.png",
+          "sha256": "f98ec75e8736d4cbb2ef55683e9c2b7ed9825ca7334e74dbab9861d424aa90f2"
+        },
+        {
+          "path": "review/contexts/vfx_star_arrow_volley/context-direction-yaw180.png",
+          "sha256": "31e131866ba2488a80776ccd538cf2943814ceae0855f31e821da34f63a02714"
+        }
+      ]
+    },
+    {
+      "id": "vfx_astral_bow_sigil",
+      "status": "PASS",
+      "notes": "5뷰와 수평 문맥에서 빈 천문 링, 8개 성좌 연결점, 4방향 조준 마커 및 낮은 높이를 확인했다.",
+      "reportSha256": "e67c4c1f7d41e02967ab19b7c7b687e899c4d28059f9ea226332ad01a4581f90",
+      "images": [
+        {
+          "path": "review/models/vfx_astral_bow_sigil/front.png",
+          "sha256": "faa01c067378b5eac1f684b0a4e4f0e3330e8c742d79abc368aff6a29f9ec55c"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/side.png",
+          "sha256": "7c3d4de25fb5eb199b2f92c2233c101d323b54b704e0f2a116e6db92fbd25b00"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/rear.png",
+          "sha256": "f42c8e833d0abffd0a46d43664701a0d49b13ded226861519f47ad85fd890cca"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/threequarter.png",
+          "sha256": "7c906a07105b205e28fe3f1ee2fb2413760b4327b5baf5eb8df20f342829002c"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/top.png",
+          "sha256": "d164f2fc6491004b9c88f422763611a6088dfb3ebc16eb26406214c81e4f2c1a"
+        },
+        {
+          "path": "review/contexts/vfx_astral_bow_sigil/context-orientation-plane.png",
+          "sha256": "2ac1adb9bb8dc027db2ddaaa74bc76fea84ec42582e6b31888146834293dc2bb"
+        }
+      ]
+    },
+    {
+      "id": "vfx_magic_circle_arcane",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 얇은 보라 룬 링·교차 육망성·중앙 빈 공간을 확인했다. 불투명 채움 디스크가 없고 성역과 구별된다.",
+      "reportSha256": "fdeb394cd6ed84c133151c1a63308f4c7c1cc5778bc31f9ef59cf5efbaf158f0",
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_arcane/front.png",
+          "sha256": "88a4be4f7f8c0683a322e4da1c82fac5b4c2b80508e3732efd96ae32fd6e6b45"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/side.png",
+          "sha256": "ea5c910df916c95ef57726204f23e2eea7f4fe8546c234eca10f5460c8cad947"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/rear.png",
+          "sha256": "1ca8399751065e07160f9bd772f340e267f88484deb322d0698045a94aed73be"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/threequarter.png",
+          "sha256": "0313d7806da53754ca0ae81d65cbea0bab23ce4f7e5f75a0d49c3119a2f97c78"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/top.png",
+          "sha256": "abf432d5c5fa2a32ad0b0472238909f8cc231f6bdab937ec089a46699dfbf9e0"
+        },
+        {
+          "path": "review/contexts/vfx_magic_circle_arcane/context-orientation-plane.png",
+          "sha256": "016b2ef151209c3492f05b35abfadcbed5350f0d02c411ab1be0acfe7061ca41"
+        }
+      ]
+    },
+    {
+      "id": "vfx_gravity_singularity",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 구형 사건 지평선, 기울어진 강착 링 및 실제 열린 공간이 확인된다.",
+      "reportSha256": "0c5d3cef499d1c81b22690c09610691c3d6a2a4632920aa62a6bd0c30e682f11",
+      "images": [
+        {
+          "path": "review/models/vfx_gravity_singularity/front.png",
+          "sha256": "6e34b30fa2cb9b91d2535d6cac5409f659f8bcce835317d5e2997761efd15e36"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/side.png",
+          "sha256": "34238e429e7cc09c94851f16a7ab71ee23d804a3319e6921d09ee782769b0e8e"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/rear.png",
+          "sha256": "a2c00c1434cff6e537de43784655975ac45ba7426eb07240a15fbd251abeb836"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/threequarter.png",
+          "sha256": "89c0846b66f152a6ef5a8d2f72583e2dde2df48b511c9792ebb454c84272382c"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/top.png",
+          "sha256": "58a25bcfd4c6062f176b1661daa3803dfbe4370c9d04d8711fb984d1d3056813"
+        },
+        {
+          "path": "review/contexts/vfx_gravity_singularity/context-direction-yaw180.png",
+          "sha256": "4c87942badc8f3fe079109ecf9dacfe2da4d9e2e7a090397b48de5cd482c9e0d"
+        }
+      ]
+    },
+    {
+      "id": "vfx_arcane_meteor",
+      "status": "PASS",
+      "notes": "최종 5뷰와 방향 문맥에서 큰 평면 상판과 단일 상자 핵이 불규칙 절단층·암괴·균열로 개선되었다. 얼음 결정과 사선 진행 축을 유지했다.",
+      "reportSha256": "7bceee22f281ab42b65ec902242ead22653c1faccc2f072aaa3a4a380edeef9b",
+      "images": [
+        {
+          "path": "review/models/vfx_arcane_meteor/front.png",
+          "sha256": "f4669f6fac3881c4ac3e0e88f33a0fd230b8d7522559b8816b0e286283702ce3"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/side.png",
+          "sha256": "33fb30150522cd881a74c55fb403348149bd259995128d32135653960bb812be"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/rear.png",
+          "sha256": "9c08b5adf5e5f6c19a1989fafc7caad6083a1bedafd803b14e4b80338144d275"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/threequarter.png",
+          "sha256": "6a1b53d2c83d3b1c10fb2b7585b6dca830cd6c5e402690b66b02d0d9a8d547d9"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/top.png",
+          "sha256": "87269c10bc28d6fc80e238eae6bfdb645e163ed6ce72b5e27cb3bacc8ae8133c"
+        },
+        {
+          "path": "review/contexts/vfx_arcane_meteor/context-direction-yaw180.png",
+          "sha256": "3327c5f3dbaa95681e17c1b913f1a5977f632fabb965f5b1e3637e564e3c9ab7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_magic_circle_sanctuary",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 황금·민트 이중 링, 중앙 사엽형 열린 문양과 성광 십자가를 확인했다. 얇은 실제 지오메트리로 바닥 시야를 유지한다.",
+      "reportSha256": "5566841f5caa018d00dd4652e6b6510e29e16dc7f22ed4e284cf0e9ec6f7b064",
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/front.png",
+          "sha256": "ac4fbc9c6fc3008a5b25997f548f2ed27805331341e22a8271a295bd73e61356"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/side.png",
+          "sha256": "7cbed655438b93c98a293b823f1f2c5261079e5e2a0d72b4681fe5a51845767a"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/rear.png",
+          "sha256": "0d228220075da73deb062ed1e9e7d670f82ea9748b726f3b58e21af06d35b742"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/threequarter.png",
+          "sha256": "5a38ea26a9ecc37d1de653a8a71aa7a41bde09bea6b7521e6bbe5911ecce2ff0"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/top.png",
+          "sha256": "6461e52739effaa7da7805cc343114b663fcf754ab0e525ca37d9e208cedd0a7"
+        },
+        {
+          "path": "review/contexts/vfx_magic_circle_sanctuary/context-orientation-plane.png",
+          "sha256": "6eb27f33e370dc60f971f5aec922c3630b83122597c8ad790cf09398c9c87f7f"
+        }
+      ]
+    },
+    {
+      "id": "vfx_holy_spear",
+      "status": "PASS",
+      "notes": "최종 5뷰와 방향 문맥에서 2차 보정한 넓은 흰 날개 면·깃 분리 홈·금빛 곡선 테두리가 읽힌다. 가는 V선 문제를 해결했고 아래 칼끝과 중앙 성수 보석을 유지했다.",
+      "reportSha256": "05fb4cdec658c2febc7b4e973e277139d61ff45b16dae0bc73a9e82d2ff31e78",
+      "images": [
+        {
+          "path": "review/models/vfx_holy_spear/front.png",
+          "sha256": "98dd65fde996ed03d9162613ee667dc3e3285ecf6ae9a93db3033723f527bb00"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/side.png",
+          "sha256": "c5146eac702bbb7824867d9b33f3e7a48de7d61687405a6f813f5925c7f95d88"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/rear.png",
+          "sha256": "b63b9b2bf1755a0b6504cf9947510209a8fbfb747597d31e6ce0f011bd5c0df2"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/threequarter.png",
+          "sha256": "9536d9fbed5f39f5f11ceeb26632a53a25bd11a8f45e6ec8c326d48d21d943e8"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/top.png",
+          "sha256": "5ab24ba748e51b498996c701d6fe423320e5fd59b76c231ce492830b110fcdda"
+        },
+        {
+          "path": "review/contexts/vfx_holy_spear/context-direction-yaw180.png",
+          "sha256": "1ab857a49883d052cf18ad3307d9da586cc9a5f9eb9279fef567472c45418bdf"
+        }
+      ]
+    },
+    {
+      "id": "vfx_golden_fishing_vortex",
+      "status": "PASS",
+      "notes": "5뷰와 수면 문맥에서 실제 빈 공간을 가진 나선 깔때기, 청록 포말·금색 물고기·동전을 확인했다. 수면에서 아래로 좁아지는 실루엣이 읽힌다.",
+      "reportSha256": "10954eced668345dbdb6583ae825bfc9769866a8dc4cc60d329288427d7f09d5",
+      "images": [
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/front.png",
+          "sha256": "af7a4d77d9bc257e55eb004910fad6a6e2a68ef9b637a57b43f26a61c48099a3"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/side.png",
+          "sha256": "4f23c626d3b101e635bfe8320b88bb065f2582630dd46f4b2904ee507e0eeac5"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/rear.png",
+          "sha256": "9630a987cc2f1a42b40e3db8e0bfae6c9aa95308f8c72abd5699da6bb4b96934"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/threequarter.png",
+          "sha256": "25afac24265fbd2e91b2349f375272315ad4c7c89743cdf1719a8c997ee5bd87"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/top.png",
+          "sha256": "077d0fe4d90eaa3585f152fcc63d4329578e488ee21648b5832b409b2d58bf28"
+        },
+        {
+          "path": "review/contexts/vfx_golden_fishing_vortex/context-orientation-plane.png",
+          "sha256": "c109e64d012f393782b1b2aecad01e7839cafd1917d1b371c50bd495f0b06ba7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_feast_cauldron_aura",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 발 받침 접지, 오목한 스튜 면과 기포, 손잡이·비스듬한 국자·상부 김 구름을 확인했다.",
+      "reportSha256": "d26c76257c2cf4d58ed66f16ad1d86f03cd0304db9a869df3684f2f1d3d0c409",
+      "images": [
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/front.png",
+          "sha256": "fe92dc8dac47f657f7383002935ad2a7e1dd1b63fe0c412bf9a91ade0bc112f6"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/side.png",
+          "sha256": "71a086a9d761c01f93839681497effe1ac0f67f4e2afd9a5ae1939662ab6f811"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/rear.png",
+          "sha256": "5c11eb7af17f14e8bd428699a07c6e6e4258a895c4168601103e08b8ff2b4a73"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/threequarter.png",
+          "sha256": "ff4bb8b49712ab9671fca28bdbfce4be741aa7c3a3acebba38b69380d32b64b2"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/top.png",
+          "sha256": "ad5ab0f32aeee9983701097379ef13f2bd716d6320c539c098335bcd34c4325b"
+        },
+        {
+          "path": "review/contexts/vfx_feast_cauldron_aura/context-floor-contact.png",
+          "sha256": "123e810b3477a00932880889de86200e95b18e517381cab38e2a7c0fe5837866"
+        }
+      ]
+    }
+  ],
+  "rigs": [
+    {
+      "id": "mob_grimoire_mimic",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 두 후방 지지대가 높아진 윗판과 기존 힌지를 연결하고, +55° 물기에서는 윗니가 아랫니 사이에 맞물리며 보라색 혀를 피한다. -60° 개방과 중립에서 책등·종이 날개·사슬 자물쇠의 정체성을 유지한다. 5각도 실제 OBB 검사에서도 혀·치아·자물쇠판의 불필요 관통은 0건이다.",
+      "reportSha256": "057408fd0b44ef005a5ff161e2a0ef393cdae6d98e131ee717a63323dcc4f35c",
+      "images": [
+        {
+          "path": "review/rigs/mob_grimoire_mimic/front.png",
+          "sha256": "55a2f40a1e54db776458e0f40098d89d81f3a01823898a37bf0fea7a3b6e5e63"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/side.png",
+          "sha256": "0232192f9a95007b26f1fa0726b718a3c35c35a00f028b1ecead509d85dc568f"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/rear.png",
+          "sha256": "8d85b2801d7da6ae478ddfe558697e777b73c975d4c8d28adcf9fc652faba5a6"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/threequarter.png",
+          "sha256": "7f354787834793437d61fdb3712bb7c98ce8a9a248187b197075756f31900c3f"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60.png",
+          "sha256": "79b613fcfc96ddcefa2a303e04fcd07a978202b06c78e21d2e3caff416320f46"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60-side.png",
+          "sha256": "f899188da7bbd3b140773175a0a55694bbdfb08a367684189c742d8e1f32f0ca"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/strike-plus55.png",
+          "sha256": "2914ce7b447dbbf3d8e782228a9d338c2a791e7232f12eca461b89bec6b2b85e"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 5.823279
+      }
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "status": "PASS",
+      "notes": "방패와 후방 태엽의 팔각 고리가 연속된 형태로 수정되었다. 어깨 바깥 할버드 팔이 중립·준비·타격 포즈에서 연결을 유지하고 머리·몸통·바닥을 뚫지 않는다. 단안경, 별 방패, 태엽 실루엣이 식별된다.",
+      "reportSha256": "8f667f6726cf61bca4279bb442cc2e6fa56595e29809e69aab621ca24d396c6f",
+      "images": [
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/front.png",
+          "sha256": "c1b0eb21199aa557a0d09979111611d914ea8472024e8403fd5bdda744e009ad"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/side.png",
+          "sha256": "5ba6700cdb75874591132c8f3c36198f416901f01a2fa23dfc6fc385f7647919"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/rear.png",
+          "sha256": "232929b24941ead077c58fd3a941add0e582913ac5761aaa709a9be56ce76906"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/threequarter.png",
+          "sha256": "ae8b769a3a6bb25ecd2ab3df7737ddf4b8c05281c6d2cb33d7249d2403c091a0"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60.png",
+          "sha256": "cb7726ff376596155236a6e16e14cb7bf6e492dceee1cc9b623bc480c1e4a321"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60-side.png",
+          "sha256": "f471f13dec5e1c0cceda38d81c78d8acc0130a09003447b2333e8c6950351332"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/strike-plus55.png",
+          "sha256": "64b078ecdf504fd22d4065008b6ff9f5f6d3d6c08c646f2ae23d6d3ef2b6cb63"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 0.677845
+      }
+    },
+    {
+      "id": "mob_ink_librarian",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 양끝 로브 패널을 좁히고 팔·등불을 0.3 model unit 전진시켜 +55° 팔꿈치/소매와 로브의 충돌을 없앴다. 후드 고양이 귀, 먹물 꼬리, 등불 손잡이와 체인 연결은 유지되며 최저 등불도 바닥 위에 남는다. 5각도 실제 OBB 검사에서 비관절 관통 0건이다.",
+      "reportSha256": "4dead7baa35aeb6e889aee867de895b55064fe01269e4f0cbe0798eaa88bccd3",
+      "images": [
+        {
+          "path": "review/rigs/mob_ink_librarian/front.png",
+          "sha256": "29547342f4e9f6b004d3221b283e491771e1fa646196a8beee34b18902fbfebc"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/side.png",
+          "sha256": "6a282373b76eb8a426d8ae46e35534888dbb6af8c3e5e05588f02eca9844c2c8"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/rear.png",
+          "sha256": "eace01547fa39a83273f5e97a6d08f7228a144808336373ee29ea4df851ce408"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/threequarter.png",
+          "sha256": "9b8860d61cec60c9d2465416ace1f4e6539849e5688dee0731044e9252347bcd"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60.png",
+          "sha256": "21568237a73230e4a2d1addcac7de56966d1898097326a151333cc05fc6ec3ca"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60-side.png",
+          "sha256": "3f5b89783c4a134cf16034b9e7e1385349357d89836273f4b5c0abd89fc65b85"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/strike-plus55.png",
+          "sha256": "b346ef80c08a9c395236467c0fd67460f17b5db4b0ff4df6d3801d2e103cf695"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 1.062213
+      }
+    },
+    {
+      "id": "mob_nebula_golem",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 양팔·수정·주먹이 바깥으로 이동하여 허리책, 무릎, 흉곽과의 간격이 읽힌다. 기존 금색 베어링과 새 상완의 연결이 정면·후면·사선과 공격 포즈에서 유지된다. 넓은 바위 체형과 비대칭 책/수정 실루엣을 유지하며 5각도 실제 OBB 검사에서 비관절 관통 0건이다.",
+      "reportSha256": "fe7f00fd0b6a0bd080eebb4bc5f440d189909748bd36bb00fe248d57e98756fc",
+      "images": [
+        {
+          "path": "review/rigs/mob_nebula_golem/front.png",
+          "sha256": "5b79740b13c0a08567c3ae14b19cbb66a1fb93cb93c71bf2636794f1f4c147a0"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/side.png",
+          "sha256": "07c59e87758b8daba6661afddc066e1f3b23edb8664c985b960718757ce9ce8f"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/rear.png",
+          "sha256": "046bf138c111ff2f6777b91afda7d72bc98312ea200b830948cd374230e34909"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/threequarter.png",
+          "sha256": "21b89b0663d85adfa4773969383a2654c2d0e7e69bfbd518fbbfe71921b830df"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60.png",
+          "sha256": "5df5eeea9055b4a2f8c930743e7f97511973033e9b374e42e7890003e7d6c587"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60-side.png",
+          "sha256": "3e93d9dd02b99e66c250744cd9c54ca81402e0874a53112d07a7ae19e75189a8"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/strike-plus55.png",
+          "sha256": "c4821f5a7f774f317ca94291519306c90b1e82a2853fb4302937a7109d8efcd8"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 6.913284
+      }
+    },
+    {
+      "id": "boss_archivist_astro",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 부유 지팡이를 위로 2, 전방으로 1 model unit 옮겨 +55° 타격에서도 로브 앞자락과 주름을 피한다. 단안경, 고양이 주교관, 4권의 공전 마도서, 부양 고리와 후방 축 연결은 유지된다. 5각도 실제 OBB 검사에서도 지팡이/로브 관통 0건이다.",
+      "reportSha256": "930db4915de8cc2a5d924160ae84ab7460322c91b09bdbc01a742b21d741f43e",
+      "images": [
+        {
+          "path": "review/rigs/boss_archivist_astro/front.png",
+          "sha256": "6ec271212f9fb07e825204a60b95c98e1928f5fcc1c0fa7c2f5518f340c25273"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/side.png",
+          "sha256": "8ec39f822467eafbbc2fb1565a94f6d12f10739f49e7a48b8b1120ba248165a6"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/rear.png",
+          "sha256": "789db73e48a751bf8251a43053e79a121b710753587e96dc6a41ff205585c340"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/threequarter.png",
+          "sha256": "5483b281bfc7f5be484b854b61338d60f639db1fdd4e9d133b09e96794716856"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60.png",
+          "sha256": "48996d3b8334ed7461e64e58d7e69865e9e0b4cd25aa897306fea7a34841e13c"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60-side.png",
+          "sha256": "0cf4301fa8d726cf77d6566712d1ad3fd5403e2061f69891b8f6c594bf73a7f9"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/strike-plus55.png",
+          "sha256": "2e88b39c38fad3e4db6c5511f9a3df5725d2441f22779618eb688787f6ad82ea"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 5.449667
+      }
+    },
+    {
+      "id": "boss_novarion",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 혼천의·네 날개를 후방으로 3 model unit 이동하고 중심 축을 연장해 연결을 유지했다. 측면 준비 포즈에서 망토와 고리 하단 사이의 공간이 읽히며 5각도 OBB는 -70°/-65°의 이전 망토/골반 관통도 0건임을 확인한다. 청록·보라 반투명 수정판과 금테, 입체 고리, 사자형 고양이 얼굴·태양관·은하핵·장창 실루엣이 유지된다. 실제 Minecraft 알파/조명은 별도 클라이언트 확인 대상이다.",
+      "reportSha256": "4cee5b0aa001ed81cdab5466232425bbad02857999f419aec2f08117c4db0504",
+      "images": [
+        {
+          "path": "review/rigs/boss_novarion/front.png",
+          "sha256": "fdca0918f2c2ac92ba13b9adb5e9826d914fcdea9159f89473ac96f2934fdfa1"
+        },
+        {
+          "path": "review/rigs/boss_novarion/side.png",
+          "sha256": "6c9ceb608383ce3dab0cbceec701064931d41257fa67ae3a242a9f205dcb7f88"
+        },
+        {
+          "path": "review/rigs/boss_novarion/rear.png",
+          "sha256": "aacb0bcc9eb27b812e287f2ade0e827a622c1f2c4552513dc0e29234f279f580"
+        },
+        {
+          "path": "review/rigs/boss_novarion/threequarter.png",
+          "sha256": "06757760a12c4567cf127971566066dc918e1bdb2bf8b8feaa310532ccd67113"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60.png",
+          "sha256": "00cdceda67bd6ba90a21ce6575b42fd1fadd4ea28739f7818d9962cadd5424f0"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60-side.png",
+          "sha256": "667686cdef274e0b94e95815f8c6fe39aca67dab9f4a6654f8603d4df07f39ad"
+        },
+        {
+          "path": "review/rigs/boss_novarion/strike-plus55.png",
+          "sha256": "a8aba904fca647fbde62c8589934d792d12b13c6a993578d6f87aa88fa679786"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 6.3
+      }
+    },
+    {
+      "id": "mob_cinder_imp",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 이마의 황동 용접 고글, 붉은 피부, 가죽 앞치마, 작은 박쥐 날개와 불꽃 꼬리가 식별된다. 측면에서 마지막 꼬리 마디가 끊김 없이 이어지고, 집게의 노란 끝 두 개가 붉은 집게 날에 붙어 있다. 양손 도구를 바깥으로 벌린 뒤 -60도 준비와 +55도 타격에서 망치·집게가 얼굴과 몸통을 피하며 그립 연결을 유지한다.",
+      "reportSha256": "f70cfaf09953006d17d767a4176444609a383ff4431f35348d2ba95cf852e435",
+      "images": [
+        {
+          "path": "review/rigs/mob_cinder_imp/front.png",
+          "sha256": "ae6c6131ddd94eac5658748da540e522f8a9487cf5e0fbba83283afbd41f5fb1"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/side.png",
+          "sha256": "9cdce2c63283a90cad5d565ed47e369314c0e4bc67816a8afd6389b17bf8f5f3"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/rear.png",
+          "sha256": "d185db39cec775507f7289fdb5196d4fc32ab44db2722306401abbc944596981"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/threequarter.png",
+          "sha256": "63851e1df3f6f7459d0bad20c20295eeead3a1415e1853172532d86b5859093b"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60.png",
+          "sha256": "075c4b6a011d862375f18ed273cb92b5fc8b7df027f5a249fa04b5aa87d49bdc"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/windup-minus60-side.png",
+          "sha256": "534d8df2c91dfec8abc4cfbddbb1f35ec890831b8d1e3acb7e0bbfc551efaee4"
+        },
+        {
+          "path": "review/rigs/mob_cinder_imp/strike-plus55.png",
+          "sha256": "448f06a4d8eb8e426a00221cdb6aea1799438d522efa081917944bb87038f760"
+        }
+      ]
+    },
+    {
+      "id": "mob_slag_hound",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 네 발의 지면 접촉, 노출된 용암 노심과 열린 철제 늑골, 두 개의 열린 배기구가 읽힌다. 하악과 별도 전방 파쇄 클로는 고정 볼 지지대 아래에 연결된다. 중립은 입을 벌린 실루엣이며 -60도 준비에서도 하악이 눈과 상악을 가리지 않고, +55도 타격에서는 치아와 화염 내면을 드러내면서 바닥을 피한다.",
+      "reportSha256": "b2767428452cca639c8887bed588ba2cc3b43c737daf5d3454164713db902b29",
+      "images": [
+        {
+          "path": "review/rigs/mob_slag_hound/front.png",
+          "sha256": "ef4db354dc3d27a96f0664150231482578b22b8b32375b3855d86375032e13b6"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/side.png",
+          "sha256": "58a8b50fd389085b5b11334fe952da18abbe2de7b86a69f3950d2fbeb2deff45"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/rear.png",
+          "sha256": "cac66f1eb6e9cf72ee048ca6442f287e9bd4ce9976a2c10027fb6ca0e9b86fe1"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/threequarter.png",
+          "sha256": "e702615a488541ba1fe7f398c25d5db37a9902bef01bf707144e5880c262e6de"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60.png",
+          "sha256": "d4120db764870dbe1a211b47569c1651dda90dc871b5fd827104b9dcf9856e71"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/windup-minus60-side.png",
+          "sha256": "3d80a97e13c9e6ae665268449800ca28fe7d2a6fba4fecfc030ced7fd904dd4e"
+        },
+        {
+          "path": "review/rigs/mob_slag_hound/strike-plus55.png",
+          "sha256": "b80736237aacca078d063bd081e7745f2946d4716837a100826b4dcc0a293ece"
+        }
+      ]
+    },
+    {
+      "id": "mob_obsidian_bombardier",
+      "status": "PASS",
+      "notes": "마지막 라이너 보정 후 최신 7뷰를 다시 직접 확인. 금빛 흑요석 방호복과 철가면, 양손 받침대에 거치된 대구경 박격포가 읽힌다. 정면·사선·준비·타격에서 포구 안쪽의 주황색 가열 라이너가 보이고 중앙 통로는 뚫려 있어 깊은 관으로 유지된다. 측면에서 포신 후미가 흉갑·투구와 분리되며, 두 장갑과 받침대가 포신에 이어진다.",
+      "reportSha256": "36e7c283e0f6fbf48536ddf08cf12e8dee49d9bb60dfcfa4987aa152feeb24ed",
+      "images": [
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/front.png",
+          "sha256": "d34218e11c4101e6f80a55e9c9ea1c7764aa049fae91680a09be95e0967090fc"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/side.png",
+          "sha256": "0e963417684fe630a94751989f31f5867e1a83bb5f3d29bb9ce6a4dcf2316bc6"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/rear.png",
+          "sha256": "8db81adfde7b456e0953d5a3dde69bb6696f47baf11b94bac38204c5c988a51f"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/threequarter.png",
+          "sha256": "c97485da3ab841b3df2904592a9d4b53c47392a6e4b8a0e96595da71792b6311"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60.png",
+          "sha256": "63a58b0c793ee5de4db277550ea8df0048644069dc4705a92709081001bb927f"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/windup-minus60-side.png",
+          "sha256": "e009b546ade4e91287cad216ba725ce4bf6bf66695219e2dcb1ce876c51f9528"
+        },
+        {
+          "path": "review/rigs/mob_obsidian_bombardier/strike-plus55.png",
+          "sha256": "d40851eca9eda004e079c87dc7e5f81b6252eb46b5ab6414108f3f2fa9e019d9"
+        }
+      ]
+    },
+    {
+      "id": "mob_chained_juggernaut",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 창살 투구 안쪽의 눈, 중갑 어깨판, 흉갑 위의 실제 X자 사슬과 양손의 붉은 용암 닻이 식별된다. 중립에서 두 닻 끝은 바닥 가까이 내려오고 사슬로 주먹과 연결된다. 벌린 전완과 주먹은 준비·타격에서 허리와 허벅지를 피하며, 닻의 곡선 날과 사슬 연결이 유지된다.",
+      "reportSha256": "02d94869034e093ea2db0ad5c88db7c612e817ea4dca0048cc090a23307d4d4f",
+      "images": [
+        {
+          "path": "review/rigs/mob_chained_juggernaut/front.png",
+          "sha256": "f25e304c04188159e63f359bb755a573085f61b0b30dc603ebae6a311180fb16"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/side.png",
+          "sha256": "7a6aa87cc9386e562c8513e55f7e72688123c35b74d5887a5e792f8d8c08552b"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/rear.png",
+          "sha256": "a55a1a85382fc34e16600bc6586d0d39ca41b405f5158db65c4731c65962e362"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/threequarter.png",
+          "sha256": "f56a0efb2cc57342d3dec06af493958e6a3f592ca4f8cfdd717c2edf7e14bcc6"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60.png",
+          "sha256": "ccc1a691f0bc601353efd5fa210989c109aad18d1d444721408534706d32f947"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/windup-minus60-side.png",
+          "sha256": "78b0d2887ac98424d9ba275e9c297a79f26f6d224e0cbb1295921f7faab5d2c7"
+        },
+        {
+          "path": "review/rigs/mob_chained_juggernaut/strike-plus55.png",
+          "sha256": "bc6ed0174172886dd094e4d02be4d951228f772e6ab386aa1d215cc663be8aea"
+        }
+      ]
+    },
+    {
+      "id": "boss_warden_vulcantus",
+      "status": "PASS",
+      "notes": "최신 7뷰 직접 확인. 왼팔의 독립된 세 개 열린 화염방사 노즐, 오른손 증기 해머의 큰 타격면과 피스톤, 황동 뿔과 붉은 슬릿 바이저가 읽힌다. 후면에서는 보일러 탱크·결속 띠·밸브·두 굴뚝이 보인다. 넓힌 그립과 전방 전완은 준비·타격에서도 연결되며 노즐과 망치가 몸통을 피하고 바닥 위에 남는다.",
+      "reportSha256": "eb3ad264fcd37cc9c642937952340f69caf5f605ad2f1df41f46cf7097e4ecfd",
+      "images": [
+        {
+          "path": "review/rigs/boss_warden_vulcantus/front.png",
+          "sha256": "8877a7b57694b48708151a36af4378cd1faf73effd1cbf5ea5456515947c7803"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/side.png",
+          "sha256": "3b751bab3dc82a7ca875aed6b701ce9f199b48d54708a906a84d822fec9d7049"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/rear.png",
+          "sha256": "0132e360d4bf3b25b9a33c5372273675b49e3676552b2ddb54833914359c38c9"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/threequarter.png",
+          "sha256": "2fc5bbbf0a0fc5addb29277ec6c025f730091932f4bdbc4e73e73b8ee9425aeb"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60.png",
+          "sha256": "ae6b8d701a7ba86f8d0b0057415fe041e51f50cc1b15627c3d8b4db134ca5bf5"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/windup-minus60-side.png",
+          "sha256": "f56118c81037c8b7ec8c080fb9a65351f9fa05249694f459b76248eb8eb06943"
+        },
+        {
+          "path": "review/rigs/boss_warden_vulcantus/strike-plus55.png",
+          "sha256": "8baff8579d8f198d35bab63b6fd61a6664467c743d49773dc9c026bc50061059"
+        }
+      ]
+    },
+    {
+      "id": "boss_ignion",
+      "status": "PASS",
+      "notes": "마지막 사슬 노출 보정 후 최신 7뷰를 다시 직접 확인. 열린 철창 사이 용광로 심장, 두 용암 도가니 견갑, 부러진 흑요석 왕관과 빛나는 눈·입, 균열이 있는 양 건틀릿이 읽힌다. 오른주먹 앞쪽으로 돌린 회색 사슬이 정면·사선·측면 준비와 타격에서 추와 주먹 사이에 드러난다. 추의 위치는 유지되었고 +55도 타격에서도 발목 및 바닥과 분리된다.",
+      "reportSha256": "d7400fcc315a52a4e892d7eaecb63e47fe1d8c8247e131ee2a0639d0ff96ca55",
+      "images": [
+        {
+          "path": "review/rigs/boss_ignion/front.png",
+          "sha256": "b0ddbcd53f823f8630d021890b8acda7244c86bd003a4e4ec55fb5e8b665af43"
+        },
+        {
+          "path": "review/rigs/boss_ignion/side.png",
+          "sha256": "6ee769c923f0e2015b7d9ec6133588f2c05248abf7bac84dc9bfa49a82cb75b0"
+        },
+        {
+          "path": "review/rigs/boss_ignion/rear.png",
+          "sha256": "22a95adaadeb2c8a9532f4844ecd48c9f998ff4a62d17c840d5fd4524a5f1a6b"
+        },
+        {
+          "path": "review/rigs/boss_ignion/threequarter.png",
+          "sha256": "1e5341a5838422d52a4ea8334068842f9c52e1d11637df22a4fb6da2b357c239"
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60.png",
+          "sha256": "87d9f59a8cb3ed206fe15f2150d28eac755c66c0ef0c37d1df6a0a71d15955db"
+        },
+        {
+          "path": "review/rigs/boss_ignion/windup-minus60-side.png",
+          "sha256": "3d4606fe8effd42139f28191cacf8648c8aa6bf16c923c5a9180bf3bc7a4bb2c"
+        },
+        {
+          "path": "review/rigs/boss_ignion/strike-plus55.png",
+          "sha256": "0e534ccbd963a0ca141559cfc456ef7fc87039589efc0f96a2207c8f05145272"
+        }
+      ]
+    },
+    {
+      "id": "mob_mirror_stalker",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 전방으로 굽힌 사마귀 실루엣, 어깨 힌지와 칼날이 연결된다. 알파 208 프리즘 면을 적용한 뒤에도 불투명 칼날 외곽선과 관절이 유지되며, -60° 들어올림과 +55° 타격에서 새 분리나 바닥 관통이 보이지 않는다. 실제 Minecraft 반투명 정렬은 별도 런타임 검증 대상이다. 지정 5각도 전체 OBB 검사에서도 어깨 접합 외 교차 0건이다.",
+      "reportSha256": "51b8c3105cfb16fddb8dc8d9cef57e2eb593082779ec32f2cbbb2b9abbdf59e2",
+      "images": [
+        {
+          "path": "review/rigs/mob_mirror_stalker/front.png",
+          "sha256": "19170a4659a56200a3f9f3caf0dbd8b317e3fab08af241f53c8afaf303199dbb"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/side.png",
+          "sha256": "25cd90594546ad188565571e464d07dad0947d487d0b6c6adb5fc4c79576749c"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/rear.png",
+          "sha256": "f11f094652013b4bcc630e11cac457ffed76825709750e0987d79731acd34243"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/threequarter.png",
+          "sha256": "a5f2e81e2415938bc2d7ca91341f731676f0d1e752bf454ccfb6ff98b79385b7"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60.png",
+          "sha256": "900fc8a77ae713c2ce102b29c411323426e72c07e13fecba4be932a894e5be20"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60-side.png",
+          "sha256": "fd793eef5f747c32a8ba672eb941b64f38b76f120bad734d062cf77a53e161a8"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/strike-plus55.png",
+          "sha256": "91c1d644efc162ab6ca87c65bb63bc18fd0bb82422999d337c844143c92164b7"
+        }
+      ]
+    },
+    {
+      "id": "mob_void_choir",
+      "status": "PASS",
+      "notes": "최종 보정 7뷰를 다시 관찰했다. 책·성배·손을 앞·위로 옮기고 바깥쪽 팔꿈치 경로를 적용한 소매가 연결된다. -60°에서 후드와 성배 사이가 분리되고 +55°에서도 책/손/소매가 로브 바깥과 바닥 위에 남는다. 지정 5각도에서 전체 arm-vs-root/head OBB 검사상 의도된 소매·광배 어깨 접합 외 교차 0건이다.",
+      "reportSha256": "423926d2350d67f6e15c1b046423abc85c18491887c66cf3df172e2895467b8c",
+      "images": [
+        {
+          "path": "review/rigs/mob_void_choir/front.png",
+          "sha256": "020eb014f0aadcacfac9c4f5bc711499f9628bae57631697130a8a6c71727e04"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/side.png",
+          "sha256": "7eaba930db33d3344f7853db93a2ca2ee38f00ada297c4ef1785f72cababb9e9"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/rear.png",
+          "sha256": "46b1b37b9e74942b1d86748b6130f1bda951b0430ee092221515a98252dd219d"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/threequarter.png",
+          "sha256": "09981df9d4591aae35c8cab5b766e2e598bd4867ae92b093479e3de8ac471e4c"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60.png",
+          "sha256": "56d45f31d89e7f543372cff6f5f0b088774f15f8a06eca8b24feaa33240df458"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60-side.png",
+          "sha256": "23718b44b2cd3f3bf91dd1a530f64b747e36915a60fd5b8e3313062dc601b26e"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/strike-plus55.png",
+          "sha256": "2201a11baceb3c3945c48c4cb8173178eee404d8121e2620a95f8253ba93a3ad"
+        }
+      ]
+    },
+    {
+      "id": "mob_abyssal_oculus",
+      "status": "PASS",
+      "notes": "최종 보정 7뷰를 다시 관찰했다. 안구 뒤 중앙 축에 연결된 좌우 세 개씩의 자유 촉수가 프레임 외측에서 구분된다. 중립/-60°/+55°에서 촉수와 안구·외곽 프레임이 분리되어 보이고 끝의 수정이 바닥 위에 남는다. 지정 5각도 전체 OBB 검사상 의도된 중앙 뒤 축 접합 외 교차 0건이다.",
+      "reportSha256": "fdf1b33cc2dfcfa9ea0827dd5f2a2cc0c37b63419e020ada4045d156f3e17ef2",
+      "images": [
+        {
+          "path": "review/rigs/mob_abyssal_oculus/front.png",
+          "sha256": "dd27dc3d4d14f126e9391370db7f9065b9243fdf51529a58386e6f14d1cf0482"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/side.png",
+          "sha256": "109aac472e2bba70fe81689d7c07c837991a3807d5be5acb752260b70889506f"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/rear.png",
+          "sha256": "ef779be9b2cfd915f898046363e40a555280e8595b95dbceb54e6074cd31ac81"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/threequarter.png",
+          "sha256": "5ed649792f0fb7babbbddf01bc2776bc6cc964e960a42404316b01dc5083d551"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60.png",
+          "sha256": "7a8524fb5e51ed745be7477b37204fb31da034971e63bc4b8a519c0b7f692592"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60-side.png",
+          "sha256": "26924a5878a0d2b8965c09f2377be3391defebb555d52b7b9a24fa2fde1f5d87"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/strike-plus55.png",
+          "sha256": "3590888d7650dd3461b14a1ee81a7d40189a9ab0020bb94f188246bc713ced14"
+        }
+      ]
+    },
+    {
+      "id": "mob_eclipse_templar",
+      "status": "PASS",
+      "notes": "최종 보정 7뷰를 다시 관찰했다. 바깥쪽 팔꿈치와 앞·위로 옮긴 양손 파지가 연결되며 -60° 측면에서 검/손잡이와 투구 사이 간격을 확인했다. +55° 검이 다리와 망토 바깥을 지나고 바닥 위에 남는다. 지정 5각도 전체 OBB 검사상 어깨 베어링·내측 플랜지 접합 외 교차 0건이다.",
+      "reportSha256": "64f1f4f5693ab503b5068ce351333362bb239c574200c2c1d9dc13933067c860",
+      "images": [
+        {
+          "path": "review/rigs/mob_eclipse_templar/front.png",
+          "sha256": "304a3b6823dfba6da03e29ca660db024fbe7dc68b233f06c68fcc65fe31676bf"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/side.png",
+          "sha256": "811588658b5151c204f1f2b2a0e1219f616afa2bb5c06bc3f1445ea172899d82"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/rear.png",
+          "sha256": "bbdfb1625a255f36883336d5606e123780d2e3bd86a5cbf2b9bce29386a3c0bf"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/threequarter.png",
+          "sha256": "8a1ccf7497272d9838ed1b9ddf24b10c44a0664944d6b308f641f9b629777a78"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60.png",
+          "sha256": "d8413df772101c3fa66d7dfb716e0460cb474317e1751e9567f04e541c48b0a4"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60-side.png",
+          "sha256": "191d5eb5d6a05512f59db77e3b33fbc1994cc4ebbd6f7f58653b86a617c7fd4a"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/strike-plus55.png",
+          "sha256": "71e79fd4f3f11ccf1ad6642a60c014637ce09724235a58b8dad12cd37b30bad8"
+        }
+      ]
+    },
+    {
+      "id": "boss_twin_archons",
+      "status": "PASS",
+      "notes": "최종 보정 7뷰를 다시 관찰했다. 양손 레이피어/오브가 양옆으로 분리되고 날개 뿌리·지지대가 망토 바깥에 연결된다. +55°에서 소품과 치마의 분리, -60°에서 날개와 뒤 망토의 분리를 확인했다. 흑백 군주 한 세트 구조를 유지한다. 지정 5각도 전체 OBB 검사상 어깨 베어링·내측 플랜지 외 교차 0건이다.",
+      "reportSha256": "c19297bd23b9f1b70809b37885c6020690f8e62942cf82fa74e31df94841f6eb",
+      "images": [
+        {
+          "path": "review/rigs/boss_twin_archons/front.png",
+          "sha256": "e9c4a887fc7498d3648825f01f600f1b0bb8f2156735c31bc8ea29696fd7a7ce"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/side.png",
+          "sha256": "3f697a060eeb11a709e76d2edc21d539287fc887230c12357fa7eb7e2e50fe7a"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/rear.png",
+          "sha256": "757a09209ed485fb8821cef77b5f3939f4cce8dbe671d13b7a7cfb94393f7ed7"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/threequarter.png",
+          "sha256": "19e990ae08483e636d7a4d2c476d9c2f0814cbafdae783703227a5d76b4d0d2e"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60.png",
+          "sha256": "8c10089239b94c156af5c6ac900b3ec6f8437f4d242a360f35d618e27978dd03"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60-side.png",
+          "sha256": "9bdf7251ffe62699385675577cf4a9616e7d8f0061ca06f23d915c21bacf0150"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/strike-plus55.png",
+          "sha256": "97cfbca79d3519f40421670960dc10cde8ac6fe9fd515a2e0bf42f85c94386fd"
+        }
+      ]
+    },
+    {
+      "id": "boss_eclipsia",
+      "status": "PASS",
+      "notes": "최종 보정 7뷰를 다시 관찰했다. 가슴 높이의 횡파지 낫과 양손 연결, 여섯 스테인드글라스 날개를 유지한다. -60°에서 낫자루/머리 및 날개/뒤 트레인이 분리되고 +55° 낫과 손이 치마 앞쪽에서 바닥 위에 남는다. 팔·날개 지지대는 어깨 첨탑 바깥을 지난다. 지정 5각도 전체 OBB 검사상 명시된 어깨 베어링 접합 외 교차 0건이다.",
+      "reportSha256": "b6024207c6aa0eaae680fbb23c0b6525134dae2e46faec8791a87852d24407c8",
+      "images": [
+        {
+          "path": "review/rigs/boss_eclipsia/front.png",
+          "sha256": "24eed91bfd4b2cbdc0ad3c6d075352aabd93b761de15a1f8fdcede02234a1b0e"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/side.png",
+          "sha256": "d3935c77502804448803a515bf7742936a428c2149016677efc07f2352205a26"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/rear.png",
+          "sha256": "3e98b513fc96f41c2c0890d2efdf130e9d6aca1eae98f658739b20339dfa3b01"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/threequarter.png",
+          "sha256": "62858aff4a1a7165cd8b31efb43973152bbf12d1e0c6717065d543fde05a2100"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60.png",
+          "sha256": "3aaf0eacfaa28a06254b998bea246cf54d858bd01d83cb327738ab879327e4b1"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60-side.png",
+          "sha256": "a646cece060df02fd4cb63d40af42b9e3f8c4e49780b71f9f00dd3c7837c183d"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/strike-plus55.png",
+          "sha256": "c167b798b7fbcf4cfbe2a093563fbf6e79d5671d6bfedff884286c0c044c36b7"
+        }
+      ]
+    }
+  ],
+  "boardReview": {
+    "status": "PASS",
+    "images": [
+      {
+        "path": "review/relics-and-vfx-overview.png",
+        "sha256": "7a2adc7e4764a1c9a9bcfbc1b1c8045d773f773cbc27f7edd3b274762ce92f54"
+      },
+      {
+        "path": "review/monsters-overview.png",
+        "sha256": "de3bac7c841a30817dbd3d44d38dd6dbef1644fa60a3167a68a44cb39329c27b"
+      },
+      {
+        "path": "review/monsters-chapter-1.png",
+        "sha256": "65d02400c082186fed19c4dc8b96ffc326f99f2410904dfa790724f18cd992c6"
+      },
+      {
+        "path": "review/monsters-chapter-2.png",
+        "sha256": "e898e82b7abe5c96329cc2fdac81f2421d034b80d7eb0a523e066f323c7801de"
+      },
+      {
+        "path": "review/monsters-chapter-3.png",
+        "sha256": "34641920626bddc058f687ed170989aa1957cf58f7b1e2041652e9d3ed4c9660"
+      }
+    ],
+    "notes": "Final 19-model overview and 18 assembled rigs checked. Distinct chapter silhouettes/palettes, readable foreground details, complete pose tiles; no missing tiles or unintended crop."
+  }
+}

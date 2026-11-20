@@ -10,12 +10,15 @@ import kr.yuumi97.core.facility.BankAndVaultManager;
 import kr.yuumi97.core.facility.BlacksmithManager;
 import kr.yuumi97.core.facility.OnsenAndClinicManager;
 import kr.yuumi97.core.hub.HubWorldManager;
+import kr.yuumi97.core.hub.HubUtilityManager;
+import kr.yuumi97.core.guide.GuidebookManager;
+import kr.yuumi97.core.guide.HubTravelManager;
+import kr.yuumi97.core.guide.WayfindingManager;
 import kr.yuumi97.core.training.TrainingDummyManager;
 import kr.yuumi97.core.items.RelicAndFoodListener;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.pack.ResourcePackServer;
 import kr.yuumi97.core.plot.PlotManager;
-import kr.yuumi97.core.plot.PlotManager.PlotSpec;
 import kr.yuumi97.core.portal.PortalAndRecallManager;
 import kr.yuumi97.core.quest.QuestAndCodexManager;
 import kr.yuumi97.core.shop.NpcShopManager;
@@ -44,10 +47,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
@@ -57,10 +57,6 @@ import java.io.File;
 import java.io.IOException;
 
 public final class YuumiPlugin extends JavaPlugin implements Listener, CommandExecutor {
-
-    public static final class GuidebookHolder implements InventoryHolder {
-        @Override public Inventory getInventory() { return null; }
-    }
 
     private File dataFile;
     private FileConfiguration dataConfig;
@@ -89,6 +85,10 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
     private GachaAndFurnitureManager furnitureManager;
     private HallOfFameManager hallManager;
     private TrainingDummyManager trainingManager;
+    private WayfindingManager wayfindingManager;
+    private HubTravelManager travelManager;
+    private GuidebookManager guidebookManager;
+    private HubUtilityManager utilityManager;
 
     @Override
     public void onEnable() {
@@ -96,6 +96,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         getConfig().options().copyDefaults(true);
         saveConfig();
         loadDataFile();
+        normalizeInitializationKeys();
 
         // 1. Custom Items & Crafting Recipes
         this.items = new YuumiItems(this);
@@ -109,6 +110,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         // 3. Dedicated Peaceful Hub City World (yuumi_hub) & NPC Action Router
         this.hubManager = new HubWorldManager(this, dataConfig, this::saveDataFile, this::handleHubNpcInteract);
         this.hubManager.initHubWorld();
+        items.setModelAvailability(hubManager::hasBundledModel);
 
         // 4. South 12-Plot Real Estate District
         this.plotManager = new PlotManager(this, churuManager, dataConfig, this::saveDataFile, hubManager::getHubWorld);
@@ -149,7 +151,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         // 9. Multi-Phase Raid Colosseum & Yuumi Relics
         this.raidManager = new RaidBossManager(this, items, churuManager, altarManager, hubManager::getArenaCenter);
 
-        // v3.0 systems share the existing economy and append-only progression namespaces.
+        // Domain systems share the same economy and durable reward ledger.
         this.rewardMailbox = new RewardMailbox(this, items, dataConfig, this::saveDataFile);
         this.dungeonManager = new DungeonManager(this, items, churuManager, dataConfig, this::saveDataFile, hubManager::getHubSpawn, rewardMailbox);
         this.rpgManager = new RpgJobManager(this, items, churuManager, dataConfig, this::saveDataFile, plotManager);
@@ -161,13 +163,19 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         hallManager.setBoardLocation(hubManager::getHallBoardLocation);
         this.trainingManager = new TrainingDummyManager(this, hubManager);
         rpgManager.setTrainingDummyHooks(trainingManager::isDummy, trainingManager::approvedDamage);
+        rpgManager.setPracticingPredicate(trainingManager::isPracticing);
         hubManager.setTrainingDummyReconciler(trainingManager::reconcile);
         rpgManager.setPartyMembers(dungeonManager::partyMembers);
         rpgManager.setHostilePredicate(dungeonManager::isDungeonMob);
-        rpgManager.setDungeonHooks(dungeonManager::isParticipant, dungeonManager::canAffect, dungeonManager::damageObelisks, dungeonManager::reviveOnePartyMember);
+        rpgManager.setDungeonHooks(dungeonManager::isParticipant, dungeonManager::canAffect, dungeonManager::reviveSpectator);
+        rpgManager.setDungeonCombatHooks(dungeonManager::damagePoise,
+                entity -> dungeonManager.isBoss(entity) || raidManager.isRaidBoss(entity),
+                event -> { double accepted = dungeonManager.acceptedDamage(event); return accepted >= 0 ? accepted : raidManager.acceptedDamage(event); });
         dungeonManager.setCoinMultiplier(rpgManager::getCoinMultiplier);
-        dungeonManager.setCompletionXp(rpgManager::awardXp);
-        questManager.setCompletionXp(rpgManager::awardXp);
+        dungeonManager.setCompletionXp(rpgManager::awardCombatXp);
+        dungeonManager.setBoonDamage((player, target, amount) -> rpgManager.damage().raw(player, target, amount,
+                kr.yuumi97.core.rpg.CombatDamageService.DamageKind.RUNE));
+        questManager.setCompletionXp(rpgManager::awardQuestXp);
         raidManager.setRewardMailbox(rewardMailbox);
         onsenManager.setDungeonParticipantPredicate(dungeonManager::handlesClinic);
         portalManager.setLeaveCallback(dungeonManager::onExternalLeave);
@@ -178,9 +186,29 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         plotManager.setBeforePlotReset(furnitureManager::recoverPlot);
         casinoManager.setRouletteAnimation(furnitureManager::animateRoulette);
         hallManager.setMythicRefresh(() -> {
-            for (Player player : Bukkit.getOnlinePlayers()) if (rpgManager.getLevel(player) == 20 && rpgManager.getJob(player) != null && !rpgManager.getAwakening(player).isEmpty())
-                hallManager.unlock(player.getUniqueId(), "mythic_" + rpgManager.getJob(player).name(), "<light_purple>[신화 " + rpgManager.getJob(player).display + "]</light_purple>");
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                var combat = rpgManager.getCombat(player);
+                if (combat != null && rpgManager.combatLevel(player) == 20 && !rpgManager.combatAwakening(player).isEmpty())
+                    hallManager.unlock(player.getUniqueId(), "mythic_" + combat.name(), "<light_purple>[신화 " + combat.display + "]</light_purple>");
+                var life = rpgManager.getLife(player);
+                if (life != null && rpgManager.lifeLevel(player) == 20 && !rpgManager.lifeSpec(player).isEmpty())
+                    hallManager.unlock(player.getUniqueId(), "mythic_" + life.name(), "<light_purple>[신화 " + life.display + "]</light_purple>");
+            }
         });
+        wayfindingManager = new WayfindingManager(this, hubManager);
+        travelManager = new HubTravelManager(this, hubManager, plotManager, wayfindingManager);
+        travelManager.setBeforeTravel(portalManager::cancelRecall);
+        guidebookManager = new GuidebookManager(this, items, travelManager, portalManager::startChanneledRecall, rewardMailbox::deliver);
+        utilityManager = new HubUtilityManager(this, hubManager, items, (player, action) -> {
+            switch (action) {
+                case "forge" -> blacksmithManager.openBlacksmithGui(player);
+                case "runes" -> rpgManager.getWorkshop().openSmith(player);
+                case "furniture" -> rpgManager.getWorkshop().openFurniture(player);
+                case "feast" -> rpgManager.getWorkshop().openFeast(player);
+                case "vault" -> bankManager.openPersonalVault(player, 1);
+            }
+        }, rewardMailbox::give);
+        wayfindingManager.start();
         rpgManager.start();
         // Register after RPG's HIGHEST damage handlers to measure the completed calculation.
         trainingManager.start();
@@ -190,7 +218,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         hallManager.start();
 
         RelicAndFoodListener relicListener = new RelicAndFoodListener(
-                this, items, churuManager, this::openMainMenu,
+                this, items, churuManager,
                 portalManager::startChanneledRecall
         );
         relicListener.startFriendshipAuraTask();
@@ -215,21 +243,25 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         pm.registerEvents(raidManager, this);
         pm.registerEvents(relicListener, this);
         pm.registerEvents(rewardMailbox, this);
+        pm.registerEvents(guidebookManager, this);
+        pm.registerEvents(travelManager, this);
+        pm.registerEvents(utilityManager, this);
 
-        // Bind commands (All facility commands act as Wayfinding Guides per Physical Visit Philosophy!)
+        // Facility commands share one physical landing/wayfinding catalogue.
         bindCmd("yuumi", this);
         bindCmd("churu", churuManager);
-        bindCmd("altar", altarManager);
-        bindCmd("casino", casinoManager);
+        bindCmd("altar", this);
+        bindCmd("casino", this);
         bindCmd("duelbet", casinoManager);
-        bindCmd("quest", questManager);
-        bindCmd("codex", questManager);
-        bindCmd("land", plotManager);
-        bindCmd("raid", raidManager);
+        bindCmd("quest", this);
+        bindCmd("codex", this);
+        bindCmd("land", this);
+        bindCmd("raid", this);
         bindCmd("party", dungeonManager.getPartyManager());
         bindCmd("titles", hallManager);
         bindCmd("job", this);
-        bindCmd("stock", stockManager);
+        for (String name : java.util.List.of("guide", "home", "workshop", "way", "shops", "bank", "smith", "dungeon", "townhall", "onsen", "arena")) bindCmd(name, this);
+        bindCmd("stock", this);
 
         // Post-boot world & Vault hook
         Bukkit.getScheduler().runTaskLater(this, () -> {
@@ -246,7 +278,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             int phase = altarManager.getCurrentPhase();
             double jackpot = casinoManager.getJackpot();
             for (Player p : Bukkit.getOnlinePlayers()) {
-                if (trainingManager.isPracticing(p)) continue;
+                if (trainingManager.isPracticing(p) || rpgManager.holdingSignature(p)) continue;
                 double bal = churuManager.getBalance(p);
                 String zone = hubManager.describeDistrict(p.getLocation());
                 p.sendActionBar(TextUtil.mm(
@@ -259,13 +291,15 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }, 60L, 50L);
 
         getLogger().info("==========================================================");
-        getLogger().info("  🐱 [유미의 97랜드 v3.1] YuumiLandCore 활성화 완료!");
+        getLogger().info("  🐱 [유미의 97랜드] YuumiLandCore 활성화 완료!");
         getLogger().info("  전용 평화 허브(yuumi_hub) · 12필지 분양 · 2F 카지노/경묘 준비됨");
         getLogger().info("==========================================================");
     }
 
     @Override
     public void onDisable() {
+        if (wayfindingManager != null) wayfindingManager.stop();
+        if (utilityManager != null) utilityManager.closeAll();
         if (trainingManager != null) trainingManager.stop();
         if (dungeonManager != null) dungeonManager.cleanup();
         if (rpgManager != null) rpgManager.stop();
@@ -280,6 +314,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
 
     private void handleHubNpcInteract(Player player, String role) {
         switch (role) {
+            case "workshop_smith", "workshop_vault", "workshop_craft" -> utilityManager.openNpc(player, role);
             case "class_master" -> rpgManager.openClassGui(player);
             case "dungeon_gate" -> dungeonManager.openGateGui(player);
             case "stock_broker" -> stockManager.openBroker(player);
@@ -356,168 +391,34 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         }
     }
 
-    // ==================== 첫 접속 환영 키트 & 허브 광장 스폰 ====================
+    private void normalizeInitializationKeys() {
+        var players = dataConfig.getConfigurationSection("players");
+        if (players == null) return;
+        for (String id : players.getKeys(false)) {
+            String root = "players." + id;
+            if (dataConfig.getBoolean(root + ".starter_kit_v2")) dataConfig.set(root + ".initialized", true);
+            dataConfig.set(root + ".starter_kit_v2", null);
+        }
+        saveDataFile();
+    }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Player p = event.getPlayer();
-        churuManager.ensureStarterBalance(p);
-
-        String starterKey = "players." + p.getUniqueId() + ".starter_kit_v2";
-        if (!dataConfig.getBoolean(starterKey, false)) {
-            dataConfig.set(starterKey, true);
-            saveDataFile();
-            p.getInventory().addItem(
-                    items.bookOfThresholds(),
-                    items.recallBookmark(3),
-                    items.churuSalmon(5),
-                    items.zoomiesSkewer(3)
-            );
-            p.teleport(hubManager.getHubSpawn());
-            Bukkit.broadcast(TextUtil.msg("🐱 <white><bold>" + p.getName() + "</bold></white>님이 <gradient:#ff85c0:#ffd666><bold>유미의 97랜드</bold></gradient> 고양이 허브 도시에 첫 발을 내디뎠습니다! 환영해주세요!!"));
+        Player player = event.getPlayer();
+        if (churuManager.initializePlayer(player)) {
+            rewardMailbox.enqueueOnce(player.getUniqueId(), "starter-bookmarks", items.recallBookmark(3));
+            rewardMailbox.enqueueOnce(player.getUniqueId(), "starter-churu", items.churuSalmon(5));
+            rewardMailbox.enqueueOnce(player.getUniqueId(), "starter-food", items.zoomiesSkewer(3));
+            rewardMailbox.deliver(player);
+            player.teleport(hubManager.getHubSpawn());
+            Bukkit.broadcast(TextUtil.msg("🐱 <white><bold>" + player.getName() + "</bold></white>님이 유미의 97랜드에 도착했습니다!"));
         }
-
-        p.sendMessage(TextUtil.mm(""));
-        p.sendMessage(TextUtil.msg("<gradient:#ff85c0:#ffd666><bold>유미의 97랜드 v3.0</bold></gradient><gray>에 오신 것을 환영합니다! (<yellow>/메뉴</yellow> 길찾기 수첩 │ <aqua>문턱의 서 Shift+우클릭</aqua> 허브 귀환)"));
-        p.sendMessage(TextUtil.mm("<gray> · 현재 진행: <aqua>" + altarManager.getPhaseTitle() + "</aqua> │ 카지노 누적 잭팟: " + TextUtil.churu(casinoManager.getJackpot())));
-        p.sendMessage(TextUtil.mm("<gray> · 지인 직거래: 광장에서 상대를 <yellow>[Shift + 우클릭]</yellow>하여 안전 교환창을 여세요!"));
-        p.sendMessage(TextUtil.mm(""));
+        guidebookManager.normalize(player);
+        player.sendMessage(TextUtil.msg("<gold>유미의 97랜드</gold>에 오신 것을 환영합니다! <yellow>/가이드</yellow> · 허브 시설 즉시 워프 · <aqua>가이드북 Shift+우클릭</aqua> 귀환"));
+        player.sendMessage(TextUtil.mm("<gray>전투·생활 직업을 함께 성장시키세요. 성물 조작: <white>좌클릭 / 우클릭 / F</white> · 지인 직거래: Shift+우클릭"));
     }
 
-    // ==================== 차원 안내 수첩 & 나침반 길찾기 (/메뉴) ====================
-
-    public void openMainMenu(Player player) {
-        Inventory inv = Bukkit.createInventory(new GuidebookHolder(), 45,
-                TextUtil.mm("<gradient:#ff85c0:#ffd666><bold>📖 유미의 97랜드 차원 안내 수첩</bold></gradient>"));
-
-        ItemStack bg = makeIcon(Material.BLACK_STAINED_GLASS_PANE, " ");
-        for (int i = 0; i < 45; i++) inv.setItem(i, bg);
-
-        double wallet = churuManager.getBalance(player);
-        double bank = churuManager.getBankBalance(player);
-        int chips = casinoManager.countPlayerChips(player);
-        PlotSpec myPlot = plotManager.getOwnedPlot(player.getUniqueId());
-        int codexCount = questManager.getCompletedCodexCount(player.getUniqueId());
-
-        inv.setItem(4, makeIcon(Material.NETHER_STAR,
-                "<gold><bold>🐾 집사 프로필 (" + player.getName() + ")</bold></gold>",
-                "<white>지갑 보유액: " + TextUtil.churu(wallet),
-                "<aqua>은행 안전예금: <bold>" + TextUtil.fmt(bank) + " 츄르</bold> <gray>(사망 차감 면제!)</gray>",
-                "<yellow>보유 카지노 칩: <bold>" + TextUtil.fmt(chips) + " 칩</bold>",
-                "<#ff85c0>내 분양 부지: <white>" + (myPlot != null ? myPlot.id() + "호 (" + myPlot.tier().display + ")" : "미보유 (남쪽 단지 분양 가능)"),
-                "<green>수집 도감 등록: <white>" + codexCount + " / 21종 <gray>(상점 매입가 +" + Math.round(skillBridge.getCodexBonusRate(player) * 100) + "%)</gray>",
-                "<light_purple>성향: <white>" + rpgManager.getSummary(player),
-                "<aqua>문턱의 미궁 클리어: <white>" + dungeonManager.getClearCount(player.getUniqueId()) + "회",
-                "",
-                "<gray>🤝 지인 안전 직거래: 상대 캐릭터 <yellow>[Shift + 우클릭]</yellow>"
-        ));
-
-        // Row 3: Hub Districts Wayfinding Compass Buttons (Physical Visit Philosophy!)
-        inv.setItem(19, makeIcon(Material.ENCHANTED_BOOK, "<light_purple><bold>🌌 [북쪽] 문턱의 서 제단 & 4대 대포탈 성소</bold></light_purple>",
-                "<gray>위치: 중앙 광장 북쪽 계단 위 (X=0, Z=-55)",
-                "<white>현재 차원: <aqua>" + altarManager.getPhaseTitle(),
-                "<gray>야생·네더·엔드·레이드 결투장 대포탈이 모인 성소입니다.",
-                "", "<yellow>▶ 클릭 시 해당 시설로 나침반 방향 설정"));
-
-        inv.setItem(20, makeIcon(Material.EMERALD, "<gold><bold>⚖ [서쪽] 5대 전문 NPC 상점 거리</bold></gold>",
-                "<gray>위치: 서쪽 대로변 (X=-37 ~ -62, Z=0)",
-                "<gray>농산·수산·광물·건축·만물 상인냥이 상주합니다.",
-                "<green>AuraSkills 레벨 & 도감 달성률만큼 매입 단가 상승!",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-
-        inv.setItem(21, makeIcon(Material.RAW_GOLD_BLOCK, "<yellow><bold>🏦 [서쪽] 츄르 중앙 은행 & 대장간/마법도서관</bold></yellow>",
-                "<gray>위치: 서쪽 중반부 (X=-83, Z=-8 / Z=+8)",
-                "<gray>· 은행: 사망 구조비 100% 면제 예금, 수표 발행, 4탭 개인 금고",
-                "<gray>· 대장간: 장비 수리, 파괴 0% ★1~★7 별빛 세공, 30Lv 인챈트",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-
-        inv.setItem(22, makeIcon(Material.WRITABLE_BOOK, "<#ff9c6e><bold>🏛 [서쪽 끝] 고양이 마을 회관</bold></#ff9c6e>",
-                "<gray>위치: 서쪽 대로 종점 (X=-108, Z=0)",
-                "<gray>일일·주간 납품 의뢰, 21종 도감 박물관, 토지 등기소 통합 청사!",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-
-        inv.setItem(23, items.slotIcon("slot_seven", "<gradient:#ffe14d:#ff4d79><bold>🎰 [동쪽] 2층 황금 냥냥 카지노 & 경묘장</bold></gradient>"));
-        ItemMeta cm = inv.getItem(23).getItemMeta();
-        cm.lore(TextUtil.lore(
-                "<gray>위치: 동쪽 대로 북측 랜드마크 (X=+63, Z=-8)",
-                "<white>현재 누적 잭팟: " + TextUtil.churu(casinoManager.getJackpot()),
-                "<gray>1F 환전소·슬롯·블랙잭·룰렛·<gold>실시간 5레인 고양이 경주</gold>!",
-                "<light_purple>2F VIP 하이롤러 발코니 & 뒷골목 무료 급식소",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-        inv.getItem(23).setItemMeta(cm);
-
-        inv.setItem(24, makeIcon(Material.CAMPFIRE, "<#ff85c0><bold>♨ [동쪽] 노천 온천 · 식당 · 선술집 · 낚시터</bold></#ff85c0>",
-                "<gray>위치: 동쪽 대로 남측 (X=+45 ~ +107, Z=+15)",
-                "<gray>15초 입수 시 15분 버프 온천, 특선 도시락 식당, 수제 양조 선술집!",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-
-        inv.setItem(25, makeIcon(Material.CHERRY_SAPLING, "<#ff85c0><bold>🏡 [남쪽] 벚꽃 대교 & 12필지 분양 주거단지</bold></#ff85c0>",
-                "<gray>위치: 남쪽 벚꽃 대교 너머 (X=0, Z=+60 ~ +200)",
-                "<gray>소형(15×15) · 중형(23×23) · 대형 별장(33×33) 매물 현장 표지판 확인!",
-                "", "<yellow>▶ 클릭 시 나침반 방향 설정"));
-
-        inv.setItem(29, makeIcon(Material.NETHER_STAR, "<gold>🌟 성향 전직 교관", "<gray>광장 북서 가제보 · 직업·각성·공공 공방 안내"));
-        inv.setItem(30, makeIcon(Material.TRIAL_KEY, "<aqua>🗝 문턱의 미궁", "<gray>북쪽 성소 우측 관문 · 1~8인 파티 · /파티"));
-        inv.setItem(31, makeIcon(Material.PAPER, "<yellow>📈 츄르 증권 거래소", "<gray>카지노 2층 서북 라운지"));
-        inv.setItem(32, makeIcon(Material.HEART_OF_THE_SEA, "<gold>🎁 황금 캡슐 가챠", "<gray>광장 북동쪽 가챠 부스"));
-        inv.setItem(33, makeIcon(Material.NAME_TAG, "<yellow>🏆 명예의 전당", "<gray>광장 북동쪽 · /칭호 로 획득 칭호 장착"));
-        inv.setItem(44, makeIcon(Material.CHEST, "<green>미수령 보상 받기", "<gray>인벤토리 공간을 비우고 클릭"));
-
-        // Row 5: Channeled Recall & Guidebook Recovery
-        inv.setItem(40, makeIcon(Material.FEATHER, "<aqua><bold>✨ 3초 정신집중 허브 귀환 발동</bold></aqua>",
-                "<gray>야생·네더·엔드 원정 중 제자리에 3초간 가만히 서서",
-                "<gray>고양이 허브 도시 중앙 광장으로 무료 귀환합니다! (쿨타임 60초)",
-                "<gray>※ 1초 고속 집 귀환은 <white>[귀환 책갈피]</white> 우클릭!",
-                "", "<yellow>▶ 클릭하여 귀환 정신집중 시작"));
-
-        player.openInventory(inv);
-    }
-
-    @EventHandler
-    public void onMenuClick(InventoryClickEvent event) {
-        if (!(event.getInventory().getHolder() instanceof GuidebookHolder)) return;
-        event.setCancelled(true);
-        if (!(event.getWhoClicked() instanceof Player p)) return;
-
-        int slot = event.getRawSlot();
-        if (slot == 44) { rewardMailbox.deliver(p); return; }
-        if (slot == 40) {
-            p.closeInventory();
-            portalManager.startChanneledRecall(p, false);
-            return;
-        }
-
-        World hub = hubManager.getHubWorld();
-        Location target = switch (slot) {
-            case 19 -> new Location(hub, 0.5, 66.0, -54.5);
-            case 20 -> new Location(hub, -48.5, 65.0, 0.5);
-            case 21 -> new Location(hub, -83.5, 65.0, 0.5);
-            case 22 -> new Location(hub, -106.5, 65.0, 0.5);
-            case 23 -> new Location(hub, 63.5, 65.0, -8.5);
-            case 24 -> new Location(hub, 56.5, 65.0, 12.5);
-            case 25 -> new Location(hub, 0.5, 65.0, 62.5);
-            case 29 -> hubManager.getClassMasterLocation();
-            case 30 -> hubManager.getDungeonGateLocation();
-            case 31 -> hubManager.getStockBrokerLocation();
-            case 32 -> hubManager.getGachaLocation();
-            case 33 -> hubManager.getHallOfFameLocation();
-            default -> null;
-        };
-
-        if (target != null) {
-            p.closeInventory();
-            if (hub != null && hub.equals(p.getWorld())) {
-                p.setCompassTarget(target);
-                int dist = (int) Math.round(p.getLocation().distance(target));
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_CHIME, 1f, 1.35f);
-                p.sendMessage(TextUtil.msg("🧭 목표 시설 방향(<yellow>X=" + target.getBlockX() + ", Z=" + target.getBlockZ()
-                        + "</yellow>, 거리 약 <aqua>" + dist + "m</aqua>)으로 길찾기 안내가 설정되었습니다!"));
-            } else {
-                p.playSound(p.getLocation(), Sound.ENTITY_CAT_PURREOW, 1f, 1.15f);
-                p.sendMessage(TextUtil.msg("🌌 현재 원정 월드에 계십니다! 먼저 <aqua>[문턱의 서 Shift+우클릭]</aqua> 또는 <yellow>[귀환 책갈피]</yellow>로 고양이 허브 도시에 복귀해 주세요!"));
-            }
-        }
-    }
+    public void openMainMenu(Player player) { guidebookManager.open(player); }
 
     @EventHandler(priority = org.bukkit.event.EventPriority.HIGH)
     public void onReservedMaterialUse(org.bukkit.event.player.PlayerInteractEvent event) {
@@ -529,29 +430,21 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             event.getPlayer().sendActionBar(TextUtil.mm("<yellow>망각 물약은 성향 교관에게 직업을 변경할 때 사용됩니다."));
     }
 
-    @EventHandler
-    public void onMenuDrag(org.bukkit.event.inventory.InventoryDragEvent event) {
-        if(event.getView().getTopInventory().getHolder() instanceof GuidebookHolder)event.setCancelled(true);
-    }
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length > 0 && args[0].equals("verify-v3") && (!(sender instanceof Player) || sender.isOp())) {
+        if (args.length > 0 && args[0].equals("verify-core") && (!(sender instanceof Player) || sender.isOp())) {
             try {
                 if (!dungeonManager.validateReadiness().isEmpty()) throw new IllegalStateException(dungeonManager.diagnosticSummary());
-                sender.sendMessage(kr.yuumi97.core.util.V3RuntimeChecks.run(this,items,rpgManager,hubManager,dataConfig));
+                sender.sendMessage(kr.yuumi97.core.util.CoreRuntimeChecks.run(this,items,rpgManager,hubManager,dataConfig,dungeonManager));
                 sender.sendMessage(dungeonManager.diagnosticSummary());
             }
-            catch (Exception failure) { getLogger().log(java.util.logging.Level.SEVERE,"V3_RUNTIME_CHECKS FAILED",failure); sender.sendMessage("V3_RUNTIME_CHECKS FAILED: "+failure.getMessage()); }
+            catch (Exception failure) { getLogger().log(java.util.logging.Level.SEVERE,"CORE_RUNTIME_CHECKS FAILED",failure); sender.sendMessage("CORE_RUNTIME_CHECKS FAILED: "+failure.getMessage()); }
             return true;
         }
         if (!(sender instanceof Player p)) return true;
-        if (command.getName().equals("job")) {
-            Location target=hubManager.getClassMasterLocation();
-            if(p.getWorld().equals(target.getWorld()))p.setCompassTarget(target);
-            p.sendMessage(TextUtil.msg("🧭 광장 북서 가제보의 성향 교관 마스터냥을 방문하세요. 현재 성향: <yellow>"+rpgManager.getSummary(p)));return true;
-        }
         if (args.length > 0 && args[0].equals("보상")) { rewardMailbox.deliver(p); return true; }
+        if (command.getName().equals("guide")) { guidebookManager.open(p); return true; }
+        if (travelManager.handleCommand(p, command.getName())) return true;
 
         if (args.length == 0) {
             openMainMenu(p);
@@ -560,8 +453,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
 
         String sub = args[0].toLowerCase();
         if (sub.equals("책") || sub.equals("book")) {
-            p.getInventory().addItem(items.bookOfThresholds());
-            p.sendMessage(TextUtil.msg("📖 <aqua>유미의 문턱의 서</aqua>를 지급받았습니다!"));
+            guidebookManager.give(p);
             return true;
         }
 
@@ -573,7 +465,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
             portalManager.igniteUnlockedPortals();
             plotManager.refreshAllPlotSigns();
             p.teleport(hubManager.getHubSpawn());
-            p.sendMessage(TextUtil.msg("<green>[관리자] v3.1 공공 허브·축제 광장·궁전 카지노·수련장이 재구축되었습니다!"));
+            p.sendMessage(TextUtil.msg("<green>[관리자] 공공 허브·대공방·광장·카지노·수련장이 재구축되었습니다!"));
             return true;
         }
 
@@ -585,7 +477,7 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
 
         if (sub.equals("give") && p.isOp() && args.length >= 2) {
             String key = args[1].toLowerCase();
-            ItemStack gift = YuumiItems.V3_IDS.contains(key) ? items.create(key) : switch (key) {
+            ItemStack gift = YuumiItems.CUSTOM_IDS.contains(key) ? items.create(key) : switch (key) {
                 case "churu_salmon" -> items.churuSalmon(5);
                 case "churu_tuna" -> items.churuTuna(5);
                 case "churu_golden" -> items.churuGolden(1);
@@ -626,14 +518,14 @@ public final class YuumiPlugin extends JavaPlugin implements Listener, CommandEx
         return true;
     }
 
-    private ItemStack makeIcon(Material mat, String name, String... lore) {
-        ItemStack st = new ItemStack(mat);
-        ItemMeta m = st.getItemMeta();
-        if (m != null) {
-            m.displayName(TextUtil.mm(name));
-            if (lore.length > 0) m.lore(TextUtil.lore(lore));
-            st.setItemMeta(m);
-        }
-        return st;
-    }
+    public RpgJobManager rpg() { return rpgManager; }
+    public DungeonManager dungeon() { return dungeonManager; }
+    public HubWorldManager hub() { return hubManager; }
+    public HubTravelManager travel() { return travelManager; }
+    public GuidebookManager guidebook() { return guidebookManager; }
+    public FileConfiguration progression() { return dataConfig; }
+    public YuumiItems items() { return items; }
+    public PlotManager plots() { return plotManager; }
+    public BlacksmithManager forge() { return blacksmithManager; }
+
 }

@@ -144,7 +144,7 @@ public final class ThresholdAltarManager implements Listener, CommandExecutor {
             int cCur = getChuruDonated(), cMax = reqChuru(nextPhase);
             int sCur = getSuppliesDonated(), sMax = reqSupplies(nextPhase);
 
-            ItemStack status = items.bookOfThresholds();
+            ItemStack status = items.create("guidebook");
             ItemMeta sm = status.getItemMeta();
             sm.displayName(TextUtil.mm("<gold><bold>✦ 현재 진행: " + getPhaseTitle() + " ✦</bold></gold>"));
             sm.lore(TextUtil.lore(

@@ -1,0 +1,3628 @@
+{
+  "status": "PASS",
+  "method": "Exact 15-axis OBB SAT with authored element rotations and Rx(-semanticPitch); overlap tolerance 0.01 model unit. All moving cuboids checked against root and head. Named shoulder/neck/hinge/bearing joins explicitly listed separately. No Minecraft or physics simulation.",
+  "pitches": [
+    -70,
+    -65,
+    -60,
+    0,
+    55
+  ],
+  "records": [
+    {
+      "id": "mob_grimoire_mimic",
+      "pitch": -70,
+      "minimumYModelUnits": 13.675794,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.37537
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.37537
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.697199
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.674206
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.084514
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.674206
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.084514
+        }
+      ]
+    },
+    {
+      "id": "mob_grimoire_mimic",
+      "pitch": -65,
+      "minimumYModelUnits": 13.695014,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.413141
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.413141
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.730248
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.654986
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.098678
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.654986
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.098678
+        }
+      ]
+    },
+    {
+      "id": "mob_grimoire_mimic",
+      "pitch": -60,
+      "minimumYModelUnits": 13.724167,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44282
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44282
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.756218
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.625833
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.109808
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.625833
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.109808
+        }
+      ]
+    },
+    {
+      "id": "mob_grimoire_mimic",
+      "pitch": 0,
+      "minimumYModelUnits": 14.2,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.15
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.15
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.5
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.65
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.65
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1
+        }
+      ]
+    },
+    {
+      "id": "mob_grimoire_mimic",
+      "pitch": 55,
+      "minimumYModelUnits": 5.823279,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.464183
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.464183
+        },
+        {
+          "moving": "hinge_axle",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.77491
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "back_hinge_pier_left",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.767819
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_0.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.117819
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "back_hinge_pier_right",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.767819
+        },
+        {
+          "moving": "upper_jaw_hinge_riser_15.5",
+          "fixed": "upper_jaw_hinge_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.117819
+        }
+      ]
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "pitch": -70,
+      "minimumYModelUnits": 18.080564,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.15563
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.15563
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.15563
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.041513
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.04
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.05
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.536513
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.472005
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.64
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.65
+        }
+      ]
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "pitch": -65,
+      "minimumYModelUnits": 17.558227,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.115602
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.04
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.05
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.610602
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.424441
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.64
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.65
+        }
+      ]
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "pitch": -60,
+      "minimumYModelUnits": 17.062083,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.015092
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.015092
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.015092
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.192083
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.04
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.05
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.64
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.361089
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.64
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.65
+        }
+      ]
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "pitch": 0,
+      "minimumYModelUnits": 9.24153,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.118
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.158
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.118
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.158
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.118
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.158
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.78
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.04
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.275
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.64
+        }
+      ]
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "pitch": 55,
+      "minimumYModelUnits": 0.677845,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_axle",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_0",
+          "fixed": "right_shoulder_socket_pin_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.121865
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_0",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_1",
+          "fixed": "right_shoulder_socket_pin_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.121865
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_1",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.69
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.18
+        },
+        {
+          "moving": "right_shoulder_rotor_cap_2",
+          "fixed": "right_shoulder_socket_pin_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.121865
+        },
+        {
+          "moving": "right_shoulder_rotor_pin_2",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.19
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_yoke",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.341602
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_0",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.04
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.64
+        },
+        {
+          "moving": "upper_brass_arm",
+          "fixed": "right_shoulder_socket_cap_2",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.64
+        }
+      ]
+    },
+    {
+      "id": "mob_ink_librarian",
+      "pitch": -70,
+      "minimumYModelUnits": 21.869153,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.710599
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.186599
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.448599
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.244599
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_left_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.448599
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_right_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.448599
+        },
+        {
+          "moving": "sleeve_shoulder_left_axle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "sleeve_shoulder_right_axle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.327485
+        },
+        {
+          "moving": "right_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.677199
+        },
+        {
+          "moving": "left_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.677199
+        }
+      ]
+    },
+    {
+      "id": "mob_ink_librarian",
+      "pitch": -65,
+      "minimumYModelUnits": 21.79066,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.727124
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.203124
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.465124
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.261124
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_left_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.465124
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_right_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.465124
+        },
+        {
+          "moving": "sleeve_shoulder_left_axle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "sleeve_shoulder_right_axle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.405848
+        },
+        {
+          "moving": "right_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.767882
+        },
+        {
+          "moving": "left_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.767882
+        }
+      ]
+    },
+    {
+      "id": "mob_ink_librarian",
+      "pitch": -60,
+      "minimumYModelUnits": 21.728983,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.740109
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.216109
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478109
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.248
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_left_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478109
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_right_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478109
+        },
+        {
+          "moving": "sleeve_shoulder_left_axle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "sleeve_shoulder_right_axle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.494441
+        },
+        {
+          "moving": "right_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.840544
+        },
+        {
+          "moving": "left_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.840544
+        }
+      ]
+    },
+    {
+      "id": "mob_ink_librarian",
+      "pitch": 0,
+      "minimumYModelUnits": 15,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.612
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.088
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.1
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.1
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.35
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.146
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_left_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.35
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_right_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.35
+        },
+        {
+          "moving": "sleeve_shoulder_left_axle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "sleeve_shoulder_right_axle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "right_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "left_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        }
+      ]
+    },
+    {
+      "id": "mob_ink_librarian",
+      "pitch": 55,
+      "minimumYModelUnits": 1.062213,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.749455
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "robe_upper_torso_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.225455
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.15
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.46701
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_lower_ring_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.182893
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_left_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.487455
+        },
+        {
+          "moving": "sleeve_shoulder_coaxial_spindle",
+          "fixed": "hood_right_volume",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.487455
+        },
+        {
+          "moving": "sleeve_shoulder_left_axle",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_0",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_1",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "sleeve_shoulder_left_cap_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_left_pin_2",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "sleeve_shoulder_right_axle",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.7
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.19
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_0",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_1",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "sleeve_shoulder_right_cap_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.59
+        },
+        {
+          "moving": "sleeve_shoulder_right_pin_2",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.592589
+        },
+        {
+          "moving": "right_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_-1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.573976
+        },
+        {
+          "moving": "left_upper_bone_sleeve",
+          "fixed": "shoulder_sleeve_collar_1",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.573976
+        }
+      ]
+    },
+    {
+      "id": "mob_nebula_golem",
+      "pitch": -70,
+      "minimumYModelUnits": 17.624213,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "massive_stone_ribcage_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.448599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.248599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.998599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.298599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.298599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "small_sunken_head_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.448599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.273599
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_spine",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.198599
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.55
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.582915
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.029665
+        },
+        {
+          "moving": "golem_shoulders_left_cap_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.427485
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.75
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.377485
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.427485
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.645529
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.272804
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.344581
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.427485
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.093221
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.251809
+        },
+        {
+          "moving": "golem_shoulders_right_cap_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.427485
+        },
+        {
+          "moving": "golem_shoulders_right_cap_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "right_stone_upper_arm_middle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "left_stone_upper_arm_middle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        }
+      ]
+    },
+    {
+      "id": "mob_nebula_golem",
+      "pitch": -65,
+      "minimumYModelUnits": 16.862379,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "massive_stone_ribcage_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.465124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.265124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.015124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.315124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.315124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "small_sunken_head_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.465124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.290124
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_spine",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.215124
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.55
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.641224
+        },
+        {
+          "moving": "golem_shoulders_left_cap_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.505848
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.75
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.505848
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.504703
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0208
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.282645
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.360301
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.505848
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.100077
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.110983
+        },
+        {
+          "moving": "golem_shoulders_right_cap_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.505848
+        },
+        {
+          "moving": "golem_shoulders_right_cap_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "right_stone_upper_arm_middle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "left_stone_upper_arm_middle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        }
+      ]
+    },
+    {
+      "id": "mob_nebula_golem",
+      "pitch": -60,
+      "minimumYModelUnits": 15.859808,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "massive_stone_ribcage_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.278109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.028109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.328109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.328109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "small_sunken_head_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.303109
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_spine",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.228109
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.55
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.687041
+        },
+        {
+          "moving": "golem_shoulders_left_cap_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.594441
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.75
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.594441
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.367028
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0208
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.296772
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.013552
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.381996
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.594441
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.082619
+        },
+        {
+          "moving": "golem_shoulders_right_cap_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.594441
+        },
+        {
+          "moving": "golem_shoulders_right_cap_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "right_stone_upper_arm_middle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "left_stone_upper_arm_middle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        }
+      ]
+    },
+    {
+      "id": "mob_nebula_golem",
+      "pitch": 0,
+      "minimumYModelUnits": 9.2,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "massive_stone_ribcage_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.35
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.15
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.9
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.2
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.2
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "small_sunken_head_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.35
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.175
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_spine",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.55
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.235
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1208
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1208
+        },
+        {
+          "moving": "golem_shoulders_left_cap_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.6625
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.269481
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.031451
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.331451
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "golem_shoulders_right_cap_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "golem_shoulders_right_cap_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.227
+        },
+        {
+          "moving": "right_stone_upper_arm_middle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "left_stone_upper_arm_middle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        }
+      ]
+    },
+    {
+      "id": "mob_nebula_golem",
+      "pitch": 55,
+      "minimumYModelUnits": 6.913284,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "massive_stone_ribcage_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.487455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.287455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 3.037455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.337455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.337455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "small_sunken_head_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.487455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.312455
+        },
+        {
+          "moving": "golem_shoulders_coaxial_spindle",
+          "fixed": "left_shoulder_fused_tome_spine",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.237455
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.55
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_left_axle",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.72002
+        },
+        {
+          "moving": "golem_shoulders_left_cap_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_0",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_1",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.692589
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.44
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_middle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.75
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_front",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_cap_2",
+          "fixed": "shoulder_amethyst_column_0_root_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.0108
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_offset_stone_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.45
+        },
+        {
+          "moving": "golem_shoulders_left_pin_2",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.692589
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.029762
+        },
+        {
+          "moving": "golem_shoulders_right_axle",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.45509
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.09
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_pages",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.190868
+        },
+        {
+          "moving": "golem_shoulders_right_cap_0",
+          "fixed": "left_shoulder_fused_tome_cover_back",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.58131
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_book_bound_shoulder",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "golem_shoulders_right_pin_0",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.692589
+        },
+        {
+          "moving": "golem_shoulders_right_cap_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_1",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.692589
+        },
+        {
+          "moving": "golem_shoulders_right_cap_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.29
+        },
+        {
+          "moving": "golem_shoulders_right_pin_2",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.3
+        },
+        {
+          "moving": "right_stone_upper_arm_middle",
+          "fixed": "right_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        },
+        {
+          "moving": "left_stone_upper_arm_middle",
+          "fixed": "left_shoulder_axle_collar",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.1
+        }
+      ]
+    },
+    {
+      "id": "boss_archivist_astro",
+      "pitch": -70,
+      "minimumYModelUnits": 15.859031,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.268209
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.867045
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.956459
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.024518
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.916557
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.916557
+        }
+      ]
+    },
+    {
+      "id": "boss_archivist_astro",
+      "pitch": -65,
+      "minimumYModelUnits": 15.05539,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.341557
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.883402
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.029235
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.011402
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.931901
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.931901
+        }
+      ]
+    },
+    {
+      "id": "boss_archivist_astro",
+      "pitch": -60,
+      "minimumYModelUnits": 14.312212,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.88923
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.08923
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.985641
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.943958
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.943958
+        }
+      ]
+    },
+    {
+      "id": "boss_archivist_astro",
+      "pitch": 0,
+      "minimumYModelUnits": 11.6,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "raised_collar_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.9
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.2
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.75
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.85
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.825
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.825
+        }
+      ]
+    },
+    {
+      "id": "boss_archivist_astro",
+      "pitch": 55,
+      "minimumYModelUnits": 5.449667,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "high_shoulders_rear",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.478792
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.4
+        },
+        {
+          "moving": "orbit_action_pivot",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.884486
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.135989
+        },
+        {
+          "moving": "orbit_pivot_endcap",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.947431
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_-1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.952637
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_orbit_spindle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "side_orbit_spindle_1",
+          "fixed": "rear_spindle_crown",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.952637
+        }
+      ]
+    },
+    {
+      "id": "boss_novarion",
+      "pitch": -70,
+      "minimumYModelUnits": 8.388324,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.397371
+        },
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.672569
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.328795
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.578795
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.076771
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.326771
+        }
+      ]
+    },
+    {
+      "id": "boss_novarion",
+      "pitch": -65,
+      "minimumYModelUnits": 7.690852,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.481427
+        },
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.743389
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.345725
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.595725
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.098017
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.348017
+        }
+      ]
+    },
+    {
+      "id": "boss_novarion",
+      "pitch": -60,
+      "minimumYModelUnits": 7.117503,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.549038
+        },
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.799038
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.356218
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.606218
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.114711
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.364711
+        }
+      ]
+    },
+    {
+      "id": "boss_novarion",
+      "pitch": 0,
+      "minimumYModelUnits": 6.3,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2
+        },
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.25
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.25
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 0.95
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.2
+        }
+      ]
+    },
+    {
+      "id": "boss_novarion",
+      "pitch": 55,
+      "minimumYModelUnits": 7.540226,
+      "intersections": [],
+      "intentionalJointIntersections": [
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.589093
+        },
+        {
+          "moving": "armillary_rotation_pivot",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 2.839093
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.360195
+        },
+        {
+          "moving": "armillary_rear_spindle",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.610195
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_pylon",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.126728
+        },
+        {
+          "moving": "lance_arm_rear_shoulder_link",
+          "fixed": "armillary_rear_axle",
+          "fixedPart": "root",
+          "penetrationModelUnits": 1.376728
+        }
+      ]
+    }
+  ],
+  "failures": 0,
+  "sourceSha256": {
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_grimoire_mimic_body.json": "5d16d081258aec5f51b88541f076d6352a522238f26cfd06f19d4516b901a7c3",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_grimoire_mimic_arm.json": "ef294331ef264f5447d7b100f504790a7639f09438d26a732146e3eb44afa3b1",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_clockwork_sentinel_body.json": "65dfc78aa8b0b12f2b11fe00affa5da5fb9d4be3c2024c38439c2507a525ac88",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_clockwork_sentinel_arm.json": "89b27a35f98e9e39a92823e21e4ab57604e75f2ae828d484abb50be3a5b68bd2",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_ink_librarian_body.json": "61801f87463e82cb6287ed21c4ef5ddf7814931e60d48a33993c915fe17e0824",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_ink_librarian_arm.json": "bfab86c33c0090838fa65aec09f71af508b6624b8f1cef003f463c31f07bf906",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_nebula_golem_body.json": "24f8385504a66b2e0770eda96b70e9be14d6ce317d7a3ea43fd6ac7d6db87ba9",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\mob_nebula_golem_arm.json": "65a33cb2de65031631b7b2821f2464a9cbecd521cedd822eefe2184a08701779",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_core.json": "0e4e4a5fd56b5ec71a1aa82d6224cbd0df39f1eec8e24ccf8afd94ed3409bf5f",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_head.json": "496e600b3d5099154d16b1eab5c91d965c8d21a9b2339c66a0c3e2b4bfd3a203",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_archivist_astro_weapon.json": "3fad2da38da91d35610f0285aea6d01a97e7f7ecaeea24e0e8d4a2d320a07237",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_novarion_core.json": "e82434cf5349d8f3bf6077e5198b29078423161d5c7c006dfec202bac28ca956",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_novarion_head.json": "0ae00c18fa29f3ebd197409b213d8d7926154352fb74d562960af4952986f7eb",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\models\\item\\boss_novarion_weapon.json": "3885ab6df43836f4665fe256a9f0806c27231f3d032e03b00a483029b02e44e0",
+    "E:\\MinGem\\assets\\yuumi97-production\\sources\\monsters-astral.mjs": "6255ae5dcf5bcda55b59bb95ada19ab0bdaf0ade555c366d99276b9a48d59166",
+    "E:\\MinGem\\assets\\yuumi97-production\\tools\\check-astral-clearance.mjs": "65a04fd33dba722e1d0c650dc6ee483785869157caac3e577c203f18beb62a55",
+    "E:\\MinGem\\assets\\yuumi97-production\\tools\\check-foundry-clearance.mjs": "3b083bf8210bc4e50714e96372c6d5549deb333d0b28906db539db428a8ab9c8",
+    "E:\\MinGem\\resourcepack-gen\\overrides\\assets\\yuumi97\\monster_rigs.json": "3021c950bea667c8e1c81a070e4007160828b3d09494e21bc7a6adb7eaed25f9"
+  }
+}

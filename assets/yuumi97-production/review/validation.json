@@ -1,0 +1,3929 @@
+{
+  "timestamp": "2026-11-16T01:29:36.137Z",
+  "target": "Minecraft Java 1.21.4 / pack_format 46",
+  "models": [
+    {
+      "id": "prop_yuumi_statue",
+      "elements": 95,
+      "faces": 570,
+      "size": 128,
+      "visiblePixels": 5120,
+      "transparentPixels": 11264,
+      "partialAlphaPixels": 0,
+      "colors": 306,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3750
+    },
+    {
+      "id": "prop_slot_cabinet",
+      "elements": 72,
+      "faces": 432,
+      "size": 128,
+      "visiblePixels": 5888,
+      "transparentPixels": 10496,
+      "partialAlphaPixels": 0,
+      "colors": 356,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3668
+    },
+    {
+      "id": "prop_roulette_wheel",
+      "elements": 138,
+      "faces": 828,
+      "size": 128,
+      "visiblePixels": 4864,
+      "transparentPixels": 11520,
+      "partialAlphaPixels": 0,
+      "colors": 334,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3354
+    },
+    {
+      "id": "prop_derby_trophy",
+      "elements": 72,
+      "faces": 432,
+      "size": 128,
+      "visiblePixels": 4608,
+      "transparentPixels": 11776,
+      "partialAlphaPixels": 0,
+      "colors": 342,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3504
+    },
+    {
+      "id": "prowling_wand",
+      "elements": 62,
+      "faces": 372,
+      "size": 64,
+      "visiblePixels": 2304,
+      "transparentPixels": 1792,
+      "partialAlphaPixels": 0,
+      "colors": 146,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1388
+    },
+    {
+      "id": "book_of_thresholds",
+      "elements": 53,
+      "faces": 318,
+      "size": 64,
+      "visiblePixels": 3072,
+      "transparentPixels": 1024,
+      "partialAlphaPixels": 0,
+      "colors": 162,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1684
+    },
+    {
+      "id": "you_and_me_bell",
+      "elements": 42,
+      "faces": 252,
+      "size": 64,
+      "visiblePixels": 2048,
+      "transparentPixels": 2048,
+      "partialAlphaPixels": 0,
+      "colors": 130,
+      "bounds": [
+        0,
+        0,
+        63,
+        31
+      ],
+      "bytes": 1233
+    },
+    {
+      "id": "hat_yuumi_ears",
+      "elements": 39,
+      "faces": 234,
+      "size": 64,
+      "visiblePixels": 2816,
+      "transparentPixels": 1280,
+      "partialAlphaPixels": 0,
+      "colors": 178,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1564
+    },
+    {
+      "id": "plushie_yuumi",
+      "elements": 103,
+      "faces": 618,
+      "size": 64,
+      "visiblePixels": 3328,
+      "transparentPixels": 768,
+      "partialAlphaPixels": 0,
+      "colors": 214,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1987
+    },
+    {
+      "id": "prop_gacha_machine",
+      "elements": 269,
+      "faces": 1614,
+      "size": 128,
+      "visiblePixels": 5888,
+      "transparentPixels": 10496,
+      "partialAlphaPixels": 0,
+      "colors": 399,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3931,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -2,
+            18
+          ],
+          [
+            0,
+            30.702292049217586
+          ],
+          [
+            -1.2,
+            16.4
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_stock_board",
+      "elements": 138,
+      "faces": 828,
+      "size": 128,
+      "visiblePixels": 6400,
+      "transparentPixels": 9984,
+      "partialAlphaPixels": 0,
+      "colors": 457,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4368,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -7.95,
+            23.95
+          ],
+          [
+            0,
+            30.25
+          ],
+          [
+            2.5,
+            13.5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_dungeon_obelisk",
+      "elements": 156,
+      "faces": 936,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 410,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 4177,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -2,
+            18
+          ],
+          [
+            0,
+            29.6
+          ],
+          [
+            -2,
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_boon_altar",
+      "elements": 89,
+      "faces": 534,
+      "size": 128,
+      "visiblePixels": 6144,
+      "transparentPixels": 10240,
+      "partialAlphaPixels": 0,
+      "colors": 436,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 4328,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -2,
+            18
+          ],
+          [
+            0,
+            28.15
+          ],
+          [
+            -0.5,
+            16.5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_feast_cauldron",
+      "elements": 172,
+      "faces": 1032,
+      "size": 128,
+      "visiblePixels": 7168,
+      "transparentPixels": 9216,
+      "partialAlphaPixels": 0,
+      "colors": 505,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4778,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.3742640687119287,
+            19.374264068711927
+          ],
+          [
+            0,
+            21.482797040061055
+          ],
+          [
+            -0.10999999999999999,
+            16.11
+          ]
+        ]
+      }
+    },
+    {
+      "id": "furn_cat_tower",
+      "elements": 263,
+      "faces": 1578,
+      "size": 128,
+      "visiblePixels": 3584,
+      "transparentPixels": 12800,
+      "partialAlphaPixels": 0,
+      "colors": 229,
+      "bounds": [
+        0,
+        0,
+        127,
+        31
+      ],
+      "bytes": 2263,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -1.5,
+            17.5
+          ],
+          [
+            0,
+            30.02095454429505
+          ],
+          [
+            -1.61,
+            17.5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "furn_kotatsu",
+      "elements": 230,
+      "faces": 1380,
+      "size": 128,
+      "visiblePixels": 5120,
+      "transparentPixels": 11264,
+      "partialAlphaPixels": 0,
+      "colors": 298,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 2714,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -2.5,
+            18.5
+          ],
+          [
+            0,
+            14.98
+          ],
+          [
+            -2.62,
+            18.630000000000003
+          ]
+        ]
+      }
+    },
+    {
+      "id": "furn_neon_sign",
+      "elements": 243,
+      "faces": 1458,
+      "size": 128,
+      "visiblePixels": 3072,
+      "transparentPixels": 13312,
+      "partialAlphaPixels": 0,
+      "colors": 194,
+      "bounds": [
+        0,
+        0,
+        127,
+        31
+      ],
+      "bytes": 1838,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -6.35,
+            22.35
+          ],
+          [
+            0,
+            26.85
+          ],
+          [
+            4.1,
+            11.9
+          ]
+        ]
+      }
+    },
+    {
+      "id": "hat_chef_toque",
+      "elements": 105,
+      "faces": 630,
+      "size": 64,
+      "visiblePixels": 2816,
+      "transparentPixels": 1280,
+      "partialAlphaPixels": 0,
+      "colors": 181,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1694
+    },
+    {
+      "id": "hat_stock_tophat",
+      "elements": 95,
+      "faces": 570,
+      "size": 64,
+      "visiblePixels": 2816,
+      "transparentPixels": 1280,
+      "partialAlphaPixels": 0,
+      "colors": 177,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1509
+    },
+    {
+      "id": "weapon_paladin_sword",
+      "elements": 267,
+      "faces": 1602,
+      "size": 64,
+      "visiblePixels": 3072,
+      "transparentPixels": 1024,
+      "partialAlphaPixels": 0,
+      "colors": 196,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1639
+    },
+    {
+      "id": "weapon_shadow_daggers",
+      "elements": 184,
+      "faces": 1104,
+      "size": 64,
+      "visiblePixels": 3328,
+      "transparentPixels": 768,
+      "partialAlphaPixels": 0,
+      "colors": 212,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1770
+    },
+    {
+      "id": "weapon_ranger_bow",
+      "elements": 210,
+      "faces": 1260,
+      "size": 64,
+      "visiblePixels": 3072,
+      "transparentPixels": 1024,
+      "partialAlphaPixels": 0,
+      "colors": 196,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1636
+    },
+    {
+      "id": "weapon_arcane_grimoire",
+      "elements": 307,
+      "faces": 1842,
+      "size": 64,
+      "visiblePixels": 3584,
+      "transparentPixels": 512,
+      "partialAlphaPixels": 0,
+      "colors": 228,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1888
+    },
+    {
+      "id": "tool_miner_drill",
+      "elements": 84,
+      "faces": 504,
+      "size": 64,
+      "visiblePixels": 3328,
+      "transparentPixels": 768,
+      "partialAlphaPixels": 0,
+      "colors": 212,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1767
+    },
+    {
+      "id": "tool_smith_hammer",
+      "elements": 79,
+      "faces": 474,
+      "size": 64,
+      "visiblePixels": 3328,
+      "transparentPixels": 768,
+      "partialAlphaPixels": 0,
+      "colors": 215,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1877
+    },
+    {
+      "id": "tool_farmer_scythe",
+      "elements": 148,
+      "faces": 888,
+      "size": 64,
+      "visiblePixels": 3584,
+      "transparentPixels": 512,
+      "partialAlphaPixels": 0,
+      "colors": 230,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1833
+    },
+    {
+      "id": "tool_angler_harpoon",
+      "elements": 144,
+      "faces": 864,
+      "size": 64,
+      "visiblePixels": 3584,
+      "transparentPixels": 512,
+      "partialAlphaPixels": 0,
+      "colors": 228,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1855
+    },
+    {
+      "id": "tool_carpenter_axe",
+      "elements": 191,
+      "faces": 1146,
+      "size": 64,
+      "visiblePixels": 3328,
+      "transparentPixels": 768,
+      "partialAlphaPixels": 0,
+      "colors": 214,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1764
+    },
+    {
+      "id": "tool_chef_wok",
+      "elements": 182,
+      "faces": 1092,
+      "size": 64,
+      "visiblePixels": 3584,
+      "transparentPixels": 512,
+      "partialAlphaPixels": 0,
+      "colors": 228,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 1847
+    },
+    {
+      "id": "prop_casino_marquee",
+      "elements": 869,
+      "faces": 5214,
+      "size": 128,
+      "visiblePixels": 8192,
+      "transparentPixels": 8192,
+      "partialAlphaPixels": 0,
+      "colors": 515,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4452
+    },
+    {
+      "id": "prop_casino_chandelier",
+      "elements": 846,
+      "faces": 5076,
+      "size": 128,
+      "visiblePixels": 6144,
+      "transparentPixels": 10240,
+      "partialAlphaPixels": 0,
+      "colors": 400,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3303
+    },
+    {
+      "id": "prop_dealer_throne",
+      "elements": 244,
+      "faces": 1464,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 400,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 3776,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -5,
+            21
+          ],
+          [
+            0,
+            30.72
+          ],
+          [
+            -2.05,
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_plaza_clock_face",
+      "elements": 875,
+      "faces": 5250,
+      "size": 128,
+      "visiblePixels": 8192,
+      "transparentPixels": 8192,
+      "partialAlphaPixels": 0,
+      "colors": 515,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4452
+    },
+    {
+      "id": "prop_training_dummy",
+      "elements": 232,
+      "faces": 1392,
+      "size": 128,
+      "visiblePixels": 5888,
+      "transparentPixels": 10496,
+      "partialAlphaPixels": 0,
+      "colors": 391,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 4019,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.216108765067674,
+            16.87324809202505
+          ],
+          [
+            0,
+            31.186234095349278
+          ],
+          [
+            -0.6,
+            16.6
+          ]
+        ]
+      }
+    },
+    {
+      "id": "prop_sakura_lantern_arch",
+      "elements": 469,
+      "faces": 2814,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 488,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4812
+    },
+    {
+      "id": "weapon_berserker_greatsword",
+      "elements": 547,
+      "faces": 3282,
+      "size": 64,
+      "visiblePixels": 4096,
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "colors": 270,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 2222
+    },
+    {
+      "id": "weapon_priest_staff",
+      "elements": 317,
+      "faces": 1902,
+      "size": 64,
+      "visiblePixels": 4096,
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "colors": 278,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 2312
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "elements": 343,
+      "faces": 2058,
+      "size": 128,
+      "visiblePixels": 6144,
+      "transparentPixels": 10240,
+      "partialAlphaPixels": 0,
+      "colors": 324,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3064
+    },
+    {
+      "id": "guidebook",
+      "elements": 154,
+      "faces": 924,
+      "size": 64,
+      "visiblePixels": 4096,
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "colors": 269,
+      "bounds": [
+        0,
+        0,
+        63,
+        63
+      ],
+      "bytes": 2175
+    },
+    {
+      "id": "prop_wayfinder_arrow",
+      "elements": 529,
+      "faces": 3174,
+      "size": 64,
+      "visiblePixels": 3072,
+      "transparentPixels": 1024,
+      "partialAlphaPixels": 0,
+      "colors": 201,
+      "bounds": [
+        0,
+        0,
+        63,
+        47
+      ],
+      "bytes": 1599
+    },
+    {
+      "id": "vfx_slash_crescent_gold",
+      "elements": 471,
+      "faces": 2826,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_slash_crimson_heavy",
+      "elements": 366,
+      "faces": 2196,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_titan_greatsword_drop",
+      "elements": 251,
+      "faces": 1506,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_slash_crescent_shadow",
+      "elements": 252,
+      "faces": 1512,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_shadow_mark_crest",
+      "elements": 244,
+      "faces": 1464,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_star_arrow_volley",
+      "elements": 126,
+      "faces": 756,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_astral_bow_sigil",
+      "elements": 465,
+      "faces": 2790,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_magic_circle_arcane",
+      "elements": 862,
+      "faces": 5172,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_gravity_singularity",
+      "elements": 530,
+      "faces": 3180,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_arcane_meteor",
+      "elements": 227,
+      "faces": 1362,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_magic_circle_sanctuary",
+      "elements": 804,
+      "faces": 4824,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_holy_spear",
+      "elements": 688,
+      "faces": 4128,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_golden_fishing_vortex",
+      "elements": 751,
+      "faces": 4506,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830
+    },
+    {
+      "id": "vfx_feast_cauldron_aura",
+      "elements": 136,
+      "faces": 816,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 500,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4830,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -4.6,
+            20.6
+          ],
+          [
+            0,
+            27.94
+          ],
+          [
+            -0.1,
+            16.1
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_grimoire_mimic_body",
+      "elements": 92,
+      "faces": 552,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -10.30760920194496,
+            26.307609201944963
+          ],
+          [
+            0,
+            15.7
+          ],
+          [
+            -12,
+            15.700000000000001
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_grimoire_mimic_arm",
+      "elements": 45,
+      "faces": 270,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "mob_clockwork_sentinel_body",
+      "elements": 118,
+      "faces": 708,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.1,
+            20.5
+          ],
+          [
+            0,
+            31
+          ],
+          [
+            0.77,
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_clockwork_sentinel_arm",
+      "elements": 32,
+      "faces": 192,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "mob_ink_librarian_body",
+      "elements": 76,
+      "faces": 456,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -1.4000000000000001,
+            17.4
+          ],
+          [
+            0,
+            32
+          ],
+          [
+            2.9,
+            12.850000000000001
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_ink_librarian_arm",
+      "elements": 59,
+      "faces": 354,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "mob_nebula_golem_body",
+      "elements": 134,
+      "faces": 804,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -4.1,
+            20.1
+          ],
+          [
+            0,
+            30.5
+          ],
+          [
+            0.61,
+            16.375
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_nebula_golem_arm",
+      "elements": 107,
+      "faces": 642,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "boss_archivist_astro_core",
+      "elements": 108,
+      "faces": 648,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -1.2999999999999998,
+            17.3
+          ],
+          [
+            0,
+            24.6
+          ],
+          [
+            1.8000000000000003,
+            16.4
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_archivist_astro_head",
+      "elements": 63,
+      "faces": 378,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "boss_archivist_astro_weapon",
+      "elements": 102,
+      "faces": 612,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "boss_novarion_core",
+      "elements": 88,
+      "faces": 528,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.7,
+            19.7
+          ],
+          [
+            0,
+            26.2
+          ],
+          [
+            0.5500000000000002,
+            22.75
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_novarion_head",
+      "elements": 88,
+      "faces": 528,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 0,
+      "colors": 442,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4780
+    },
+    {
+      "id": "boss_novarion_weapon",
+      "elements": 312,
+      "faces": 1872,
+      "size": 128,
+      "visiblePixels": 7168,
+      "transparentPixels": 9216,
+      "partialAlphaPixels": 512,
+      "colors": 474,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5050
+    },
+    {
+      "id": "mob_cinder_imp_body",
+      "elements": 203,
+      "faces": 1218,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.156738,
+            19.156738
+          ],
+          [
+            0,
+            29.6
+          ],
+          [
+            0.85,
+            24.4
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_cinder_imp_arm",
+      "elements": 36,
+      "faces": 216,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "mob_slag_hound_body",
+      "elements": 190,
+      "faces": 1140,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            0.15,
+            15.85
+          ],
+          [
+            0,
+            24.6
+          ],
+          [
+            -9.4,
+            28.9
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_slag_hound_arm",
+      "elements": 33,
+      "faces": 198,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "mob_obsidian_bombardier_body",
+      "elements": 101,
+      "faces": 606,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -5.25,
+            21.25
+          ],
+          [
+            0,
+            30
+          ],
+          [
+            0.55,
+            16.05
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_obsidian_bombardier_arm",
+      "elements": 205,
+      "faces": 1230,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "mob_chained_juggernaut_body",
+      "elements": 183,
+      "faces": 1098,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -5.5,
+            21.5
+          ],
+          [
+            0,
+            31.2
+          ],
+          [
+            -0.6,
+            14.85
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_chained_juggernaut_arm",
+      "elements": 199,
+      "faces": 1194,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "boss_warden_vulcantus_core",
+      "elements": 158,
+      "faces": 948,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -4.45,
+            20.45
+          ],
+          [
+            0,
+            30.9
+          ],
+          [
+            0.13,
+            21.65
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_warden_vulcantus_head",
+      "elements": 45,
+      "faces": 270,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "boss_warden_vulcantus_weapon",
+      "elements": 218,
+      "faces": 1308,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "boss_ignion_core",
+      "elements": 172,
+      "faces": 1032,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -10.2,
+            26.2
+          ],
+          [
+            0,
+            29
+          ],
+          [
+            1.775,
+            18.25
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_ignion_head",
+      "elements": 69,
+      "faces": 414,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "boss_ignion_weapon",
+      "elements": 141,
+      "faces": 846,
+      "size": 128,
+      "visiblePixels": 7936,
+      "transparentPixels": 8448,
+      "partialAlphaPixels": 0,
+      "colors": 545,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 5002
+    },
+    {
+      "id": "mob_mirror_stalker_body",
+      "elements": 73,
+      "faces": 438,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            0,
+            16
+          ],
+          [
+            0,
+            21.88665173673554
+          ],
+          [
+            -1.05,
+            17.280429203503378
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_mirror_stalker_arm",
+      "elements": 126,
+      "faces": 756,
+      "size": 128,
+      "visiblePixels": 6656,
+      "transparentPixels": 9728,
+      "partialAlphaPixels": 1024,
+      "colors": 444,
+      "bounds": [
+        0,
+        0,
+        127,
+        63
+      ],
+      "bytes": 4018
+    },
+    {
+      "id": "mob_void_choir_body",
+      "elements": 113,
+      "faces": 678,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            1.05,
+            14.75
+          ],
+          [
+            0,
+            25.18
+          ],
+          [
+            3.22,
+            12.3
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_void_choir_arm",
+      "elements": 225,
+      "faces": 1350,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "mob_abyssal_oculus_body",
+      "elements": 283,
+      "faces": 1698,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.85,
+            19.85
+          ],
+          [
+            0,
+            27.6
+          ],
+          [
+            1.91,
+            12.85
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_abyssal_oculus_arm",
+      "elements": 319,
+      "faces": 1914,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "mob_eclipse_templar_body",
+      "elements": 92,
+      "faces": 552,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -1.4,
+            20.079782564924475
+          ],
+          [
+            0,
+            31.1
+          ],
+          [
+            2.3,
+            13.24
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mob_eclipse_templar_arm",
+      "elements": 88,
+      "faces": 528,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "boss_twin_archons_core",
+      "elements": 124,
+      "faces": 744,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -2.1,
+            18.1
+          ],
+          [
+            0,
+            23.6
+          ],
+          [
+            3.28,
+            14.07
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_twin_archons_head",
+      "elements": 123,
+      "faces": 738,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "boss_twin_archons_weapon",
+      "elements": 448,
+      "faces": 2688,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "boss_eclipsia_core",
+      "elements": 122,
+      "faces": 732,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594,
+      "floor": {
+        "minimumY": 0,
+        "bounds": [
+          [
+            -3.7,
+            19.7
+          ],
+          [
+            0,
+            27.45
+          ],
+          [
+            1.64,
+            15.3
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boss_eclipsia_head",
+      "elements": 126,
+      "faces": 756,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    },
+    {
+      "id": "boss_eclipsia_weapon",
+      "elements": 1310,
+      "faces": 7860,
+      "size": 128,
+      "visiblePixels": 5632,
+      "transparentPixels": 10752,
+      "partialAlphaPixels": 0,
+      "colors": 380,
+      "bounds": [
+        0,
+        0,
+        127,
+        47
+      ],
+      "bytes": 3594
+    }
+  ],
+  "icons": [
+    {
+      "id": "churu_salmon",
+      "size": 32,
+      "visiblePixels": 311,
+      "transparentPixels": 713,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        3,
+        4,
+        27,
+        30
+      ],
+      "bytes": 331
+    },
+    {
+      "id": "churu_tuna",
+      "size": 32,
+      "visiblePixels": 312,
+      "transparentPixels": 712,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        3,
+        4,
+        27,
+        30
+      ],
+      "bytes": 341
+    },
+    {
+      "id": "churu_golden",
+      "size": 32,
+      "visiblePixels": 330,
+      "transparentPixels": 694,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        4,
+        29,
+        30
+      ],
+      "bytes": 370
+    },
+    {
+      "id": "casino_chip",
+      "size": 32,
+      "visiblePixels": 521,
+      "transparentPixels": 503,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        4,
+        29,
+        30
+      ],
+      "bytes": 392
+    },
+    {
+      "id": "jackpot_crown",
+      "size": 32,
+      "visiblePixels": 491,
+      "transparentPixels": 533,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        26
+      ],
+      "bytes": 353
+    },
+    {
+      "id": "torn_page",
+      "size": 32,
+      "visiblePixels": 478,
+      "transparentPixels": 546,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        5,
+        3,
+        26,
+        28
+      ],
+      "bytes": 312
+    },
+    {
+      "id": "book_of_thresholds",
+      "size": 32,
+      "visiblePixels": 616,
+      "transparentPixels": 408,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        3,
+        3,
+        27,
+        28
+      ],
+      "bytes": 400
+    },
+    {
+      "id": "zoomies_skewer",
+      "size": 32,
+      "visiblePixels": 274,
+      "transparentPixels": 750,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        3,
+        4,
+        29,
+        29
+      ],
+      "bytes": 342
+    },
+    {
+      "id": "kneading_bento",
+      "size": 32,
+      "visiblePixels": 626,
+      "transparentPixels": 398,
+      "partialAlphaPixels": 0,
+      "colors": 20,
+      "bounds": [
+        2,
+        5,
+        29,
+        28
+      ],
+      "bytes": 373
+    },
+    {
+      "id": "catnip_elixir",
+      "size": 32,
+      "visiblePixels": 449,
+      "transparentPixels": 575,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        4,
+        2,
+        29,
+        29
+      ],
+      "bytes": 388
+    },
+    {
+      "id": "royal_feast_can",
+      "size": 32,
+      "visiblePixels": 531,
+      "transparentPixels": 493,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        4,
+        2,
+        28,
+        27
+      ],
+      "bytes": 395
+    },
+    {
+      "id": "boss_core_rat",
+      "size": 32,
+      "visiblePixels": 441,
+      "transparentPixels": 583,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        2,
+        30,
+        28
+      ],
+      "bytes": 409
+    },
+    {
+      "id": "boss_core_hound",
+      "size": 32,
+      "visiblePixels": 482,
+      "transparentPixels": 542,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        28,
+        29
+      ],
+      "bytes": 396
+    },
+    {
+      "id": "boss_core_void",
+      "size": 32,
+      "visiblePixels": 485,
+      "transparentPixels": 539,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        29
+      ],
+      "bytes": 376
+    },
+    {
+      "id": "you_and_me_bell",
+      "size": 32,
+      "visiblePixels": 443,
+      "transparentPixels": 581,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        4,
+        3,
+        28,
+        30
+      ],
+      "bytes": 386
+    },
+    {
+      "id": "prowling_wand",
+      "size": 32,
+      "visiblePixels": 338,
+      "transparentPixels": 686,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "bytes": 374
+    },
+    {
+      "id": "final_chapter_tome",
+      "size": 32,
+      "visiblePixels": 513,
+      "transparentPixels": 511,
+      "partialAlphaPixels": 0,
+      "colors": 16,
+      "bounds": [
+        2,
+        3,
+        29,
+        28
+      ],
+      "bytes": 439
+    },
+    {
+      "id": "nine_lives_charm",
+      "size": 32,
+      "visiblePixels": 412,
+      "transparentPixels": 612,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "bytes": 378
+    },
+    {
+      "id": "slot_seven",
+      "size": 32,
+      "visiblePixels": 382,
+      "transparentPixels": 642,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        2,
+        4,
+        28,
+        28
+      ],
+      "bytes": 292
+    },
+    {
+      "id": "slot_yuumi",
+      "size": 32,
+      "visiblePixels": 547,
+      "transparentPixels": 477,
+      "partialAlphaPixels": 0,
+      "colors": 15,
+      "bounds": [
+        2,
+        2,
+        29,
+        28
+      ],
+      "bytes": 436
+    },
+    {
+      "id": "slot_paw",
+      "size": 32,
+      "visiblePixels": 522,
+      "transparentPixels": 502,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        2,
+        2,
+        30,
+        29
+      ],
+      "bytes": 356
+    },
+    {
+      "id": "chip_100",
+      "size": 32,
+      "visiblePixels": 566,
+      "transparentPixels": 458,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "bytes": 413
+    },
+    {
+      "id": "chip_1000",
+      "size": 32,
+      "visiblePixels": 566,
+      "transparentPixels": 458,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "bytes": 458
+    },
+    {
+      "id": "chip_10000",
+      "size": 32,
+      "visiblePixels": 566,
+      "transparentPixels": 458,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        3,
+        3,
+        29,
+        30
+      ],
+      "bytes": 438
+    },
+    {
+      "id": "recall_bookmark",
+      "size": 32,
+      "visiblePixels": 404,
+      "transparentPixels": 620,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        4,
+        1,
+        29,
+        29
+      ],
+      "bytes": 359
+    },
+    {
+      "id": "starlight_stone",
+      "size": 32,
+      "visiblePixels": 428,
+      "transparentPixels": 596,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        2,
+        3,
+        29,
+        28
+      ],
+      "bytes": 400
+    },
+    {
+      "id": "starlight_scroll",
+      "size": 32,
+      "visiblePixels": 565,
+      "transparentPixels": 459,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        4,
+        28,
+        29
+      ],
+      "bytes": 361
+    },
+    {
+      "id": "labyrinth_key",
+      "size": 32,
+      "visiblePixels": 304,
+      "transparentPixels": 720,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "bytes": 292
+    },
+    {
+      "id": "ancient_cat_coin",
+      "size": 32,
+      "visiblePixels": 548,
+      "transparentPixels": 476,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "bytes": 400
+    },
+    {
+      "id": "gacha_capsule",
+      "size": 32,
+      "visiblePixels": 448,
+      "transparentPixels": 576,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        4,
+        5,
+        28,
+        29
+      ],
+      "bytes": 357
+    },
+    {
+      "id": "class_emblem",
+      "size": 32,
+      "visiblePixels": 454,
+      "transparentPixels": 570,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        2,
+        27,
+        29
+      ],
+      "bytes": 381
+    },
+    {
+      "id": "respec_potion",
+      "size": 32,
+      "visiblePixels": 408,
+      "transparentPixels": 616,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        5,
+        2,
+        26,
+        27
+      ],
+      "bytes": 316
+    },
+    {
+      "id": "charm_crimson_claw",
+      "size": 32,
+      "visiblePixels": 369,
+      "transparentPixels": 655,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "bytes": 352
+    },
+    {
+      "id": "charm_starlight_aegis",
+      "size": 32,
+      "visiblePixels": 406,
+      "transparentPixels": 618,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "bytes": 349
+    },
+    {
+      "id": "charm_golden_whisker",
+      "size": 32,
+      "visiblePixels": 380,
+      "transparentPixels": 644,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        4,
+        2,
+        28,
+        29
+      ],
+      "bytes": 340
+    },
+    {
+      "id": "charm_vampiric_purr",
+      "size": 32,
+      "visiblePixels": 437,
+      "transparentPixels": 587,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        29,
+        29
+      ],
+      "bytes": 353
+    },
+    {
+      "id": "monster_soul_core",
+      "size": 32,
+      "visiblePixels": 509,
+      "transparentPixels": 515,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        2,
+        2,
+        28,
+        29
+      ],
+      "bytes": 349
+    },
+    {
+      "id": "unidentified_geode",
+      "size": 32,
+      "visiblePixels": 584,
+      "transparentPixels": 440,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "bytes": 370
+    },
+    {
+      "id": "golden_catnip",
+      "size": 32,
+      "visiblePixels": 386,
+      "transparentPixels": 638,
+      "partialAlphaPixels": 0,
+      "colors": 7,
+      "bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "bytes": 334
+    },
+    {
+      "id": "deep_sea_fillet",
+      "size": 32,
+      "visiblePixels": 465,
+      "transparentPixels": 559,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        4,
+        29,
+        28
+      ],
+      "bytes": 363
+    },
+    {
+      "id": "rune_scroll",
+      "size": 32,
+      "visiblePixels": 550,
+      "transparentPixels": 474,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        2,
+        3,
+        28,
+        29
+      ],
+      "bytes": 360
+    },
+    {
+      "id": "michelin_feast",
+      "size": 32,
+      "visiblePixels": 526,
+      "transparentPixels": 498,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        2,
+        3,
+        30,
+        30
+      ],
+      "bytes": 422
+    },
+    {
+      "id": "furn_cat_tower",
+      "size": 32,
+      "visiblePixels": 495,
+      "transparentPixels": 529,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        4,
+        3,
+        29,
+        29
+      ],
+      "bytes": 337
+    },
+    {
+      "id": "furn_kotatsu",
+      "size": 32,
+      "visiblePixels": 489,
+      "transparentPixels": 535,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        7,
+        29,
+        29
+      ],
+      "bytes": 374
+    },
+    {
+      "id": "furn_neon_sign",
+      "size": 32,
+      "visiblePixels": 684,
+      "transparentPixels": 340,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        4,
+        29,
+        29
+      ],
+      "bytes": 263
+    },
+    {
+      "id": "hat_chef_toque",
+      "size": 32,
+      "visiblePixels": 482,
+      "transparentPixels": 542,
+      "partialAlphaPixels": 0,
+      "colors": 8,
+      "bounds": [
+        3,
+        2,
+        28,
+        27
+      ],
+      "bytes": 299
+    },
+    {
+      "id": "hat_stock_tophat",
+      "size": 32,
+      "visiblePixels": 557,
+      "transparentPixels": 467,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        2,
+        3,
+        29,
+        29
+      ],
+      "bytes": 346
+    },
+    {
+      "id": "weapon_paladin_sword",
+      "size": 32,
+      "visiblePixels": 292,
+      "transparentPixels": 732,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "bytes": 308
+    },
+    {
+      "id": "weapon_shadow_daggers",
+      "size": 32,
+      "visiblePixels": 282,
+      "transparentPixels": 742,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        28,
+        30
+      ],
+      "bytes": 302
+    },
+    {
+      "id": "weapon_ranger_bow",
+      "size": 32,
+      "visiblePixels": 264,
+      "transparentPixels": 760,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        2,
+        28,
+        29
+      ],
+      "bytes": 328
+    },
+    {
+      "id": "weapon_arcane_grimoire",
+      "size": 32,
+      "visiblePixels": 511,
+      "transparentPixels": 513,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        2,
+        28,
+        27
+      ],
+      "bytes": 361
+    },
+    {
+      "id": "tool_miner_drill",
+      "size": 32,
+      "visiblePixels": 354,
+      "transparentPixels": 670,
+      "partialAlphaPixels": 0,
+      "colors": 9,
+      "bounds": [
+        3,
+        2,
+        29,
+        29
+      ],
+      "bytes": 346
+    },
+    {
+      "id": "tool_smith_hammer",
+      "size": 32,
+      "visiblePixels": 329,
+      "transparentPixels": 695,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        28,
+        29
+      ],
+      "bytes": 358
+    },
+    {
+      "id": "tool_farmer_scythe",
+      "size": 32,
+      "visiblePixels": 329,
+      "transparentPixels": 695,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        5,
+        2,
+        29,
+        30
+      ],
+      "bytes": 352
+    },
+    {
+      "id": "tool_angler_harpoon",
+      "size": 32,
+      "visiblePixels": 257,
+      "transparentPixels": 767,
+      "partialAlphaPixels": 0,
+      "colors": 10,
+      "bounds": [
+        2,
+        2,
+        28,
+        30
+      ],
+      "bytes": 332
+    },
+    {
+      "id": "tool_carpenter_axe",
+      "size": 32,
+      "visiblePixels": 375,
+      "transparentPixels": 649,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        4,
+        3,
+        28,
+        30
+      ],
+      "bytes": 374
+    },
+    {
+      "id": "tool_chef_wok",
+      "size": 32,
+      "visiblePixels": 446,
+      "transparentPixels": 578,
+      "partialAlphaPixels": 0,
+      "colors": 13,
+      "bounds": [
+        3,
+        3,
+        30,
+        30
+      ],
+      "bytes": 415
+    },
+    {
+      "id": "weapon_berserker_greatsword",
+      "size": 32,
+      "visiblePixels": 316,
+      "transparentPixels": 708,
+      "partialAlphaPixels": 0,
+      "colors": 12,
+      "bounds": [
+        3,
+        1,
+        29,
+        30
+      ],
+      "bytes": 367
+    },
+    {
+      "id": "weapon_priest_staff",
+      "size": 32,
+      "visiblePixels": 286,
+      "transparentPixels": 738,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        5,
+        1,
+        29,
+        30
+      ],
+      "bytes": 368
+    },
+    {
+      "id": "weapon_arcane_orb_tome",
+      "size": 32,
+      "visiblePixels": 526,
+      "transparentPixels": 498,
+      "partialAlphaPixels": 0,
+      "colors": 11,
+      "bounds": [
+        2,
+        1,
+        29,
+        30
+      ],
+      "bytes": 485
+    },
+    {
+      "id": "guidebook",
+      "size": 32,
+      "visiblePixels": 625,
+      "transparentPixels": 399,
+      "partialAlphaPixels": 0,
+      "colors": 14,
+      "bounds": [
+        3,
+        2,
+        29,
+        29
+      ],
+      "bytes": 437
+    }
+  ],
+  "checks": [
+    "out-of-range coordinate rejected",
+    "missing texture rejected",
+    "illegal element rotation rejected",
+    "degenerate UV rejected",
+    "out-of-range UV rejected",
+    "missing GUI model rejected",
+    "wrong GUI selector target rejected",
+    "missing atlas entry rejected",
+    "duplicate atlas entry rejected",
+    "unexpected atlas ID rejected",
+    "wrong icon dimensions rejected",
+    "antialiased icon alpha rejected",
+    "opaque icon border rejected",
+    "rotation below the floor rejected",
+    "wrong landmark direct pointer rejected",
+    "wall landmark classified as floor rejected",
+    "missing landmark anchor rejected",
+    "new GUI helper at wrong directory rejected",
+    "unexpected override file rejected",
+    "missing override file rejected",
+    "reserved monster warning color rejected",
+    "over-thick magic circle rejected",
+    "upshifted falling sword tip rejected",
+    "missing monster rig rejected",
+    "incorrect positive baseScale rejected",
+    "nonfinite socket offset rejected",
+    "unexpected rig socket role rejected",
+    "cross-rig model reference rejected",
+    "head below neck pivot rejected",
+    "source/packed rig mismatch rejected",
+    "wrong pitch sign rejected",
+    "wrong yaw convention rejected",
+    "pivot scale drift rejected"
+  ],
+  "atlas": {
+    "count": 96,
+    "exactSet": true,
+    "duplicates": 0
+  },
+  "landmarkMounts": [
+    {
+      "id": "prop_casino_marquee",
+      "kind": "wall",
+      "anchor": [
+        8,
+        8,
+        8
+      ],
+      "referenceScale": 2.7,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -12.7,
+          -8.090581094741243,
+          -2.5
+        ],
+        [
+          28.7,
+          30.87,
+          8
+        ]
+      ],
+      "attachmentSupported": true
+    },
+    {
+      "id": "prop_casino_chandelier",
+      "kind": "ceiling",
+      "anchor": [
+        8,
+        24,
+        8
+      ],
+      "minimumY": -4,
+      "referenceScale": 2.3,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -4.88725,
+          -4,
+          -4.887249999999998
+        ],
+        [
+          20.88725,
+          24,
+          20.88725
+        ]
+      ],
+      "attachmentSupported": true
+    },
+    {
+      "id": "prop_dealer_throne",
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.5,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -5,
+          0,
+          -2.05
+        ],
+        [
+          21,
+          30.72,
+          18
+        ]
+      ],
+      "attachmentSupported": true
+    },
+    {
+      "id": "prop_plaza_clock_face",
+      "kind": "wall",
+      "anchor": [
+        8,
+        8,
+        8
+      ],
+      "referenceScale": 2,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -10.8,
+          -10.8,
+          -2.91
+        ],
+        [
+          26.8,
+          30.35,
+          8
+        ]
+      ],
+      "attachmentSupported": true
+    },
+    {
+      "id": "prop_training_dummy",
+      "kind": "floor",
+      "anchor": [
+        8,
+        0,
+        8
+      ],
+      "referenceScale": 1.35,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -3.216108765067674,
+          0,
+          -0.6
+        ],
+        [
+          16.87324809202505,
+          31.186234095349278,
+          16.6
+        ]
+      ],
+      "attachmentSupported": true
+    },
+    {
+      "id": "prop_sakura_lantern_arch",
+      "kind": "gate",
+      "anchor": [
+        8,
+        20,
+        8
+      ],
+      "referenceScale": 2,
+      "front": [
+        0,
+        0,
+        -1
+      ],
+      "bounds": [
+        [
+          -13.1,
+          -5.1,
+          2.44
+        ],
+        [
+          29.099999999999998,
+          20,
+          12.335
+        ]
+      ],
+      "attachmentSupported": true
+    }
+  ],
+  "vfx": [
+    {
+      "id": "vfx_slash_crescent_gold",
+      "kind": "horizontal_crescent",
+      "bounds": [
+        [
+          -12.7,
+          7.1,
+          -13.58
+        ],
+        [
+          28.9,
+          10.15,
+          15.3575
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_slash_crimson_heavy",
+      "kind": "horizontal_heavy_slash",
+      "bounds": [
+        [
+          -13.0225,
+          5.8,
+          -13.161
+        ],
+        [
+          29.5323,
+          11.05,
+          13.95
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_titan_greatsword_drop",
+      "kind": "vertical_drop",
+      "bounds": [
+        [
+          0.4,
+          -14,
+          0.6332
+        ],
+        [
+          15.6,
+          30,
+          15.4897
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_slash_crescent_shadow",
+      "kind": "crossed_slash",
+      "bounds": [
+        [
+          -9.1316,
+          -13.269127059608476,
+          6.65
+        ],
+        [
+          26.739333197902493,
+          29.4536,
+          9.4
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_shadow_mark_crest",
+      "kind": "vertical_mark",
+      "bounds": [
+        [
+          -5.2,
+          -4,
+          6.2
+        ],
+        [
+          21.2,
+          23.2,
+          9.55
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_star_arrow_volley",
+      "kind": "forward_projectile",
+      "bounds": [
+        [
+          2.68,
+          2.8,
+          -14
+        ],
+        [
+          13.32,
+          13.2,
+          30
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_astral_bow_sigil",
+      "kind": "horizontal_aiming_ring",
+      "bounds": [
+        [
+          -14,
+          7.1,
+          -14
+        ],
+        [
+          30,
+          8.68,
+          30
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_magic_circle_arcane",
+      "kind": "thin_floor_circle",
+      "bounds": [
+        [
+          -14,
+          7.6,
+          -14
+        ],
+        [
+          30,
+          8.4,
+          30
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_gravity_singularity",
+      "kind": "sphere_with_tilted_ring",
+      "bounds": [
+        [
+          -11.349699999999999,
+          0.11400164586161576,
+          -9.745052833896995
+        ],
+        [
+          27.4,
+          16.067185209054607,
+          25.997700689857204
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_arcane_meteor",
+      "kind": "diagonal_meteor",
+      "bounds": [
+        [
+          -0.8500000000000001,
+          -4.326285409643898,
+          -4.326285409643896
+        ],
+        [
+          17.3,
+          24.680341287445497,
+          24.435282915118922
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_magic_circle_sanctuary",
+      "kind": "thin_floor_circle",
+      "bounds": [
+        [
+          -14,
+          7.6,
+          -14
+        ],
+        [
+          30,
+          8.4,
+          30
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_holy_spear",
+      "kind": "vertical_spear",
+      "bounds": [
+        [
+          -10.29,
+          -14,
+          5.9
+        ],
+        [
+          26.29,
+          31.1,
+          9.1
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_golden_fishing_vortex",
+      "kind": "surface_vortex",
+      "bounds": [
+        [
+          -14,
+          0,
+          -14
+        ],
+        [
+          30,
+          8,
+          30
+        ]
+      ],
+      "geometryContract": true
+    },
+    {
+      "id": "vfx_feast_cauldron_aura",
+      "kind": "floor_cauldron",
+      "bounds": [
+        [
+          -4.6,
+          0,
+          -0.1
+        ],
+        [
+          20.6,
+          27.94,
+          16.1
+        ]
+      ],
+      "geometryContract": true
+    }
+  ],
+  "monsterRigs": {
+    "count": 18,
+    "partCount": 42,
+    "unitsPerBlock": 16,
+    "rigs": [
+      {
+        "id": "mob_grimoire_mimic",
+        "chapter": 1,
+        "baseScale": 1.15,
+        "rootModel": "yuumi97:mob_grimoire_mimic_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_grimoire_mimic_arm",
+            "offset": [
+              0,
+              15,
+              6
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_clockwork_sentinel",
+        "chapter": 1,
+        "baseScale": 1.35,
+        "rootModel": "yuumi97:mob_clockwork_sentinel_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_clockwork_sentinel_arm",
+            "offset": [
+              -10,
+              21,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_ink_librarian",
+        "chapter": 1,
+        "baseScale": 1.3,
+        "rootModel": "yuumi97:mob_ink_librarian_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_ink_librarian_arm",
+            "offset": [
+              0,
+              24,
+              -2
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_nebula_golem",
+        "chapter": 1,
+        "baseScale": 1.75,
+        "rootModel": "yuumi97:mob_nebula_golem_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_nebula_golem_arm",
+            "offset": [
+              0,
+              22,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_archivist_astro",
+        "chapter": 1,
+        "baseScale": 1.65,
+        "rootModel": "yuumi97:boss_archivist_astro_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_archivist_astro_head",
+            "offset": [
+              0,
+              23,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_archivist_astro_weapon",
+            "offset": [
+              0,
+              23,
+              7
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_novarion",
+        "chapter": 1,
+        "baseScale": 2.4,
+        "rootModel": "yuumi97:boss_novarion_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_novarion_head",
+            "offset": [
+              0,
+              25,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_novarion_weapon",
+            "offset": [
+              0,
+              24,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_cinder_imp",
+        "chapter": 2,
+        "baseScale": 1.05,
+        "rootModel": "yuumi97:mob_cinder_imp_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_cinder_imp_arm",
+            "offset": [
+              0,
+              19,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_slag_hound",
+        "chapter": 2,
+        "baseScale": 1.3,
+        "rootModel": "yuumi97:mob_slag_hound_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_slag_hound_arm",
+            "offset": [
+              0,
+              10,
+              -11
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_obsidian_bombardier",
+        "chapter": 2,
+        "baseScale": 1.45,
+        "rootModel": "yuumi97:mob_obsidian_bombardier_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_obsidian_bombardier_arm",
+            "offset": [
+              0,
+              21,
+              -1
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_chained_juggernaut",
+        "chapter": 2,
+        "baseScale": 1.8,
+        "rootModel": "yuumi97:mob_chained_juggernaut_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_chained_juggernaut_arm",
+            "offset": [
+              0,
+              23,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_warden_vulcantus",
+        "chapter": 2,
+        "baseScale": 1.85,
+        "rootModel": "yuumi97:boss_warden_vulcantus_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_warden_vulcantus_head",
+            "offset": [
+              0,
+              24,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_warden_vulcantus_weapon",
+            "offset": [
+              0,
+              23,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_ignion",
+        "chapter": 2,
+        "baseScale": 2.65,
+        "rootModel": "yuumi97:boss_ignion_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_ignion_head",
+            "offset": [
+              0,
+              27,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_ignion_weapon",
+            "offset": [
+              0,
+              25,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_mirror_stalker",
+        "chapter": 3,
+        "baseScale": 1.3,
+        "rootModel": "yuumi97:mob_mirror_stalker_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_mirror_stalker_arm",
+            "offset": [
+              0,
+              13.5,
+              -1.6
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_void_choir",
+        "chapter": 3,
+        "baseScale": 1.35,
+        "rootModel": "yuumi97:mob_void_choir_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_void_choir_arm",
+            "offset": [
+              0,
+              15,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_abyssal_oculus",
+        "chapter": 3,
+        "baseScale": 1.5,
+        "rootModel": "yuumi97:mob_abyssal_oculus_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_abyssal_oculus_arm",
+            "offset": [
+              0,
+              14,
+              2
+            ]
+          }
+        }
+      },
+      {
+        "id": "mob_eclipse_templar",
+        "chapter": 3,
+        "baseScale": 1.55,
+        "rootModel": "yuumi97:mob_eclipse_templar_body",
+        "sockets": {
+          "arm": {
+            "model": "yuumi97:mob_eclipse_templar_arm",
+            "offset": [
+              0,
+              20,
+              -1
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_twin_archons",
+        "chapter": 3,
+        "baseScale": 1.8,
+        "rootModel": "yuumi97:boss_twin_archons_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_twin_archons_head",
+            "offset": [
+              0,
+              23,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_twin_archons_weapon",
+            "offset": [
+              0,
+              19,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "id": "boss_eclipsia",
+        "chapter": 3,
+        "baseScale": 2.55,
+        "rootModel": "yuumi97:boss_eclipsia_core",
+        "sockets": {
+          "head": {
+            "model": "yuumi97:boss_eclipsia_head",
+            "offset": [
+              0,
+              24,
+              0
+            ]
+          },
+          "weapon": {
+            "model": "yuumi97:boss_eclipsia_weapon",
+            "offset": [
+              0,
+              20,
+              0
+            ]
+          }
+        }
+      }
+    ],
+    "identicalSourceAndPack": true
+  },
+  "rigMath": {
+    "cases": 138,
+    "actualSocketCases": 960,
+    "yaws": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "scales": [
+      1,
+      2
+    ],
+    "pitches": [
+      -70,
+      -65,
+      -60,
+      0,
+      55
+    ],
+    "maximumPivotErrorBlocks": 4.440892098500626e-16,
+    "toleranceBlocks": 0.01,
+    "goldenFixture": {
+      "floor": [
+        0,
+        0,
+        0
+      ],
+      "scale": 1,
+      "yaw": 0,
+      "pitch": -60,
+      "offset": [
+        0,
+        16,
+        0
+      ],
+      "vertex": [
+        8,
+        8,
+        -8
+      ],
+      "expectedPivot": [
+        0,
+        1,
+        0
+      ],
+      "expectedPoint": [
+        0,
+        1.8660254037844386,
+        0.5
+      ]
+    }
+  },
+  "preservation": {
+    "manifest": "sources/preservation-baseline.json",
+    "preservedFiles": 174,
+    "algorithm": "sha256",
+    "atlasChangeAllowed": true
+  },
+  "guiSelectors": 22,
+  "worldPointers": 68,
+  "itemDefinitions": 90,
+  "overrideFileCount": 367,
+  "pure2DModelOwnership": {
+    "owner": "SOL / PackBuilder.java",
+    "count": 15,
+    "ids": [
+      "labyrinth_key",
+      "ancient_cat_coin",
+      "gacha_capsule",
+      "class_emblem",
+      "respec_potion",
+      "charm_crimson_claw",
+      "charm_starlight_aegis",
+      "charm_golden_whisker",
+      "charm_vampiric_purr",
+      "monster_soul_core",
+      "unidentified_geode",
+      "golden_catnip",
+      "deep_sea_fillet",
+      "rune_scroll",
+      "michelin_feast"
+    ],
+    "validation": "PNG masters checked here; generated item models and pointers are a downstream packaging check"
+  },
+  "status": "PASS"
+}

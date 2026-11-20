@@ -1,0 +1,30 @@
+{
+  "id": "vfx_astral_bow_sigil",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "horizontal_ring",
+    "yRange": [
+      7,
+      9
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "orientation-plane",
+      "kind": "horizontal_ring",
+      "planeYModelUnits": 7.5,
+      "minimumYModelUnits": 7.1,
+      "pivot": [
+        8,
+        8,
+        8
+      ]
+    }
+  ]
+}

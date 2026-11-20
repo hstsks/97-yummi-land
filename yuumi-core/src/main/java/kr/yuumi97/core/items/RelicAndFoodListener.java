@@ -39,7 +39,6 @@ public final class RelicAndFoodListener implements Listener {
     private final JavaPlugin plugin;
     private final YuumiItems items;
     private final ChuruManager churu;
-    private final Consumer<Player> openMainMenu;
     private final BiConsumer<Player, Boolean> recallTrigger;
 
     private final Map<UUID, Long> wandCooldowns = new HashMap<>();
@@ -48,11 +47,10 @@ public final class RelicAndFoodListener implements Listener {
     public void setBookmarkPouch(BookmarkPouchManager pouch) { this.bookmarkPouch = pouch; }
 
     public RelicAndFoodListener(JavaPlugin plugin, YuumiItems items, ChuruManager churu,
-                                Consumer<Player> openMainMenu, BiConsumer<Player, Boolean> recallTrigger) {
+                                BiConsumer<Player, Boolean> recallTrigger) {
         this.plugin = plugin;
         this.items = items;
         this.churu = churu;
-        this.openMainMenu = openMainMenu;
         this.recallTrigger = recallTrigger;
     }
 
@@ -111,15 +109,6 @@ public final class RelicAndFoodListener implements Listener {
         if (id == null) return;
 
         switch (id) {
-            case "book_of_thresholds" -> {
-                event.setCancelled(true);
-                if (player.isSneaking()) {
-                    recallTrigger.accept(player, false);
-                } else {
-                    player.playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0f, 1.2f);
-                    openMainMenu.accept(player);
-                }
-            }
             case "recall_bookmark" -> {
                 event.setCancelled(true);
                 recallTrigger.accept(player, true);

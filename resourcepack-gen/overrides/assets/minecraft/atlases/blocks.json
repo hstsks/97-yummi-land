@@ -139,6 +139,250 @@
     {
       "type": "minecraft:single",
       "resource": "yuumi97:prop/prop_sakura_lantern_arch"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_berserker_greatsword"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_priest_staff"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/weapon_arcane_orb_tome"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/guidebook"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/prop_wayfinder_arrow"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_slash_crescent_gold"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_slash_crimson_heavy"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_titan_greatsword_drop"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_slash_crescent_shadow"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_shadow_mark_crest"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_star_arrow_volley"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_astral_bow_sigil"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_magic_circle_arcane"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_gravity_singularity"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_arcane_meteor"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_magic_circle_sanctuary"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_holy_spear"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_golden_fishing_vortex"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/vfx_feast_cauldron_aura"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_grimoire_mimic_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_grimoire_mimic_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_clockwork_sentinel_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_clockwork_sentinel_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_ink_librarian_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_ink_librarian_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_nebula_golem_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_nebula_golem_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_archivist_astro_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_archivist_astro_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_archivist_astro_weapon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_novarion_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_novarion_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_novarion_weapon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_cinder_imp_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_cinder_imp_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_slag_hound_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_slag_hound_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_obsidian_bombardier_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_obsidian_bombardier_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_chained_juggernaut_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_chained_juggernaut_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_warden_vulcantus_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_warden_vulcantus_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_warden_vulcantus_weapon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_ignion_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_ignion_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_ignion_weapon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_mirror_stalker_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_mirror_stalker_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_void_choir_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_void_choir_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_abyssal_oculus_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_abyssal_oculus_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_eclipse_templar_body"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/mob_eclipse_templar_arm"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_twin_archons_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_twin_archons_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_twin_archons_weapon"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_eclipsia_core"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_eclipsia_head"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "yuumi97:prop/boss_eclipsia_weapon"
     }
   ]
 }

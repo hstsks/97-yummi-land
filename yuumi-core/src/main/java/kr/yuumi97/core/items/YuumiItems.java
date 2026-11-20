@@ -20,15 +20,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class YuumiItems {
 
     public static final String MODEL_NAMESPACE = "yuumi97";
-    public static final java.util.List<String> V3_IDS = java.util.List.of(
+    public static final java.util.List<String> CUSTOM_IDS = java.util.List.of(
             "labyrinth_key", "ancient_cat_coin", "gacha_capsule", "class_emblem", "respec_potion",
             "charm_crimson_claw", "charm_starlight_aegis", "charm_golden_whisker", "charm_vampiric_purr",
             "furn_cat_tower", "furn_kotatsu", "furn_neon_sign", "hat_chef_toque", "hat_stock_tophat",
             "monster_soul_core", "unidentified_geode", "golden_catnip", "deep_sea_fillet", "rune_scroll", "michelin_feast",
-            "weapon_paladin_sword", "weapon_shadow_daggers", "weapon_ranger_bow", "weapon_arcane_grimoire",
+            "weapon_paladin_sword", "weapon_berserker_greatsword", "weapon_shadow_daggers", "weapon_ranger_bow", "weapon_arcane_orb_tome", "weapon_priest_staff", "guidebook",
             "tool_miner_drill", "tool_smith_hammer", "tool_farmer_scythe", "tool_angler_harpoon", "tool_carpenter_axe", "tool_chef_wok");
     private final JavaPlugin plugin;
     private final NamespacedKey itemIdKey;
+    private java.util.function.Predicate<String> models=id->false;
+    public void setModelAvailability(java.util.function.Predicate<String> models){this.models=models;}
 
     public YuumiItems(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -54,7 +56,7 @@ public final class YuumiItems {
         if (meta != null) {
             meta.displayName(TextUtil.mm(nameMm));
             meta.lore(TextUtil.lore(loreLines));
-            meta.setItemModel(new NamespacedKey(MODEL_NAMESPACE, modelId));
+            meta.setItemModel(new NamespacedKey(MODEL_NAMESPACE, modelId.equals("weapon_arcane_orb_tome")&&!models.test(modelId)?"weapon_arcane_grimoire":modelId));
             meta.getPersistentDataContainer().set(itemIdKey, PersistentDataType.STRING, id);
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
             item.setItemMeta(meta);
@@ -88,7 +90,7 @@ public final class YuumiItems {
 
     /** One authoritative factory for rewards, public workshops and operator grants. */
     public ItemStack create(String id) {
-        if (!V3_IDS.contains(id)) return switch (id) {
+        if (!CUSTOM_IDS.contains(id)) return switch (id) {
             case "hat_yuumi_ears" -> yuumiEarsHat();
             case "plushie_yuumi" -> yuumiPlushie();
             case "you_and_me_bell" -> youAndMeBell();
@@ -114,8 +116,8 @@ public final class YuumiItems {
             case "rune_scroll" -> Material.ENCHANTED_BOOK;
             case "michelin_feast" -> Material.COOKED_BEEF;
             case "weapon_paladin_sword", "weapon_shadow_daggers" -> Material.DIAMOND_SWORD;
-            case "weapon_ranger_bow" -> Material.BOW;
-            case "weapon_arcane_grimoire" -> Material.BLAZE_ROD;
+            case "weapon_berserker_greatsword" -> Material.NETHERITE_SWORD;
+            case "weapon_ranger_bow", "weapon_arcane_orb_tome", "weapon_priest_staff", "guidebook" -> Material.PAPER;
             case "tool_miner_drill" -> Material.DIAMOND_PICKAXE;
             case "tool_smith_hammer", "tool_carpenter_axe" -> Material.DIAMOND_AXE;
             case "tool_farmer_scythe" -> Material.DIAMOND_HOE;
@@ -145,9 +147,12 @@ public final class YuumiItems {
             case "rune_scroll" -> "별빛 마법 룬 각인서";
             case "michelin_feast" -> "특선 만찬";
             case "weapon_paladin_sword" -> "별빛 이지스 방패검";
+            case "weapon_berserker_greatsword" -> "홍련의 대검";
             case "weapon_shadow_daggers" -> "초승달 그림자 쌍검";
             case "weapon_ranger_bow" -> "천공의 별빛 마궁";
-            case "weapon_arcane_grimoire" -> "문턱의 비전 마도서";
+            case "weapon_arcane_orb_tome" -> "아스트랄 성운 보주서";
+            case "weapon_priest_staff" -> "월광의 성배 지팡이";
+            case "guidebook" -> "유미의 97랜드 만능 가이드북";
             case "tool_miner_drill" -> "별빛 크러셔 드릴";
             case "tool_smith_hammer" -> "태양불꽃 단조 망치";
             case "tool_farmer_scythe" -> "풍요의 황금 대낫";
@@ -157,13 +162,13 @@ public final class YuumiItems {
         };
         boolean signature = id.startsWith("weapon_") || id.startsWith("tool_");
         ItemStack stack = createBase(material, id, id, "<gradient:#ffd666:#ff85c0><bold>" + name + "</bold></gradient>",
-                signature ? "<gray>활성 직업과 일치할 때 성물의 힘이 깨어납니다." : "<gray>유미의 97랜드 v3.0 공식 아이템",
+                signature ? "<gray>활성 전투·생활 성향과 일치할 때 힘이 깨어납니다." : "<gray>유미의 97랜드 공식 아이템",
                 id.startsWith("furn_") ? "<yellow>▶ 분양지 바닥 우클릭 설치 · Shift+좌클릭 회수" :
                 id.startsWith("charm_") ? "<yellow>▶ 성향 문장의 3슬롯 책갈피함에 장착하세요." :
                 id.equals("class_emblem") ? "<yellow>▶ 우클릭: 성향 프로필 · 특전 · 책갈피함" :
                 id.equals("gacha_capsule") ? "<yellow>▶ 우클릭 개봉 또는 광장 가챠 부스에서 사용" : "<dark_gray>교환·제작·모험 재료");
         ItemMeta meta = stack.getItemMeta();
-        if (signature || id.startsWith("charm_") || id.equals("class_emblem") || id.startsWith("hat_")) meta.setMaxStackSize(1);
+        if (signature || id.startsWith("charm_") || id.equals("class_emblem") || id.equals("guidebook") || id.startsWith("hat_")) meta.setMaxStackSize(1);
         if (signature) meta.setUnbreakable(true);
         if (id.startsWith("hat_")) {
             var equippable = meta.getEquippable();
@@ -357,16 +362,7 @@ public final class YuumiItems {
         return item;
     }
 
-    public ItemStack bookOfThresholds() {
-        return createBase(Material.KNOWLEDGE_BOOK, "book_of_thresholds", "book_of_thresholds",
-                "<gradient:#69b1ff:#ffd666><bold>📖 유미의 문턱의 서</bold></gradient> <gray>(차원 수첩)",
-                "<gray>마법 고양이 유미와 연결된 휴대용 차원 길잡이 수첩입니다.",
-                "",
-                "<yellow>▶ 우클릭: <white><bold>내 자산 · 숙련 보너스 · 시설 길찾기 수첩</bold></white>",
-                "<aqua>▶ 쉬프트+우클릭 (야생 원정 중): <white><bold>3초 정신집중 허브 귀환!</bold></white>",
-                "<dark_gray>※ 모든 상점·카지노·은행·대장간은 허브 도시 현장에서 이용합니다."
-        );
-    }
+    public ItemStack guidebook() { return create("guidebook"); }
 
     public ItemStack tornPage(int amount) {
         ItemStack item = createBase(Material.PAPER, "torn_page", "torn_page",

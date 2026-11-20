@@ -1,0 +1,38 @@
+{
+  "id": "vfx_star_arrow_volley",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "directional",
+    "front": [
+      0,
+      0,
+      -1
+    ],
+    "tails": 3
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "directional",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    }
+  ]
+}

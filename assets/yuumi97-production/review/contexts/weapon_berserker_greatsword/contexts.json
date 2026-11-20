@@ -1,0 +1,187 @@
+{
+  "id": "weapon_berserker_greatsword",
+  "notice": "APPROXIMATE JIG; Minecraft client verification required.",
+  "matrixConvention": "ItemTransform T @ Rx @ Ry @ Rz @ S around [8,8,8]; actual left-hand mirroring applied. Enclosing player matrices and animated poses not reproduced.",
+  "contexts": [
+    {
+      "context": "thirdperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          4.42096,
+          -0.782669
+        ],
+        "scale": [
+          0.63,
+          0.63,
+          0.63
+        ]
+      },
+      "kind": "greatsword",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        3.2,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        -0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "thirdperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          0,
+          4.42096,
+          -0.782669
+        ],
+        "scale": [
+          0.63,
+          0.63,
+          0.63
+        ]
+      },
+      "kind": "greatsword",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        3.2,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        -0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        0.0,
+        0.258819,
+        0.965926
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_righthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          24
+        ],
+        "translation": [
+          0,
+          4.317813,
+          -1.254571
+        ],
+        "scale": [
+          0.6426000000000001,
+          0.6426000000000001,
+          0.6426000000000001
+        ]
+      },
+      "kind": "greatsword",
+      "leftHandMirroringApplied": false,
+      "anchorModelUnits": [
+        8,
+        3.2,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        0.0,
+        0.406737,
+        0.913545
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    },
+    {
+      "context": "firstperson_lefthand",
+      "display": {
+        "rotation": [
+          0,
+          -90,
+          24
+        ],
+        "translation": [
+          0,
+          4.317813,
+          -1.254571
+        ],
+        "scale": [
+          0.6426000000000001,
+          0.6426000000000001,
+          0.6426000000000001
+        ]
+      },
+      "kind": "greatsword",
+      "leftHandMirroringApplied": true,
+      "anchorModelUnits": [
+        8,
+        3.2,
+        8
+      ],
+      "targetDisplayUnits": [
+        0.0,
+        1.5,
+        0.0
+      ],
+      "actualAnchorDisplayUnits": [
+        -0.0,
+        1.5,
+        0.0
+      ],
+      "anchorErrorModelUnits": 0.0,
+      "forwardBlender": [
+        0.0,
+        0.406737,
+        0.913545
+      ],
+      "approximation": true,
+      "requiresClientVerification": true
+    }
+  ]
+}

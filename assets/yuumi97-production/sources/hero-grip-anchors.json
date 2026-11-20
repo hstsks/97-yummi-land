@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 2,
+  "units": "Minecraft model units",
+  "rotationConvention": "XYZ intrinsic; column matrix Rx Ry Rz; left hand negates stored rotation Y/Z and translation X",
+  "notice": "Neutral display-space grip targets. Enclosing player transforms require client verification.",
+  "models": {
+    "weapon_berserker_greatsword": {
+      "anchor": [
+        8,
+        3.2,
+        8
+      ],
+      "kind": "greatsword",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            15
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -15
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            24
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -24
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "weapon_priest_staff": {
+      "anchor": [
+        8,
+        2.8,
+        8
+      ],
+      "kind": "staff",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -90,
+            8
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            90,
+            -8
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            -78,
+            18
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            0,
+            78,
+            -18
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "weapon_arcane_orb_tome": {
+      "anchor": [
+        8,
+        1.55,
+        8
+      ],
+      "kind": "open_book",
+      "forward": [
+        0,
+        1,
+        0
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            32,
+            0,
+            0
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            32,
+            0,
+            0
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            23,
+            -18,
+            5
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            23,
+            18,
+            -5
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    },
+    "guidebook": {
+      "anchor": [
+        5.8,
+        4,
+        8.1
+      ],
+      "kind": "closed_book",
+      "forward": [
+        0,
+        0,
+        -1
+      ],
+      "contexts": {
+        "thirdperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            5,
+            -35,
+            12
+          ],
+          "mirroredByVanilla": false
+        },
+        "thirdperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            5,
+            35,
+            -12
+          ],
+          "mirroredByVanilla": true
+        },
+        "firstperson_righthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            8,
+            -22,
+            8
+          ],
+          "mirroredByVanilla": false
+        },
+        "firstperson_lefthand": {
+          "target": [
+            0,
+            1.5,
+            0
+          ],
+          "effectiveRotation": [
+            8,
+            22,
+            -8
+          ],
+          "mirroredByVanilla": true
+        }
+      }
+    }
+  }
+}

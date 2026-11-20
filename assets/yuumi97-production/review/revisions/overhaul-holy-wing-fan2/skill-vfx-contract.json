@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "modelOrigin": [
+    8,
+    8,
+    8
+  ],
+  "front": [
+    0,
+    0,
+    -1
+  ],
+  "notice": "Authored frame; Bukkit yaw 0 points +Z. No emissive shader is assumed. Blender review is required.",
+  "models": {
+    "vfx_slash_crescent_gold": {
+      "kind": "horizontal_crescent",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "outerFront": [
+          8,
+          8,
+          -13.4
+        ]
+      },
+      "requiredComponentNames": [
+        "crescent_0",
+        "crescent_1",
+        "crescent_2"
+      ],
+      "elements": 471
+    },
+    "vfx_slash_crimson_heavy": {
+      "kind": "horizontal_heavy_slash",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "outerFront": [
+          8,
+          8,
+          -13
+        ]
+      },
+      "requiredComponentNames": [
+        "molten_wave",
+        "raging_flame_tooth",
+        "white_hot_core"
+      ],
+      "elements": 366
+    },
+    "vfx_titan_greatsword_drop": {
+      "kind": "vertical_drop",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "tip": [
+          8,
+          -14,
+          8
+        ],
+        "gripTop": [
+          8,
+          30,
+          8
+        ]
+      },
+      "requiredComponentNames": [
+        "obsidian_blade",
+        "molten_blade_channel",
+        "spiral_flame"
+      ],
+      "elements": 251
+    },
+    "vfx_slash_crescent_shadow": {
+      "kind": "crossed_slash",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "forward": [
+          0,
+          0,
+          -1
+        ]
+      },
+      "requiredComponentNames": [
+        "cross_-45",
+        "cross_45",
+        "black_cat_rune"
+      ],
+      "elements": 252
+    },
+    "vfx_shadow_mark_crest": {
+      "kind": "vertical_mark",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "forward": [
+          0,
+          0,
+          -1
+        ]
+      },
+      "requiredComponentNames": [
+        "crescent_fang",
+        "diamond_shadow_frame",
+        "vertical_dark_eye"
+      ],
+      "elements": 244
+    },
+    "vfx_star_arrow_volley": {
+      "kind": "forward_projectile",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "tip": [
+          8,
+          8,
+          -14
+        ],
+        "tail": [
+          8,
+          8,
+          30
+        ]
+      },
+      "requiredComponentNames": [
+        "starhead",
+        "comet_ribbon_central",
+        "comet_ribbon_left",
+        "comet_ribbon_right"
+      ],
+      "elements": 126
+    },
+    "vfx_astral_bow_sigil": {
+      "kind": "horizontal_aiming_ring",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      "requiredComponentNames": [
+        "outer_astral_gold",
+        "constellation_chord",
+        "aim_marker"
+      ],
+      "elements": 465
+    },
+    "vfx_magic_circle_arcane": {
+      "kind": "thin_floor_circle",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      "requiredComponentNames": [
+        "outer_runic_ring",
+        "hexagram_0",
+        "hexagram_1",
+        "ancient_arcane_rune"
+      ],
+      "elements": 862
+    },
+    "vfx_gravity_singularity": {
+      "kind": "sphere_with_tilted_ring",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "ringTiltDegrees": 22.5,
+        "ringTiltAxis": "x"
+      },
+      "requiredComponentNames": [
+        "event_horizon",
+        "accretion_outer_shadow",
+        "accretion_white_hot_rim"
+      ],
+      "elements": 530
+    },
+    "vfx_arcane_meteor": {
+      "kind": "diagonal_meteor",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "travelDirection": [
+          0,
+          -1,
+          -1
+        ]
+      },
+      "requiredComponentNames": [
+        "violet_magma_body",
+        "ancient_ice_crystal",
+        "leading_impact_crystal"
+      ],
+      "elements": 227
+    },
+    "vfx_magic_circle_sanctuary": {
+      "kind": "thin_floor_circle",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      "requiredComponentNames": [
+        "outer_cathedral_gold",
+        "inner_healing_ring",
+        "quatrefoil_petals",
+        "holy_cross"
+      ],
+      "elements": 804
+    },
+    "vfx_holy_spear": {
+      "kind": "vertical_spear",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "tip": [
+          8,
+          -14,
+          8
+        ],
+        "wingYRange": [
+          12,
+          24
+        ]
+      },
+      "requiredComponentNames": [
+        "downward_lance",
+        "wing_-1",
+        "wing_1",
+        "holy_water_gem"
+      ],
+      "elements": 908
+    },
+    "vfx_golden_fishing_vortex": {
+      "kind": "surface_vortex",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "surfaceY": 8,
+        "lowestY": 0
+      },
+      "requiredComponentNames": [
+        "funnel_0",
+        "funnel_1",
+        "funnel_2",
+        "golden_fish",
+        "treasure_coin"
+      ],
+      "elements": 751
+    },
+    "vfx_feast_cauldron_aura": {
+      "kind": "floor_cauldron",
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "directionalPoints": {
+        "floorAnchor": [
+          8,
+          0,
+          8
+        ],
+        "steamYRange": [
+          18,
+          28
+        ]
+      },
+      "requiredComponentNames": [
+        "paw_foot",
+        "cat_ear_handle",
+        "recessed_stew_surface",
+        "tilted_ladle",
+        "steam_cloud"
+      ],
+      "elements": 136
+    }
+  }
+}

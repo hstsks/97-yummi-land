@@ -8,7 +8,6 @@ public final class DungeonRules {
         return 1.0 + 0.55 * (players - 1);
     }
     public static int waveSize(int players) { healthScale(players); return 4 + 2 * ((players - 1) / 2); }
-    public static int plateCount(int livingPlayers) { return Math.max(2, Math.min(4, livingPlayers)); }
     public static boolean expired(long now, long deadline) { return now >= deadline; }
     public static int coins(int base, double multiplier) {
         return Math.max(0, (int) Math.floor(base * Math.max(0, multiplier) + 0.000001));

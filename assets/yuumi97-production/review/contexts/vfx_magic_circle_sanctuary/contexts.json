@@ -1,0 +1,34 @@
+{
+  "id": "vfx_magic_circle_sanctuary",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "floor_disc",
+    "yRange": [
+      7.6,
+      8.4
+    ],
+    "xzRange": [
+      -14,
+      30
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "orientation-plane",
+      "kind": "floor_disc",
+      "planeYModelUnits": 7.5,
+      "minimumYModelUnits": 7.6,
+      "pivot": [
+        8,
+        8,
+        8
+      ]
+    }
+  ]
+}

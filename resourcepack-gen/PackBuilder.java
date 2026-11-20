@@ -45,7 +45,8 @@ public class PackBuilder {
         Files.createDirectories(serverDir);
 
         Map<String, SpriteSpec> sprites = buildCatalog();
-        addV3Sprites(sprites);
+        addGameplaySprites(sprites);
+        addCoreSprites(sprites);
         Map<String, byte[]> entries = new LinkedHashMap<>();
 
         // 1. pack.mcmeta (Minecraft 1.21.4 -> pack_format 46)
@@ -214,8 +215,8 @@ public class PackBuilder {
     }
 
     /** Distinct silhouettes and palettes; never depends on the concurrently authored overrides. */
-    private static void addV3Sprites(Map<String, SpriteSpec> sprites) {
-        // These pre-v3 rewards used to depend entirely on overrides. Public gacha/workshops
+    private static void addGameplaySprites(Map<String, SpriteSpec> sprites) {
+        // These rewards used to depend entirely on overrides. Public gacha/workshops
         // must also work in a fallback-only pack while the asset session is still running.
         SpriteSpec cat = sprites.get("slot_yuumi");
         sprites.put("plushie_yuumi", new SpriteSpec("plushie_yuumi", false, cat.palette(), cat.rows()));
@@ -276,6 +277,34 @@ public class PackBuilder {
             for(int y=0;y<16;y++) rows[y]=new String(grid[y]);
             register(sprites,id,i>=20,pal('C',colors[i],'L',blendWhite(colors[i]),'G',0x644459,'W',0xFFF7DD),rows);
         }
+    }
+
+    /** Standalone 16px silhouettes; authored GUI/3D selectors are still merged last. */
+    private static void addCoreSprites(Map<String, SpriteSpec> sprites) {
+        register(sprites,"weapon_berserker_greatsword",true,
+                pal('O',0x25212D,'R',0xFF651A,'L',0xFFE8A0,'G',0xEAB548),
+                "...........OOO..","..........ORLO..",".........ORLO...","........ORLO....",
+                ".......ORLO.....","......ORLO......",".....ORLO.......","....ORLO........",
+                "...ORLO.........","..OORO..........","...GGGO.........","..GOGOG.........",
+                "...OGO..........","..OGO...........",".OGO............","..O.............");
+        register(sprites,"weapon_priest_staff",true,
+                pal('W',0xF3F7FA,'A',0x89E8ED,'T',0x18CDBD,'G',0xDDBB6C),
+                ".......AA.......",".....AA..AA.....","....A......A....","....A..TT..A....",
+                ".....GTTTTG.....","......GGGG......",".......WG.......",".......GW.......",
+                ".......WG.......",".......GW.......",".......WG.......",".......GW.......",
+                ".......WG.......",".......GW.......",".......GG.......","................");
+        register(sprites,"weapon_arcane_orb_tome",true,
+                pal('O',0x34215B,'P',0xAB61F5,'A',0x9BEAF6,'W',0xF2E5FF,'G',0xEDC66F),
+                "......AAAA......",".....APPPPA.....",".....APWWPA.....","......AAAA......",
+                ".......GG.......","...OOOOOOOOOO...","..OPPPGPGPPPO...","..OPPPGPGPPPO...",
+                "..OPAPGWGPAPO...","..OPPPGWGPPPO...","..OPPPGWGPPPO...","..OPPPGWGPPPO...",
+                "..OGGGGWGGGGO...","...OOOOOOOOO....","................","................");
+        register(sprites,"guidebook",false,
+                pal('O',0x263653,'P',0xF18ABB,'G',0xEAC264,'A',0x8EDCED,'W',0xFFF1DD),
+                "................","...OOOOOOOOOO...","..OGPPPPPPPPO...","..OGPPGPGPPPO...",
+                "..OGPGGWGGPPO...","..OGPPGGGPPPO...","..OGPPPGPPPPO...","..OGPPPPPPPPO...",
+                "..OGPPGGGPPPO...","..OGPPPGPPPPO...","..OGPPPPPPPPO...","..OGWWWWWWWGO...",
+                "...OOOOAOOOOO...",".......AA.......",".......AA.......","................");
     }
 
     private static int blendWhite(int c) {

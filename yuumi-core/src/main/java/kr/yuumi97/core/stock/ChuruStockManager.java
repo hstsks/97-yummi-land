@@ -3,7 +3,7 @@ package kr.yuumi97.core.stock;
 import kr.yuumi97.core.casino.CasinoManager;
 import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.util.TextUtil;
-import kr.yuumi97.core.util.V3Rules;
+import kr.yuumi97.core.util.EconomyRules;
 import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.configuration.ConfigurationSection;
@@ -68,7 +68,7 @@ public final class ChuruStockManager implements Listener, CommandExecutor {
         ConfigurationSection section=data.getConfigurationSection("stocks.holdings");if(section==null)return;
         for(String raw:section.getKeys(false)){
             UUID id;try{id=UUID.fromString(raw);}catch(IllegalArgumentException ex){continue;}
-            double dividend=V3Rules.money(holdings(id,Stock.TUNA_MARINE)*price(Stock.TUNA_MARINE)*plugin.getConfig().getDouble("stocks.dividend-rate",0.001));
+            double dividend=EconomyRules.money(holdings(id,Stock.TUNA_MARINE)*price(Stock.TUNA_MARINE)*plugin.getConfig().getDouble("stocks.dividend-rate",0.001));
             if(dividend>0 && churu.tryDeposit(Bukkit.getOfflinePlayer(id),dividend)){
                 Player p=Bukkit.getPlayer(id);if(p!=null)p.sendMessage(TextUtil.msg("🐟 참치 마린 배당금 "+TextUtil.churu(dividend)+" 입금!"));
             }
@@ -95,13 +95,13 @@ public final class ChuruStockManager implements Listener, CommandExecutor {
         Location at=broker.get();if(at==null||!p.getWorld().equals(at.getWorld())||p.getLocation().distanceSquared(at)>100){p.closeInventory();return;}
         int col=event.getRawSlot()%9;if(col<2||col>7)return;
         Stock s=Stock.values()[event.getRawSlot()/9];int[] qs={1,10,50};int q=qs[(col-2)%3];int held=holdings(p.getUniqueId(),s);
-        String key="stocks.holdings."+p.getUniqueId()+"."+s.name();double gross=V3Rules.money(price(s)*q);
+        String key="stocks.holdings."+p.getUniqueId()+"."+s.name();double gross=EconomyRules.money(price(s)*q);
         if(col<=4){
-            if(!V3Rules.canBuy(held,q,200)||!churu.withdraw(p,gross)){p.sendMessage(TextUtil.msg("<red>잔액 또는 보유 한도를 확인하세요."));return;}
+            if(!EconomyRules.canBuy(held,q,200)||!churu.withdraw(p,gross)){p.sendMessage(TextUtil.msg("<red>잔액 또는 보유 한도를 확인하세요."));return;}
             data.set(key,held+q);
         }else{
             if(held<q){p.sendMessage(TextUtil.msg("<red>매도할 주식이 부족합니다."));return;}
-            double tax=V3Rules.sellTax(gross);
+            double tax=EconomyRules.sellTax(gross);
             if(!churu.tryDeposit(p,gross-tax)){p.sendMessage(TextUtil.msg("<red>입금에 실패하여 거래를 취소했습니다."));return;}
             data.set(key,held-q);casino.depositJackpot(tax);
         }

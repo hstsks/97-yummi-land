@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "inspect_validation",
+  "observedAt": "2026-11-15T22:03:02.004Z",
+  "status": "PASS",
+  "pending": [],
+  "method": "All six rigs observed with view_image across seven views; five corrected rigs freshly rerendered and re-observed. Exact 15-axis OBB SAT additionally passed -70/-65/-60/0/+55 degrees with explicit intended-joint exclusions. Source/manifest/blend/pose and observation-image hashes validated. Blender only; Minecraft client not run.",
+  "rigs": [
+    {
+      "id": "mob_grimoire_mimic",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 두 후방 지지대가 높아진 윗판과 기존 힌지를 연결하고, +55° 물기에서는 윗니가 아랫니 사이에 맞물리며 보라색 혀를 피한다. -60° 개방과 중립에서 책등·종이 날개·사슬 자물쇠의 정체성을 유지한다. 5각도 실제 OBB 검사에서도 혀·치아·자물쇠판의 불필요 관통은 0건이다.",
+      "reportSha256": "057408fd0b44ef005a5ff161e2a0ef393cdae6d98e131ee717a63323dcc4f35c",
+      "images": [
+        {
+          "path": "review/rigs/mob_grimoire_mimic/front.png",
+          "sha256": "55a2f40a1e54db776458e0f40098d89d81f3a01823898a37bf0fea7a3b6e5e63"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/side.png",
+          "sha256": "0232192f9a95007b26f1fa0726b718a3c35c35a00f028b1ecead509d85dc568f"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/rear.png",
+          "sha256": "8d85b2801d7da6ae478ddfe558697e777b73c975d4c8d28adcf9fc652faba5a6"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/threequarter.png",
+          "sha256": "7f354787834793437d61fdb3712bb7c98ce8a9a248187b197075756f31900c3f"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60.png",
+          "sha256": "79b613fcfc96ddcefa2a303e04fcd07a978202b06c78e21d2e3caff416320f46"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/windup-minus60-side.png",
+          "sha256": "f899188da7bbd3b140773175a0a55694bbdfb08a367684189c742d8e1f32f0ca"
+        },
+        {
+          "path": "review/rigs/mob_grimoire_mimic/strike-plus55.png",
+          "sha256": "2914ce7b447dbbf3d8e782228a9d338c2a791e7232f12eca461b89bec6b2b85e"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 5.823279
+      }
+    },
+    {
+      "id": "mob_clockwork_sentinel",
+      "status": "PASS",
+      "notes": "방패와 후방 태엽의 팔각 고리가 연속된 형태로 수정되었다. 어깨 바깥 할버드 팔이 중립·준비·타격 포즈에서 연결을 유지하고 머리·몸통·바닥을 뚫지 않는다. 단안경, 별 방패, 태엽 실루엣이 식별된다.",
+      "reportSha256": "8f667f6726cf61bca4279bb442cc2e6fa56595e29809e69aab621ca24d396c6f",
+      "images": [
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/front.png",
+          "sha256": "c1b0eb21199aa557a0d09979111611d914ea8472024e8403fd5bdda744e009ad"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/side.png",
+          "sha256": "5ba6700cdb75874591132c8f3c36198f416901f01a2fa23dfc6fc385f7647919"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/rear.png",
+          "sha256": "232929b24941ead077c58fd3a941add0e582913ac5761aaa709a9be56ce76906"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/threequarter.png",
+          "sha256": "ae8b769a3a6bb25ecd2ab3df7737ddf4b8c05281c6d2cb33d7249d2403c091a0"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60.png",
+          "sha256": "cb7726ff376596155236a6e16e14cb7bf6e492dceee1cc9b623bc480c1e4a321"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/windup-minus60-side.png",
+          "sha256": "f471f13dec5e1c0cceda38d81c78d8acc0130a09003447b2333e8c6950351332"
+        },
+        {
+          "path": "review/rigs/mob_clockwork_sentinel/strike-plus55.png",
+          "sha256": "64b078ecdf504fd22d4065008b6ff9f5f6d3d6c08c646f2ae23d6d3ef2b6cb63"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 0.677845
+      }
+    },
+    {
+      "id": "mob_ink_librarian",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 양끝 로브 패널을 좁히고 팔·등불을 0.3 model unit 전진시켜 +55° 팔꿈치/소매와 로브의 충돌을 없앴다. 후드 고양이 귀, 먹물 꼬리, 등불 손잡이와 체인 연결은 유지되며 최저 등불도 바닥 위에 남는다. 5각도 실제 OBB 검사에서 비관절 관통 0건이다.",
+      "reportSha256": "4dead7baa35aeb6e889aee867de895b55064fe01269e4f0cbe0798eaa88bccd3",
+      "images": [
+        {
+          "path": "review/rigs/mob_ink_librarian/front.png",
+          "sha256": "29547342f4e9f6b004d3221b283e491771e1fa646196a8beee34b18902fbfebc"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/side.png",
+          "sha256": "6a282373b76eb8a426d8ae46e35534888dbb6af8c3e5e05588f02eca9844c2c8"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/rear.png",
+          "sha256": "eace01547fa39a83273f5e97a6d08f7228a144808336373ee29ea4df851ce408"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/threequarter.png",
+          "sha256": "9b8860d61cec60c9d2465416ace1f4e6539849e5688dee0731044e9252347bcd"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60.png",
+          "sha256": "21568237a73230e4a2d1addcac7de56966d1898097326a151333cc05fc6ec3ca"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/windup-minus60-side.png",
+          "sha256": "3f5b89783c4a134cf16034b9e7e1385349357d89836273f4b5c0abd89fc65b85"
+        },
+        {
+          "path": "review/rigs/mob_ink_librarian/strike-plus55.png",
+          "sha256": "b346ef80c08a9c395236467c0fd67460f17b5db4b0ff4df6d3801d2e103cf695"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 1.062213
+      }
+    },
+    {
+      "id": "mob_nebula_golem",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 양팔·수정·주먹이 바깥으로 이동하여 허리책, 무릎, 흉곽과의 간격이 읽힌다. 기존 금색 베어링과 새 상완의 연결이 정면·후면·사선과 공격 포즈에서 유지된다. 넓은 바위 체형과 비대칭 책/수정 실루엣을 유지하며 5각도 실제 OBB 검사에서 비관절 관통 0건이다.",
+      "reportSha256": "fe7f00fd0b6a0bd080eebb4bc5f440d189909748bd36bb00fe248d57e98756fc",
+      "images": [
+        {
+          "path": "review/rigs/mob_nebula_golem/front.png",
+          "sha256": "5b79740b13c0a08567c3ae14b19cbb66a1fb93cb93c71bf2636794f1f4c147a0"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/side.png",
+          "sha256": "07c59e87758b8daba6661afddc066e1f3b23edb8664c985b960718757ce9ce8f"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/rear.png",
+          "sha256": "046bf138c111ff2f6777b91afda7d72bc98312ea200b830948cd374230e34909"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/threequarter.png",
+          "sha256": "21b89b0663d85adfa4773969383a2654c2d0e7e69bfbd518fbbfe71921b830df"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60.png",
+          "sha256": "5df5eeea9055b4a2f8c930743e7f97511973033e9b374e42e7890003e7d6c587"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/windup-minus60-side.png",
+          "sha256": "3e93d9dd02b99e66c250744cd9c54ca81402e0874a53112d07a7ae19e75189a8"
+        },
+        {
+          "path": "review/rigs/mob_nebula_golem/strike-plus55.png",
+          "sha256": "c4821f5a7f774f317ca94291519306c90b1e82a2853fb4302937a7109d8efcd8"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 6.913284
+      }
+    },
+    {
+      "id": "boss_archivist_astro",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 부유 지팡이를 위로 2, 전방으로 1 model unit 옮겨 +55° 타격에서도 로브 앞자락과 주름을 피한다. 단안경, 고양이 주교관, 4권의 공전 마도서, 부양 고리와 후방 축 연결은 유지된다. 5각도 실제 OBB 검사에서도 지팡이/로브 관통 0건이다.",
+      "reportSha256": "930db4915de8cc2a5d924160ae84ab7460322c91b09bdbc01a742b21d741f43e",
+      "images": [
+        {
+          "path": "review/rigs/boss_archivist_astro/front.png",
+          "sha256": "6ec271212f9fb07e825204a60b95c98e1928f5fcc1c0fa7c2f5518f340c25273"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/side.png",
+          "sha256": "8ec39f822467eafbbc2fb1565a94f6d12f10739f49e7a48b8b1120ba248165a6"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/rear.png",
+          "sha256": "789db73e48a751bf8251a43053e79a121b710753587e96dc6a41ff205585c340"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/threequarter.png",
+          "sha256": "5483b281bfc7f5be484b854b61338d60f639db1fdd4e9d133b09e96794716856"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60.png",
+          "sha256": "48996d3b8334ed7461e64e58d7e69865e9e0b4cd25aa897306fea7a34841e13c"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/windup-minus60-side.png",
+          "sha256": "0cf4301fa8d726cf77d6566712d1ad3fd5403e2061f69891b8f6c594bf73a7f9"
+        },
+        {
+          "path": "review/rigs/boss_archivist_astro/strike-plus55.png",
+          "sha256": "2e88b39c38fad3e4db6c5511f9a3df5725d2441f22779618eb688787f6ad82ea"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 5.449667
+      }
+    },
+    {
+      "id": "boss_novarion",
+      "status": "PASS",
+      "notes": "교정 후 7개 최신 PNG를 직접 재검수했다. 혼천의·네 날개를 후방으로 3 model unit 이동하고 중심 축을 연장해 연결을 유지했다. 측면 준비 포즈에서 망토와 고리 하단 사이의 공간이 읽히며 5각도 OBB는 -70°/-65°의 이전 망토/골반 관통도 0건임을 확인한다. 청록·보라 반투명 수정판과 금테, 입체 고리, 사자형 고양이 얼굴·태양관·은하핵·장창 실루엣이 유지된다. 실제 Minecraft 알파/조명은 별도 클라이언트 확인 대상이다.",
+      "reportSha256": "4cee5b0aa001ed81cdab5466232425bbad02857999f419aec2f08117c4db0504",
+      "images": [
+        {
+          "path": "review/rigs/boss_novarion/front.png",
+          "sha256": "fdca0918f2c2ac92ba13b9adb5e9826d914fcdea9159f89473ac96f2934fdfa1"
+        },
+        {
+          "path": "review/rigs/boss_novarion/side.png",
+          "sha256": "6c9ceb608383ce3dab0cbceec701064931d41257fa67ae3a242a9f205dcb7f88"
+        },
+        {
+          "path": "review/rigs/boss_novarion/rear.png",
+          "sha256": "aacb0bcc9eb27b812e287f2ade0e827a622c1f2c4552513dc0e29234f279f580"
+        },
+        {
+          "path": "review/rigs/boss_novarion/threequarter.png",
+          "sha256": "06757760a12c4567cf127971566066dc918e1bdb2bf8b8feaa310532ccd67113"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60.png",
+          "sha256": "00cdceda67bd6ba90a21ce6575b42fd1fadd4ea28739f7818d9962cadd5424f0"
+        },
+        {
+          "path": "review/rigs/boss_novarion/windup-minus60-side.png",
+          "sha256": "667686cdef274e0b94e95815f8c6fe39aca67dab9f4a6654f8603d4df07f39ad"
+        },
+        {
+          "path": "review/rigs/boss_novarion/strike-plus55.png",
+          "sha256": "a8aba904fca647fbde62c8589934d792d12b13c6a993578d6f87aa88fa679786"
+        }
+      ],
+      "visualStatus": "PASS",
+      "clearance": {
+        "status": "PASS",
+        "path": "review/astral-clearance.json",
+        "sha256": "ce34aaaa4eaa233a53a1af223be4a1445d6a4ab3fe13976a10ca318adfd4f546",
+        "pitches": [
+          -70,
+          -65,
+          -60,
+          0,
+          55
+        ],
+        "unintendedIntersections": 0,
+        "minimumYModelUnits": 6.3
+      }
+    }
+  ],
+  "clearanceAuditAt": "2026-11-15T21:50:22.541Z"
+}

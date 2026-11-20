@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "inspect_blender",
+  "observedAt": "2026-11-15T21:53:35.959Z",
+  "status": "PASS",
+  "method": "Opened all seven PNG views of each Chapter 3 rig; reopened all seven final views for the four corrected rigs. Checked current source hashes, saved blend hashes and fresh-process reopen evidence against each assembly report. Blender visual review only; Minecraft client translucency and runtime deployment remain separate.",
+  "rigs": [
+    {
+      "id": "mob_mirror_stalker",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 전방으로 굽힌 사마귀 실루엣, 어깨 힌지와 칼날이 연결된다. 알파 208 프리즘 면을 적용한 뒤에도 불투명 칼날 외곽선과 관절이 유지되며, -60° 들어올림과 +55° 타격에서 새 분리나 바닥 관통이 보이지 않는다. 실제 Minecraft 반투명 정렬은 별도 런타임 검증 대상이다.",
+      "reportSha256": "51b8c3105cfb16fddb8dc8d9cef57e2eb593082779ec32f2cbbb2b9abbdf59e2",
+      "images": [
+        {
+          "path": "review/rigs/mob_mirror_stalker/front.png",
+          "sha256": "19170a4659a56200a3f9f3caf0dbd8b317e3fab08af241f53c8afaf303199dbb"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/side.png",
+          "sha256": "25cd90594546ad188565571e464d07dad0947d487d0b6c6adb5fc4c79576749c"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/rear.png",
+          "sha256": "f11f094652013b4bcc630e11cac457ffed76825709750e0987d79731acd34243"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/threequarter.png",
+          "sha256": "a5f2e81e2415938bc2d7ca91341f731676f0d1e752bf454ccfb6ff98b79385b7"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60.png",
+          "sha256": "900fc8a77ae713c2ce102b29c411323426e72c07e13fecba4be932a894e5be20"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/windup-minus60-side.png",
+          "sha256": "fd793eef5f747c32a8ba672eb941b64f38b76f120bad734d062cf77a53e161a8"
+        },
+        {
+          "path": "review/rigs/mob_mirror_stalker/strike-plus55.png",
+          "sha256": "91c1d644efc162ab6ca87c65bb63bc18fd0bb82422999d337c844143c92164b7"
+        }
+      ]
+    },
+    {
+      "id": "mob_void_choir",
+      "status": "PASS",
+      "notes": "수정 후 최종 7뷰에서 책·성배를 전방으로 옮긴 배치와 굽은 소매가 연결된다. -60° 측면에서 성배와 음표가 후드 앞쪽으로 분리되고, +55°에서도 책이 바닥 위에 남는다. 광배 지지대는 후드 바깥으로 지나간다. 5개 의미 피치의 후드·가면 OBB 교차검사도 모두 0건이다.",
+      "reportSha256": "6c9d1a2d3d3a1b414b254828cf110d3c12acc276330962a678dd84229968bda1",
+      "images": [
+        {
+          "path": "review/rigs/mob_void_choir/front.png",
+          "sha256": "c70102cfe5c0128ffe34784defa4f23c61ec63030fb13ae52fe9e6cf69429200"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/side.png",
+          "sha256": "4bfdfe11abb274896c9464f7c503f805fabbbc09626128d811e70bd961d21d04"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/rear.png",
+          "sha256": "75d6940683b6e33c64d12bffc5102125bc3a886546037e2f012292ae682c352f"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/threequarter.png",
+          "sha256": "c24c47facd11098a9796a9dade3e4630dd3444a77def58f424ccca258deeee0b"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60.png",
+          "sha256": "7c839b4c2e9fb53399f6d15a7fb497973aa28d2bf652c0592294bd8dca3eceb6"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/windup-minus60-side.png",
+          "sha256": "76808a77192a5a68c86bb8199632642a6163a7de4b8d90aabf30bf38bce307ad"
+        },
+        {
+          "path": "review/rigs/mob_void_choir/strike-plus55.png",
+          "sha256": "379c1a5eb83284b9e87406c8a0ccbfb2ffd3670c1abf15a8578bb2ecfcddebea"
+        }
+      ]
+    },
+    {
+      "id": "mob_abyssal_oculus",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 부유 안구, 홍채와 여섯 촉수의 구조가 구분된다. 중립 및 -60° 포즈에서 좌우 세 갈래 촉수 끝이 확인되고, +55°에서도 연결점 이탈이나 바닥 관통이 보이지 않는다.",
+      "reportSha256": "ea86da8123b380802b7960887bcba1b19308b8f110e641b21fbafa578d07defa",
+      "images": [
+        {
+          "path": "review/rigs/mob_abyssal_oculus/front.png",
+          "sha256": "12f6d8f76e14e931b2b679cbf2c9b24a6a7d7372fb8d477d4a72a35c2e8ed47c"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/side.png",
+          "sha256": "5e4a3f7bb51afd776d8138d4fa35c1342e9000fcdd3d04c9c25f960d27b8b5ea"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/rear.png",
+          "sha256": "a7978db0c6d6702de0b22832d0650768e2935e1c15c2d5ad22afc456c5c13451"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/threequarter.png",
+          "sha256": "b52364e4c1ee1ff5500e4d82dda180abd9d2e7d77ada876a498f71a2314b530d"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60.png",
+          "sha256": "7702ddc5a5ad343ed18722169ef263f8f57dc90554af6c4ed73b1c697a627b08"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/windup-minus60-side.png",
+          "sha256": "a97b14fbe6ff544bd229e20415347fab4e8d5e6cfbff9c5c6231282134422a77"
+        },
+        {
+          "path": "review/rigs/mob_abyssal_oculus/strike-plus55.png",
+          "sha256": "b120e867475a314f0f0e7baf6c5594bba4516be314d10c2889245d96bf09d379"
+        }
+      ]
+    },
+    {
+      "id": "mob_eclipse_templar",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 일식 기사 갑주와 검의 대비가 유지된다. -60° 측면으로 검이 얼굴 앞쪽을 지나가는 간격을 확인했고 +55°에서 검 끝이 바닥을 관통하지 않는다. 새 분리나 힌지 이탈이 보이지 않는다.",
+      "reportSha256": "1e9f84f0f798409ce414a682b722d2113d522397ae5cc3eec1f3e180a59871d6",
+      "images": [
+        {
+          "path": "review/rigs/mob_eclipse_templar/front.png",
+          "sha256": "7cad31c43e553ec3806469a614aeda2062cda6c880691c664b0486f6adb9912d"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/side.png",
+          "sha256": "027dc06de9fe00850abe5003d6ad20ee3cccfc5a565e58ab5262288e6ee8cc04"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/rear.png",
+          "sha256": "ed84f6a54347729122f34cd5cf1da27fab3c12419facc88bcba653fbe12beef5"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/threequarter.png",
+          "sha256": "db9ec7332d775f5382c536c2fd7c30f5a17e352ed5b70e3492bfa59c6a048abd"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60.png",
+          "sha256": "982ec10d36b4364ed2dfa5b03580a77672ff55e3f5d5371303444e09e2160a9e"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/windup-minus60-side.png",
+          "sha256": "c420241d1057d169d133aae69d735c4c1ef4451f1d2d95f5719e1038481b8bd7"
+        },
+        {
+          "path": "review/rigs/mob_eclipse_templar/strike-plus55.png",
+          "sha256": "8955b52af25654178143fbf4d354ec6352ac866f547dd803da60fc84b48a1157"
+        }
+      ]
+    },
+    {
+      "id": "boss_twin_archons",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 한 세트의 흑백 쌍성 군주와 양측 날개·무기가 구분된다. 날개 뿌리를 바깥쪽으로 옮긴 뒤 +55°에서 관자놀이와의 관통이 해소되며, 중립 및 -60° 실루엣과 연결은 유지된다. 5개 의미 피치의 머리 OBB 교차검사도 모두 0건이다.",
+      "reportSha256": "9b64a92560c1b21e4d187d5911e1d022fb007d5098f2ca17f31231c451cdcc45",
+      "images": [
+        {
+          "path": "review/rigs/boss_twin_archons/front.png",
+          "sha256": "ce1df43d23633728a202c80b89c9b2c81104a250ba17aafb8d04ef5ad8db4c0d"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/side.png",
+          "sha256": "46cabac272b779abd41a19cc162e9c7eaa438adfc3bdadfd3fbac9a694790da8"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/rear.png",
+          "sha256": "23dec445380daef2281168313653b25bebf56ef5d38fec5e2c19fb76cc88631a"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/threequarter.png",
+          "sha256": "ae298b1572f8d92dfe66f36c6804ae7b04257f737c86f941248ce7c5a6adebbf"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60.png",
+          "sha256": "ce7b47fe7fef8320117a75deaeb26f909c328d1a5cb65a18d6024ace81e2fd0a"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/windup-minus60-side.png",
+          "sha256": "9b8f78e70b70f356ac4b88d2c45229cdfa4628213dfc5ae6a3ed575764227e5e"
+        },
+        {
+          "path": "review/rigs/boss_twin_archons/strike-plus55.png",
+          "sha256": "a39a0a72fccaf1658d7b67ebc75816b800f9cc6ee68ec4d27f4e5f3164883937"
+        }
+      ]
+    },
+    {
+      "id": "boss_eclipsia",
+      "status": "PASS",
+      "notes": "최종 7뷰에서 여섯 스테인드글라스 날개와 일식 흉부, 낫이 유지된다. 날개 뿌리 교정 후 +55°에서 머리·베일 관통이 해소되었고, -60° 측면에서 낫자루가 얼굴 앞쪽을 지나간다. 5개 의미 피치의 머리·베일·광배 OBB 교차검사도 모두 0건이다.",
+      "reportSha256": "f760ce2aa329a93cbd8d8170cac85d733beb9cb5dc0efa238db1f81d0b4730ca",
+      "images": [
+        {
+          "path": "review/rigs/boss_eclipsia/front.png",
+          "sha256": "e29e915da3110d2ecd3a5e94abd6ad04384b25ce75d998d4aa41b748c632256f"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/side.png",
+          "sha256": "53e637eacf9d1bb4a34d2af2d23a644a6efbfb15580471342311333af702bef0"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/rear.png",
+          "sha256": "df08a7856391aafabc72976d6e969b67b35e31e0f0c1180c4a2b0358b05aa8ff"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/threequarter.png",
+          "sha256": "b54fb4aebd421e6a6445959092149fb20aa835a523ab458d8121ecfabad251d1"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60.png",
+          "sha256": "d81275da8d940ec54572b0ca0c914696f4cc3a42ae29373176ae6eb270a6cb65"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/windup-minus60-side.png",
+          "sha256": "62f2214877dd58de337b28df48a86a0fa99f62c40317e98f5b052d4807ae1432"
+        },
+        {
+          "path": "review/rigs/boss_eclipsia/strike-plus55.png",
+          "sha256": "b63eff126afa843eae32aaab9e5b6ba81a28564f2ae6de714a0d7e6890eb64b5"
+        }
+      ]
+    }
+  ]
+}

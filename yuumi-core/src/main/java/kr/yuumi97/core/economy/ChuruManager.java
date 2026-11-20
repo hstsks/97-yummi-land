@@ -52,7 +52,8 @@ public final class ChuruManager implements CommandExecutor, TabCompleter {
         return vaultEco;
     }
 
-    public void ensureStarterBalance(Player player) {
+    /** One initialization gate shared by currency and the starter kit. */
+    public boolean initializePlayer(Player player) {
         String key = "players." + player.getUniqueId() + ".initialized";
         if (!data.getBoolean(key, false)) {
             data.set(key, true);
@@ -61,7 +62,9 @@ public final class ChuruManager implements CommandExecutor, TabCompleter {
                 deposit(player, start - getBalance(player));
             }
             saveCallback.run();
+            return true;
         }
+        return false;
     }
 
     public double getBalance(OfflinePlayer player) {

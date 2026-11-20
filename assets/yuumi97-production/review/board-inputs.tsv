@@ -1,0 +1,37 @@
+model	weapon_berserker_greatsword
+model	weapon_priest_staff
+model	weapon_arcane_orb_tome
+model	guidebook
+model	prop_wayfinder_arrow
+model	vfx_slash_crescent_gold
+model	vfx_slash_crimson_heavy
+model	vfx_titan_greatsword_drop
+model	vfx_slash_crescent_shadow
+model	vfx_shadow_mark_crest
+model	vfx_star_arrow_volley
+model	vfx_astral_bow_sigil
+model	vfx_magic_circle_arcane
+model	vfx_gravity_singularity
+model	vfx_arcane_meteor
+model	vfx_magic_circle_sanctuary
+model	vfx_holy_spear
+model	vfx_golden_fishing_vortex
+model	vfx_feast_cauldron_aura
+rig	mob_grimoire_mimic	1
+rig	mob_clockwork_sentinel	1
+rig	mob_ink_librarian	1
+rig	mob_nebula_golem	1
+rig	boss_archivist_astro	1
+rig	boss_novarion	1
+rig	mob_cinder_imp	2
+rig	mob_slag_hound	2
+rig	mob_obsidian_bombardier	2
+rig	mob_chained_juggernaut	2
+rig	boss_warden_vulcantus	2
+rig	boss_ignion	2
+rig	mob_mirror_stalker	3
+rig	mob_void_choir	3
+rig	mob_abyssal_oculus	3
+rig	mob_eclipse_templar	3
+rig	boss_twin_archons	3
+rig	boss_eclipsia	3

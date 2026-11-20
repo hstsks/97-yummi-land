@@ -83,7 +83,7 @@ import java.util.function.BiConsumer;
 import java.util.zip.ZipFile;
 
 /**
- * 🏰 유미의 97랜드 v2.0 전용 평화 허브 도시 월드 매니저 (yuumi_hub)
+ * 🏰 유미의 97랜드 전용 평화 허브 도시 월드 매니저 (yuumi_hub)
  *
  * 십자형 5대 구역 + 큐레이션 오픈소스 .nbt 건축물 스탬핑 + 2층 황금 냥냥 카지노 홀 +
  * 4대 차원 대포탈 성소 + 노천 온천/응급 치유소 + 남쪽 벚꽃 대교 너머 12필지 분양 단지를 총괄합니다.
@@ -108,11 +108,12 @@ public final class HubWorldManager implements Listener {
     private World hubWorld;
     private boolean rouletteSpinning;
     private boolean rebuilding;
-    private final HubV31Layout v31;
+    private final HubLayoutBuilder layout;
     private Runnable trainingDummyReconciler = () -> {};
+    private BiConsumer<Player,Boolean> guidebookInteraction = (player,receive) -> {};
     private final Map<UUID, Map<String, Integer>> npcClickTicks = new HashMap<>();
 
-    private static final List<String> V3_STRUCTURES = List.of(
+    private static final List<String> CURATED_STRUCTURES = List.of(
             "jp_gazebo_1", "jp_park_1", "jp_park_2", "jp_planter", "jp_lamp", "jp_gate_1",
             "jp_small_farm_1", "jp_shepherd_1", "jp_fisher_1", "jp_weaponsmith_1", "jp_armorer_1",
             "jp_cartographer_1", "jp_leatherworker_1", "jp_medium_house_1", "jp_small_house_1",
@@ -129,7 +130,7 @@ public final class HubWorldManager implements Listener {
         this.propModelKey = new NamespacedKey(plugin, "hub_3d_prop_id");
         this.propHologramKey = new NamespacedKey(plugin, "hub_prop_hologram");
         this.statueBlocksKey = new NamespacedKey(plugin, "hub_statue_replaced_blocks");
-        this.v31 = new HubV31Layout(this, plugin);
+        this.layout = new HubLayoutBuilder(this, plugin);
     }
 
     public void setPlotManager(PlotManager plotManager) {
@@ -139,6 +140,9 @@ public final class HubWorldManager implements Listener {
     public void setTrainingDummyReconciler(Runnable callback) {
         trainingDummyReconciler = callback == null ? () -> {} : callback;
     }
+
+    public void setGuidebookInteraction(BiConsumer<Player,Boolean> callback) { guidebookInteraction=callback; }
+    public String layoutDescription() { return layout.description(); }
 
     // ==================== 1. 전용 평화 허브 월드 생성기 (yuumi_hub) ====================
 
@@ -208,6 +212,11 @@ public final class HubWorldManager implements Listener {
     public Location getClassMasterLocation() {
         return new Location(getHubWorld(), -14.5, 65.0, -10.5, 0f, 0f);
     }
+
+    public Location getUtilityHallLocation() { return new Location(getHubWorld(),-21.5,65,-18.5,180,0); }
+    public Location getGuidebookKioskLocation() { return new Location(getHubWorld(),8.5,66,8.5,0,0); }
+    public Location getHolyWaterLocation() { return new Location(getHubWorld(),-21.5,65,-31.5); }
+    public Location getTrashLocation() { return new Location(getHubWorld(),-10.5,65,-24.5); }
 
     public Location getStockBrokerLocation() {
         return new Location(getHubWorld(), 52.5, 72.0, -33.0, 0f, 0f);
@@ -329,43 +338,41 @@ public final class HubWorldManager implements Listener {
         World hub = getHubWorld();
         if (hub == null) return;
 
-        if (!data.getBoolean("hub_v2.built", false) || !data.getBoolean("hub_v3.built", false)
-                || !data.getBoolean("hub_v3_1.built", false)
-                || !v31.sourceFingerprint().equals(data.getString("hub_v3_1.blueprint-fingerprint", ""))) {
+        if (!layout.sourceFingerprint().equals(data.getString("hub.blueprint_hash", ""))) {
             buildEntireHubCity(hub);
         } else {
             refreshCustom3DProps();
         }
-        plugin.getLogger().info("[HubWorldManager] V31_HUB_READY");
+        plugin.getLogger().info("[HubWorldManager] CORE_HUB_READY");
     }
 
     public void buildEntireHubCity(World hub) {
         if (rebuilding) return;
         rebuilding = true;
         try {
-            v31.beginBuild();
-            data.set("hub_v3_1.built", false);
+            layout.beginBuild();
+            data.set("hub.blueprint_hash", null);
             saveCallback.run();
-            plugin.getLogger().info("[HubWorldManager] v3.1 public migration started; owned plot columns remain protected.");
-            buildPublicCityV3(hub, !data.getBoolean("hub_v2.built", false));
-            data.set("hub_v2.built", true);
-            data.set("hub_v3.built", true);
-            data.set("hub_v3_1.built", true);
-            data.set("hub_v3_1.blueprint-fingerprint", v31.appliedFingerprint());
+            plugin.getLogger().info("[HubWorldManager] Rebuilding public city; owned plot columns remain protected.");
+            buildPublicCity(hub, true);
+            data.set("hub.blueprint_hash", layout.appliedFingerprint());
+            data.set("hub_v2", null);
+            data.set("hub_v3", null);
+            data.set("hub_v3_1", null);
             saveCallback.run();
-            plugin.getLogger().info("[HubWorldManager] hub_v3_1.built=true; plaza pockets, palace, NPC sightlines and landmark fallbacks ready.");
+            plugin.getLogger().info("[HubWorldManager] Public city blueprint applied; guild hall, kiosk and facilities ready.");
         } finally {
             rebuilding = false;
         }
     }
 
-    private void buildPublicCityV3(World hub, boolean includeSouth) {
+    private void buildPublicCity(World hub, boolean includeSouth) {
         if (hub == null) throw new IllegalStateException("Hub world is not loaded");
-        validateV3Structures();
+        validateCuratedStructures();
         // Persistent NPCs can be in unloaded chunks when an administrator rebuilds.
         loadPublicChunks(hub);
         clearTaggedHubEntities(hub);
-        v31.clearOldTrees(hub);
+        layout.clearOldTrees(hub);
 
         // 1) Central Cat Fountain Plaza & 4 Cardinal Boulevards
         buildCentralPlazaAndBoulevards(hub);
@@ -384,13 +391,13 @@ public final class HubWorldManager implements Listener {
         // 5) South: Scenic Canal, Cherry Arch Bridge & 12-Plot Residential District
         if (includeSouth) buildSouthBridgeAndPlotDistrict(hub);
 
-        // v3 replaces the old carts and fills public spaces without crossing plot columns.
-        buildV3Plaza(hub);
-        buildV3Market(hub);
-        buildV3Sanctuary(hub);
-        buildV3Casino(hub);
-        buildV3Harbor(hub);
-        v31.buildPlaza(hub);
+        // Fill public spaces without crossing owned plot columns.
+        buildPlazaDistrict(hub);
+        buildMarketDistrict(hub);
+        buildSanctuaryDistrict(hub);
+        buildCasinoDistrict(hub);
+        buildHarborDistrict(hub);
+        layout.buildPlaza(hub);
 
         // 6) Spawn all Interactive Cat NPCs & Floating Holograms
         spawnAllHubNpcs(hub);
@@ -408,20 +415,20 @@ public final class HubWorldManager implements Listener {
         }
     }
 
-    private void validateV3Structures() {
-        for (String id : V3_STRUCTURES) {
+    private void validateCuratedStructures() {
+        for (String id : CURATED_STRUCTURES) {
             try (InputStream in = plugin.getResource("structures/v3/" + id + ".nbt")) {
-                if (in == null) throw new IllegalStateException("Missing required v3 structure: " + id);
+                if (in == null) throw new IllegalStateException("Missing required hub structure: " + id);
             } catch (java.io.IOException e) {
-                throw new IllegalStateException("Cannot read v3 structure: " + id, e);
+                throw new IllegalStateException("Cannot read hub structure: " + id, e);
             }
         }
     }
 
-    private void buildV3Plaza(World hub) {
+    private void buildPlazaDistrict(World hub) {
         // Old podium/booth fragments extended outside the circular plaza; remove the complete legacy footprint.
         for (int x = 9; x <= 24; x++) for (int z = -23; z <= -9; z++) clearColumn(hub, x, 65, 80, z);
-        stampCenteredV3(hub, "jp_gazebo_1", -14, 64, -14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_gazebo_1", -14, 64, -14, StructureRotation.NONE);
         // A shallow reflecting pond beside the school gazebo, outside the main crossroad.
         for (int x = -24; x <= -21; x++) {
             for (int z = -10; z <= -6; z++) {
@@ -432,7 +439,7 @@ public final class HubWorldManager implements Listener {
         }
         clearNpcPad(getClassMasterLocation(), 64);
 
-        stampCenteredV3(hub, "jp_planter", -23, 65, 14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_planter", -23, 65, 14, StructureRotation.NONE);
         buildCafeParasol(hub, -16, 13, Material.PINK_WOOL);
         buildCafeParasol(hub, -11, 20, Material.LIGHT_BLUE_WOOL);
         for (int z : new int[]{11, 15, 18, 22}) {
@@ -442,7 +449,7 @@ public final class HubWorldManager implements Listener {
         spawnHolo(hub, new Location(hub, -14.5, 70.4, 17.5),
                 "<#ff85c0><bold>☕ 사르르 직거래 카페</bold></#ff85c0>\n<white>집사를 Shift+우클릭하여 안전 거래</white>");
 
-        stampCenteredV3(hub, "jp_park_1", 15, 64, 14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_park_1", 15, 64, 14, StructureRotation.NONE);
         // Decorative cats are persistent town residents, separate from the interactive NPCs.
         for (int[] point : new int[][]{{12, 12}, {18, 18}, {21, 11}}) {
             Location loc = new Location(hub, point[0] + 0.5, 65, point[1] + 0.5);
@@ -470,27 +477,27 @@ public final class HubWorldManager implements Listener {
         publicBlock(hub, cx, 69, cz, Material.LANTERN);
     }
 
-    private void buildV3Market(World hub) {
+    private void buildMarketDistrict(World hub) {
         // Remove all five former carts before stamping larger stores; the avenue remains open.
         pavePlazaRect(hub, -74, -30, -21, -6, Material.SMOOTH_STONE, Material.CHERRY_PLANKS);
         pavePlazaRect(hub, -69, -31, 6, 21, Material.SMOOTH_STONE, Material.CHERRY_PLANKS);
-        stampCenteredV3(hub, "jp_shepherd_1", -38, 64, -14, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_fisher_1", -53, 64, -14, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_weaponsmith_1", -68, 64, -14, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_cartographer_1", -44, 64, 13, StructureRotation.CLOCKWISE_180);
-        stampCenteredV3(hub, "jp_leatherworker_1", -61, 64, 14, StructureRotation.CLOCKWISE_180);
+        stampCuratedCentered(hub, "jp_shepherd_1", -38, 64, -14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_fisher_1", -53, 64, -14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_weaponsmith_1", -68, 64, -14, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_cartographer_1", -44, 64, 13, StructureRotation.CLOCKWISE_180);
+        stampCuratedCentered(hub, "jp_leatherworker_1", -61, 64, 14, StructureRotation.CLOCKWISE_180);
         for (int x : new int[]{-38, -53, -68}) buildShopAwning(hub, x, -7, Material.PINK_WOOL);
         for (int x : new int[]{-44, -61}) buildShopAwning(hub, x, 7, Material.LIGHT_BLUE_WOOL);
 
-        stampCenteredV3(hub, "jp_medium_house_1", -44, 64, -30, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_small_house_1", -59, 64, -29, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_small_house_2", -72, 64, -29, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_armorer_1", -73, 64, 29, StructureRotation.CLOCKWISE_180);
-        stampCenteredV3(hub, "jp_park_2", -56, 64, 28, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_small_farm_1", -43, 64, 28, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_medium_house_1", -44, 64, -30, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_small_house_1", -59, 64, -29, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_small_house_2", -72, 64, -29, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_armorer_1", -73, 64, 29, StructureRotation.CLOCKWISE_180);
+        stampCuratedCentered(hub, "jp_park_2", -56, 64, 28, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_small_farm_1", -43, 64, 28, StructureRotation.NONE);
         for (int x : new int[]{-33, -49, -65, -90}) {
-            stampCenteredV3(hub, "jp_lamp", x, 65, -5, StructureRotation.NONE);
-            stampCenteredV3(hub, "jp_lamp", x, 65, 5, StructureRotation.NONE);
+            stampCuratedCentered(hub, "jp_lamp", x, 65, -5, StructureRotation.NONE);
+            stampCuratedCentered(hub, "jp_lamp", x, 65, 5, StructureRotation.NONE);
         }
         // Suspended garlands have five blocks of clear headroom over both sidewalks.
         for (int x = -72; x <= -30; x++) {
@@ -519,11 +526,11 @@ public final class HubWorldManager implements Listener {
         publicBlock(hub, cx + 2, 65, z, Material.CHEST);
     }
 
-    private void buildV3Sanctuary(World hub) {
+    private void buildSanctuaryDistrict(World hub) {
         // The large pagoda is offset two blocks west so its 27-block footprint clears the portal terrace.
-        stampCenteredV3(hub, "oriental_pagoda", -48, 64, -66, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_temple", 46, 64, -66, StructureRotation.NONE);
-        stampCenteredV3(hub, "jp_gate_1", -48, 65, -49, StructureRotation.CLOCKWISE_90);
+        stampCuratedCentered(hub, "oriental_pagoda", -48, 64, -66, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_temple", 46, 64, -66, StructureRotation.NONE);
+        stampCuratedCentered(hub, "jp_gate_1", -48, 65, -49, StructureRotation.CLOCKWISE_90);
         for (int x = -48; x <= -34; x++) {
             for (int z = -52; z <= -50; z++) publicBlock(hub, x, 64, z, Material.QUARTZ_BRICKS);
         }
@@ -548,7 +555,7 @@ public final class HubWorldManager implements Listener {
                 "<light_purple><bold>🗝 문턱의 미궁 집결 아치</bold></light_purple>\n<white>1~8인 파티 · 세 가지 차원의 시련</white>");
     }
 
-    private void buildV3Casino(World hub) {
+    private void buildCasinoDistrict(World hub) {
         // The 2F stock lounge is on the north balcony, outside the racing atrium and slot rows.
         for (int x = 46; x <= 58; x++) {
             for (int z = -35; z <= -29; z++) {
@@ -559,11 +566,11 @@ public final class HubWorldManager implements Listener {
         for (int x = 49; x <= 55; x++) publicBlock(hub, x, 71, -32, Material.BLUE_CARPET);
         spawnHolo(hub, new Location(hub, 52.5, 78.0, -34.5),
                 "<green><bold>📈 츄르 증권 거래소</bold></green>\n<white>4대 예능 종목 · 10분 시세 갱신</white>");
-        v31.buildCasino(hub);
+        layout.buildCasino(hub);
         clearNpcPad(getStockBrokerLocation(), 71);
     }
 
-    private void buildV3Harbor(World hub) {
+    private void buildHarborDistrict(World hub) {
         for (int x = 119; x <= 146; x++) {
             for (int z = 12; z <= 38; z++) {
                 clearColumn(hub, x, 64, 88, z);
@@ -571,8 +578,8 @@ public final class HubWorldManager implements Listener {
                 for (int y = 61; y <= 63; y++) publicBlock(hub, x, y, z, Material.WATER);
             }
         }
-        stampCenteredV3(hub, "harbor_ship", 129, 63, 27, StructureRotation.NONE);
-        stampCenteredV3(hub, "lighthouse_house", 114, 64, 42, StructureRotation.NONE);
+        stampCuratedCentered(hub, "harbor_ship", 129, 63, 27, StructureRotation.NONE);
+        stampCuratedCentered(hub, "lighthouse_house", 114, 64, 42, StructureRotation.NONE);
         for (int x = 112; x <= 116; x++) {
             for (int z = 32; z <= 35; z++) publicBlock(hub, x, 64, z, Material.SPRUCE_PLANKS);
         }
@@ -604,7 +611,7 @@ public final class HubWorldManager implements Listener {
         clearColumn(location.getWorld(), x, floorY + 1, floorY + 3, z);
     }
 
-    void stampCenteredV3(World world, String id, int cx, int y, int cz, StructureRotation rotation) {
+    void stampCuratedCentered(World world, String id, int cx, int y, int cz, StructureRotation rotation) {
         String file = "v3/" + id + ".nbt";
         try (InputStream in = plugin.getResource("structures/" + file)) {
             if (in == null) throw new IllegalStateException("Missing required structure: " + file);
@@ -620,7 +627,7 @@ public final class HubWorldManager implements Listener {
                 for (int z = minZ; z <= maxZ; z++) clearColumn(world, x, Math.max(y + 1, 65), y + size.getBlockY(), z);
             }
             if (!stampStructure(world, file, minX - offsets[0], y, minZ - offsets[2], rotation)) {
-                throw new IllegalStateException("Failed required v3 structure: " + file);
+                throw new IllegalStateException("Failed required hub structure: " + file);
             }
         } catch (java.io.IOException e) {
             throw new IllegalStateException("Cannot load structure " + file, e);
@@ -1256,6 +1263,16 @@ public final class HubWorldManager implements Listener {
             }
         }
 
+        publicBlock(hub,3,65,58,Material.CHERRY_SIGN);
+        Block board=hub.getBlockAt(3,65,58);
+        if(board.getBlockData() instanceof org.bukkit.block.data.type.Sign facing){facing.setRotation(BlockFace.WEST);board.setBlockData(facing,false);}
+        if(board.getState() instanceof org.bukkit.block.Sign sign){
+            var front=sign.getSide(org.bukkit.block.sign.Side.FRONT);
+            front.line(0,TextUtil.mm("<gold>🏡 12필지 분양 단지"));front.line(1,TextUtil.mm("<black>소형6 · 중형4 · 대형2"));
+            front.line(2,TextUtil.mm("<black>현장 표지판 / 마을 회관"));front.line(3,TextUtil.mm("<dark_green>/집 · /분양"));
+            sign.setWaxed(true);sign.update(true,false);
+        }
+
         // Format all 12 Residential Plots with crisp borders & fresh grass lawns
         if (plotManager != null) {
             for (PlotSpec spec : plotManager.getAllPlots().values()) {
@@ -1386,9 +1403,20 @@ public final class HubWorldManager implements Listener {
     // ==================== 4. 허브 전용 NPC 고양이 스폰 & 상호작용 ====================
 
     private void spawnAllHubNpcs(World hub) {
+        spawnCatNpc(hub,new Location(hub,-30.5,65,-36.5),Cat.Type.BLACK,
+                "<gold><bold>⚒ 공방 대장 보조냥</bold></gold>","<white>별빛 세공 · 수리 · 룬 · 지오드</white>","workshop_smith");
+        spawnCatNpc(hub,new Location(hub,-12.5,65,-36.5),Cat.Type.RAGDOLL,
+                "<aqua><bold>🔐 금고지기 보조냥</bold></aqua>","<white>4탭 개인 안전 금고</white>","workshop_vault");
+        spawnCatNpc(hub,new Location(hub,-12.5,65,-28.5),Cat.Type.CALICO,
+                "<green><bold>🪚 목공·만찬 공방 보조냥</bold></green>","<white>공공 제작 · 전문직 효율 우대</white>","workshop_craft");
+        Interaction kiosk=hub.spawn(getGuidebookKioskLocation(),Interaction.class);
+        kiosk.setInteractionWidth(1.4f);kiosk.setInteractionHeight(3.4f);kiosk.setResponsive(true);kiosk.setPersistent(true);
+        kiosk.getPersistentDataContainer().set(npcRoleKey,PersistentDataType.STRING,"guidebook_kiosk");
+        kiosk.getPersistentDataContainer().set(hubDecorKey,PersistentDataType.BYTE,(byte)1);
+        spawnHolo(hub,new Location(hub,8.5,73.3,8.5),"<gold><bold>📖 만능 가이드북 안내소</bold></gold>\n<white>우클릭: 가이드 열람 · Shift+우클릭: 책 무료 수령</white>");
         spawnCatNpc(hub, getClassMasterLocation(), Cat.Type.SIAMESE,
                 "<gold><bold>🌟 성향 전직 교관 마스터냥</bold></gold>",
-                "<yellow>[우클릭] 10대 성향 · 초월 각성 · 특전 · 책갈피함</yellow>", "class_master");
+                "<yellow>[우클릭] 전투 6 · 생활 6 성향 · 초월 각성 · 특전 · 책갈피함</yellow>", "class_master");
         spawnCatNpc(hub, getDungeonGateLocation(), Cat.Type.ALL_BLACK,
                 "<light_purple><bold>🗝 미궁 수문장 유령냥</bold></light_purple>",
                 "<yellow>[우클릭] 파티 미궁 입장 · 고대 금화 교환</yellow>", "dungeon_gate");
@@ -1507,8 +1535,7 @@ public final class HubWorldManager implements Listener {
     public void refreshCustom3DProps() {
         World hub = getHubWorld();
         if (hub == null) return;
-        if (!rebuilding && data.getBoolean("hub_v3_1.built", false)
-                && !v31.sourceFingerprint().equals(data.getString("hub_v3_1.blueprint-fingerprint", ""))) {
+        if (!rebuilding && !layout.sourceFingerprint().equals(data.getString("hub.blueprint_hash", ""))) {
             buildEntireHubCity(hub);
             return;
         }
@@ -1562,21 +1589,21 @@ public final class HubWorldManager implements Listener {
         if (bundledModels.contains("prop_derby_trophy")) {
             mount3DProp(hub, new Location(hub, 72.5, 66.2, -22.0, 90f, 0f), "prop_derby_trophy", 1.5f);
         }
-        mountV3FacilityProp(hub, bundledModels, "prop_gacha_machine", 22, 65, -31,
+        mountFacilityProp(hub, bundledModels, "prop_gacha_machine", 22, 65, -31,
                 new Location(hub, 22.5, 65.7, -30.5), Material.GOLD_BLOCK, 1.4f);
-        mountV3FacilityProp(hub, bundledModels, "prop_stock_board", 52, 74, -35,
+        mountFacilityProp(hub, bundledModels, "prop_stock_board", 52, 74, -35,
                 new Location(hub, 52.5, 75.0, -34.7), Material.BLACK_CONCRETE, 1.5f);
-        mountV3FacilityProp(hub, bundledModels, "prop_dungeon_obelisk", 24, 66, -57,
+        mountFacilityProp(hub, bundledModels, "prop_dungeon_obelisk", 24, 66, -57,
                 new Location(hub, 24.5, 67.2, -56.5), Material.CHISELED_DEEPSLATE, 1.25f);
-        mountV3FacilityProp(hub, bundledModels, "prop_boon_altar", 12, 66, -59,
+        mountFacilityProp(hub, bundledModels, "prop_boon_altar", 12, 66, -59,
                 new Location(hub, 12.5, 66.9, -58.5), Material.ENCHANTING_TABLE, 1.2f);
-        mountV3FacilityProp(hub, bundledModels, "prop_feast_cauldron", 59, 65, 10,
+        mountFacilityProp(hub, bundledModels, "prop_feast_cauldron", 59, 65, 10,
                 new Location(hub, 59.5, 65.8, 10.5), Material.CAULDRON, 1.0f);
-        v31.mountLandmarks(hub, bundledModels);
+        layout.mountLandmarks(hub, bundledModels);
         trainingDummyReconciler.run();
     }
 
-    private void mountV3FacilityProp(World world, Set<String> models, String id, int x, int y, int z,
+    private void mountFacilityProp(World world, Set<String> models, String id, int x, int y, int z,
                                       Location displayLocation, Material fallback, float scale) {
         if (isOwnedColumn(world, x, z)) return;
         Block block = world.getBlockAt(x, y, z);
@@ -1749,6 +1776,7 @@ public final class HubWorldManager implements Listener {
         Map<String, Integer> roleTicks = npcClickTicks.computeIfAbsent(playerId, ignored -> new HashMap<>());
         Integer previous = roleTicks.put(role, tick);
         if (previous != null && previous == tick) return;
+        if(role.equals("guidebook_kiosk")){guidebookInteraction.accept(p,p.isSneaking());return;}
         p.playSound(clicked.getLocation(), Sound.ENTITY_CAT_PURREOW, 1.0f, 1.15f);
         npcActionRouter.accept(p, role);
     }
@@ -1802,6 +1830,9 @@ public final class HubWorldManager implements Listener {
         if (b == null) return;
         World hub = getHubWorld();
         if (hub == null || !hub.equals(b.getWorld())) return;
+        if(event.getAction()==Action.RIGHT_CLICK_BLOCK&&b.getX()==8&&b.getY()==66&&b.getZ()==8) {
+            event.setCancelled(true);guidebookInteraction.accept(event.getPlayer(),event.getPlayer().isSneaking());return;
+        }
 
         // Trampling farmland protection
         if (event.getAction() == Action.PHYSICAL && b.getType() == Material.FARMLAND) {
@@ -1813,6 +1844,9 @@ public final class HubWorldManager implements Listener {
 
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Material m = b.getType();
+
+        if(b.getX()>=-36&&b.getX()<=-8&&b.getZ()>=-44&&b.getZ()<=-20
+                &&(m==Material.FURNACE||m==Material.BLAST_FURNACE||m==Material.SMOKER))return;
 
         // Public Hub utility blocks everyone is welcome to use!
         if (m == Material.ENDER_CHEST || m == Material.ENCHANTING_TABLE || m == Material.CRAFTING_TABLE

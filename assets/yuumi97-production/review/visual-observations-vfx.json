@@ -1,0 +1,455 @@
+{
+  "status": "PASS",
+  "reviewer": "inspect_blender",
+  "scope": "Observed final saved-scene 5-view sheets and effect-placement contexts; selected corrected models also compared with archived original PNGs. Minecraft runtime verification remains separate.",
+  "models": [
+    {
+      "id": "vfx_slash_crescent_gold",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 크기가 다른 3중 수평 초승달, 백금 코어와 황금 외곽 및 실제 빈 공간을 확인했다.",
+      "reportSha256": "f00cc05c8b199267ecd6837a66f24c72882ead182a5d656c05c8cafb08900b83",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_gold/front.png",
+          "sha256": "0b4eecfb1d07cfe8577120d99c562b47a5867bd883ba21b08adc8f30659be62b"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/side.png",
+          "sha256": "09b4bde303f28dbda5f8ac7ab1b76c085774182ffb1cf073fbe1497e2d12550f"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/rear.png",
+          "sha256": "41ad7dbe73d8fd14f79bb2f5b9b2e471401243f05f3fc86a5724cb97b19a6773"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/threequarter.png",
+          "sha256": "6dba9cbc43316a81fee7602618fe5175e5084215c2eb7b4762d1db8b49da82c9"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_gold/top.png",
+          "sha256": "15432774475695d465353e9db33fc1e8e4747342c169f65105db12845d26ec8f"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crescent_gold/context-direction-yaw180.png",
+          "sha256": "37524e8d1930c987c7e6475a38d15c8b7205e4ad14e189713005ae5ae797053a"
+        }
+      ]
+    },
+    {
+      "id": "vfx_slash_crimson_heavy",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 두꺼운 반원, 용암 주황 코어·불꽃 톱니·어두운 재 파편이 황금 3중 검기와 구별된다.",
+      "reportSha256": "c7c5a6eedb19b7e082e6ef57fb595dd4c0dd0b3ee8073ccd37792e68d54c1d3e",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/front.png",
+          "sha256": "1f29e1ebb049e612eba9cd16ace3bb8cbd788a34303523a32e30417864e7cd47"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/side.png",
+          "sha256": "1b4e089b8e4f774dc401c970da8f4adfe32450bfebb6e61988142e2fef35feeb"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/rear.png",
+          "sha256": "8b7cdb1bd1880b949aa842ca9f92c48732b24f0d5f5cfed4bebea23dbd34cb16"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/threequarter.png",
+          "sha256": "357d9aaa6f172957c8dfb20fe2998e516e241385740a7b048bb6b17ce10c9bf2"
+        },
+        {
+          "path": "review/models/vfx_slash_crimson_heavy/top.png",
+          "sha256": "f378d17529a2f9f0dd0d59cbee68f6ad2f2b693cf97dc2844748132df6ba6da8"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crimson_heavy/context-direction-yaw180.png",
+          "sha256": "49cce76b2dfe6351889c3d512a0edec47c7401dd50c8f56cac815baff0d7b13f"
+        }
+      ]
+    },
+    {
+      "id": "vfx_titan_greatsword_drop",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 칼끝 -Y, 자루 +Y, 흑요석 칼날·용암 균열과 주변 나선 링의 입체 관계를 확인했다.",
+      "reportSha256": "61f99f6bfef5da70882794e7dcc44fdbfe4abf4db0978d5cff7d4a76aec8af94",
+      "images": [
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/front.png",
+          "sha256": "3d82772b537e9a29d2af6d86b613f9f741bd3e95920765dbaf01111b17e47aba"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/side.png",
+          "sha256": "595aa7fbd49d7fe8dda3b977ac2af51508408eecc6f195580c6b01f4cb40ef2a"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/rear.png",
+          "sha256": "15bb7e1b19808869b571cd53c9d457f8576a59b8abaa0f3f03cdfa026c33e331"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/threequarter.png",
+          "sha256": "a4f61f99c8222fd769591df89b963ec439068f4f937040ea2ec7c006658cd474"
+        },
+        {
+          "path": "review/models/vfx_titan_greatsword_drop/top.png",
+          "sha256": "8e8dd9b438a4baaaaef65fd5887f2033a97c09cbe1d272261606bed5ce0e1d79"
+        },
+        {
+          "path": "review/contexts/vfx_titan_greatsword_drop/context-direction-yaw180.png",
+          "sha256": "1532834c76ac4dda3a130f8951c95f0e8e301945649500aa4fa8c4a6c9b58cc7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_slash_crescent_shadow",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 ±45도 교차 궤적과 발톱 룬을 확인했다. 보정 후 후면 보라 코어가 읽히며 정면의 밝은 코어는 유지된다.",
+      "reportSha256": "993d6d0249d6d05e0bd6734a09c8d7a2ab95643179b0792b89e8a71b02d2a7a3",
+      "images": [
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/front.png",
+          "sha256": "ad9d8b76544175487fec17f810727e416d2de98e861d1af1c21a326f0bed1c17"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/side.png",
+          "sha256": "8fb0b0292848705c10da21c19242f42fa90490bc1d42f7c38fee009e2050b2e3"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/rear.png",
+          "sha256": "e1576aa124af6fdbf87e5bd085951401d408458ea1e1c4091a0ed748af513ae4"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/threequarter.png",
+          "sha256": "4d9d431054046a05dc10c7fa717229974558c9a857fbcfb1caedce1098161b91"
+        },
+        {
+          "path": "review/models/vfx_slash_crescent_shadow/top.png",
+          "sha256": "d4f1823220748d4bb3a0ae6e2d2c8c42d9af32eb26f436b69e3d3dbf665d146f"
+        },
+        {
+          "path": "review/contexts/vfx_slash_crescent_shadow/context-direction-yaw180.png",
+          "sha256": "7e3fcf3a1e4104541542b35a5bb38083ee6536e80dee2b1c4e2ea469b5714450"
+        }
+      ]
+    },
+    {
+      "id": "vfx_shadow_mark_crest",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 초승달 송곳니·마름모 코어·눈 문양이 구분된다. 회전 시 후면이 검은 판으로 사라지던 문제를 보라 후면층으로 개선했다.",
+      "reportSha256": "ea9559803591f4f7226c935c9c8308a2848d167b656c39051196210b3770978a",
+      "images": [
+        {
+          "path": "review/models/vfx_shadow_mark_crest/front.png",
+          "sha256": "2636e7d97091e3359f833c40dca7cca9473896e12eb86d468f4a16ea91a80e6d"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/side.png",
+          "sha256": "2ffa9f91ec975e062bb16f9964e2965f6042fa58b18a24ace217b214a07bd13d"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/rear.png",
+          "sha256": "ab813ea3ce4c61d669a837f1d3e8a37c02c527759548f3b54334818052c4e738"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/threequarter.png",
+          "sha256": "f9f24579241e3ea39b0369b90280543d3ce489c1252139a5695034bc219bd533"
+        },
+        {
+          "path": "review/models/vfx_shadow_mark_crest/top.png",
+          "sha256": "5ec003ddf54f31c518ed8ae2324af60dbec030cb87d10b8cf824a09c67b8271e"
+        },
+        {
+          "path": "review/contexts/vfx_shadow_mark_crest/context-direction-yaw180.png",
+          "sha256": "e4c2d85720bc59e6c7ddbfc06b86acda5bc8d95306d1da7a9792908cbe0ecaf7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_star_arrow_volley",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 -Z 화살촉, +Z로 갈라지는 3개 리본 꼬리와 별 파편을 확인했다.",
+      "reportSha256": "21099a454b2237bdd2b06d77495e5d6c63db2c561c3c898f79d1e5c87727a396",
+      "images": [
+        {
+          "path": "review/models/vfx_star_arrow_volley/front.png",
+          "sha256": "83b1aa780e54d0841439bb5fc53cbf355de58023768e7dbb4645829651a6dbfe"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/side.png",
+          "sha256": "2ed3ecd74d0ca6bee08a5d92965132ed0fd58bee97961ec76b74cb2a0dd981fd"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/rear.png",
+          "sha256": "a7871e4639ce6d5cc2c1ac51bc3d3c2b61197b9bf7703f7710748f88b0815a71"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/threequarter.png",
+          "sha256": "ad341fda3ad56fa24fd8baa8a20e4e0767de8d47622292c5c522ddddc726dd86"
+        },
+        {
+          "path": "review/models/vfx_star_arrow_volley/top.png",
+          "sha256": "f98ec75e8736d4cbb2ef55683e9c2b7ed9825ca7334e74dbab9861d424aa90f2"
+        },
+        {
+          "path": "review/contexts/vfx_star_arrow_volley/context-direction-yaw180.png",
+          "sha256": "31e131866ba2488a80776ccd538cf2943814ceae0855f31e821da34f63a02714"
+        }
+      ]
+    },
+    {
+      "id": "vfx_astral_bow_sigil",
+      "status": "PASS",
+      "notes": "5뷰와 수평 문맥에서 빈 천문 링, 8개 성좌 연결점, 4방향 조준 마커 및 낮은 높이를 확인했다.",
+      "reportSha256": "e67c4c1f7d41e02967ab19b7c7b687e899c4d28059f9ea226332ad01a4581f90",
+      "images": [
+        {
+          "path": "review/models/vfx_astral_bow_sigil/front.png",
+          "sha256": "faa01c067378b5eac1f684b0a4e4f0e3330e8c742d79abc368aff6a29f9ec55c"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/side.png",
+          "sha256": "7c3d4de25fb5eb199b2f92c2233c101d323b54b704e0f2a116e6db92fbd25b00"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/rear.png",
+          "sha256": "f42c8e833d0abffd0a46d43664701a0d49b13ded226861519f47ad85fd890cca"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/threequarter.png",
+          "sha256": "7c906a07105b205e28fe3f1ee2fb2413760b4327b5baf5eb8df20f342829002c"
+        },
+        {
+          "path": "review/models/vfx_astral_bow_sigil/top.png",
+          "sha256": "d164f2fc6491004b9c88f422763611a6088dfb3ebc16eb26406214c81e4f2c1a"
+        },
+        {
+          "path": "review/contexts/vfx_astral_bow_sigil/context-orientation-plane.png",
+          "sha256": "2ac1adb9bb8dc027db2ddaaa74bc76fea84ec42582e6b31888146834293dc2bb"
+        }
+      ]
+    },
+    {
+      "id": "vfx_magic_circle_arcane",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 얇은 보라 룬 링·교차 육망성·중앙 빈 공간을 확인했다. 불투명 채움 디스크가 없고 성역과 구별된다.",
+      "reportSha256": "fdeb394cd6ed84c133151c1a63308f4c7c1cc5778bc31f9ef59cf5efbaf158f0",
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_arcane/front.png",
+          "sha256": "88a4be4f7f8c0683a322e4da1c82fac5b4c2b80508e3732efd96ae32fd6e6b45"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/side.png",
+          "sha256": "ea5c910df916c95ef57726204f23e2eea7f4fe8546c234eca10f5460c8cad947"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/rear.png",
+          "sha256": "1ca8399751065e07160f9bd772f340e267f88484deb322d0698045a94aed73be"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/threequarter.png",
+          "sha256": "0313d7806da53754ca0ae81d65cbea0bab23ce4f7e5f75a0d49c3119a2f97c78"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_arcane/top.png",
+          "sha256": "abf432d5c5fa2a32ad0b0472238909f8cc231f6bdab937ec089a46699dfbf9e0"
+        },
+        {
+          "path": "review/contexts/vfx_magic_circle_arcane/context-orientation-plane.png",
+          "sha256": "016b2ef151209c3492f05b35abfadcbed5350f0d02c411ab1be0acfe7061ca41"
+        }
+      ]
+    },
+    {
+      "id": "vfx_gravity_singularity",
+      "status": "PASS",
+      "notes": "5뷰와 방향 문맥에서 구형 사건 지평선, 기울어진 강착 링 및 실제 열린 공간이 확인된다.",
+      "reportSha256": "0c5d3cef499d1c81b22690c09610691c3d6a2a4632920aa62a6bd0c30e682f11",
+      "images": [
+        {
+          "path": "review/models/vfx_gravity_singularity/front.png",
+          "sha256": "6e34b30fa2cb9b91d2535d6cac5409f659f8bcce835317d5e2997761efd15e36"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/side.png",
+          "sha256": "34238e429e7cc09c94851f16a7ab71ee23d804a3319e6921d09ee782769b0e8e"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/rear.png",
+          "sha256": "a2c00c1434cff6e537de43784655975ac45ba7426eb07240a15fbd251abeb836"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/threequarter.png",
+          "sha256": "89c0846b66f152a6ef5a8d2f72583e2dde2df48b511c9792ebb454c84272382c"
+        },
+        {
+          "path": "review/models/vfx_gravity_singularity/top.png",
+          "sha256": "58a25bcfd4c6062f176b1661daa3803dfbe4370c9d04d8711fb984d1d3056813"
+        },
+        {
+          "path": "review/contexts/vfx_gravity_singularity/context-direction-yaw180.png",
+          "sha256": "4c87942badc8f3fe079109ecf9dacfe2da4d9e2e7a090397b48de5cd482c9e0d"
+        }
+      ]
+    },
+    {
+      "id": "vfx_arcane_meteor",
+      "status": "PASS",
+      "notes": "최종 5뷰와 방향 문맥에서 큰 평면 상판과 단일 상자 핵이 불규칙 절단층·암괴·균열로 개선되었다. 얼음 결정과 사선 진행 축을 유지했다.",
+      "reportSha256": "7bceee22f281ab42b65ec902242ead22653c1faccc2f072aaa3a4a380edeef9b",
+      "images": [
+        {
+          "path": "review/models/vfx_arcane_meteor/front.png",
+          "sha256": "f4669f6fac3881c4ac3e0e88f33a0fd230b8d7522559b8816b0e286283702ce3"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/side.png",
+          "sha256": "33fb30150522cd881a74c55fb403348149bd259995128d32135653960bb812be"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/rear.png",
+          "sha256": "9c08b5adf5e5f6c19a1989fafc7caad6083a1bedafd803b14e4b80338144d275"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/threequarter.png",
+          "sha256": "6a1b53d2c83d3b1c10fb2b7585b6dca830cd6c5e402690b66b02d0d9a8d547d9"
+        },
+        {
+          "path": "review/models/vfx_arcane_meteor/top.png",
+          "sha256": "87269c10bc28d6fc80e238eae6bfdb645e163ed6ce72b5e27cb3bacc8ae8133c"
+        },
+        {
+          "path": "review/contexts/vfx_arcane_meteor/context-direction-yaw180.png",
+          "sha256": "3327c5f3dbaa95681e17c1b913f1a5977f632fabb965f5b1e3637e564e3c9ab7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_magic_circle_sanctuary",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 황금·민트 이중 링, 중앙 사엽형 열린 문양과 성광 십자가를 확인했다. 얇은 실제 지오메트리로 바닥 시야를 유지한다.",
+      "reportSha256": "5566841f5caa018d00dd4652e6b6510e29e16dc7f22ed4e284cf0e9ec6f7b064",
+      "images": [
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/front.png",
+          "sha256": "ac4fbc9c6fc3008a5b25997f548f2ed27805331341e22a8271a295bd73e61356"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/side.png",
+          "sha256": "7cbed655438b93c98a293b823f1f2c5261079e5e2a0d72b4681fe5a51845767a"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/rear.png",
+          "sha256": "0d228220075da73deb062ed1e9e7d670f82ea9748b726f3b58e21af06d35b742"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/threequarter.png",
+          "sha256": "5a38ea26a9ecc37d1de653a8a71aa7a41bde09bea6b7521e6bbe5911ecce2ff0"
+        },
+        {
+          "path": "review/models/vfx_magic_circle_sanctuary/top.png",
+          "sha256": "6461e52739effaa7da7805cc343114b663fcf754ab0e525ca37d9e208cedd0a7"
+        },
+        {
+          "path": "review/contexts/vfx_magic_circle_sanctuary/context-orientation-plane.png",
+          "sha256": "6eb27f33e370dc60f971f5aec922c3630b83122597c8ad790cf09398c9c87f7f"
+        }
+      ]
+    },
+    {
+      "id": "vfx_holy_spear",
+      "status": "PASS",
+      "notes": "최종 5뷰와 방향 문맥에서 2차 보정한 넓은 흰 날개 면·깃 분리 홈·금빛 곡선 테두리가 읽힌다. 가는 V선 문제를 해결했고 아래 칼끝과 중앙 성수 보석을 유지했다.",
+      "reportSha256": "05fb4cdec658c2febc7b4e973e277139d61ff45b16dae0bc73a9e82d2ff31e78",
+      "images": [
+        {
+          "path": "review/models/vfx_holy_spear/front.png",
+          "sha256": "98dd65fde996ed03d9162613ee667dc3e3285ecf6ae9a93db3033723f527bb00"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/side.png",
+          "sha256": "c5146eac702bbb7824867d9b33f3e7a48de7d61687405a6f813f5925c7f95d88"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/rear.png",
+          "sha256": "b63b9b2bf1755a0b6504cf9947510209a8fbfb747597d31e6ce0f011bd5c0df2"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/threequarter.png",
+          "sha256": "9536d9fbed5f39f5f11ceeb26632a53a25bd11a8f45e6ec8c326d48d21d943e8"
+        },
+        {
+          "path": "review/models/vfx_holy_spear/top.png",
+          "sha256": "5ab24ba748e51b498996c701d6fe423320e5fd59b76c231ce492830b110fcdda"
+        },
+        {
+          "path": "review/contexts/vfx_holy_spear/context-direction-yaw180.png",
+          "sha256": "1ab857a49883d052cf18ad3307d9da586cc9a5f9eb9279fef567472c45418bdf"
+        }
+      ]
+    },
+    {
+      "id": "vfx_golden_fishing_vortex",
+      "status": "PASS",
+      "notes": "5뷰와 수면 문맥에서 실제 빈 공간을 가진 나선 깔때기, 청록 포말·금색 물고기·동전을 확인했다. 수면에서 아래로 좁아지는 실루엣이 읽힌다.",
+      "reportSha256": "10954eced668345dbdb6583ae825bfc9769866a8dc4cc60d329288427d7f09d5",
+      "images": [
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/front.png",
+          "sha256": "af7a4d77d9bc257e55eb004910fad6a6e2a68ef9b637a57b43f26a61c48099a3"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/side.png",
+          "sha256": "4f23c626d3b101e635bfe8320b88bb065f2582630dd46f4b2904ee507e0eeac5"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/rear.png",
+          "sha256": "9630a987cc2f1a42b40e3db8e0bfae6c9aa95308f8c72abd5699da6bb4b96934"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/threequarter.png",
+          "sha256": "25afac24265fbd2e91b2349f375272315ad4c7c89743cdf1719a8c997ee5bd87"
+        },
+        {
+          "path": "review/models/vfx_golden_fishing_vortex/top.png",
+          "sha256": "077d0fe4d90eaa3585f152fcc63d4329578e488ee21648b5832b409b2d58bf28"
+        },
+        {
+          "path": "review/contexts/vfx_golden_fishing_vortex/context-orientation-plane.png",
+          "sha256": "c109e64d012f393782b1b2aecad01e7839cafd1917d1b371c50bd495f0b06ba7"
+        }
+      ]
+    },
+    {
+      "id": "vfx_feast_cauldron_aura",
+      "status": "PASS",
+      "notes": "5뷰와 바닥 문맥에서 발 받침 접지, 오목한 스튜 면과 기포, 손잡이·비스듬한 국자·상부 김 구름을 확인했다.",
+      "reportSha256": "d26c76257c2cf4d58ed66f16ad1d86f03cd0304db9a869df3684f2f1d3d0c409",
+      "images": [
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/front.png",
+          "sha256": "fe92dc8dac47f657f7383002935ad2a7e1dd1b63fe0c412bf9a91ade0bc112f6"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/side.png",
+          "sha256": "71a086a9d761c01f93839681497effe1ac0f67f4e2afd9a5ae1939662ab6f811"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/rear.png",
+          "sha256": "5c11eb7af17f14e8bd428699a07c6e6e4258a895c4168601103e08b8ff2b4a73"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/threequarter.png",
+          "sha256": "ff4bb8b49712ab9671fca28bdbfce4be741aa7c3a3acebba38b69380d32b64b2"
+        },
+        {
+          "path": "review/models/vfx_feast_cauldron_aura/top.png",
+          "sha256": "ad5ab0f32aeee9983701097379ef13f2bd716d6320c539c098335bcd34c4325b"
+        },
+        {
+          "path": "review/contexts/vfx_feast_cauldron_aura/context-floor-contact.png",
+          "sha256": "123e810b3477a00932880889de86200e95b18e517381cab38e2a7c0fe5837866"
+        }
+      ]
+    }
+  ]
+}

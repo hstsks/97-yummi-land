@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "kr.yuumi97"
-version = "3.1.0"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -34,18 +34,51 @@ tasks.jar {
     archiveFileName.set("YuumiLandCore.jar")
 }
 
-tasks.register<JavaExec>("v3Checks") {
+tasks.register<JavaExec>("coreChecks") {
     dependsOn(tasks.testClasses)
     classpath = sourceSets["test"].runtimeClasspath
-    mainClass.set("kr.yuumi97.core.V3Checks")
+    mainClass.set("kr.yuumi97.core.CoreChecks")
     jvmArgs("-ea")
 }
 
-tasks.check { dependsOn("v3Checks") }
+tasks.test { dependsOn("coreChecks") }
+tasks.check { dependsOn("coreChecks") }
 
-tasks.register<JavaExec>("v31Fixture") {
+tasks.register<JavaExec>("integrationFixture") {
     dependsOn(tasks.testClasses)
     classpath = sourceSets["test"].runtimeClasspath
-    mainClass.set("kr.yuumi97.core.V31Fixture")
+    mainClass.set("kr.yuumi97.core.IntegrationFixture")
     args(layout.buildDirectory.dir("server-integration").get().asFile.absolutePath)
+}
+
+// Compile the pack catalogue for reflection-only tests; never execute PackBuilder.main.
+sourceSets.test { java.srcDir("../resourcepack-gen") }
+
+// Test companion is a separate artifact and is never included in the production plugin.
+tasks.register<Jar>("integrationProbe") {
+    dependsOn(tasks.testClasses)
+    archiveFileName.set("CoreProbe.jar")
+    destinationDirectory.set(layout.buildDirectory.dir("integration-probe"))
+    from(sourceSets["test"].output) { include("kr/yuumi97/core/integration/**") }
+    from("src/test/integration/probe-plugin.yml") { rename { "plugin.yml" } }
+}
+
+tasks.register<JavaExec>("dataPreservation") {
+    dependsOn(tasks.testClasses)
+    classpath = sourceSets["test"].runtimeClasspath
+    mainClass.set("kr.yuumi97.core.DataPreservationCheck")
+    args(layout.buildDirectory.file("verification-core/baseline-data.yml").get().asFile.absolutePath,
+         layout.buildDirectory.file("server-integration/plugins/YuumiLandCore/data.yml").get().asFile.absolutePath,
+         layout.buildDirectory.dir("verification-core/baseline-vaults").get().asFile.absolutePath,
+         layout.buildDirectory.dir("server-integration/plugins/YuumiLandCore/vaults").get().asFile.absolutePath)
+}
+
+tasks.register<JavaExec>("fallbackFixtures") {
+    dependsOn(tasks.jar,tasks.testClasses)
+    classpath=sourceSets["test"].runtimeClasspath
+    mainClass.set("kr.yuumi97.core.PackFixtures")
+    args(layout.buildDirectory.file("libs/YuumiLandCore.jar").get().asFile.absolutePath,
+         layout.buildDirectory.file("server-integration/resourcepack/Yuumi97Pack.zip").get().asFile.absolutePath,
+         layout.buildDirectory.file("verification-core/YuumiLandCore-fallback.jar").get().asFile.absolutePath,
+         layout.buildDirectory.file("verification-core/Yuumi97Pack-core-fallback.zip").get().asFile.absolutePath)
 }

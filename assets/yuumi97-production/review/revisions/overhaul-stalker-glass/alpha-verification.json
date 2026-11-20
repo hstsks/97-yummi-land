@@ -1,0 +1,17 @@
+{
+  "alphaHistogram": {
+    "0": 9728,
+    "208": 1024,
+    "255": 5632
+  },
+  "prismAlpha": 208,
+  "scope": "Only mantis_prism_blade_* swatches. White cutting rails, hinge and exoskeleton remain opaque.",
+  "preservedOtherFiles": 20,
+  "models": {
+    "mob_mirror_stalker_arm": 126,
+    "mob_void_choir_arm": 204,
+    "boss_twin_archons_weapon": 480,
+    "boss_eclipsia_weapon": 1391
+  },
+  "errors": []
+}

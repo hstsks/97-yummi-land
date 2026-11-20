@@ -1,11 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {OUT} from '../tools/asset-kit.mjs';
-import {selectors,worldPointers,models} from './asset-contract.mjs';
+import {selectors,worldPointers,models,guiTargets} from './asset-contract.mjs';
 for(const dir of ['models/gui','items'])fs.mkdirSync(path.join(OUT,dir),{recursive:true});
 for(const id of selectors){
- fs.writeFileSync(path.join(OUT,'models/gui',id+'.json'),JSON.stringify({parent:'minecraft:item/generated',textures:{layer0:`yuumi97:item/${id}`}},null,2)+'\n');
- fs.writeFileSync(path.join(OUT,'items',id+'.json'),JSON.stringify({model:{type:'minecraft:select',property:'minecraft:display_context',cases:[{when:'gui',model:{type:'minecraft:model',model:`yuumi97:gui/${id}`}}],fallback:{type:'minecraft:model',model:`yuumi97:item/${id}`}}},null,2)+'\n');
+ fs.writeFileSync(path.join(OUT,'models',guiTargets[id]+'.json'),JSON.stringify({parent:'minecraft:item/generated',textures:{layer0:`yuumi97:item/${id}`}},null,2)+'\n');
+ fs.writeFileSync(path.join(OUT,'items',id+'.json'),JSON.stringify({model:{type:'minecraft:select',property:'minecraft:display_context',cases:[{when:'gui',model:{type:'minecraft:model',model:`yuumi97:${guiTargets[id]}`}}],fallback:{type:'minecraft:model',model:`yuumi97:item/${id}`}}},null,2)+'\n');
 }
 for(const id of worldPointers){
  fs.writeFileSync(path.join(OUT,'items',id+'.json'),JSON.stringify({model:{type:'minecraft:model',model:`yuumi97:item/${id}`}},null,2)+'\n');

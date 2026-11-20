@@ -26,7 +26,7 @@ import java.util.*;
  * the RPG monitor without allowing unrelated cancelled attacks or granting kill rewards.
  */
 public final class TrainingDummyManager implements Listener {
-    private static final double[][] ANCHORS = {{-19.5,65,-25.5},{-15.5,65,-26.5},{-11.5,65,-25.5}};
+    private static final double[][] ANCHORS = {{-6,65,-40.5},{-6,65,-30.5},{-6,65,-22.5}};
     private static final String MODEL = "prop_training_dummy";
     private final JavaPlugin plugin;
     private final HubWorldManager hub;
@@ -121,14 +121,17 @@ public final class TrainingDummyManager implements Listener {
             String mode=model?"model":"fallback";
             List<Entity> existing=visuals.getOrDefault(index,List.of());
             int expected=model?2:6;
-            if(existing.size()!=expected||existing.stream().anyMatch(e->!mode.equals(e.getPersistentDataContainer().get(visualModeKey,PersistentDataType.STRING)))) {
+            Location expectedAnchor=anchor(world,index);
+            if(existing.size()!=expected||existing.stream().anyMatch(e->!mode.equals(e.getPersistentDataContainer().get(visualModeKey,PersistentDataType.STRING))
+                    ||Math.abs(e.getLocation().getX()-expectedAnchor.getX())>1.2||Math.abs(e.getLocation().getZ()-expectedAnchor.getZ())>1.2)) {
                 existing.forEach(Entity::remove);
                 createVisuals(world,index,model);
             }
         }
     }
 
-    private Location anchor(World world,int index) {double[] a=ANCHORS[index];return new Location(world,a[0],a[1],a[2],0,0);}
+    private Location anchor(World world,int index) {double[] a=ANCHORS[index];return new Location(world,a[0],a[1],a[2],-90,0);}
+    public List<Location> getAnchors(){World world=hub.getHubWorld();return java.util.stream.IntStream.range(0,ANCHORS.length).mapToObj(i->anchor(world,i)).toList();}
 
     private void configure(Vindicator body,int index) {
         body.getPersistentDataContainer().set(dummyKey,PersistentDataType.BYTE,(byte)1);
@@ -155,6 +158,7 @@ public final class TrainingDummyManager implements Listener {
         Location expected=anchor(body.getWorld(),index);
         body.setVelocity(new Vector());body.setNoDamageTicks(0);
         if(body.getLocation().distanceSquared(expected)>.00001){anchoring=true;try{body.teleport(expected);}finally{anchoring=false;}}
+        if(Math.abs(body.getLocation().getYaw()+90)>.01||Math.abs(body.getLocation().getPitch())>.01)body.setRotation(-90,0);
         if(!body.isDead()&&body.getHealth()<1024)body.setHealth(1024);
         long now=System.nanoTime();var pdc=body.getPersistentDataContainer();
         if(body.getFireTicks()<=0||pdc.getOrDefault(fireExpiryKey,PersistentDataType.LONG,Long.MIN_VALUE)<=now){pdc.remove(fireOwnerKey);pdc.remove(fireExpiryKey);}
@@ -163,18 +167,18 @@ public final class TrainingDummyManager implements Listener {
 
     private void createVisuals(World world,int index,boolean model) {
         Location at=anchor(world,index);String mode=model?"model":"fallback";
-        ItemDisplay custom=model?hub.spawnAnchoredProp(at,MODEL,1.35f,0f,0f):null;
+        ItemDisplay custom=model?hub.spawnAnchoredProp(at,MODEL,1.35f,0f,-90f):null;
         if(custom!=null)tagVisual(custom,index,mode);
         else {
             mode="fallback";
             block(at.clone().add(-.1,0,-.1),Material.OAK_FENCE,.2f,1.4f,.2f,index,mode);
-            block(at.clone().add(-.38,.55,-.28),Material.HAY_BLOCK,.76f,.86f,.56f,index,mode);
+            block(at.clone().add(-.28,.55,-.38),Material.HAY_BLOCK,.56f,.86f,.76f,index,mode);
             BlockDisplay head=block(at.clone().add(-.32,1.4,-.32),Material.CARVED_PUMPKIN,.64f,.64f,.64f,index,mode);
-            if(head.getBlock() instanceof Directional data){data.setFacing(org.bukkit.block.BlockFace.SOUTH);head.setBlock(data);}
-            block(at.clone().add(-.85,1.0,-.12),Material.OAK_PLANKS,.5f,.18f,.24f,index,mode);
-            block(at.clone().add(.35,1.0,-.12),Material.OAK_PLANKS,.5f,.18f,.24f,index,mode);
+            if(head.getBlock() instanceof Directional data){data.setFacing(org.bukkit.block.BlockFace.EAST);head.setBlock(data);}
+            block(at.clone().add(-.12,1.0,.35),Material.OAK_PLANKS,.24f,.18f,.5f,index,mode);
+            block(at.clone().add(-.12,1.0,-.85),Material.OAK_PLANKS,.24f,.18f,.5f,index,mode);
         }
-        TextDisplay label=world.spawn(at.clone().add(0,2.6,0),TextDisplay.class);
+        TextDisplay label=world.spawn(at.clone().add(0,2.95,0),TextDisplay.class);
         label.text(TextUtil.mm("<gold>🎯 별빛 수련 허수아비 "+(index+1)+"</gold>\n<gray>성물·룬·스킬 연습 · 경험치 없음</gray>"));
         label.setBillboard(Display.Billboard.CENTER);label.setAlignment(TextDisplay.TextAlignment.CENTER);label.setShadowed(true);tagVisual(label,index,mode);
     }

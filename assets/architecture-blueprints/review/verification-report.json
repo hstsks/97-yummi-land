@@ -1,0 +1,289 @@
+{
+  "valid": true,
+  "structureCount": 20,
+  "explicitBlocks": 704299,
+  "seamCount": 15,
+  "playerCollision": {
+    "width": 0.6,
+    "height": 1.8,
+    "maxStep": 0.6,
+    "horizontalSampling": 0.5
+  },
+  "checks": [
+    {
+      "file": "hub_grand_utility_hall.nbt",
+      "valid": true,
+      "explicitBlocks": 18850,
+      "paletteStates": 62,
+      "effectiveBookshelves": 26,
+      "walkableSamples": 2669,
+      "reachableSamples": 2499
+    },
+    {
+      "file": "hub_guidebook_kiosk.nbt",
+      "valid": true,
+      "explicitBlocks": 441,
+      "paletteStates": 17,
+      "walkableSamples": 180,
+      "reachableSamples": 180
+    },
+    {
+      "file": "ch1_zone1.nbt",
+      "valid": true,
+      "explicitBlocks": 20832,
+      "paletteStates": 34,
+      "walkableSamples": 3023,
+      "reachableSamples": 2414,
+      "emissiveBlocks": 68
+    },
+    {
+      "file": "ch1_zone2.nbt",
+      "valid": true,
+      "explicitBlocks": 41496,
+      "paletteStates": 39,
+      "walkableSamples": 6127,
+      "reachableSamples": 5559,
+      "emissiveBlocks": 128
+    },
+    {
+      "file": "ch1_zone3.nbt",
+      "valid": true,
+      "explicitBlocks": 36456,
+      "paletteStates": 36,
+      "walkableSamples": 2736,
+      "reachableSamples": 1842,
+      "emissiveBlocks": 98
+    },
+    {
+      "file": "ch1_zone4.nbt",
+      "valid": true,
+      "explicitBlocks": 37296,
+      "paletteStates": 38,
+      "walkableSamples": 4608,
+      "reachableSamples": 4123,
+      "emissiveBlocks": 105
+    },
+    {
+      "file": "ch1_zone5.nbt",
+      "valid": true,
+      "explicitBlocks": 27456,
+      "paletteStates": 33,
+      "walkableSamples": 3574,
+      "reachableSamples": 3241,
+      "emissiveBlocks": 90
+    },
+    {
+      "file": "ch1_zone6.nbt",
+      "valid": true,
+      "explicitBlocks": 64800,
+      "paletteStates": 33,
+      "walkableSamples": 6914,
+      "reachableSamples": 6098,
+      "emissiveBlocks": 195
+    },
+    {
+      "file": "ch2_zone1.nbt",
+      "valid": true,
+      "explicitBlocks": 20832,
+      "paletteStates": 26,
+      "walkableSamples": 2946,
+      "reachableSamples": 2414,
+      "emissiveBlocks": 695
+    },
+    {
+      "file": "ch2_zone2.nbt",
+      "valid": true,
+      "explicitBlocks": 41496,
+      "paletteStates": 29,
+      "walkableSamples": 5915,
+      "reachableSamples": 5487,
+      "emissiveBlocks": 1313
+    },
+    {
+      "file": "ch2_zone3.nbt",
+      "valid": true,
+      "explicitBlocks": 36456,
+      "paletteStates": 27,
+      "walkableSamples": 2592,
+      "reachableSamples": 1842,
+      "emissiveBlocks": 1149
+    },
+    {
+      "file": "ch2_zone4.nbt",
+      "valid": true,
+      "explicitBlocks": 37296,
+      "paletteStates": 29,
+      "walkableSamples": 4548,
+      "reachableSamples": 4123,
+      "emissiveBlocks": 1150
+    },
+    {
+      "file": "ch2_zone5.nbt",
+      "valid": true,
+      "explicitBlocks": 27456,
+      "paletteStates": 24,
+      "walkableSamples": 3505,
+      "reachableSamples": 3241,
+      "emissiveBlocks": 896
+    },
+    {
+      "file": "ch2_zone6.nbt",
+      "valid": true,
+      "explicitBlocks": 64800,
+      "paletteStates": 27,
+      "walkableSamples": 6732,
+      "reachableSamples": 6052,
+      "emissiveBlocks": 1877
+    },
+    {
+      "file": "ch3_zone1.nbt",
+      "valid": true,
+      "explicitBlocks": 20832,
+      "paletteStates": 26,
+      "walkableSamples": 3024,
+      "reachableSamples": 2414,
+      "emissiveBlocks": 90
+    },
+    {
+      "file": "ch3_zone2.nbt",
+      "valid": true,
+      "explicitBlocks": 41496,
+      "paletteStates": 30,
+      "walkableSamples": 6187,
+      "reachableSamples": 5559,
+      "emissiveBlocks": 154
+    },
+    {
+      "file": "ch3_zone3.nbt",
+      "valid": true,
+      "explicitBlocks": 36456,
+      "paletteStates": 27,
+      "walkableSamples": 2797,
+      "reachableSamples": 2087,
+      "emissiveBlocks": 126
+    },
+    {
+      "file": "ch3_zone4.nbt",
+      "valid": true,
+      "explicitBlocks": 37296,
+      "paletteStates": 29,
+      "walkableSamples": 4668,
+      "reachableSamples": 4123,
+      "emissiveBlocks": 131
+    },
+    {
+      "file": "ch3_zone5.nbt",
+      "valid": true,
+      "explicitBlocks": 27456,
+      "paletteStates": 24,
+      "walkableSamples": 3601,
+      "reachableSamples": 3241,
+      "emissiveBlocks": 113
+    },
+    {
+      "file": "ch3_zone6.nbt",
+      "valid": true,
+      "explicitBlocks": 64800,
+      "paletteStates": 27,
+      "walkableSamples": 7020,
+      "reachableSamples": 6116,
+      "emissiveBlocks": 346
+    }
+  ],
+  "seams": [
+    {
+      "chapter": 1,
+      "gate": 1,
+      "worldZ": -28,
+      "valid": true
+    },
+    {
+      "chapter": 1,
+      "gate": 2,
+      "worldZ": -66,
+      "valid": true
+    },
+    {
+      "chapter": 1,
+      "gate": 3,
+      "worldZ": -108,
+      "valid": true
+    },
+    {
+      "chapter": 1,
+      "gate": 4,
+      "worldZ": -144,
+      "valid": true
+    },
+    {
+      "chapter": 1,
+      "gate": 5,
+      "worldZ": -176,
+      "valid": true
+    },
+    {
+      "chapter": 2,
+      "gate": 1,
+      "worldZ": -28,
+      "valid": true
+    },
+    {
+      "chapter": 2,
+      "gate": 2,
+      "worldZ": -66,
+      "valid": true
+    },
+    {
+      "chapter": 2,
+      "gate": 3,
+      "worldZ": -108,
+      "valid": true
+    },
+    {
+      "chapter": 2,
+      "gate": 4,
+      "worldZ": -144,
+      "valid": true
+    },
+    {
+      "chapter": 2,
+      "gate": 5,
+      "worldZ": -176,
+      "valid": true
+    },
+    {
+      "chapter": 3,
+      "gate": 1,
+      "worldZ": -28,
+      "valid": true
+    },
+    {
+      "chapter": 3,
+      "gate": 2,
+      "worldZ": -66,
+      "valid": true
+    },
+    {
+      "chapter": 3,
+      "gate": 3,
+      "worldZ": -108,
+      "valid": true
+    },
+    {
+      "chapter": 3,
+      "gate": 4,
+      "worldZ": -144,
+      "valid": true
+    },
+    {
+      "chapter": 3,
+      "gate": 5,
+      "worldZ": -176,
+      "valid": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Static collision and tagged material checks; live Paper placement, fluid ticks, gameplay and shader-free lighting require Stream 03 runtime integration."
+  ]
+}

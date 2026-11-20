@@ -4,6 +4,8 @@ import kr.yuumi97.core.economy.ChuruManager;
 import kr.yuumi97.core.items.YuumiItems;
 import kr.yuumi97.core.util.RewardMailbox;
 import kr.yuumi97.core.util.TextUtil;
+import kr.yuumi97.core.dungeon.mob.MobType;
+import kr.yuumi97.core.dungeon.mob.MonsterRig;
 import net.kyori.adventure.bossbar.BossBar;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
@@ -38,11 +40,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.*;
 import java.util.zip.ZipFile;
 
-/** Party-local five-room runs. Bukkit entities, inventories and persistence stay on the server thread. */
+/** Six connected zones, fixed party ownership and durable rewards. Server-thread only. */
 public final class DungeonManager implements Listener {
     public static final String WORLD_NAME = "yuumi_dungeon";
-    private enum Encounter { OBELISKS, WAVES, THIEF }
-    private enum Puzzle { RESONANCE, MEMORY, STATUES }
     private enum Boon {
         LIGHTNING("사르르 연쇄 번개", Material.LIGHTNING_ROD, "주변 적 2명에 번개 피해 4 / 내부 쿨 5초"),
         CRESCENT("파동의 반월검기", Material.IRON_SWORD, "4번째 공격마다 전방 5m 반월 피해 6"),
@@ -77,38 +77,55 @@ public final class DungeonManager implements Listener {
         final Set<UUID> selected = new HashSet<>(), claimed = new HashSet<>();
         final Map<String, Long> procReady = new HashMap<>(); final Map<UUID, Integer> attacks = new HashMap<>();
         final List<Integer> melody = new ArrayList<>(); final List<UUID> roomDecor = new ArrayList<>();
+        final Map<UUID,MobState> mobs=new LinkedHashMap<>();final Map<Integer,DungeonGate> gates=new HashMap<>();
+        final Set<Integer> activated=new HashSet<>(),cleared=new HashSet<>();final Set<UUID> sideOwners=new HashSet<>();
+        final Map<UUID,Long> fallReady=new HashMap<>(),inputReady=new HashMap<>();
+        final Map<Integer,BlockDisplay> mirrors=new HashMap<>();
+        final Map<Integer,UUID> chestOwners=new HashMap<>();
+        final int[] puzzleValues=new int[4],puzzleTargets=new int[4];final Set<Integer> valves=new HashSet<>();
+        final Set<UUID> lateDecor=new HashSet<>(),bridgeHit=new HashSet<>();long bridgeStarted;
         final List<BukkitTask> tasks = new ArrayList<>(); final long started = System.currentTimeMillis();
         final Set<ChunkRef> chunks = new HashSet<>();
-        int stage = 1, wave = 0, memoryIndex = 0, truth = 0, resonanceSeconds = 0, helperPlate = -1;
-        long stageStarted, helperUntil, memoryShownAt; Encounter encounter; Puzzle puzzle;
-        boolean awaitingBoon, ended, reward, enraged; UUID boss; BossBar bossBar;
+        int stage=1,wave,memoryIndex,attempt;long stageStarted,memoryShownAt,melodyNext;boolean obeliskEncounter,checkpoint,retried,awaitingBoon,ended,reward,enraged;
+        UUID boss;BossBar bossBar;
         Run(UUID leader, List<UUID> members, int tier, int slot) {
             this.leader = leader; this.members = new LinkedHashSet<>(members); originalSize = members.size(); this.tier = tier; this.slot = slot;
         }
+    }
+    private static final class MobState {
+        final LivingEntity entity;final MobType type;final int zone;final Location home;final MonsterRig rig;
+        final double damage,maxPoise;double poise;long nextAttack,staggerUntil,poiseImmune,windUntil,phaseUntil,nextSignature,signatureEnd;
+        int phase=1,pattern,signature,heat;Location aim;Vector direction;UUID shieldTarget;boolean dead;
+        MobState(LivingEntity entity,MobType type,int zone,Location home,MonsterRig rig,double damage,double poise){this.entity=entity;this.type=type;this.zone=zone;this.home=home.clone();this.rig=rig;this.damage=damage;this.poise=poise;this.maxPoise=poise;}
     }
     private record ChunkRef(int x, int z) {}
     private final JavaPlugin plugin; private final YuumiItems items; private final ChuruManager churu;
     private final FileConfiguration data; private final Runnable save; private final Supplier<Location> hubSpawn;
     private final RewardMailbox mailbox; private final PartyManager parties;
-    private final NamespacedKey runKey, kindKey, indexKey, helperKey, speedKey, healthKey;
+    private final NamespacedKey runKey, kindKey, indexKey, speedKey, healthKey;
     private final Map<UUID, Run> runs = new LinkedHashMap<>(), participants = new HashMap<>();
     private final Map<UUID, Consent> consents = new HashMap<>(); private final Set<String> models = new HashSet<>();
-    private World world; private BukkitTask ticker; private boolean internalTeleport, bonusDamage, shuttingDown;
+    private World world; private BukkitTask ticker; private boolean internalTeleport, bonusDamage, shuttingDown;private int scriptedAttackDepth;private long ticks;
+    private DungeonLayout layout;private MonsterRig.Catalog rigCatalog;
+    private final Map<EntityDamageEvent,Double> accepted=new WeakHashMap<>();
     private ToDoubleFunction<Player> coinMultiplier = p -> 1.0;
     private BiConsumer<Player, Integer> completionXp = (p, amount) -> {};
+    @FunctionalInterface public interface BoonDamage {void hit(Player player,LivingEntity target,double amount);}
+    private BoonDamage boonDamage=(player,target,amount)->target.damage(amount,player);
 
     public DungeonManager(JavaPlugin plugin, YuumiItems items, ChuruManager churu, FileConfiguration data,
                           Runnable save, Supplier<Location> hubSpawn, RewardMailbox mailbox) {
         this.plugin = plugin; this.items = items; this.churu = churu; this.data = data;
         this.save = save; this.hubSpawn = hubSpawn; this.mailbox = mailbox;
         runKey = new NamespacedKey(plugin, "dungeon_run"); kindKey = new NamespacedKey(plugin, "dungeon_kind");
-        indexKey = new NamespacedKey(plugin, "dungeon_index"); helperKey = new NamespacedKey(plugin, "dungeon_solo_bell");
+        indexKey = new NamespacedKey(plugin, "dungeon_index");
         speedKey = new NamespacedKey(plugin, "dungeon_boon_speed"); healthKey = new NamespacedKey(plugin, "dungeon_boon_health");
         parties = new PartyManager(id -> participants.containsKey(id) || consents.containsKey(id), this::gateLocation);
     }
     public PartyManager getPartyManager() { return parties; }
     public void setCoinMultiplier(ToDoubleFunction<Player> multiplier) { coinMultiplier = multiplier; }
     public void setCompletionXp(BiConsumer<Player, Integer> callback) { completionXp = callback; }
+    public void setBoonDamage(BoonDamage callback){boonDamage=Objects.requireNonNull(callback);}
     public int getClearCount(UUID id) { return data.getInt("dungeon.stats." + id + ".clears", 0); }
     public boolean isParticipant(UUID id) { return participants.containsKey(id); }
     public boolean isParticipant(Player player) { return isParticipant(player.getUniqueId()); }
@@ -119,6 +136,8 @@ public final class DungeonManager implements Listener {
         return online(run, false);
     }
     public boolean isDungeonMob(Entity entity) { return entity.getPersistentDataContainer().has(runKey, PersistentDataType.STRING) && "enemy".equals(kind(entity)); }
+    public boolean isBoss(Entity entity){Run run=entityRun(entity);MobState mob=run==null?null:run.mobs.get(entity.getUniqueId());return mob!=null&&mob.type.boss();}
+    public double acceptedDamage(EntityDamageEvent event){return accepted.getOrDefault(event,-1.0);}
     public boolean canAffect(Player caster, Entity target) {
         Run run = participants.get(caster.getUniqueId());
         if (run == null) return !WORLD_NAME.equals(target.getWorld().getName());
@@ -142,9 +161,9 @@ public final class DungeonManager implements Listener {
         world.setGameRule(GameRule.DO_WEATHER_CYCLE, false); world.setGameRule(GameRule.DO_FIRE_TICK, false);
         world.setTime(18000); world.setDifficulty(Difficulty.NORMAL); world.setPVP(false);
         for (Entity entity : world.getEntities()) if (!(entity instanceof Player)) entity.remove();
-        scanModels(); recoverInterruptedRuns();
+        layout=new DungeonLayout(plugin);layout.load();rigCatalog=new MonsterRig.Catalog(plugin);scanModels(); recoverInterruptedRuns();
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        ticker = Bukkit.getScheduler().runTaskTimer(plugin, this::tick, 20, 20);
+        ticker = Bukkit.getScheduler().runTaskTimer(plugin, this::tick, 2, 2);
         for (Player player : Bukkit.getOnlinePlayers()) recover(player);
         plugin.getLogger().info("[DungeonManager] yuumi_dungeon loaded; party instances and restart recovery ready.");
     }
@@ -162,7 +181,8 @@ public final class DungeonManager implements Listener {
     private double boon(String type, String field, double fallback) { return number("boons." + type + "." + field, fallback); }
     private String path(Run run) { return "dungeon.runs." + run.id; }
     private Location gateLocation() { Location spawn = hubSpawn.get(); return spawn == null ? null : new Location(spawn.getWorld(), 18.5, 66, -55.5); }
-    private Location center(Run run) { return new Location(world, run.slot * 800 + .5, 65, (run.stage - 1) * 48 + .5); }
+    private Location center(Run run) {return at(run,0,67,switch(run.stage){case 1->-12;case 2->-47;case 3->-87;case 4->-124;case 5->-160;default->-199;});}
+    private Location at(Run run,double x,double y,double z){return new Location(world,run.slot*DungeonLayout.STRIDE+x+.5,y,z+.5,180,0);}
     private List<Player> online(Run run, boolean living) {
         List<Player> result = new ArrayList<>();
         for (UUID id : run.members) { Player player = Bukkit.getPlayer(id); if (player != null && player.isOnline() && (!living || !run.spectators.contains(id)) && participants.get(id) == run) result.add(player); }
@@ -188,8 +208,8 @@ public final class DungeonManager implements Listener {
         if (isParticipant(player)) { player.sendMessage(TextUtil.msg("<yellow>이미 미궁에 참여 중입니다.")); return; }
         Inventory inv = menu(player, new Menu("gate", null), 45, "<aqua><bold>🗝 문턱의 미궁 집결 관문");
         for (int tier = 1; tier <= 3; tier++) inv.setItem(18 + tier * 2, icon(tier == 1 ? Material.BOOKSHELF : tier == 2 ? Material.MAGMA_BLOCK : Material.CRYING_OBSIDIAN,
-                "<gold>제" + tier + "미궁 · " + new String[]{"별빛 서고", "홍련의 회랑", "공허의 심연"}[tier - 1],
-                "<gray>1~8인 · 5스테이지 · 제한 " + integer("run-seconds", 1800) / 60 + "분",
+                "<gold>제" + tier + "미궁 · " + new String[]{"별빛 천문 대서고", "홍련의 거신 용광로 성채", "공허의 수정 대성당"}[tier - 1],
+                "<gray>1~8인 · 심리스6구역 · 제한 " + integer("run-seconds", 1800) / 60 + "분",
                 tier == 1 ? "<green>입장 무료" : "<yellow>파티장 열쇠 1개 (제단 해금과 무관)", "<gray>전원 관문 12m 이내 집결 및 입장 동의 필요"));
         inv.setItem(40, icon(Material.SUNFLOWER, "<yellow>고대 고양이 금화 교환소", "<gray>책갈피 유물 · 망각 물약 · 입장 열쇠"));
         player.openInventory(inv);
@@ -248,7 +268,7 @@ public final class DungeonManager implements Listener {
             if (run.tier > 1) { if (!consume(leader, "labyrinth_key", 1)) throw new IllegalStateException("Entry key disappeared"); data.set(path(run) + ".key-consumed", true); save.run(); }
             for (UUID id : consent.members) consents.remove(id, consent);
             runs.put(run.id, run);
-            for (UUID id : run.members) { Player player = Bukkit.getPlayer(id); participants.put(id, run); player.closeInventory(); player.setGameMode(GameMode.ADVENTURE); teleport(player, center(run)); }
+            for (UUID id : run.members) { Player player = Bukkit.getPlayer(id); participants.put(id, run); player.closeInventory(); player.setGameMode(GameMode.ADVENTURE); teleport(player,DungeonLayout.spawn(world,run.slot)); }
             data.set(path(run) + ".status", "RUNNING"); save.run(); beginStage(run, 1);
         } catch (RuntimeException ex) {
             plugin.getLogger().warning("[DungeonManager] Entry rolled back: " + ex.getMessage());
@@ -262,38 +282,18 @@ public final class DungeonManager implements Listener {
         return true;
     }
     private void buildRooms(Run run) {
-        Material floor = switch (run.tier) { case 2 -> Material.POLISHED_BLACKSTONE_BRICKS; case 3 -> Material.END_STONE_BRICKS; default -> Material.POLISHED_DEEPSLATE; };
-        Material trim = switch (run.tier) { case 2 -> Material.NETHER_BRICKS; case 3 -> Material.PURPUR_BLOCK; default -> Material.CHISELED_BOOKSHELF; };
-        Material light = run.tier == 2 ? Material.SHROOMLIGHT : run.tier == 3 ? Material.PEARLESCENT_FROGLIGHT : Material.SEA_LANTERN;
-        int cx = run.slot * 800;
-        for (int stage = 0; stage < 5; stage++) {
-            int cz = stage * 48;
-            // Keep the complete run resident during the reconnect grace; an unloaded mob must never count as a kill.
-            for (int chunkX = Math.floorDiv(cx - 15, 16); chunkX <= Math.floorDiv(cx + 15, 16); chunkX++)
-                for (int chunkZ = Math.floorDiv(cz - 15, 16); chunkZ <= Math.floorDiv(cz + 15, 16); chunkZ++) {
-                    world.addPluginChunkTicket(chunkX, chunkZ, plugin); run.chunks.add(new ChunkRef(chunkX, chunkZ));
-                }
-            for (int x = -15; x <= 15; x++) for (int z = -15; z <= 15; z++) {
-                world.getBlockAt(cx + x, 63, cz + z).setType(Material.BARRIER, false);
-                world.getBlockAt(cx + x, 64, cz + z).setType((x % 7 == 0 && z % 7 == 0) ? light : floor, false);
-                for (int y = 65; y <= 79; y++) {
-                    boolean edge = Math.abs(x) == 15 || Math.abs(z) == 15;
-                    world.getBlockAt(cx + x, y, cz + z).setType(edge ? ((x + z + y) % 5 == 0 ? trim : floor) : Material.AIR, false);
-                }
-                world.getBlockAt(cx + x, 80, cz + z).setType((Math.abs(x) <= 1 || Math.abs(z) <= 1) ? light : floor, false);
-            }
-            // Four genuine opaque pillars are both architecture and the boss's line-of-sight cover.
-            for (int x : new int[]{-6, 6}) for (int z : new int[]{-5, 5}) {
-                for (int y = 65; y <= 77; y++) world.getBlockAt(cx + x, y, cz + z).setType(y == 70 ? light : trim, false);
-                for (int arch = -3; arch <= 3; arch++) world.getBlockAt(cx + x + arch, 77 + (Math.abs(arch) == 3 ? -1 : 0), cz + z).setType(trim, false);
-            }
-            if (run.tier == 1) for (int x = -12; x <= 12; x += 6) for (int y = 65; y <= 68; y++) world.getBlockAt(cx + x, y, cz + 14).setType(Material.BOOKSHELF, false);
+        int cx=run.slot*DungeonLayout.STRIDE;
+        for(int x=Math.floorDiv(cx-22,16);x<=Math.floorDiv(cx+22,16);x++)for(int z=-14;z<=-1;z++){
+            world.addPluginChunkTicket(x,z,plugin);run.chunks.add(new ChunkRef(x,z));
         }
+        layout.place(world,run.slot,run.tier);
+        for(int zone=1;zone<=5;zone++)run.gates.put(zone,new DungeonGate(world,cx,DungeonLayout.ZONES.get(zone-1).north(),e->tag(e,run,"gate")));
     }
+
     private <T extends Entity> T tag(T entity, Run run, String kind) {
         entity.getPersistentDataContainer().set(runKey, PersistentDataType.STRING, run.id.toString());
         entity.getPersistentDataContainer().set(kindKey, PersistentDataType.STRING, kind);
-        entity.setPersistent(false); run.entities.add(entity.getUniqueId()); return entity;
+        entity.setPersistent(false); run.entities.add(entity.getUniqueId());if(run.stage>=5&&!kind.equals("gate"))run.lateDecor.add(entity.getUniqueId());return entity;
     }
     private String kind(Entity entity) { return entity.getPersistentDataContainer().get(kindKey, PersistentDataType.STRING); }
     private Run entityRun(Entity entity) {
@@ -309,7 +309,7 @@ public final class DungeonManager implements Listener {
         if (models.contains(model)) {
             ItemDisplay display = tag(world.spawn(at, ItemDisplay.class), run, "decor");
             ItemStack item = new ItemStack(Material.PAPER); ItemMeta meta = item.getItemMeta(); meta.setItemModel(new NamespacedKey("yuumi97", model)); item.setItemMeta(meta); display.setItemStack(item);
-            display.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.FIXED);
+            display.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.NONE);
             display.setTransformation(new Transformation(new Vector3f(), new AxisAngle4f(), new Vector3f(1.5f), new AxisAngle4f())); run.roomDecor.add(display.getUniqueId());
         } else {
             BlockDisplay display = tag(world.spawn(at.clone().add(-.5, 0, -.5), BlockDisplay.class), run, "decor"); display.setBlock(fallback.createBlockData()); run.roomDecor.add(display.getUniqueId());
@@ -322,262 +322,282 @@ public final class DungeonManager implements Listener {
     }
     private void setAttr(LivingEntity entity, Attribute attr, double value) { AttributeInstance instance = entity.getAttribute(attr); if (instance != null) instance.setBaseValue(value); }
     private double tierValue(String field, int tier, double a, double b, double c) { return number("tiers." + tier + "." + field, tier == 1 ? a : tier == 2 ? b : c); }
-    private LivingEntity enemy(Run run, EntityType type, Location at, double hp, double damage, String name) {
-        LivingEntity entity = tag((LivingEntity) world.spawnEntity(at, type), run, "enemy");
-        entity.customName(TextUtil.mm(name)); entity.setCustomNameVisible(true); entity.setRemoveWhenFarAway(false);
-        double total = hp * DungeonRules.healthScale(run.originalSize);
-        run.logicalHp.put(entity.getUniqueId(), total); run.maxHp.put(entity.getUniqueId(), total); run.enemies.add(entity.getUniqueId());
-        // The shipped Spigot cap is 1024 HP. Logical reserve preserves scaling without editing server configuration.
-        setAttr(entity, Attribute.MAX_HEALTH, Math.min(1024, total)); entity.setHealth(Math.min(1024, total)); setAttr(entity, Attribute.ATTACK_DAMAGE, damage);
-        setAttr(entity, Attribute.MOVEMENT_SPEED, .27); entity.setCanPickupItems(false);
-        if (entity instanceof Zombie zombie) { zombie.setAdult(); zombie.setShouldBurnInDay(false); }
-        if (entity.getEquipment() != null) { entity.getEquipment().setItemInMainHandDropChance(0); entity.getEquipment().setHelmetDropChance(0); }
-        Player target = online(run, true).stream().findFirst().orElse(null); if (entity instanceof Mob mob && target != null) mob.setTarget(target);
-        return entity;
+    private LivingEntity enemy(Run run,MobType type,Location location,int zone,boolean twin) {
+        LivingEntity entity=tag((LivingEntity)world.spawnEntity(location,EntityType.HUSK),run,"enemy");
+        entity.setInvisible(true);entity.setSilent(true);entity.setPersistent(false);entity.setRemoveWhenFarAway(false);entity.setCanPickupItems(false);
+        entity.setFireTicks(0);entity.setVisualFire(false);if(entity instanceof Zombie zombie){zombie.setAdult();zombie.setShouldBurnInDay(false);}
+        if(entity.getEquipment()!=null){entity.getEquipment().clear();entity.getEquipment().setItemInMainHandDropChance(0);entity.getEquipment().setHelmetDropChance(0);}
+        double health=type.health();if(type.role==3)health=tierValue("elite-health",run.tier,140,240,360);
+        if(type.role==5)health=tierValue("boss-health",run.tier,300,500,800);
+        if(type.role<3&&type!=MobType.CHOIR){double base=tierValue("mob-health",run.tier,24,36,50);health=type.role==1?Math.round(base*1.25):type.role==2?Math.round(base*.85):base;}
+        if(twin)health/=2;
+        health=Math.max(1,number("mobs."+type.id+".health",health));
+        double total=health*DungeonRules.healthScale(run.originalSize),damage=type.damage();
+        if(type.role==5)damage=tierValue("boss-damage",run.tier,9,13,17);else if(type.role==3)damage=tierValue("elite-damage",run.tier,7,10,13);
+        else if(type.role<3)damage=tierValue("mob-damage",run.tier,4,6,8)*(type==MobType.CHOIR?.75:1);
+        damage=Math.max(0,number("mobs."+type.id+".damage",damage));
+        run.logicalHp.put(entity.getUniqueId(),total);run.maxHp.put(entity.getUniqueId(),total);run.enemies.add(entity.getUniqueId());
+        setAttr(entity,Attribute.MAX_HEALTH,Math.min(1024,total));entity.setHealth(Math.min(1024,total));setAttr(entity,Attribute.ATTACK_DAMAGE,0);
+        setAttr(entity,Attribute.MOVEMENT_SPEED,type==MobType.HOUND?.32:.24);setAttr(entity,Attribute.KNOCKBACK_RESISTANCE,type.boss()?.9:type.role==3?.6:.15);
+        setAttr(entity,Attribute.SCALE,type.boss()?1.45:type.role==3?1.2:1);entity.setAI(!type.ranged());
+        if(type.boss())entity.addScoreboardTag("yuumi_dungeon_boss");
+        MonsterRig rig=new MonsterRig(entity,type,rigCatalog,e->tag(e,run,"rig"));
+        double poise=Math.max(1,number("mobs."+type.id+".poise",type.poise())*(twin?.5:1)*(1+number("poise.player-scaling",.30)*(run.originalSize-1)));
+        MobState mob=new MobState(entity,type,zone,location,rig,damage,poise);mob.nextAttack=ticks+30;
+        run.mobs.put(entity.getUniqueId(),mob);return entity;
     }
-    private void spawnWave(Run run, boolean skeletonsOnly) {
-        int count = skeletonsOnly ? 2 + (run.originalSize - 1) / 3 : DungeonRules.waveSize(run.originalSize);
-        Location origin = center(run);
-        for (int i = 0; i < count; i++) {
-            double angle = Math.PI * 2 * i / count;
-            EntityType type = skeletonsOnly || i % 2 == 0 ? EntityType.SKELETON : run.tier == 2 ? EntityType.WITHER_SKELETON : EntityType.HUSK;
-            enemy(run, type, origin.clone().add(Math.cos(angle) * 10, 0, Math.sin(angle) * 10),
-                    tierValue("mob-health", run.tier, 24, 36, 50), tierValue("mob-damage", run.tier, 4, 6, 8), "<gray>미궁의 파수꾼");
-        }
+    private void spawnWave(Run run){
+        int count=DungeonRules.waveSize(run.originalSize),ground=(count+1)/2,upper=count-ground;
+        for(int i=0;i<ground;i++)enemy(run,MobType.of(run.tier,run.tier==3?0:i%2),at(run,-6+(i%4)*4,67,-43-(i/4)*5),2,false);
+        for(int i=0;i<upper;i++)enemy(run,MobType.of(run.tier,2),at(run,i%2==0?-12:12,75,-56+(i/2)*3),2,false);
     }
+
     private void removeEntities(Run run, Collection<UUID> ids) {
         for (UUID id : new ArrayList<>(ids)) { Entity entity = Bukkit.getEntity(id); if (entity != null) entity.remove(); run.entities.remove(id); run.enemies.remove(id); run.logicalHp.remove(id); run.maxHp.remove(id); }
         ids.clear();
     }
     private void clearRoom(Run run) {
-        removeEntities(run, run.enemies); removeEntities(run, run.roomDecor); run.obelisks.clear();
-        for (BukkitTask task : run.tasks) task.cancel(); run.tasks.clear();
-        if (run.bossBar != null) { for (Player player : online(run, false)) player.hideBossBar(run.bossBar); run.bossBar = null; }
+        for(MobState mob:run.mobs.values())mob.rig.remove();run.mobs.clear();
+        removeEntities(run,run.enemies);removeEntities(run,run.roomDecor);run.obelisks.clear();
+        for(BukkitTask task:run.tasks)task.cancel();run.tasks.clear();run.gates.values().forEach(DungeonGate::remove);run.gates.clear();
+        if(run.bossBar!=null){for(Player p:online(run,false))p.hideBossBar(run.bossBar);run.bossBar=null;}
     }
-    private void beginStage(Run run, int stage) {
-        if (run.ended) return;
-        clearRoom(run); run.stage = stage; run.stageStarted = System.currentTimeMillis(); run.wave = 0; run.awaitingBoon = false;
-        run.selected.clear(); run.choices.clear(); run.memoryIndex = 0; run.resonanceSeconds = 0; run.helperPlate = -1;
-        for (Player player : online(run, false)) { revive(run, player); teleport(player, center(run).clone().add((ThreadLocalRandom.current().nextDouble() - .5) * 3, 0, 10)); }
-        text(run, center(run).add(0, 7, 0), "<aqua><bold>제" + run.tier + "미궁 │ Stage " + stage + " / 5");
-        tell(run, "<aqua>문턱의 미궁 <bold>" + stage + " / 5</bold>");
-        if (stage == 1) {
-            run.encounter = Encounter.values()[ThreadLocalRandom.current().nextInt(3)];
-            switch (run.encounter) {
-                case OBELISKS -> {
-                    prop(run, "prop_dungeon_obelisk", center(run).add(-9, 0, -7), Material.AMETHYST_BLOCK, "obelisk", 0);
-                    prop(run, "prop_dungeon_obelisk", center(run).add(9, 0, -7), Material.AMETHYST_BLOCK, "obelisk", 1);
-                    prop(run, "prop_dungeon_obelisk", center(run).add(0, 0, 8), Material.AMETHYST_BLOCK, "obelisk", 2);
-                    spawnWave(run, false); tell(run, "<light_purple>봉인 수정탑 3기를 먼저 파괴하세요! 봉인 중에는 적이 피해를 받지 않습니다.");
-                }
-                case WAVES -> { run.wave = 1; spawnWave(run, false); tell(run, "<yellow>원거리·근접 포위 돌파전! 2개 웨이브를 격파하세요."); }
-                case THIEF -> spawnThief(run);
+    private void beginStage(Run run,int zone){
+        if(run.ended||!run.activated.add(zone))return;run.stage=zone;run.stageStarted=System.currentTimeMillis();
+        tell(run,"<aqua><bold>제"+run.tier+"장 · "+new String[]{"","전초 로비","복층 전투 전당","기믹 대교","중보스 성소","고대 공간 퍼즐","대보스 대성당"}[zone]);
+        if(zone==1){
+            prop(run,"",at(run,0,67,-23),Material.LODESTONE,"ready",0);text(run,at(run,0,70,-23),"<gold>파티장 우클릭: 준비 완료 · 제1성문 개방");
+            prop(run,"",at(run,-10,67,-90),Material.CHEST,"side",0);
+        }else if(zone==2){
+            run.obeliskEncounter=false;run.wave=1;
+            if(run.obeliskEncounter){for(int i=0;i<3;i++)prop(run,"prop_dungeon_obelisk",at(run,-8+i*8,67,-57),Material.AMETHYST_BLOCK,"obelisk",i);tell(run,"<light_purple>봉인 수정탑3기를 부수고 전당의 적을 처치하세요.");}
+            else tell(run,"<yellow>1층 근접·2층 원거리 전당: 두 웨이브를 격파하세요.");
+            spawnWave(run);
+        }else if(zone==3){
+            run.bridgeStarted=ticks;
+            if(run.tier==3)for(int z:new int[]{-79,-90,-101})for(int x=-1;x<=1;x++)for(int dz=-1;dz<=1;dz++)world.getBlockAt(run.slot*DungeonLayout.STRIDE+x,67,z+dz).setType(Material.PURPUR_SLAB,false);
+            int elites=1+(run.originalSize-1)/4;
+            for(int i=0;i<elites;i++){
+                enemy(run,MobType.of(run.tier,3),at(run,i==0?-1:2,67,-88-i*8),3,false);
+                if(run.tier==3)enemy(run,MobType.CHOIR,at(run,-2+i*4,67,-95),3,false);
             }
-        } else if (stage == 2) beginBoon(run);
-        else if (stage == 3) beginPuzzle(run);
-        else if (stage == 4) {
-            enemy(run, run.tier == 1 ? EntityType.IRON_GOLEM : EntityType.WITHER_SKELETON, center(run).add(0, 0, -7),
-                    tierValue("elite-health", run.tier, 140, 240, 360), tierValue("elite-damage", run.tier, 7, 10, 13), "<red><bold>엘리트 미궁 수문장");
-            tell(run, "<red>엘리트 수문장을 격파하면 모닥불 회복과 두 번째 축복이 열립니다.");
-        } else spawnBoss(run);
-    }
-    private void spawnThief(Run run) {
-        run.stageStarted = System.currentTimeMillis();
-        LivingEntity thief = enemy(run, EntityType.OCELOT, center(run), 65 * run.tier, 0, "<gold><bold>황금 보물 도둑냥");
-        thief.setAI(false); tell(run, "<gold>45초 안에 황금 보물 도둑냥을 잡으세요! 실패하면 방을 재도전합니다.");
-    }
-    private void beginBoon(Run run) {
-        run.awaitingBoon = true; run.selected.clear(); run.choices.clear();
-        prop(run, "prop_boon_altar", center(run), Material.ENCHANTING_TABLE, "boon", 0);
-        for (UUID id : run.members) if (participants.get(id) == run) {
-            List<Boon> options = new ArrayList<>(List.of(Boon.values())); Collections.shuffle(options); run.choices.put(id, List.copyOf(options.subList(0, 3)));
-            Player player = Bukkit.getPlayer(id); if (player != null) openBoon(player, run);
+            for(int i=0;i<2;i++)enemy(run,MobType.of(run.tier,0),at(run,i==0?-2:2,67,-78),3,false);
+            tell(run,"<yellow>다리의 진홍 전조를 피하세요. 옆길의 보물은 원정당1회이며 최종 승리 시 정산됩니다.");
+        }else if(zone==4){
+            enemy(run,MobType.of(run.tier,4),at(run,run.tier==3?-4:0,67,-124),4,run.tier==3);
+            if(run.tier==3)enemy(run,MobType.ARCHONS,at(run,4,67,-124),4,true);
+        }else if(zone==5)beginPuzzle(run);
+        else{
+            run.gates.get(5).close();LivingEntity boss=enemy(run,MobType.of(run.tier,5),at(run,0,67,-209),6,false);run.boss=boss.getUniqueId();
+            run.bossBar=BossBar.bossBar(TextUtil.mm("<gold>"+MobType.of(run.tier,5).title),1,BossBar.Color.PURPLE,BossBar.Overlay.NOTCHED_10);
+            for(Player p:online(run,false))p.showBossBar(run.bossBar);
+            if(run.tier==2)for(int i=0;i<3;i++)prop(run,"",valvePoint(run,i),Material.WAXED_COPPER_BLOCK,"cooling",i);
+            if(run.tier==3)for(int i=0;i<4;i++)prop(run,"",lanternPoint(run,i),Material.SEA_LANTERN,"lantern",i);
         }
     }
-    private void openBoon(Player player, Run run) {
-        if (!run.awaitingBoon || run.selected.contains(player.getUniqueId())) return;
-        List<Boon> options = run.choices.get(player.getUniqueId()); if (options == null) return;
-        Inventory inv = menu(player, new Menu("boon", run.id, options), 27, "<light_purple><bold>축복 제단 · 3택 1");
-        for (int i = 0; i < 3; i++) { Boon boon = options.get(i); inv.setItem(10 + i * 3, icon(boon.icon, "<gold>" + boon.title, "<gray>" + boon.description, "<yellow>현재 " + stacks(run, player, boon) + "중첩 · 클릭하여 선택")); }
-        player.openInventory(inv);
+    private void clearZone(Run run,int zone){
+        if(!run.cleared.add(zone))return;
+        for(Player player:online(run,false))if(run.spectators.contains(player.getUniqueId())){revive(run,player);teleport(player,safePoint(run,zone));}
+        tell(run,"<green>제"+zone+"구역 클리어 · 성문이 올라갑니다!");
+        if(zone<5)run.gates.get(zone).open(ticks);else run.gates.get(5).open(ticks);
     }
-    private void beginPuzzle(Run run) {
-        run.puzzle = Puzzle.values()[ThreadLocalRandom.current().nextInt(3)];
-        if (run.puzzle == Puzzle.RESONANCE) {
-            // The required subset can grow when disconnected members return; all four pads must exist already.
-            for (int i = 0; i < 4; i++) { Location plate = plate(run, i); world.getBlockAt(plate.clone().add(0, -1, 0)).setType(Material.GOLD_BLOCK, false); world.getBlockAt(plate).setType(Material.LIGHT_WEIGHTED_PRESSURE_PLATE, false); }
-            giveSoloBell(run);
-            tell(run, "<yellow>공명 발판을 동시에 3초 동안 밟으세요. 생존자가 혼자이면 영혼 분신 방울을 우클릭하세요.");
-        } else if (run.puzzle == Puzzle.MEMORY) {
-            for (int i = 0; i < 4; i++) {
-                prop(run, "", crystal(run, i), new Material[]{Material.REDSTONE_BLOCK, Material.LAPIS_BLOCK, Material.EMERALD_BLOCK, Material.GOLD_BLOCK}[i], "crystal", i);
-                run.melody.add(ThreadLocalRandom.current().nextInt(4));
+    private int enemiesIn(Run run,int zone){return (int)run.mobs.values().stream().filter(m->m.zone==zone&&!m.dead).count();}
+    private void beginBoon(Run run){
+        run.awaitingBoon=true;run.selected.clear();run.choices.clear();
+        for(UUID id:run.members)if(participants.get(id)==run){List<Boon> options=new ArrayList<>(List.of(Boon.values()));Collections.shuffle(options);run.choices.put(id,List.copyOf(options.subList(0,3)));}
+        prop(run,"prop_dungeon_boon_altar",at(run,0,68,-140),Material.ENCHANTING_TABLE,"boon",0);
+        for(Player p:online(run,false))openBoon(p,run);
+    }
+    private void openBoon(Player player,Run run){
+        if(!run.awaitingBoon||run.selected.contains(player.getUniqueId()))return;List<Boon> choices=run.choices.get(player.getUniqueId());if(choices==null)return;
+        Inventory inv=menu(player,new Menu("boon",run.id,choices),27,"<light_purple>별빛 화톳불 · 축복3택1");
+        for(int i=0;i<3;i++){Boon boon=choices.get(i);inv.setItem(10+i*3,icon(boon.icon,"<light_purple>"+boon.title,"<gray>"+boon.description));}player.openInventory(inv);
+    }
+    private Location puzzlePoint(Run run,int i){return at(run,i<2?-9:9,67,i%2==0?-167:-153);}
+    private Location valvePoint(Run run,int i){return at(run,new int[]{-8,8,0}[i],67,new int[]{-194,-194,-211}[i]);}
+    private Location lanternPoint(Run run,int i){return at(run,i<2?-8:8,67,i%2==0?-207:-189);}
+    private void beginPuzzle(Run run){
+        run.memoryIndex=0;run.memoryShownAt=0;
+        for(int i=0;i<4;i++){
+            run.puzzleTargets[i]=i;run.puzzleValues[i]=(i+1+ThreadLocalRandom.current().nextInt(3))%4;
+            if(run.tier==2)run.puzzleValues[i]=new int[]{0,20,80,100}[ThreadLocalRandom.current().nextInt(4)];
+            if(run.tier!=2||i<3)prop(run,"",puzzlePoint(run,i),run.tier==1?Material.GOLD_BLOCK:run.tier==2?Material.COPPER_BLOCK:new Material[]{Material.RED_STAINED_GLASS,Material.BLUE_STAINED_GLASS,Material.LIME_STAINED_GLASS,Material.YELLOW_STAINED_GLASS}[i],"puzzle",i);
+            if(run.tier==1){BlockDisplay mirror=tag(world.spawn(puzzlePoint(run,i).add(0,1,0),BlockDisplay.class),run,"decor");mirror.setBlock(Material.LIGHT_BLUE_STAINED_GLASS.createBlockData());run.roomDecor.add(mirror.getUniqueId());run.mirrors.put(i,mirror);rotateMirror(run,i);}
+        }
+        if(run.tier==3){if(run.melody.isEmpty()){run.melody.addAll(List.of(0,1,2,3));Collections.shuffle(run.melody);}prop(run,"",at(run,0,67,-160),Material.NOTE_BLOCK,"replay",0);replayMelody(run);}
+        tell(run,run.tier==1?"<aqua>거울4개를 회전시켜 중앙 수정에 빛을 모으세요. 녹색 빛은 정렬 완료입니다.":run.tier==2?"<gold>밸브3개: 클릭마다 압력+20, 녹색40~60에서 자동 고정됩니다.":"<light_purple>4색 공허 파이프를 들려준 순서대로 연주하세요. 중앙 장치로 언제든 다시 듣습니다.");
+    }
+    private void replayMelody(Run run){run.memoryShownAt=System.currentTimeMillis();run.melodyNext=ticks;}
+    private void rotateMirror(Run run,int index){BlockDisplay display=run.mirrors.get(index);if(display==null)return;org.joml.Quaternionf rotation=new org.joml.Quaternionf().rotateY((float)Math.toRadians(run.puzzleValues[index]*90));display.setInterpolationDelay(0);display.setInterpolationDuration(5);display.setTransformation(new Transformation(rotation.transform(new Vector3f(-.75f,0,-.08f)),rotation,new Vector3f(1.5f,1.5f,.16f),new org.joml.Quaternionf()));}
+    private void tintProp(Run run,Location point,Material material){for(UUID id:run.roomDecor){Entity entity=Bukkit.getEntity(id);if(entity instanceof BlockDisplay block&&entity.getLocation().distanceSquared(point)<1)block.setBlock(material.createBlockData());}}
+    private void later(Run run,long delay,Runnable action){int attempt=run.attempt;
+        run.tasks.add(Bukkit.getScheduler().runTaskLater(plugin,()->{if(run.ended||run.attempt!=attempt)return;try{action.run();}catch(RuntimeException ex){plugin.getLogger().warning("[Dungeon] delayed task: "+ex.getMessage());endRun(run,"시스템 오류",true);}},delay));
+    }
+    private void tick(){
+        ticks+=2;long now=System.currentTimeMillis();
+        for(Consent consent:new HashSet<>(consents.values()))if(now>=consent.deadline)cancelConsent(consent,"<yellow>입장 동의 시간이 지나 취소되었습니다.");
+        for(Run run:new ArrayList<>(runs.values()))try{tickRun(run,now);}catch(RuntimeException ex){plugin.getLogger().warning("[Dungeon] Run failed: "+ex.getMessage());endRun(run,"시스템 오류",true);}
+    }
+    private void tickRun(Run run,long now){
+        if(run.ended)return;run.gates.values().forEach(g->g.tick(ticks));
+        for(Player player:new ArrayList<>(online(run,false)))if(!player.getWorld().equals(world)&&!run.disconnected.containsKey(player.getUniqueId()))onExternalLeave(player);
+        for(var lost:new ArrayList<>(run.disconnected.entrySet()))if(now>=lost.getValue()){run.disconnected.remove(lost.getKey());participants.remove(lost.getKey(),run);tell(run,"<yellow>재접속 유예가 끝나 원정대원1명이 이탈했습니다.");}
+        if(run.members.stream().noneMatch(id->participants.get(id)==run)){endRun(run,run.reward?"미궁 완료":"참가자 전원 이탈",false);return;}
+        if(run.reward){
+            if(now-run.stageStarted>integer("reward-minutes",5)*60_000L){endRun(run,"보상 수령 시간 종료",false);return;}
+            for(Player p:online(run,false))if(p.getLocation().distanceSquared(at(run,0,67,-216))<3){claimLoot(run.id,p.getUniqueId());leaveMember(run,p,"미궁에서 무사히 복귀했습니다.");}return;
+        }
+        if(now-run.started>=integer("run-seconds",1800)*1000L){endRun(run,"미궁 제한 시간 종료",false);return;}
+        List<Player> living=online(run,true);boolean waiting=run.disconnected.keySet().stream().anyMatch(id->!run.spectators.contains(id));
+        if(living.isEmpty()&&!waiting){if(run.checkpoint&&!run.retried)retryCheckpoint(run);else endRun(run,"원정대 전멸",false);return;}
+        if(run.awaitingBoon){
+            for(Player p:online(run,false))if(!run.selected.contains(p.getUniqueId())&&!(p.getOpenInventory().getTopInventory().getHolder() instanceof Menu holder&&"boon".equals(holder.kind)))openBoon(p,run);
+            if(run.members.stream().filter(id->participants.get(id)==run).allMatch(run.selected::contains)){run.awaitingBoon=false;clearZone(run,4);}return;
+        }
+        for(Player p:living){int zone=DungeonLayout.zoneAt(p.getLocation().getZ());if(zone>run.stage&&zone<=5&&run.gates.get(zone-1).isOpen())beginStage(run,zone);}
+        if(run.cleared.contains(5)&&!run.activated.contains(6)&&!living.isEmpty()){
+            long inside=living.stream().filter(p->p.getLocation().getZ()<=-180).count();
+            if(inside==living.size()&&!waiting){beginStage(run,6);for(Player p:online(run,false))if(run.spectators.contains(p.getUniqueId()))teleport(p,at(run,0,70,-183));}
+            else if(ticks%20==0&&inside>0)tell(run,"<yellow>대성당 집결 "+inside+"/"+living.size()+(waiting?" · 재접속 대기":""));
+        }
+        for(MobState mob:new ArrayList<>(run.mobs.values()))if(mob.dead){mob.rig.tick(ticks,null,0,1,0,1);}else{
+            if(!mob.entity.isValid())throw new IllegalStateException("live mob disappeared: "+mob.type.id);
+            tickMob(run,mob,living);
+        }
+        if(run.stage==2&&!run.cleared.contains(2)&&enemiesIn(run,2)==0&&run.obelisks.isEmpty()){
+            if(!run.obeliskEncounter&&run.wave==1){run.wave=2;later(run,60,()->spawnWave(run));run.wave=3;}
+            else if(run.wave!=3)clearZone(run,2);
+            else if(run.mobs.values().stream().filter(m->m.zone==2).count()>DungeonRules.waveSize(run.originalSize))clearZone(run,2);
+        }
+        if(run.stage==3&&!run.cleared.contains(3)){
+            bridgeHazard(run,living);if(enemiesIn(run,3)==0)clearZone(run,3);
+        }
+        if(run.stage==4&&!run.checkpoint&&enemiesIn(run,4)==0){
+            run.checkpoint=true;for(Player p:online(run,false)){revive(run,p);heal(p,maxHealth(p));p.setFoodLevel(20);p.setSaturation(20);p.setFireTicks(0);}
+            prop(run,"",at(run,0,68,-138),Material.SOUL_CAMPFIRE,null,0);tell(run,"<green>별빛 화톳불 점화! 전원 회복 · 원정당1회 전멸 재도전 해금.");beginBoon(run);
+        }
+        if(run.stage==5&&!run.cleared.contains(5))tickPuzzle(run);
+        if(run.boss!=null&&run.bossBar!=null){MobState boss=run.mobs.get(run.boss);if(boss!=null&&!boss.dead){double hp=run.logicalHp.getOrDefault(run.boss,0.0),max=run.maxHp.getOrDefault(run.boss,1.0);run.bossBar.progress((float)Math.clamp(hp/max,0,1));}}
+    }
+    private void retryCheckpoint(Run run){
+        run.retried=true;run.attempt++;run.stage=4;run.stageStarted=System.currentTimeMillis();run.boss=null;run.enraged=false;run.valves.clear();run.memoryIndex=0;
+        for(BukkitTask task:run.tasks)task.cancel();run.tasks.clear();
+        for(MobState mob:new ArrayList<>(run.mobs.values()))if(mob.zone>=5){mob.rig.remove();mob.entity.remove();run.mobs.remove(mob.entity.getUniqueId());run.enemies.remove(mob.entity.getUniqueId());run.logicalHp.remove(mob.entity.getUniqueId());run.maxHp.remove(mob.entity.getUniqueId());}
+        removeEntities(run,run.lateDecor);run.roomDecor.removeIf(id->!run.entities.contains(id));run.activated.remove(5);run.activated.remove(6);run.cleared.remove(5);run.cleared.remove(6);run.gates.get(5).close();
+        if(run.bossBar!=null){for(Player p:online(run,false))p.hideBossBar(run.bossBar);run.bossBar=null;}
+        run.spectators.clear();for(Player p:online(run,false)){if(p.isDead())p.spigot().respawn();p.setGameMode(GameMode.ADVENTURE);heal(p,maxHealth(p));p.setFoodLevel(20);p.setSaturation(20);p.setFireTicks(0);for(PotionEffectType negative:List.of(PotionEffectType.POISON,PotionEffectType.WITHER,PotionEffectType.SLOWNESS,PotionEffectType.WEAKNESS,PotionEffectType.BLINDNESS,PotionEffectType.DARKNESS,PotionEffectType.HUNGER,PotionEffectType.NAUSEA,PotionEffectType.MINING_FATIGUE))p.removePotionEffect(negative);teleport(p,DungeonLayout.checkpoint(world,run.slot));}
+        tell(run,"<gold>화톳불의 마지막 기적! 남은 시간·축복·사이드 보물은 유지됩니다. 퍼즐과 대보스에 다시 도전하세요.");
+    }
+    private void tickPuzzle(Run run){
+        if(run.tier==1){boolean all=true;for(int i=0;i<4;i++){boolean correct=run.puzzleValues[i]==run.puzzleTargets[i];all&=correct;Location from=puzzlePoint(run,i).add(0,1,0);Vector direction=(correct?at(run,0,68,-160):from.clone().add(Math.cos(run.puzzleValues[i]*Math.PI/2)*4,0,Math.sin(run.puzzleValues[i]*Math.PI/2)*4)).toVector().subtract(from.toVector());drawLine(from,direction,correct?Color.AQUA:Color.PURPLE);}
+            if(all){if(run.memoryShownAt==0)run.memoryShownAt=System.currentTimeMillis();if(System.currentTimeMillis()-run.memoryShownAt>=1000)clearZone(run,5);}else run.memoryShownAt=0;
+        }else if(run.tier==2){if(run.puzzleValues[0]>=40&&run.puzzleValues[0]<=60&&run.puzzleValues[1]>=40&&run.puzzleValues[1]<=60&&run.puzzleValues[2]>=40&&run.puzzleValues[2]<=60)clearZone(run,5);}
+        else if(ticks==run.melodyNext||ticks==run.melodyNext+14||ticks==run.melodyNext+28||ticks==run.melodyNext+42){int i=(int)((ticks-run.melodyNext)/14);int note=run.melody.get(i);Location point=puzzlePoint(run,note);world.spawnParticle(Particle.END_ROD,point.clone().add(0,1,0),25,.4,.4,.4);world.playSound(point,Sound.BLOCK_NOTE_BLOCK_CHIME,2,.7f+note*.25f);tell(run,"<aqua>공허 화음 "+(i+1)+": "+new String[]{"빨강●","파랑◆","초록▲","노랑★"}[note]);}
+    }
+    private void bridgeHazard(Run run,List<Player> living){
+        int cycle=run.tier==2?100:120;long phase=(ticks-run.bridgeStarted)%cycle;
+        if(phase==0)run.bridgeHit.clear();Color red=Color.fromRGB(255,42,42);
+        if(run.tier==1&&phase<=20){
+            double angle=Math.sin((ticks-run.bridgeStarted)*.035)*1.1;Vector direction=new Vector(Math.sin(angle),0,Math.cos(angle));Location pivot=at(run,0,67,-88);
+            drawLine(pivot.clone().subtract(direction.clone().multiply(12)),direction.clone().multiply(24),red);
+            world.spawnParticle(Particle.ENCHANT,pivot.clone().add(0,5,0),6,.4,.4,.4);
+            if(phase==20){for(Player player:living)if(DungeonLayout.zoneAt(player.getLocation().getZ())==3){Vector offset=player.getLocation().toVector().subtract(pivot.toVector()).setY(0);double along=offset.dot(direction);if(Math.abs(along)<=12&&offset.subtract(direction.clone().multiply(along)).lengthSquared()<1)hurt(player,tierValue("mob-damage",run.tier,4,6,8),null);}world.playSound(pivot,Sound.ENTITY_GUARDIAN_ATTACK,1,1.5f);}
+        }else if(run.tier==2&&phase==0){
+            int vent=(int)(((ticks-run.bridgeStarted)/cycle)%3);Location target=at(run,0,67,-78-vent*12);warnCircle(target,3.5,red);
+            later(run,20,()->{if(run.cleared.contains(3))return;for(Player p:online(run,true))if(DungeonLayout.zoneAt(p.getLocation().getZ())==3&&Math.abs(p.getLocation().getZ()-target.getZ())<=3.5)hurt(p,tierValue("mob-damage",run.tier,4,6,8),null);world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE,target,50,3,.5,1);world.playSound(target,Sound.BLOCK_FIRE_EXTINGUISH,1,.6f);});
+        }else if(run.tier==3){
+            if(phase==0){drawLine(at(run,-3,67,-70),new Vector(6,0,0),red);tell(run,"<light_purple>공허 파동! 도약석에 오르거나 파동을 뛰어넘으세요.");}
+            if(phase>=20&&phase<=104){double z=-70-(phase-20)*.5;Location front=at(run,-3,67,z);drawLine(front,new Vector(6,0,0),red);
+                for(Player p:living)if(DungeonLayout.zoneAt(p.getLocation().getZ())==3&&Math.abs(p.getLocation().getZ()-(z+.5))<1.4&&p.getLocation().getY()<67.45&&run.bridgeHit.add(p.getUniqueId()))hurt(p,tierValue("mob-damage",run.tier,4,6,8),null);
             }
-            run.memoryShownAt = System.currentTimeMillis(); tell(run, "<aqua>4색 수정의 음계를 기억하고, 같은 순서로 수정을 우클릭하세요.");
-        } else {
-            run.truth = ThreadLocalRandom.current().nextInt(4);
-            for (int i = 0; i < 4; i++) {
-                prop(run, "", center(run).add(-9 + i * 6, 0, -4), Material.CHISELED_STONE_BRICKS, "statue", i);
-                text(run, center(run).add(-9 + i * 6, 3, -4), "<yellow>" + (i + 1) + "번 석상");
-            }
-            String clues = "<gold>진실한 석상은 " + ((run.truth + 1) % 2 == 0 ? "짝수" : "홀수") + " 번호입니다.\n" + (run.truth < 2 ? "앞쪽 두 번호(1, 2) 중 하나입니다." : "뒤쪽 두 번호(3, 4) 중 하나입니다.");
-            text(run, center(run).add(0, 5, 7), clues); tell(run, clues + " <gray>정답 석상을 우클릭하세요.");
         }
     }
-    private Location plate(Run run, int i) { return center(run).add(i % 2 == 0 ? -8 : 8, 0, i < 2 ? -8 : 8); }
-    private Location crystal(Run run, int i) { return center(run).add(i % 2 == 0 ? -8 : 8, 0, i < 2 ? -7 : 7); }
-    private void giveSoloBell(Run run) {
-        List<Player> living = online(run, true); if (living.size() != 1) return;
-        Player solo = living.getFirst();
-        for (ItemStack item : solo.getInventory().getContents()) if (item != null && item.hasItemMeta() && item.getItemMeta().getPersistentDataContainer().has(helperKey, PersistentDataType.STRING)) return;
-        ItemStack bell = icon(Material.BELL, "<aqua>영혼 분신 방울", "<gray>혼자일 때 보조 공명 발판을 20초간 활성화합니다.", "<gray>미궁을 떠나면 사라집니다.");
-        ItemMeta meta = bell.getItemMeta(); meta.getPersistentDataContainer().set(helperKey, PersistentDataType.STRING, run.id.toString()); bell.setItemMeta(meta);
-        if (solo.getInventory().firstEmpty() >= 0) solo.getInventory().addItem(bell);
-        else tell(run, "<yellow>인벤토리가 가득 찼습니다. 발판 위에서 빈손 우클릭으로도 분신을 부를 수 있습니다.");
-    }
-    private void puzzleMistake(Run run) {
-        tell(run, "<red>공명이 어긋났습니다! 작은 해골 무리가 나타납니다. 다시 도전할 수 있습니다.");
-        if (run.enemies.size() < 6) spawnWave(run, true);
-        run.memoryIndex = 0; run.memoryShownAt = System.currentTimeMillis();
-    }
-    private void spawnBoss(Run run) {
-        LivingEntity boss = enemy(run, run.tier == 1 ? EntityType.HUSK : EntityType.WITHER_SKELETON, center(run).add(0, 0, -9),
-                tierValue("boss-health", run.tier, 300, 500, 800), tierValue("boss-damage", run.tier, 9, 13, 17), "<dark_purple><bold>문턱의 심연 지배자");
-        boss.addScoreboardTag("yuumi_dungeon_boss");
-        setAttr(boss, Attribute.SCALE, 1.8); setAttr(boss, Attribute.KNOCKBACK_RESISTANCE, .85); run.boss = boss.getUniqueId();
-        run.bossBar = BossBar.bossBar(TextUtil.mm("<light_purple>문턱의 심연 지배자"), 1, BossBar.Color.PURPLE, BossBar.Overlay.NOTCHED_10);
-        for (Player player : online(run, false)) player.showBossBar(run.bossBar);
-        tell(run, "<red>최종 보스전! 장판을 피하고, 전멸기에는 석주 뒤로 숨으세요!");
-    }
-    private void later(Run run, long ticks, Runnable action) {
-        run.tasks.add(Bukkit.getScheduler().runTaskLater(plugin, () -> {
-            if (run.ended) return;
-            try { action.run(); } catch (RuntimeException ex) {
-                plugin.getLogger().warning("[DungeonManager] Run aborted: " + ex.getMessage()); endRun(run, "시스템 오류", true);
-            }
-        }, ticks));
-    }
-    private void tick() {
-        long now = System.currentTimeMillis();
-        for (Consent consent : new HashSet<>(consents.values())) if (now >= consent.deadline) cancelConsent(consent, "<yellow>입장 동의 시간이 지나 취소되었습니다.");
-        for (Run run : new ArrayList<>(runs.values())) {
-            try { tickRun(run, now); } catch (RuntimeException ex) { plugin.getLogger().warning("[DungeonManager] Run tick failed: " + ex.getMessage()); endRun(run, "시스템 오류", true); }
+    private Player nearest(MobState mob,List<Player> players){return players.stream().filter(p->p.getWorld().equals(mob.entity.getWorld())&&DungeonLayout.zoneAt(p.getLocation().getZ())==mob.zone).min(Comparator.comparingDouble(p->p.getLocation().distanceSquared(mob.entity.getLocation()))).orElse(null);}
+    private void tickMob(Run run,MobState mob,List<Player> living){
+        Player target=nearest(mob,living);double hp=run.logicalHp.getOrDefault(mob.entity.getUniqueId(),0.0),max=run.maxHp.getOrDefault(mob.entity.getUniqueId(),1.0);
+        if(mob.type.role==5&&!run.enraged&&hp<=max*number("boss.enrage-threshold",.25)){run.enraged=true;setAttr(mob.entity,Attribute.MOVEMENT_SPEED,.24*(1+number("boss.enrage-speed",.2)));tell(run,"<red><bold>"+mob.type.title+" 광폭화!");}
+        if(mob.entity.getLocation().getY()<66||DungeonLayout.zoneAt(mob.entity.getLocation().getZ())!=mob.zone)mob.entity.teleport(mob.home);
+        mob.entity.setFireTicks(0);mob.entity.setVisualFire(false);
+        if(target!=null&&mob.windUntil==0&&mob.signature==0){Location look=mob.entity.getLocation();look.setDirection(target.getLocation().toVector().subtract(look.toVector()));mob.entity.setRotation(look.getYaw(),0);}
+        mob.rig.tick(ticks,target,hp,max,mob.poise,mob.maxPoise);
+        if(target==null){if(mob.signature>0)mob.signatureEnd+=2;if(mob.windUntil>0)mob.windUntil+=2;if(mob.phaseUntil>ticks)mob.phaseUntil+=2;mob.nextAttack+=2;mob.nextSignature+=2;return;}
+        if(run.awaitingBoon||ticks<mob.phaseUntil)return;
+        if(ticks<mob.staggerUntil){mob.entity.setVelocity(new Vector());return;}
+        if(mob.staggerUntil>0){mob.staggerUntil=0;mob.poise=mob.maxPoise;mob.entity.setAI(!mob.type.ranged());}
+        if(mob.type==MobType.CHOIR){
+            MobState ally=run.mobs.values().stream().filter(m->!m.dead&&m.zone==mob.zone&&m.type.role==3&&m.entity.getLocation().distanceSquared(mob.entity.getLocation())<=18*18).findFirst().orElse(null);
+            mob.shieldTarget=ally==null?null:ally.entity.getUniqueId();if(ally!=null)drawLine(mob.entity.getEyeLocation(),ally.entity.getLocation().add(0,1,0).toVector().subtract(mob.entity.getEyeLocation().toVector()),Color.PURPLE);
         }
+        if(mob.type.role==5&&mob.phase==2){if(mob.signature>0){tickSignature(run,mob,living);return;}if(ticks>=mob.nextSignature){beginSignature(run,mob);return;}}
+        if(mob.windUntil>0){telegraph(mob);if(ticks>=mob.windUntil){strike(run,mob);mob.windUntil=0;mob.entity.setAI(!mob.type.ranged());mob.rig.pose(MonsterRig.Pose.STRIKE,ticks,6);later(run,6,()->{if(!mob.dead)mob.rig.pose(MonsterRig.Pose.RECOVER,ticks,12);});mob.nextAttack=ticks+(mob.type.boss()?70:mob.type.role==3?80:mob.type.ranged()?70:45);}return;}
+        if(!mob.type.ranged()&&mob.entity instanceof Mob entity){entity.setTarget(target);if(mob.entity.getLocation().distanceSquared(mob.home)>35*35)mob.entity.teleport(mob.home);}
+        double distance=target.getLocation().distanceSquared(mob.entity.getLocation());double range=mob.type.ranged()?25:mob.type.boss()?18:mob.type==MobType.SENTINEL||mob.type==MobType.HOUND?7:mob.type.role==3?5:3.8;
+        if(ticks<mob.nextAttack||distance>range*range)return;
+        mob.pattern++;mob.aim=target.getLocation().clone();mob.direction=mob.aim.toVector().subtract(mob.entity.getLocation().toVector()).setY(0);if(mob.direction.lengthSquared()<.01)mob.direction=new Vector(0,0,1);else mob.direction.normalize();
+        if(mob.type==MobType.STALKER){Location behind=target.getLocation().clone().subtract(target.getLocation().getDirection().setY(0).normalize().multiply(2));if(safeWalk(run,behind)){mob.entity.teleport(behind);mob.direction=mob.aim.toVector().subtract(behind.toVector()).setY(0).normalize();Location face=behind.clone().setDirection(mob.direction);mob.entity.setRotation(face.getYaw(),0);}}
+        int wind=mob.type.role==3||mob.type.boss()?24:mob.type==MobType.MIMIC||mob.type==MobType.IMP?12:18;
+        mob.windUntil=ticks+wind;mob.entity.setAI(false);mob.rig.pose(MonsterRig.Pose.WIND_UP,ticks,wind);world.playSound(mob.entity.getLocation(),Sound.BLOCK_NOTE_BLOCK_BASS,.8f,.7f);telegraph(mob);
     }
-    private void tickRun(Run run, long now) {
-        if (run.ended) return;
-        for (Map.Entry<UUID, Long> lost : new ArrayList<>(run.disconnected.entrySet())) if (now >= lost.getValue()) {
-            run.disconnected.remove(lost.getKey()); participants.remove(lost.getKey(), run);
-            tell(run, "<yellow>재접속 유예 3분이 지나 파티원 1명이 미궁에서 이탈했습니다.");
-        }
-        if (run.members.stream().noneMatch(id -> participants.get(id) == run)) { endRun(run, run.reward ? "미궁 완료" : "참가자 전원 이탈", false); return; }
-        if (run.reward) {
-            if (now - run.stageStarted > integer("reward-minutes", 5) * 60_000L) { endRun(run, "보상 수령 시간 종료", false); return; }
-            for (Player player : online(run, false)) if (player.getLocation().distanceSquared(center(run).add(0, 0, 11)) < 2.5) { claimLoot(run.id, player.getUniqueId()); leaveMember(run, player, "미궁에서 무사히 복귀했습니다."); }
-            return;
-        }
-        if (now - run.started >= integer("run-seconds", 1800) * 1000L) { endRun(run, "미궁 제한 시간 종료", false); return; }
-        List<Player> living = online(run, true);
-        boolean waitingLiving = run.disconnected.keySet().stream().anyMatch(id -> !run.spectators.contains(id));
-        if (living.isEmpty() && !waitingLiving) { endRun(run, "원정대 전멸", false); return; }
-        for (UUID id : new ArrayList<>(run.enemies)) {
-            Entity entity = Bukkit.getEntity(id);
-            if (entity == null || entity.isDead()) { run.enemies.remove(id); continue; }
-            if (entity instanceof Mob mob && !(entity instanceof Ocelot)) {
-                if (!living.isEmpty() && (mob.getTarget() == null || mob.getTarget().isDead() || !(mob.getTarget() instanceof Player target) || participants.get(target.getUniqueId()) != run || run.spectators.contains(target.getUniqueId()))) mob.setTarget(living.get(ThreadLocalRandom.current().nextInt(living.size())));
-                if (entity.getLocation().distanceSquared(center(run)) > 360) entity.teleport(center(run).add(0, 0, -8));
+    private void telegraph(MobState mob){
+        Color red=Color.fromRGB(255,42,42);Location origin=mob.entity.getLocation().add(0,.15,0);
+        if(mob.type==MobType.LIBRARIAN||mob.type==MobType.BOMBARDIER||mob.type==MobType.CHOIR||mob.type==MobType.IMP||mob.type==MobType.ASTRO&&mob.pattern%2==1||mob.type==MobType.NOVARION&&mob.pattern%2==0)warnCircle(mob.aim,3,red);
+        else if(mob.type==MobType.ASTRO){for(double angle:new double[]{-.65,0,.65})drawLine(origin,mob.direction.clone().rotateAroundY(angle).multiply(20),red);}
+        else if(mob.type==MobType.OCULUS){drawLine(mob.entity.getEyeLocation(),mob.aim.clone().add(0,1,0).toVector().subtract(mob.entity.getEyeLocation().toVector()),red);warnCircle(mob.aim,1.25,red);}
+        else if(mob.type==MobType.SENTINEL||mob.type==MobType.HOUND)drawLine(origin,mob.direction.clone().multiply(8),red);
+        else if(mob.type==MobType.GOLEM||mob.type==MobType.VULCANTUS&&mob.pattern%2==0||mob.type==MobType.IGNION)warnCircle(origin,5,red);
+        else{for(double angle=-.9;angle<=.9;angle+=.15){Vector ray=mob.direction.clone().rotateAroundY(angle).multiply(mob.type.boss()?8:4);world.spawnParticle(Particle.DUST,origin.clone().add(ray),1,0,0,0,0,new Particle.DustOptions(red,1.3f));}}
+    }
+    private void strike(Run run,MobState mob){
+        if(mob.dead||ticks<mob.staggerUntil)return;double damage=mob.damage*(run.enraged&&mob.type.role==5?1+number("boss.enrage-damage",.3):1);
+        Location origin=mob.entity.getLocation();
+        for(Player p:online(run,true))if(DungeonLayout.zoneAt(p.getLocation().getZ())==mob.zone){
+            Vector delta=p.getLocation().toVector().subtract(origin.toVector());Vector flat=delta.clone().setY(0);double distance=flat.length();boolean hit;
+            if(mob.type==MobType.LIBRARIAN||mob.type==MobType.BOMBARDIER||mob.type==MobType.CHOIR||mob.type==MobType.IMP||mob.type==MobType.ASTRO&&mob.pattern%2==1||mob.type==MobType.NOVARION&&mob.pattern%2==0)hit=p.getLocation().distanceSquared(mob.aim)<=9;
+            else if(mob.type==MobType.ASTRO){hit=false;for(double angle:new double[]{-.65,0,.65}){Vector ray=mob.direction.clone().rotateAroundY(angle);double along=flat.dot(ray);if(along>=0&&along<=20&&flat.clone().subtract(ray.multiply(along)).lengthSquared()<1.8)hit=true;}}
+            else if(mob.type==MobType.OCULUS){Vector beam=mob.aim.clone().add(0,1,0).toVector().subtract(mob.entity.getEyeLocation().toVector()),offset=p.getEyeLocation().toVector().subtract(mob.entity.getEyeLocation().toVector());double length=beam.length();if(length<.01)hit=false;else{beam.normalize();double along=offset.dot(beam);hit=along>=0&&along<=length+1&&offset.subtract(beam.multiply(along)).lengthSquared()<2;}}
+            else if(mob.type==MobType.SENTINEL||mob.type==MobType.HOUND){double along=flat.dot(mob.direction);hit=along>=0&&along<=8&&flat.clone().subtract(mob.direction.clone().multiply(along)).lengthSquared()<2;}
+            else if(mob.type==MobType.GOLEM||mob.type==MobType.VULCANTUS&&mob.pattern%2==0||mob.type==MobType.IGNION)hit=distance<=5;
+            else hit=distance<=(mob.type.boss()?8:4)&&(distance<.05||flat.normalize().dot(mob.direction)>.55);
+            if(hit&&(mob.type.ranged()||Math.abs(delta.getY())<5)&&mob.entity.hasLineOfSight(p)){hurt(p,damage,mob.entity);
+                if(mob.type==MobType.LIBRARIAN)p.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,60,1));
+                if(mob.type==MobType.IMP||mob.type==MobType.VULCANTUS)p.setFireTicks(60);
+                if(mob.type==MobType.JUGGERNAUT)p.setVelocity(origin.toVector().subtract(p.getLocation().toVector()).normalize().multiply(.7));
+                if(mob.type==MobType.ECLIPSIA)p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS,60,0));
             }
         }
-        if (run.awaitingBoon) {
-            for (Player player : online(run, false)) if (!run.selected.contains(player.getUniqueId()) && !(player.getOpenInventory().getTopInventory().getHolder() instanceof Menu holder && holder.kind.equals("boon"))) openBoon(player, run);
-            boolean all = run.members.stream().filter(id -> participants.get(id) == run).allMatch(run.selected::contains);
-            if (all) { run.awaitingBoon = false; beginStage(run, run.stage == 2 ? 3 : 5); }
-            return;
-        }
-        long elapsed = (now - run.stageStarted) / 1000;
-        if (run.stage == 1) {
-            if (run.encounter == Encounter.THIEF && !run.enemies.isEmpty()) {
-                LivingEntity thief = (LivingEntity) Bukkit.getEntity(run.enemies.iterator().next());
-                if (thief != null) {
-                    double angle = elapsed * .9; Location next = center(run).add(Math.cos(angle) * 10, 0, Math.sin(angle) * 10); thief.teleport(next);
-                    world.spawnParticle(Particle.TOTEM_OF_UNDYING, next.clone().add(0, .8, 0), 8, .25, .25, .25);
-                }
-                for (Player player : living) player.sendActionBar(TextUtil.mm("<gold>도둑냥 추격 " + Math.max(0, 45 - elapsed) + "초"));
-                if (elapsed >= 45) { removeEntities(run, run.enemies); spawnThief(run); }
-            } else if (run.enemies.isEmpty() && run.obelisks.isEmpty()) {
-                if (run.encounter == Encounter.WAVES && run.wave == 1) { run.wave = 2; spawnWave(run, false); tell(run, "<red>두 번째 포위 웨이브!"); }
-                else beginStage(run, 2);
-            }
-        } else if (run.stage == 3) {
-            if (run.puzzle == Puzzle.RESONANCE) tickResonance(run, now);
-            else if (run.puzzle == Puzzle.MEMORY) {
-                int note = (int) ((now - run.memoryShownAt) / 1000) - 1;
-                if (note >= 0 && note < 4) {
-                    int color = run.melody.get(note); Location at = crystal(run, color).add(0, 1.5, 0);
-                    world.spawnParticle(Particle.END_ROD, at, 30, .5, .5, .5); world.playSound(at, Sound.BLOCK_NOTE_BLOCK_CHIME, 1.5f, .7f + color * .25f);
-                    tell(run, "<aqua>음계 " + (note + 1) + ": " + new String[]{"빨강", "파랑", "초록", "노랑"}[color]);
-                }
-            }
-        } else if (run.stage == 4 && run.enemies.isEmpty()) {
-            for (Player player : online(run, false)) { revive(run, player); heal(player, maxHealth(player)); player.setFoodLevel(20); }
-            prop(run, "", center(run).add(0, 0, 6), Material.SOUL_CAMPFIRE, null, 0);
-            tell(run, "<green>회복 모닥불이 원정대를 완전히 회복했습니다. 두 번째 축복을 고르세요."); beginBoon(run);
-        } else if (run.stage == 5) tickBoss(run, elapsed);
+        if(mob.type==MobType.HOUND){Location end=origin.clone().add(mob.direction.clone().multiply(5));if(safeWalk(run,end))mob.entity.teleport(end);}
+        if(mob.type==MobType.ARCHONS&&mob.pattern%2==0){for(Player p:online(run,true))if(p.getLocation().distanceSquared(mob.aim)<9)hurt(p,damage,mob.entity);}
+        if(mob.type==MobType.TEMPLAR){Location ring=origin.clone();warnCircle(ring,6,Color.fromRGB(255,42,42));later(run,20,()->{if(mob.dead)return;for(Player p:online(run,true)){double d=p.getLocation().distanceSquared(ring);if(d>=9&&d<=36)hurt(p,mob.damage,mob.entity);}});}
+        world.playSound(origin,Sound.ENTITY_PLAYER_ATTACK_SWEEP,.8f,.6f);world.spawnParticle(Particle.SWEEP_ATTACK,origin.clone().add(mob.direction.clone().multiply(2)).add(0,1,0),4,1,.2,1);
     }
-    private void tickResonance(Run run, long now) {
-        List<Player> living = online(run, true); int needed = DungeonRules.plateCount(living.size());
-        if (living.size() == 1) giveSoloBell(run);
-        boolean all = true;
-        for (int i = 0; i < needed; i++) {
-            Location point = plate(run, i); boolean occupied = i == run.helperPlate && now < run.helperUntil;
-            for (Player player : living) if (player.getLocation().distanceSquared(point) < 2.1) occupied = true;
-            if (!occupied) all = false;
-            world.spawnParticle(occupied ? Particle.HAPPY_VILLAGER : Particle.END_ROD, point.clone().add(0, .2, 0), 4, .4, .05, .4);
-        }
-        run.resonanceSeconds = all ? run.resonanceSeconds + 1 : 0;
-        if (run.resonanceSeconds >= 3) { tell(run, "<green>모든 공명이 일치했습니다!"); beginStage(run, 4); }
+    private void beginSignature(Run run,MobState mob){
+        mob.signature=run.tier;mob.signatureEnd=ticks+(long)(20*(run.tier==1?number("boss.novarion.warning-seconds",3):run.tier==2?number("boss.ignion.cooling-window-seconds",6):number("boss.eclipsia.darkness-seconds",8)));mob.windUntil=0;mob.entity.setAI(false);mob.rig.pose(MonsterRig.Pose.WIND_UP,ticks,24);run.valves.clear();mob.heat=100;
+        tell(run,run.tier==1?"<red><bold>초신성! 3초 안에 불투명 석주 뒤로 숨으세요!":run.tier==2?"<red><bold>용광로 과열! 6초 안에 서로 다른 냉각 밸브2개를 여세요!":"<red><bold>개기일식! 빛나는 두 등불의 안전지대로 이동하세요!");
+        world.playSound(mob.entity.getLocation(),Sound.ENTITY_WARDEN_SONIC_CHARGE,1,.7f);
+        if(run.tier==3){for(Player p:online(run,true))p.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS,160,0));for(int i=0;i<4;i++)tintProp(run,lanternPoint(run,i),litLantern(mob,i)?Material.SEA_LANTERN:Material.POLISHED_BLACKSTONE);}
     }
-    private void tickBoss(Run run, long elapsed) {
-        Entity found = run.boss == null ? null : Bukkit.getEntity(run.boss); if (!(found instanceof LivingEntity boss) || boss.isDead()) return;
-        double hp = run.logicalHp.getOrDefault(run.boss, boss.getHealth()), max = run.maxHp.getOrDefault(run.boss, maxHealth(boss));
-        run.bossBar.progress((float) Math.max(0, Math.min(1, hp / max)));
-        if (!run.enraged && hp <= max * number("boss.enrage-threshold", .25)) {
-            run.enraged = true; setAttr(boss, Attribute.ATTACK_DAMAGE, tierValue("boss-damage", run.tier, 9, 13, 17) * (1 + number("boss.enrage-damage", .3))); setAttr(boss, Attribute.MOVEMENT_SPEED, .27 * (1 + number("boss.enrage-speed", .2)));
-            tell(run, "<red><bold>심연의 지배자가 광폭화합니다!</bold>");
+    private boolean litLantern(MobState mob,int index){int parity=mob.pattern%2;return index==parity||index==3-parity;}
+    private void tickSignature(Run run,MobState mob,List<Player> living){
+        if(mob.signatureEnd-ticks==24)mob.rig.pose(MonsterRig.Pose.WIND_UP,ticks,24);
+        if(mob.signature==1&&ticks%10==0){warnCircle(mob.entity.getLocation(),18,Color.fromRGB(255,42,42));world.spawnParticle(Particle.ELECTRIC_SPARK,mob.entity.getLocation().add(0,2,0),30,1,1,1);}
+        if(mob.signature==2){for(int i=0;i<3;i++)world.spawnParticle(run.valves.contains(i)?Particle.HAPPY_VILLAGER:Particle.FLAME,valvePoint(run,i).add(0,1,0),4,.3,.3,.3);}
+        if(mob.signature==3){
+            int parity=mob.pattern%2;for(int i=0;i<4;i++)if(litLantern(mob,i)){Location l=lanternPoint(run,i);warnCircle(l,3.5,Color.WHITE);world.spawnParticle(Particle.END_ROD,l.clone().add(0,2,0),3,.1,1,.1);}
+            long left=mob.signatureEnd-ticks;if(left<=120&&left>0&&left%20==0)for(Player p:living){boolean safe=false;for(int i=0;i<4;i++)if(litLantern(mob,i)&&p.getLocation().distanceSquared(lanternPoint(run,i))<=3.5*3.5)safe=true;if(!safe)hurt(p,maxHealth(p)*number("boss.eclipsia.pulse-health-ratio",.15),null);}
         }
-        int interval = (int) Math.max(1, tierValue("blast-interval-seconds", run.tier, 8, 7, 6));
-        if (elapsed > 0 && elapsed % interval == 0) {
-            List<Player> living = online(run, true); if (living.isEmpty()) return;
-            Location target = living.get(ThreadLocalRandom.current().nextInt(living.size())).getLocation().clone();
-            double radius = number("boss.blast-radius", 3.5); long warning = (long) (20 * number("boss.blast-warning-seconds", 1.5));
-            warnCircle(target, radius, Color.RED); later(run, Math.max(1, warning / 2), () -> warnCircle(target, radius, Color.ORANGE));
-            later(run, Math.max(1, warning), () -> {
-                world.spawnParticle(Particle.EXPLOSION, target.clone().add(0, .4, 0), 12, 2, .2, 2);
-                world.playSound(target, Sound.ENTITY_GENERIC_EXPLODE, .8f, 1);
-                for (Player player : online(run, true)) if (player.getLocation().distanceSquared(target) <= radius * radius) player.damage(tierValue("blast-damage", run.tier, 8, 12, 16) * (run.enraged ? 1 + number("boss.enrage-damage", .3) : 1), boss);
-            });
-        }
-        int firstBeam = integer("boss.beam-first-seconds", 20), beamInterval = integer("boss.beam-interval-seconds", 30);
-        if (elapsed >= firstBeam && (elapsed - firstBeam) % beamInterval == 0) {
-            tell(run, "<red><bold>석주 뒤로 숨으세요! 3초 후 심연 파동!</bold>");
-            for (Player player : online(run, true)) player.playSound(player.getLocation(), Sound.ENTITY_WARDEN_SONIC_CHARGE, .7f, 1);
-            later(run, integer("boss.beam-warning-seconds", 3) * 20L, () -> {
-                if (boss.isDead()) return;
-                Location eye = boss.getEyeLocation();
-                for (Player player : online(run, true)) {
-                    Vector ray = player.getEyeLocation().toVector().subtract(eye.toVector());
-                    RayTraceResult hit = world.rayTraceBlocks(eye, ray, ray.length(), FluidCollisionMode.NEVER, true);
-                    if (hit == null || hit.getHitBlock() == null) { player.damage(maxHealth(player) * number("boss.beam-health-multiplier", 10), boss); player.sendMessage(TextUtil.msg("<red>석주에 숨지 못해 심연 파동에 휘말렸습니다!")); }
-                    else player.sendMessage(TextUtil.msg("<green>석주가 심연 파동을 막았습니다!"));
-                }
-                world.playSound(boss.getLocation(), Sound.ENTITY_WARDEN_SONIC_BOOM, 1, .7f);
-            });
-        }
+        if(ticks<mob.signatureEnd)return;
+        if(mob.signature==1){for(Player p:living){Location eye=mob.entity.getEyeLocation();
+            if(!opaqueCover(eye,p.getEyeLocation()))hurt(p,maxHealth(p)*number("boss.novarion.uncovered-health-ratio",1.25),null);else p.sendMessage(TextUtil.msg("<green>석주가 초신성을 막았습니다!"));}}
+        if(mob.signature==2){if(mob.heat>number("boss.ignion.safe-heat",30)){for(Player p:living)hurt(p,mob.damage*number("boss.ignion.overheat-damage-multiplier",1.5),mob.entity);for(int i=1;i<=6;i++)later(run,i*20L,()->{if(mob.dead)return;for(Player p:online(run,true))if(p.getLocation().distanceSquared(at(run,0,67,-199))<=36)hurt(p,2,null);});}
+            else{mob.staggerUntil=ticks+60;tell(run,"<aqua>냉각 성공! 거신이3초간 무력화됩니다.");}}
+        if(mob.signature==3){for(Player p:online(run,false))p.removePotionEffect(PotionEffectType.DARKNESS);for(int i=0;i<4;i++)tintProp(run,lanternPoint(run,i),Material.POLISHED_BLACKSTONE);}
+        mob.signature=0;mob.entity.setAI(!mob.type.ranged());mob.nextSignature=ticks+(long)(20*number("boss."+(run.tier==1?"novarion":run.tier==2?"ignion":"eclipsia")+".interval-seconds",run.tier==3?22:24));mob.nextAttack=ticks+20;mob.pattern++;
     }
-    private void warnCircle(Location center, double radius, Color color) {
-        Particle.DustOptions options = new Particle.DustOptions(color, 1.5f);
-        for (int i = 0; i < 40; i++) { double a = i * Math.PI * 2 / 40; world.spawnParticle(Particle.DUST, center.clone().add(Math.cos(a) * radius, .1, Math.sin(a) * radius), 1, 0, 0, 0, 0, options); }
-    }
+    private void hurt(Player player,double amount,LivingEntity source){scriptedAttackDepth++;try{if(!player.isDead()){if(source==null)player.damage(amount);else player.damage(amount,source);}}finally{scriptedAttackDepth--;}}
+    private boolean opaqueCover(Location from,Location to){Vector delta=to.toVector().subtract(from.toVector());double length=delta.length();if(length<.3)return false;Vector unit=delta.normalize();for(double d=.25;d<length-.2;d+=.2)if(from.clone().add(unit.clone().multiply(d)).getBlock().getType().isOccluding())return true;return false;}
+    private boolean safeWalk(Run run,Location point){return DungeonLayout.contains(run.slot,point)&&point.getBlock().isPassable()&&point.clone().add(0,1,0).getBlock().isPassable()&&!point.clone().add(0,-1,0).getBlock().isPassable();}
+    private void drawLine(Location from,Vector direction,Color color){double length=direction.length();if(length<.01)return;Vector step=direction.clone().normalize().multiply(.6);Particle.DustOptions dust=new Particle.DustOptions(color,1.2f);for(double d=0;d<length;d+=.6)world.spawnParticle(Particle.DUST,from.clone().add(step.clone().multiply(d/.6)),1,0,0,0,0,dust);}
+    private void warnCircle(Location center,double radius,Color color){Particle.DustOptions options=new Particle.DustOptions(color,1.3f);for(int i=0;i<32;i++){double a=i*Math.PI/16;world.spawnParticle(Particle.DUST,center.clone().add(Math.cos(a)*radius,.15,Math.sin(a)*radius),1,0,0,0,0,options);}}
     private int stacks(Run run, Player player, Boon boon) { EnumMap<Boon, Integer> owned = run.boons.get(player.getUniqueId()); return owned == null ? 0 : owned.getOrDefault(boon, 0); }
     private double maxHealth(LivingEntity entity) { AttributeInstance attribute = entity.getAttribute(Attribute.MAX_HEALTH); return attribute == null ? 20 : attribute.getValue(); }
     private void heal(Player player, double amount) { if (!player.isDead()) player.setHealth(Math.min(maxHealth(player), player.getHealth() + amount)); }
@@ -604,7 +624,7 @@ public final class DungeonManager implements Listener {
     }
     private void extraDamage(Player player, LivingEntity target, double damage) {
         boolean previous = bonusDamage; bonusDamage = true;
-        try { target.damage(damage, player); } finally { bonusDamage = previous; }
+        try { boonDamage.hit(player,target,damage); } finally { bonusDamage = previous; }
     }
     @EventHandler(priority = EventPriority.LOWEST)
     public void onDamageIsolation(EntityDamageByEntityEvent event) {
@@ -623,16 +643,14 @@ public final class DungeonManager implements Listener {
         if (run == null || sourceRun != run || (victim instanceof Player && player != null)) { event.setCancelled(true); return; }
         if (victim instanceof Player p && run.spectators.contains(p.getUniqueId())) { event.setCancelled(true); return; }
         if (player != null && (run.spectators.contains(player.getUniqueId()) || !"enemy".equals(kind(victim)))) event.setCancelled(true);
-        if (run.stage == 1 && run.encounter == Encounter.OBELISKS && !run.obelisks.isEmpty() && isDungeonMob(victim)) event.setCancelled(true);
-        if (source instanceof AbstractArrow && player == null && victim instanceof Player) event.setDamage(tierValue("mob-damage", run.tier, 4, 6, 8));
+        if (run.stage == 2 && run.obeliskEncounter && !run.obelisks.isEmpty() && isDungeonMob(victim)) event.setCancelled(true);
+        if(player==null&&sourceRun==run&&scriptedAttackDepth==0)event.setCancelled(true);
     }
     private void applyBoons(EntityDamageByEntityEvent event) {
         Player player = attacker(event.getDamager()); if (player == null || bonusDamage || !(event.getEntity() instanceof LivingEntity target)) return;
         Run run = participants.get(player.getUniqueId()); if (run == null || !canAffect(player, target) || target instanceof Player) return;
         int execution = stacks(run, player, Boon.EXECUTION);
         if (execution > 0 && run.logicalHp.getOrDefault(target.getUniqueId(), target.getHealth()) <= run.maxHp.getOrDefault(target.getUniqueId(), maxHealth(target)) * boon("execution", "threshold", .3)) event.setDamage(event.getDamage() * (1 + boon("execution", "damage", .2) * execution));
-        double damage = event.getFinalDamage();
-        int purr = stacks(run, player, Boon.PURR); if (purr > 0 && proc(run, player, "purr", (long) (1000 * boon("purr", "cooldown-seconds", .5)))) heal(player, damage * boon("purr", "leech", .04) * purr);
         int frost = stacks(run, player, Boon.FROST); if (frost > 0 && ThreadLocalRandom.current().nextDouble() < boon("frost", "chance", .2) * frost && proc(run, player, "frost", (long) (1000 * boon("frost", "cooldown-seconds", 2)))) target.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, (int) (20 * boon("frost", "duration-seconds", 2)), 1));
         int lightning = stacks(run, player, Boon.LIGHTNING);
         if (lightning > 0 && proc(run, player, "lightning", (long) (1000 * boon("lightning", "cooldown-seconds", 5)))) {
@@ -659,23 +677,39 @@ public final class DungeonManager implements Listener {
     }
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onReserveHealth(EntityDamageEvent event) {
-        Run run = entityRun(event.getEntity()); if (run == null || !isDungeonMob(event.getEntity()) || !(event.getEntity() instanceof LivingEntity entity)) return;
-        if (event instanceof EntityDamageByEntityEvent attack) applyBoons(attack);
-        if (entity.isDead()) return;
-        UUID id = entity.getUniqueId();
-        DungeonRules.HealthHit hit = DungeonRules.healthHit(run.logicalHp.getOrDefault(id, entity.getHealth()), entity.getHealth(), event.getFinalDamage());
-        double remaining = hit.remaining(); run.logicalHp.put(id, remaining);
-        if (remaining > 0) {
-            if (hit.intercept()) event.setCancelled(true);
-            later(run, 1, () -> { if (entity.isValid() && !entity.isDead()) entity.setHealth(Math.min(maxHealth(entity), run.logicalHp.getOrDefault(id, remaining))); });
-        } else if (hit.nativeHealthBeforeDamage() < entity.getHealth()) entity.setHealth(hit.nativeHealthBeforeDamage());
+        Run run=entityRun(event.getEntity());if(run==null||!isDungeonMob(event.getEntity())||!(event.getEntity() instanceof LivingEntity entity))return;
+        MobState mob=run.mobs.get(entity.getUniqueId());if(mob==null)return;
+        if(mob.dead||ticks<mob.phaseUntil){accepted.put(event,0.0);event.setCancelled(true);return;}
+        if(EnumSet.of(EntityDamageEvent.DamageCause.FIRE,EntityDamageEvent.DamageCause.FIRE_TICK,EntityDamageEvent.DamageCause.LAVA,EntityDamageEvent.DamageCause.HOT_FLOOR).contains(event.getCause())){accepted.put(event,0.0);event.setCancelled(true);entity.setFireTicks(0);return;}
+        if(event instanceof EntityDamageByEntityEvent attack)applyBoons(attack);
+        if(entity.isDead()||mob.dead||ticks<mob.phaseUntil||run.logicalHp.getOrDefault(entity.getUniqueId(),0.0)<=0){accepted.put(event,0.0);event.setCancelled(true);return;}
+        if(mob.type==MobType.SENTINEL&&ticks>=mob.staggerUntil&&event instanceof EntityDamageByEntityEvent attack){Player source=attacker(attack.getDamager());if(source!=null){Vector facing=source.getLocation().toVector().subtract(entity.getLocation().toVector()).setY(0);if(facing.lengthSquared()>.01&&facing.normalize().dot(entity.getLocation().getDirection().setY(0))>.55)event.setDamage(event.getDamage()*.45);}}
+        if(run.mobs.values().stream().anyMatch(m->!m.dead&&m.type==MobType.CHOIR&&ticks>=m.staggerUntil&&entity.getUniqueId().equals(m.shieldTarget)))event.setDamage(event.getDamage()*.30);
+        if(ticks<mob.staggerUntil)event.setDamage(event.getDamage()*1.15);
+        UUID id=entity.getUniqueId();double hp=run.logicalHp.getOrDefault(id,entity.getHealth()),max=run.maxHp.getOrDefault(id,hp);
+        if(hp<=0){accepted.put(event,0.0);event.setCancelled(true);return;}
+        double damage=Math.max(0,Math.min(hp,event.getFinalDamage())),threshold=max*number("boss.phase-two-threshold",.5);boolean transition=mob.type.role==5&&mob.phase==1&&hp-damage<=threshold;
+        if(transition){damage=Math.max(0,hp-threshold);mob.phase=2;mob.phaseUntil=ticks+(long)(20*number("boss.phase-transition-seconds",1.2));mob.nextSignature=mob.phaseUntil;mob.windUntil=0;mob.entity.setAI(false);mob.rig.pose(MonsterRig.Pose.RECOVER,ticks,24);tell(run,"<red><bold>"+mob.type.title+" · 제2페이즈!");}
+        accepted.put(event,damage);DungeonRules.HealthHit hit=DungeonRules.healthHit(hp,entity.getHealth(),damage);run.logicalHp.put(id,hit.remaining());
+        Player attacker=event instanceof EntityDamageByEntityEvent attack?attacker(attack.getDamager()):null;if(attacker!=null&&damage>0){damagePoise(attacker,entity,damage);int purr=stacks(run,attacker,Boon.PURR);if(!bonusDamage&&purr>0&&proc(run,attacker,"purr",(long)(1000*boon("purr","cooldown-seconds",.5))))heal(attacker,damage*boon("purr","leech",.04)*purr);}
+        if(transition||hit.intercept())event.setCancelled(true);
+        if(hit.remaining()>0)later(run,1,()->{if(entity.isValid()&&!entity.isDead())entity.setHealth(Math.min(maxHealth(entity),run.logicalHp.getOrDefault(id,hit.remaining())));});
+        else if(hit.nativeHealthBeforeDamage()<entity.getHealth())entity.setHealth(hit.nativeHealthBeforeDamage());
+        if(damage>0&&mob.windUntil==0&&ticks>=mob.staggerUntil&&!transition)mob.rig.pose(MonsterRig.Pose.HIT_FLASH,ticks,4);
+    }
+    public void damagePoise(Player player,LivingEntity target,double damage){
+        Run run=participants.get(player.getUniqueId());if(run==null||!canAffect(player,target)||!Double.isFinite(damage)||damage<=0)return;MobState mob=run.mobs.get(target.getUniqueId());
+        if(mob!=null&&mob.staggerUntil>0&&ticks>=mob.staggerUntil){mob.staggerUntil=0;mob.poise=mob.maxPoise;mob.entity.setAI(!mob.type.ranged());}
+        if(mob==null||mob.dead||ticks<mob.poiseImmune||ticks<mob.phaseUntil)return;mob.poise=Math.max(0,mob.poise-damage);if(mob.poise>0)return;
+        int duration=mob.type.boss()?24:36;mob.staggerUntil=ticks+duration;mob.poiseImmune=mob.staggerUntil+120;mob.windUntil=0;mob.nextAttack=mob.staggerUntil+10;mob.shieldTarget=null;
+        mob.rig.pose(MonsterRig.Pose.RECOVER,ticks,duration);target.setAI(false);target.setVelocity(new Vector());world.playSound(target.getLocation(),Sound.BLOCK_ANVIL_LAND,.5f,1.5f);world.spawnParticle(Particle.CRIT,target.getLocation().add(0,1,0),25,.5,.5,.5);
     }
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onEnemyDeath(EntityDeathEvent event) {
-        Run run = entityRun(event.getEntity()); if (run == null) return;
-        event.getDrops().clear(); event.setDroppedExp(0); UUID id = event.getEntity().getUniqueId();
-        run.enemies.remove(id); run.logicalHp.remove(id); run.maxHp.remove(id);
-        if (id.equals(run.boss) && !run.ended && !run.reward) complete(run);
+        Run run=entityRun(event.getEntity());if(run==null)return;MobState mob=run.mobs.get(event.getEntity().getUniqueId());if(mob==null)return;
+        event.getDrops().clear();event.setDroppedExp(0);mob.dead=true;mob.rig.pose(MonsterRig.Pose.DEATH,ticks,20);
+        UUID id=event.getEntity().getUniqueId();run.enemies.remove(id);run.logicalHp.remove(id);run.maxHp.remove(id);later(run,20,()->{mob.rig.remove();run.entities.remove(id);});
+        if(mob.type.role==5&&!run.ended&&!run.reward)complete(run);
     }
     @EventHandler public void onMenu(InventoryClickEvent event) {
         if (!(event.getView().getTopInventory().getHolder() instanceof Menu holder)) return;
@@ -720,76 +754,64 @@ public final class DungeonManager implements Listener {
         }
     }
     @EventHandler public void onDrag(InventoryDragEvent event) { if (event.getView().getTopInventory().getHolder() instanceof Menu) event.setCancelled(true); }
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onEntityInteract(PlayerInteractEntityEvent event) {
-        if (event.getHand() != EquipmentSlot.HAND) return;
-        Run run = entityRun(event.getRightClicked()); if (run == null) return;
-        event.setCancelled(true); Player player = event.getPlayer();
-        if (participants.get(player.getUniqueId()) != run || run.spectators.contains(player.getUniqueId())) return;
-        String kind = kind(event.getRightClicked());
-        if ("obelisk".equals(kind)) hitObelisk(run, event.getRightClicked().getUniqueId(), 8);
-        else if ("boon".equals(kind)) openBoon(player, run);
-        else if ("portal".equals(kind) && run.reward) { claimLoot(run.id, player.getUniqueId()); leaveMember(run, player, "미궁에서 무사히 복귀했습니다."); }
-        else if ("chest".equals(kind) && run.reward) claimLoot(run.id, player.getUniqueId());
-        else if (run.stage == 3) {
-            int index = event.getRightClicked().getPersistentDataContainer().getOrDefault(indexKey, PersistentDataType.INTEGER, -1);
-            if ("crystal".equals(kind) && run.puzzle == Puzzle.MEMORY && System.currentTimeMillis() - run.memoryShownAt >= 5000) {
-                world.playSound(crystal(run, Math.max(0, index)), Sound.BLOCK_NOTE_BLOCK_CHIME, 1, .7f + index * .25f);
-                if (index != run.melody.get(run.memoryIndex)) puzzleMistake(run);
-                else if (++run.memoryIndex == 4) { tell(run, "<green>기억의 수정 음계가 완성되었습니다!"); beginStage(run, 4); }
-            } else if ("statue".equals(kind) && run.puzzle == Puzzle.STATUES) {
-                if (index == run.truth) { tell(run, "<green>진실의 석상을 찾았습니다!"); beginStage(run, 4); } else puzzleMistake(run);
-            }
+    @EventHandler(priority=EventPriority.HIGH)
+    public void onEntityInteract(PlayerInteractEntityEvent event){
+        if(event.getHand()!=EquipmentSlot.HAND)return;Run run=entityRun(event.getRightClicked());if(run==null)return;event.setCancelled(true);Player player=event.getPlayer();
+        if(participants.get(player.getUniqueId())!=run||run.spectators.contains(player.getUniqueId()))return;
+        String kind=kind(event.getRightClicked());int index=event.getRightClicked().getPersistentDataContainer().getOrDefault(indexKey,PersistentDataType.INTEGER,-1);
+        if("ready".equals(kind)&&parties.getParty(player.getUniqueId())!=null&&parties.getParty(player.getUniqueId()).leader().equals(player.getUniqueId()))clearZone(run,1);
+        else if("obelisk".equals(kind))hitObelisk(run,event.getRightClicked().getUniqueId(),8);
+        else if("boon".equals(kind))openBoon(player,run);
+        else if("side".equals(kind))sideChest(run,player);
+        else if("portal".equals(kind)&&run.reward){claimLoot(run.id,player.getUniqueId());leaveMember(run,player,"미궁에서 무사히 복귀했습니다.");}
+        else if("chest".equals(kind)&&run.reward){if(player.getUniqueId().equals(run.chestOwners.get(index)))claimLoot(run.id,player.getUniqueId());else player.sendMessage(TextUtil.msg("<yellow>다른 원정대원의 개인 상자입니다. 본인 상자나 귀환 포탈에서 정산하세요."));}
+        else if("puzzle".equals(kind)&&run.stage==5&&!run.cleared.contains(5))puzzleInput(run,player,index);
+        else if("replay".equals(kind)&&run.stage==5&&!run.cleared.contains(5)){run.memoryIndex=0;replayMelody(run);}
+        else if("cooling".equals(kind)&&run.boss!=null){MobState boss=run.mobs.get(run.boss);if(boss!=null&&boss.signature==2&&run.valves.add(index)){boss.heat=Math.max(0,boss.heat-(int)number("boss.ignion.valve-cooling",40));player.sendMessage(TextUtil.msg("<aqua>냉각 밸브 개방 · 열 "+boss.heat+"/100"));}}
+    }
+    private void sideChest(Run run,Player player){
+        if(!run.activated.contains(3)){player.sendMessage(TextUtil.msg("<yellow>대교를 개방한 후 보물을 조사할 수 있습니다."));return;}
+        if(run.sideOwners.add(player.getUniqueId())){data.set(path(run)+".side."+player.getUniqueId(),true);save.run();player.sendMessage(TextUtil.msg("<gold>숨겨진 유물 발견! 최종 클리어 시 추가 금화"+run.tier+"개를 정산합니다."));}
+        else player.sendMessage(TextUtil.msg("<gray>이미 조사한 원정 보물입니다."));
+    }
+    private void puzzleInput(Run run,Player player,int index){
+        if(index<0||index>3||run.tier==2&&index==3)return;long now=System.currentTimeMillis();if(now<run.inputReady.getOrDefault(player.getUniqueId(),0L))return;run.inputReady.put(player.getUniqueId(),now+250);
+        if(run.tier==1){run.puzzleValues[index]=(run.puzzleValues[index]+1)%4;rotateMirror(run,index);player.sendMessage(TextUtil.msg("<aqua>거울 "+(index+1)+": "+(run.puzzleValues[index]==run.puzzleTargets[index]?"중앙 정렬 완료":"회전 "+(run.puzzleValues[index]*90)+"°")));}
+        else if(run.tier==2){int pressure=run.puzzleValues[index];if(pressure>=40&&pressure<=60)return;pressure=(pressure+20)%120;run.puzzleValues[index]=pressure;if(pressure>=40&&pressure<=60)tintProp(run,puzzlePoint(run,index),Material.LIME_CONCRETE);player.sendMessage(TextUtil.msg("<gold>밸브 "+(index+1)+": "+pressure+"/100"+(pressure>=40&&pressure<=60?" · 녹색 고정!":" · 녹색40~60")));world.playSound(puzzlePoint(run,index),Sound.BLOCK_COPPER_BULB_TURN_ON,1,1);}
+        else{
+            if(now-run.memoryShownAt<3000)return;world.playSound(puzzlePoint(run,index),Sound.BLOCK_NOTE_BLOCK_CHIME,1,.7f+index*.25f);
+            if(index!=run.melody.get(run.memoryIndex)){run.memoryIndex=0;replayMelody(run);tell(run,"<yellow>화음이 어긋났습니다. 다시 들려드립니다.");}
+            else if(++run.memoryIndex==4)clearZone(run,5);
         }
     }
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onInteract(PlayerInteractEvent event) {
-        if (event.getHand() != EquipmentSlot.HAND) return;
-        Player player = event.getPlayer(); Run run = participants.get(player.getUniqueId()); if (run == null || run.spectators.contains(player.getUniqueId())) return;
-        Action action = event.getAction(); boolean right = action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK;
-        if (right && run.stage == 3 && run.puzzle == Puzzle.RESONANCE && online(run, true).size() == 1) {
-            ItemStack held = event.getItem(); boolean bell = held != null && held.hasItemMeta() && run.id.toString().equals(held.getItemMeta().getPersistentDataContainer().get(helperKey, PersistentDataType.STRING));
-            if (bell || (held == null || held.getType().isAir())) {
-                event.setCancelled(true); int current = player.getLocation().distanceSquared(plate(run, 0)) < player.getLocation().distanceSquared(plate(run, 1)) ? 0 : 1;
-                run.helperPlate = current == 0 ? 1 : 0; run.helperUntil = System.currentTimeMillis() + 20_000;
-                player.playSound(player.getLocation(), Sound.BLOCK_BELL_USE, .7f, 1.5f); player.sendMessage(TextUtil.msg("<aqua>영혼 분신이 반대편 발판을 20초 동안 누릅니다.")); return;
-            }
-        }
-        if (action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK) {
-            RayTraceResult hit = world.rayTraceEntities(player.getEyeLocation(), player.getEyeLocation().getDirection(), 5, .5, entity -> "obelisk".equals(kind(entity)) && entityRun(entity) == run);
-            if (hit != null && hit.getHitEntity() != null) { event.setCancelled(true); hitObelisk(run, hit.getHitEntity().getUniqueId(), 8); }
-        }
+    @EventHandler(priority=EventPriority.HIGH)
+    public void onInteract(PlayerInteractEvent event){
+        if(event.getHand()!=EquipmentSlot.HAND)return;Player player=event.getPlayer();Run run=participants.get(player.getUniqueId());if(run==null||run.spectators.contains(player.getUniqueId()))return;
+        if(event.getClickedBlock()!=null&&event.getAction()==Action.RIGHT_CLICK_BLOCK){Block block=event.getClickedBlock();int rx=block.getX()-run.slot*DungeonLayout.STRIDE;
+            if(block.getType()==Material.CHEST&&Math.abs(rx+11)<=1&&Math.abs(block.getZ()+90)<=1){event.setCancelled(true);sideChest(run,player);return;}}
+        if(event.getAction()==Action.LEFT_CLICK_AIR||event.getAction()==Action.LEFT_CLICK_BLOCK){RayTraceResult hit=world.rayTraceEntities(player.getEyeLocation(),player.getEyeLocation().getDirection(),5,.5,e->"obelisk".equals(kind(e))&&entityRun(e)==run);if(hit!=null&&hit.getHitEntity()!=null){event.setCancelled(true);hitObelisk(run,hit.getHitEntity().getUniqueId(),8);}}
     }
-    private void hitObelisk(Run run, UUID id, double damage) {
-        if (!run.obelisks.containsKey(id)) return;
-        double hp = run.obelisks.get(id) - Math.max(0, damage); Entity entity = Bukkit.getEntity(id);
-        if (entity != null) { world.spawnParticle(Particle.CRIT, entity.getLocation().add(0, 1, 0), 12, .5, .5, .5); world.playSound(entity.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_HIT, .8f, 1.5f); }
-        if (hp > 0) { run.obelisks.put(id, hp); return; }
-        run.obelisks.remove(id); if (entity != null) {
-            Location point = entity.getLocation();
-            for (UUID displayId : new ArrayList<>(run.roomDecor)) { Entity display = Bukkit.getEntity(displayId); if (display instanceof Display && display.getLocation().distanceSquared(point) < 2) { display.remove(); run.roomDecor.remove(displayId); run.entities.remove(displayId); } }
-            entity.remove(); run.roomDecor.remove(id); run.entities.remove(id);
-        }
-        tell(run, "<light_purple>봉인 수정탑 파괴! 남은 수정탑: " + run.obelisks.size());
-        if (run.obelisks.isEmpty()) tell(run, "<green>봉인이 해제되었습니다. 파수꾼들을 격파하세요!");
+    private void hitObelisk(Run run,UUID id,double damage){
+        if(!run.obelisks.containsKey(id))return;double hp=run.obelisks.get(id)-Math.max(0,damage);Entity entity=Bukkit.getEntity(id);
+        if(entity!=null){world.spawnParticle(Particle.CRIT,entity.getLocation().add(0,1,0),12,.5,.5,.5);world.playSound(entity.getLocation(),Sound.BLOCK_AMETHYST_BLOCK_HIT,.8f,1.5f);}
+        if(hp>0){run.obelisks.put(id,hp);return;}run.obelisks.remove(id);
+        if(entity!=null){Location point=entity.getLocation();for(UUID displayId:new ArrayList<>(run.roomDecor)){Entity display=Bukkit.getEntity(displayId);if(display instanceof Display&&display.getLocation().distanceSquared(point)<2){display.remove();run.roomDecor.remove(displayId);run.entities.remove(displayId);}}entity.remove();run.roomDecor.remove(id);run.entities.remove(id);}
+        tell(run,"<light_purple>봉인 수정탑 파괴! 남은 수정탑: "+run.obelisks.size());
     }
-    public void damageObelisk(Player player, double damage) { damageObelisks(player, damage); }
-    public void damageObelisks(Player player, double damage) {
-        Run run = participants.get(player.getUniqueId()); if (run == null || run.spectators.contains(player.getUniqueId())) return;
-        for (UUID id : new ArrayList<>(run.obelisks.keySet())) { Entity entity = Bukkit.getEntity(id); if (entity != null && entity.getLocation().distanceSquared(player.getLocation()) <= 49) hitObelisk(run, id, damage * 3); }
-    }
+    public void damageObelisk(Player player,double damage){damageObelisks(player,damage);}
+    public void damageObelisks(Player player,double damage){Run run=participants.get(player.getUniqueId());if(run==null||run.spectators.contains(player.getUniqueId()))return;for(UUID id:new ArrayList<>(run.obelisks.keySet())){Entity entity=Bukkit.getEntity(id);if(entity!=null&&entity.getLocation().distanceSquared(player.getLocation())<=49)hitObelisk(run,id,damage*3);}}
     @EventHandler(priority = EventPriority.HIGH)
     public void onDeath(PlayerDeathEvent event) {
         Player player = event.getEntity(); Run run = participants.get(player.getUniqueId()); if (run == null) return;
         event.setKeepInventory(true); event.setKeepLevel(true); event.getDrops().clear(); event.setDroppedExp(0);
-        run.spectators.add(player.getUniqueId()); player.sendMessage(TextUtil.msg("<gray>미궁 관전 상태입니다. 다음 방 클리어 또는 대신관의 기적으로 부활합니다. 구조비는 무료입니다."));
+        run.spectators.add(player.getUniqueId()); player.sendMessage(TextUtil.msg("<gray>미궁 관전 상태입니다. 화톳불 또는 대신관의 기적으로 부활합니다. 구조비는 무료입니다."));
         later(run, 2, () -> { if (player.isOnline() && player.isDead()) player.spigot().respawn(); });
     }
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onRespawn(PlayerRespawnEvent event) {
         Player player = event.getPlayer(); Run run = participants.get(player.getUniqueId());
         if (run != null) {
-            event.setRespawnLocation(center(run).add(0, 3, 11));
+            event.setRespawnLocation(safePoint(run,run.stage).add(0,2,0));
             later(run, 1, () -> { if (player.isOnline() && !player.isDead() && participants.get(player.getUniqueId()) == run) {
                 player.setGameMode(run.spectators.contains(player.getUniqueId()) ? GameMode.SPECTATOR : GameMode.ADVENTURE);
                 if (run.bossBar != null) player.showBossBar(run.bossBar);
@@ -822,29 +844,28 @@ public final class DungeonManager implements Listener {
     @EventHandler public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer(); Run run = participants.get(player.getUniqueId());
         if (run != null && run.disconnected.containsKey(player.getUniqueId()) && System.currentTimeMillis() < run.disconnected.get(player.getUniqueId())) {
-            run.disconnected.remove(player.getUniqueId());
-            later(run, 2, () -> { player.setGameMode(run.spectators.contains(player.getUniqueId()) ? GameMode.SPECTATOR : GameMode.ADVENTURE); teleport(player, center(run).add(0, 0, 10)); boonAttributes(run, player); if (run.bossBar != null) player.showBossBar(run.bossBar); if (run.awaitingBoon) openBoon(player, run); });
+            later(run, 2, () -> { player.setGameMode(run.spectators.contains(player.getUniqueId()) ? GameMode.SPECTATOR : GameMode.ADVENTURE); teleport(player,safePoint(run,run.stage));run.disconnected.remove(player.getUniqueId());player.setFallDistance(0);player.removePotionEffect(PotionEffectType.DARKNESS); boonAttributes(run, player); if (run.bossBar != null) player.showBossBar(run.bossBar); if (run.awaitingBoon) openBoon(player, run); });
         } else {
             if (run != null) { run.disconnected.remove(player.getUniqueId()); participants.remove(player.getUniqueId(), run); }
             Bukkit.getScheduler().runTaskLater(plugin, () -> recover(player), 2);
         }
     }
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onMove(PlayerMoveEvent event) {
-        Run run = participants.get(event.getPlayer().getUniqueId()); if (run == null || event.getTo() == null || internalTeleport || event instanceof PlayerTeleportEvent) return;
-        Location target = event.getTo(), origin = center(run);
-        if (!target.getWorld().equals(world) || Math.abs(target.getX() - origin.getX()) > 14 || Math.abs(target.getZ() - origin.getZ()) > 14 || target.getY() < 64 || target.getY() > 79) {
-            event.setTo(event.getFrom());
-            if (event.getFrom().getY() < 63) teleport(event.getPlayer(), origin.clone().add(0, 0, 10));
+    private Location safePoint(Run run,int zone){if(zone==4&&run.checkpoint)return DungeonLayout.checkpoint(world,run.slot);return at(run,0,67,DungeonLayout.ZONES.get(Math.clamp(zone,1,6)-1).south()-4);}
+    private boolean crossesClosedGate(Run run,Location from,Location to){for(DungeonGate gate:run.gates.values())if(!gate.isOpen()&&(from.getZ()-(gate.z+.5))*(to.getZ()-(gate.z+.5))<0)return true;return false;}
+    @EventHandler(priority=EventPriority.HIGH,ignoreCancelled=true)
+    public void onMove(PlayerMoveEvent event){
+        Player player=event.getPlayer();Run run=participants.get(player.getUniqueId());if(run==null||event.getTo()==null||internalTeleport||event instanceof PlayerTeleportEvent)return;Location to=event.getTo();
+        if(!to.getWorld().equals(world)||!DungeonLayout.contains(run.slot,to)||crossesClosedGate(run,event.getFrom(),to)){event.setTo(event.getFrom());return;}
+        if(to.getY()<66&&!run.spectators.contains(player.getUniqueId())&&ticks>=run.fallReady.getOrDefault(player.getUniqueId(),0L)){
+            run.fallReady.put(player.getUniqueId(),ticks+20);int zone=DungeonLayout.zoneAt(to.getZ());event.setTo(safePoint(run,zone==0?run.stage:zone));hurt(player,maxHealth(player)*.20,null);player.setFallDistance(0);player.setNoDamageTicks(20);
         }
     }
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-    public void onTeleport(PlayerTeleportEvent event) {
-        if (internalTeleport || shuttingDown || event.getTo() == null) return;
-        Player player = event.getPlayer(); Run run = participants.get(player.getUniqueId());
-        if (run == null) { if (WORLD_NAME.equals(event.getTo().getWorld().getName())) { event.setCancelled(true); parties.guide(player); } return; }
-        if (!event.getTo().getWorld().equals(world)) return;
-        Location origin = center(run); if (Math.abs(event.getTo().getX() - origin.getX()) > 14 || Math.abs(event.getTo().getZ() - origin.getZ()) > 14 || event.getTo().getY() < 64 || event.getTo().getY() > 79) event.setCancelled(true);
+    @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true)
+    public void onTeleport(PlayerTeleportEvent event){
+        if(internalTeleport||shuttingDown||event.getTo()==null)return;Player player=event.getPlayer();Run run=participants.get(player.getUniqueId());
+        if(run==null){if(WORLD_NAME.equals(event.getTo().getWorld().getName())){event.setCancelled(true);parties.guide(player);}return;}
+        if(!event.getTo().getWorld().equals(world))return;
+        if(!DungeonLayout.contains(run.slot,event.getTo())||crossesClosedGate(run,event.getFrom(),event.getTo()))event.setCancelled(true);
     }
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onSuccessfulExternalTeleport(PlayerTeleportEvent event) {
@@ -854,8 +875,11 @@ public final class DungeonManager implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onTarget(EntityTargetLivingEntityEvent event) {
         Run run = entityRun(event.getEntity()); if (run == null || event.getTarget() == null) return;
-        if (!(event.getTarget() instanceof Player player) || participants.get(player.getUniqueId()) != run || run.spectators.contains(player.getUniqueId())) event.setCancelled(true);
+        MobState mob=run.mobs.get(event.getEntity().getUniqueId());
+        if (!(event.getTarget() instanceof Player player) || participants.get(player.getUniqueId()) != run || run.spectators.contains(player.getUniqueId())||mob!=null&&DungeonLayout.zoneAt(player.getLocation().getZ())!=mob.zone) event.setCancelled(true);
     }
+    @EventHandler(priority=EventPriority.HIGH,ignoreCancelled=true)
+    public void onCombust(EntityCombustEvent event){if(isDungeonMob(event.getEntity())){event.setCancelled(true);event.getEntity().setFireTicks(0);}}
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onBreak(BlockBreakEvent event) { if (WORLD_NAME.equals(event.getBlock().getWorld().getName())) event.setCancelled(true); }
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -870,30 +894,32 @@ public final class DungeonManager implements Listener {
         if (run.reward || run.ended) return;
         run.reward = true; run.stageStarted = System.currentTimeMillis();
         for (BukkitTask task : run.tasks) task.cancel(); run.tasks.clear();
+        for(MobState mob:run.mobs.values()){mob.signature=0;if(mob.dead)later(run,20,mob.rig::remove);}
+        for(Player player:online(run,false))player.removePotionEffect(PotionEffectType.DARKNESS);
         if (run.bossBar != null) for (Player player : online(run, false)) player.hideBossBar(run.bossBar);
         int chestIndex = 0;
         for (UUID id : run.members) if (participants.get(id) == run) {
             Player player = Bukkit.getPlayer(id);
             double multiplier = 1 + boon("gold", "amount", .2) * run.boons.getOrDefault(id, new EnumMap<>(Boon.class)).getOrDefault(Boon.GOLD, 0);
             multiplier += Math.max(0, (player != null ? coinMultiplier.applyAsDouble(player) : run.coinMultipliers.getOrDefault(id, 1.0)) - 1);
-            int coins = DungeonRules.coins((int) tierValue("coins", run.tier, 4, 8, 12), multiplier);
+            int coins = DungeonRules.coins((int) tierValue("coins", run.tier, 4, 8, 12), multiplier)+(run.sideOwners.contains(id)?run.tier:0);
             List<ItemStack> loot = new ArrayList<>(); loot.add(items.ancientCatCoin(Math.max(1, coins))); loot.add(items.starlightStone((int) tierValue("stones", run.tier, 1, 2, 3)));
             if (ThreadLocalRandom.current().nextDouble() < tierValue("capsule-chance", run.tier, .10, .15, .20)) loot.add(items.gachaCapsule(1));
             if (ThreadLocalRandom.current().nextDouble() < tierValue("charm-chance", run.tier, .02, .04, .08)) loot.add(items.create(new String[]{"charm_crimson_claw", "charm_starlight_aegis", "charm_golden_whisker", "charm_vampiric_purr"}[ThreadLocalRandom.current().nextInt(4)]));
             for (int i = 0; i < loot.size(); i++) data.set(path(run) + ".loot." + id + "." + i, loot.get(i));
             data.set("dungeon.stats." + id + ".clears", getClearCount(id) + 1);
             data.set("dungeon.completion-xp." + id, data.getInt("dungeon.completion-xp." + id, 0) + integer("completion-xp-per-tier", 250) * run.tier);
-            double x = -10 + (chestIndex % 4) * 6, z = 7 + (chestIndex / 4) * 3;
-            prop(run, "", center(run).add(x, 0, z), Material.CHEST, "chest", chestIndex++);
-            text(run, center(run).add(x, 2.5, z), "<gold>개인 보상 상자\n<white>" + (Bukkit.getOfflinePlayer(id).getName() == null ? "원정대원" : Bukkit.getOfflinePlayer(id).getName()));
+            double x = -9 + (chestIndex % 4) * 6, z = -215 + (chestIndex / 4) * 3;
+            run.chestOwners.put(chestIndex,id);prop(run, "", at(run,x,67,z), Material.CHEST, "chest", chestIndex++);
+            text(run, at(run,x,69.5,z), "<gold>개인 보상 상자\n<white>" + (Bukkit.getOfflinePlayer(id).getName() == null ? "원정대원" : Bukkit.getOfflinePlayer(id).getName()));
         }
         data.set(path(run) + ".status", "COMPLETE"); save.run();
         for (Player player : online(run, false)) {
             revive(run, player); heal(player, maxHealth(player));
             player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1, 1.2f); grantPendingXp(player);
         }
-        prop(run, "", center(run).add(0, 0, 11), Material.LIME_STAINED_GLASS, "portal", 0);
-        text(run, center(run).add(0, 3, 11), "<green><bold>허브 복귀 포탈");
+        prop(run, "", at(run,0,67,-216), Material.LIME_STAINED_GLASS, "portal", 0);
+        text(run, at(run,0,70,-216), "<green><bold>허브 복귀 포탈");
         tell(run, "<gold><bold>문턱의 미궁 정복!</bold> 개인 보상 상자를 우클릭하고 초록 복귀 포탈로 돌아가세요. 미수령 보상은 보관됩니다.");
     }
     private void grantPendingXp(Player player) {
@@ -936,15 +962,12 @@ public final class DungeonManager implements Listener {
         for (ChunkRef chunk : run.chunks) world.removePluginChunkTicket(chunk.x, chunk.z, plugin);
         run.chunks.clear(); runs.remove(run.id); save.run();
     }
-    private void stripTemporaryItems(Player player) {
-        for (ItemStack item : player.getInventory().getContents()) if (item != null && item.hasItemMeta() && item.getItemMeta().getPersistentDataContainer().has(helperKey, PersistentDataType.STRING)) item.setAmount(0);
-    }
     private void restorePlayer(Player player, boolean sendHome) {
         String key = "dungeon.recovery." + player.getUniqueId(); GameMode mode = GameMode.SURVIVAL;
         try { mode = GameMode.valueOf(data.getString(key + ".gamemode", "SURVIVAL")); } catch (IllegalArgumentException ignored) { }
         if (mode == GameMode.SPECTATOR) mode = GameMode.SURVIVAL;
         removeModifier(player, Attribute.MOVEMENT_SPEED, speedKey); removeModifier(player, Attribute.MAX_HEALTH, healthKey);
-        stripTemporaryItems(player);
+        player.removePotionEffect(PotionEffectType.DARKNESS);
         if (player.isDead()) {
             if (!shuttingDown && plugin.isEnabled()) player.spigot().respawn();
             // During plugin disable, retain recovery until next login instead of scheduling a respawn task.
@@ -997,14 +1020,33 @@ public final class DungeonManager implements Listener {
         Set<Integer> slots = new HashSet<>();
         for (Run run : runs.values()) {
             if (!slots.add(run.slot)) errors.add("duplicate occupied slot");
-            if (run.originalSize < 1 || run.originalSize > 8 || run.stage < 1 || run.stage > 5) errors.add("invalid run state");
-            Location origin = center(run);
-            if (world.getBlockAt(origin.clone().add(0, -1, 0)).getType().isAir()) errors.add("room floor missing");
+            if (run.originalSize < 1 || run.originalSize > 8 || run.stage < 1 || run.stage > 6) errors.add("invalid run state");
+            Location origin = DungeonLayout.spawn(world,run.slot);
+            if(world.getBlockAt(origin.clone().add(0,-1,0)).getType().isAir())errors.add("spine floor missing");
             for (UUID id : run.members) if (participants.get(id) == run && !data.contains("dungeon.recovery." + id)) errors.add("participant missing recovery record");
         }
         return errors;
     }
-    public String diagnosticSummary() { return "world=" + (world == null ? "missing" : world.getName()) + ", activeRuns=" + runs.size() + ", participants=" + participants.size() + ", consentGroups=" + new HashSet<>(consents.values()).size() + ", readinessErrors=" + validateReadiness(); }
+    public void verifyCore(){
+        List<String> errors=validateReadiness();if(!errors.isEmpty())throw new IllegalStateException(errors.toString());
+        if(MobType.values().length!=18||DungeonLayout.ZONES.size()!=6)throw new IllegalStateException("incomplete dungeon catalog");
+        for(int i=0;i<5;i++)if(DungeonLayout.ZONES.get(i).north()-1!=DungeonLayout.ZONES.get(i+1).south())throw new IllegalStateException("spine seam mismatch");
+    }
+    public Map<String,Object> snapshot(UUID player){
+        Run run=participants.get(player);if(run==null)return Map.of("active",false);
+        Map<String,Object> result=new LinkedHashMap<>();result.put("active",true);result.put("id",run.id.toString());result.put("slot",run.slot);result.put("chapter",run.tier);result.put("stage",run.stage);
+        result.put("activated",Set.copyOf(run.activated));result.put("cleared",Set.copyOf(run.cleared));result.put("checkpoint",run.checkpoint);result.put("retried",run.retried);result.put("attempt",run.attempt);
+        result.put("remainingSeconds",Math.max(0,integer("run-seconds",1800)-(System.currentTimeMillis()-run.started)/1000));result.put("awaitingBoon",run.awaitingBoon);result.put("wave",run.wave);result.put("obeliskEncounter",run.obeliskEncounter);
+        Map<Integer,Boolean> gates=new TreeMap<>();run.gates.forEach((zone,gate)->gates.put(zone,gate.isOpen()));result.put("gates",gates);result.put("chunks",run.chunks.size());result.put("enemies",run.enemies.size());
+        result.put("puzzleValues",run.puzzleValues.clone());result.put("puzzleTargets",run.puzzleTargets.clone());result.put("melody",List.copyOf(run.melody));result.put("memoryIndex",run.memoryIndex);result.put("sideOwners",Set.copyOf(run.sideOwners));result.put("reward",run.reward);result.put("spectators",Set.copyOf(run.spectators));
+        Map<String,Map<String,Integer>> boons=new LinkedHashMap<>();run.boons.forEach((id,owned)->{Map<String,Integer> values=new LinkedHashMap<>();owned.forEach((boon,amount)->values.put(boon.name(),amount));boons.put(id.toString(),values);});result.put("boons",boons);result.put("selected",Set.copyOf(run.selected));
+        return Collections.unmodifiableMap(result);
+    }
+    public List<Map<String,Object>> mobSnapshots(UUID player){
+        Run run=participants.get(player);if(run==null)return List.of();List<Map<String,Object>> result=new ArrayList<>();for(MobState mob:run.mobs.values()){
+            Map<String,Object> state=new LinkedHashMap<>();UUID id=mob.entity.getUniqueId();state.put("uuid",id.toString());state.put("type",mob.type.id);state.put("zone",mob.zone);state.put("hp",run.logicalHp.getOrDefault(id,0.0));state.put("maxHp",run.maxHp.getOrDefault(id,0.0));state.put("poise",mob.poise);state.put("phase",mob.phase);state.put("signature",mob.signature);state.put("parts",mob.rig.partCount());state.put("dead",mob.dead);state.put("pose",mob.rig.pose().name());result.add(Collections.unmodifiableMap(state));}return List.copyOf(result);
+    }
+    public String diagnosticSummary(){return "world="+(world==null?"missing":world.getName())+", blueprints="+(layout==null?0:layout.templateCount())+", rigManifest="+(rigCatalog==null?0:rigCatalog.manifestCount())+", catalog=18, activeRuns="+runs.size()+", participants="+participants.size()+", readinessErrors="+validateReadiness();}
     public void cleanup() {
         shuttingDown = true;
         for (Consent consent : new HashSet<>(consents.values())) cancelConsent(consent, "<yellow>서버 종료로 입장 대기를 취소합니다.");

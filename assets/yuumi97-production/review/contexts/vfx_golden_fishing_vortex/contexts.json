@@ -1,0 +1,34 @@
+{
+  "id": "vfx_golden_fishing_vortex",
+  "contract": {
+    "atlasSize": 128,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "water_funnel",
+    "yRange": [
+      0,
+      8
+    ],
+    "xzRange": [
+      -14,
+      30
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "orientation-plane",
+      "kind": "water_funnel",
+      "planeYModelUnits": -0.1,
+      "minimumYModelUnits": 0.0,
+      "pivot": [
+        8,
+        8,
+        8
+      ]
+    }
+  ]
+}

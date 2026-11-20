@@ -1,0 +1,54 @@
+{
+  "id": "prop_wayfinder_arrow",
+  "contract": {
+    "atlasSize": 64,
+    "pivot": [
+      8,
+      8,
+      8
+    ],
+    "kind": "directional",
+    "front": [
+      0,
+      0,
+      -1
+    ]
+  },
+  "notice": "Blender review; Minecraft loading, lighting and enclosing player/entity transforms require client verification.",
+  "contexts": [
+    {
+      "context": "direction-yaw180",
+      "kind": "directional",
+      "bukkitYaw": 180,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    },
+    {
+      "context": "direction-yaw0",
+      "kind": "directional",
+      "bukkitYaw": 0,
+      "pivot": [
+        8,
+        8,
+        8
+      ],
+      "frontNative": [
+        0,
+        0,
+        -1
+      ],
+      "travelNative": null,
+      "displayTransform": "NONE"
+    }
+  ]
+}

@@ -385,7 +385,8 @@ public final class NpcShopManager implements Listener {
             player.sendMessage(TextUtil.msg("<red>가방(윗줄 9~35번 칸)에 감정할 특수 낚시 물고기(EvenMoreFish)가 없습니다!"));
             return;
         }
-        double total = Math.round(baseSum * mult);
+        double appraisal = rpg == null ? 0 : rpg.lifeSkills().appraisalBonus(player);
+        double total = Math.round(baseSum * mult * (1 + appraisal));
         churu.deposit(player, total);
         player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.9f, 1.35f);
         player.sendMessage(TextUtil.msg("🐟 특수 낚시 물고기 <aqua>" + count + "마리</aqua> 특별 감정 완료! +" + TextUtil.churu(total) + " 지급!"));

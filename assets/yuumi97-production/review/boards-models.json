@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-11-15T21:45:43.039Z",
+  "mode": "models",
+  "outputs": [
+    {
+      "path": "models/weapon_berserker_greatsword/contact-sheet.png",
+      "sha256": "2872d57cb04f2d7c600881e9a402ce9a90517e451d906411acda80a048b21d37"
+    },
+    {
+      "path": "models/weapon_priest_staff/contact-sheet.png",
+      "sha256": "9e846264b3e0f63ec9288434947b59804579281d0f4a6c9872495d8889e64c37"
+    },
+    {
+      "path": "models/weapon_arcane_orb_tome/contact-sheet.png",
+      "sha256": "01c7745103b012e8ab51afc8954e2ab2fef44a62bf3a82772149c83fb2e7a33d"
+    },
+    {
+      "path": "models/guidebook/contact-sheet.png",
+      "sha256": "aa81b6a95b24be9721ffd5e37dd3a6aad6f8a4a0448d0fe858cc5470a449b560"
+    },
+    {
+      "path": "models/prop_wayfinder_arrow/contact-sheet.png",
+      "sha256": "bde0271a1b00a8d97419555aacdef06b531d1c61882925067d548750ee6ea236"
+    },
+    {
+      "path": "relics-effects-page-1.png",
+      "sha256": "d69247ea79abb13e6a5c47f1fcb7762214ef13beed3dab3bdbb02549230662d5"
+    },
+    {
+      "path": "models/vfx_slash_crescent_gold/contact-sheet.png",
+      "sha256": "ff512df4213c5fa4e65392771eaeb10e68adc003df47a82050ac13d6b04fbf93"
+    },
+    {
+      "path": "models/vfx_slash_crimson_heavy/contact-sheet.png",
+      "sha256": "6f71ab151a79d61740e22f957d21a5e6a7b1ca2e677b92c6298f120e8cc408d6"
+    },
+    {
+      "path": "models/vfx_titan_greatsword_drop/contact-sheet.png",
+      "sha256": "5ec244e4c6c13821b5ca9d2ce87c85eec11e0092c3a4fc6fa3eb5e1c5a8b43b0"
+    },
+    {
+      "path": "models/vfx_slash_crescent_shadow/contact-sheet.png",
+      "sha256": "84fb9f137bebfddc61fe9b0e74341b41361ef178dc6fb216c2a2fd3e5d2031bb"
+    },
+    {
+      "path": "models/vfx_shadow_mark_crest/contact-sheet.png",
+      "sha256": "405d51e14c03c046f620e5b82098f839bb2db2d937e76ad8339bd61acf4319c1"
+    },
+    {
+      "path": "relics-effects-page-2.png",
+      "sha256": "8e25e3904b103bd2e4b9d74fbef87edfc4d3a4b59f60d46814286f97303b06dd"
+    },
+    {
+      "path": "models/vfx_star_arrow_volley/contact-sheet.png",
+      "sha256": "965d176469b9ae2e6507871f4126e12fb77bc65ff0653d09e49901d4ac88fd28"
+    },
+    {
+      "path": "models/vfx_astral_bow_sigil/contact-sheet.png",
+      "sha256": "0e6299ac1bcc8867e25cc017d55320d4aa21056a4180dcb5fb6f1b7f65fa814c"
+    },
+    {
+      "path": "models/vfx_magic_circle_arcane/contact-sheet.png",
+      "sha256": "b81b41fa9d1a8d2316d07d750ae548ea1c429e7e73cbb2a13cb23b5e67782984"
+    },
+    {
+      "path": "models/vfx_gravity_singularity/contact-sheet.png",
+      "sha256": "e818893d6060e9f30545c6d2d4e84489924a1be63451cece59dc90b6437cccc1"
+    },
+    {
+      "path": "models/vfx_arcane_meteor/contact-sheet.png",
+      "sha256": "f31d8d852cde9ba886d9133a6b62800dc2bf959d235d1260314f1c0cd65d74e7"
+    },
+    {
+      "path": "relics-effects-page-3.png",
+      "sha256": "7cf661a3472ab446398c4ce37d91be501adb370a5f492ec33b509c5d26848ae0"
+    },
+    {
+      "path": "models/vfx_magic_circle_sanctuary/contact-sheet.png",
+      "sha256": "74ceda765912eebe287b5a8eca5e046d0be34c468d4be4039400c498cba40894"
+    },
+    {
+      "path": "models/vfx_holy_spear/contact-sheet.png",
+      "sha256": "91b5d88a19f7912732ed8b204ad1b6253906f51ae0a16e2afd9043aa9a5d9dd0"
+    },
+    {
+      "path": "models/vfx_golden_fishing_vortex/contact-sheet.png",
+      "sha256": "493338726053167983f9087f9d4fb81cba6b8763a23b18e668111dcc4eebc3f1"
+    },
+    {
+      "path": "models/vfx_feast_cauldron_aura/contact-sheet.png",
+      "sha256": "c3897abfbb578c93a7a985445430762f1033df436a18c5e10f7f4d6d8c1a12d3"
+    },
+    {
+      "path": "relics-effects-page-4.png",
+      "sha256": "83bc1e5dd7d609f2cfea01745b8432b24f29a012589f1ebc7d9ad52a0bd03f42"
+    },
+    {
+      "path": "overhaul-relics-and-vfx.png",
+      "sha256": "4c27a7af0985395e0e78417e3ff837163d9a91f03c79c8621657aec402d1b674"
+    },
+    {
+      "path": "relics-and-vfx-overview.png",
+      "sha256": "7a2adc7e4764a1c9a9bcfbc1b1c8045d773f773cbc27f7edd3b274762ce92f54"
+    },
+    {
+      "path": "relic-grips.png",
+      "sha256": "e9719527ab8f20f89595d87fc65878635f4effbcca5e7432fa1bb9e998831900"
+    },
+    {
+      "path": "effect-placement.png",
+      "sha256": "9da63f5eb050dcb059ea3d491842d7c364ba4a74e73a71ac771114e91e4c8dcb"
+    }
+  ]
+}

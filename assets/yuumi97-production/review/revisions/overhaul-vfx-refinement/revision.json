@@ -1,0 +1,29 @@
+{
+  "reason": "Observed before contact sheets: meteor box core; narrow spear wing comb; low rear readability on shadow effects",
+  "changes": [
+    "Meteor: irregular layered rock shell, ten individually rotated crust boulders, local magma fractures.",
+    "Spear: nine tapered primary feathers and five short coverts per wing, 12<=Y<=24.",
+    "Shadow slash and crest: low-intensity purple/violet rear cores."
+  ],
+  "unchangedOtherFiles": 20,
+  "stats": {
+    "vfx_arcane_meteor": {
+      "elements": 227,
+      "modelSha256": "51bafddf9d69844a2562a1c0935881717725823e54f7351d53b15574451e12cd"
+    },
+    "vfx_holy_spear": {
+      "elements": 908,
+      "modelSha256": "42574f817e3f6a8619d1d0e245df7df1f6e9649f93b462e68db83c1d1ebdc6c8"
+    },
+    "vfx_slash_crescent_shadow": {
+      "elements": 252,
+      "modelSha256": "4b423a96a94487e0d2c8a0854889fdd21953019d34c4c61e2e51f912bd8be997"
+    },
+    "vfx_shadow_mark_crest": {
+      "elements": 244,
+      "modelSha256": "bf041c53571a1e0165f64a4a3433a3f21dfc984ea27811fe697c398be2be283b"
+    }
+  },
+  "errors": [],
+  "visualStatus": "Awaiting fresh-process rerender of four revised models; no render performed by this agent."
+}

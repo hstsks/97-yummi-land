@@ -1,0 +1,29 @@
+{
+  "passed": 6,
+  "tests": [
+    {
+      "name": "registry rejects impossible and incomplete states",
+      "passed": true
+    },
+    {
+      "name": "typed NBT catches missing AIR, duplicates and wrong DataVersion",
+      "passed": true
+    },
+    {
+      "name": "enchanting power counts actual bookshelf offsets and transmission",
+      "passed": true
+    },
+    {
+      "name": "gate checker catches one blocked voxel and partial stair flooring",
+      "passed": true
+    },
+    {
+      "name": "half-block navigation climbs actual stairs without jumping",
+      "passed": true
+    },
+    {
+      "name": "routes reject reversed stairs, low beams, lava and missing support",
+      "passed": true
+    }
+  ]
+}
